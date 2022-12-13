@@ -59,7 +59,7 @@ namespace DAO
 
 
 
-            string sql = "INSERT INTO Vendedor (username,email,password,rating,mbway,iban) VALUES (@usernam,@email,@password,@rating,@mbway,@iban)";
+            string sql = "INSERT INTO Vendedor (username,password,rating,mbway,iban) VALUES (@username,@password,@rating,@mbway,@iban)";
 
             string con = @"Data Source=DESKTOP-VM78M9T;Initial Catalog=Befeira;Integrated Security=True";
 
@@ -69,8 +69,7 @@ namespace DAO
 
 
             cmd.Parameters.Add("@username", SqlDbType.VarChar, 45).Value = username;
-            cmd.Parameters.Add("@email", SqlDbType.VarChar, 45).Value = username;
-            cmd.Parameters.Add("@password", SqlDbType.VarChar, 45).Value = username;
+            cmd.Parameters.Add("@password", SqlDbType.VarChar, 45).Value = password;
             cmd.Parameters.Add("@rating", SqlDbType.Int).Value = rating;
             cmd.Parameters.Add("@mbway", SqlDbType.VarChar, 45).Value = mbway;
             cmd.Parameters.Add("@iban", SqlDbType.VarChar, 21).Value = iban;
@@ -80,18 +79,11 @@ namespace DAO
             cnn.Open();
 
 
-            try
-            {
-                cmd.ExecuteNonQuery();
-                cnn.Close();
+            cmd.ExecuteNonQuery();
+            cnn.Close();
 
-                return true;
-            }
-            catch
-            {
-                cnn.Close();
-                return false;
-            }
+            return true;
+            
 
 
         }
