@@ -20,14 +20,11 @@ namespace User
             Console.WriteLine("Hello World");
 
 
-            //DAO.DAOVendedor.ReadVendedores();
+            DAO.DAOVendedor.ReadVendedores();
 
-            bool b = DAO.DAOVendedor.AddVendedor(v);
+            int b = DAO.DAOVendedor.ValidVendedor("pedro","pp");
 
-            if (b)
-            {
-                Console.WriteLine("True");
-            }
+            Console.WriteLine(b);
 
         }
 
