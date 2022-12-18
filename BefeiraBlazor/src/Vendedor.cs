@@ -15,7 +15,7 @@ namespace User
         static void Main(string[] args)
         {
 
-            Vendedor v = new Vendedor("1@email.com", "1", "1234", "931234567", "12345678900");
+            Vendedor v = new Vendedor("2@email.com", "4", "1234", "931234567", "12345678900");
 
             Console.WriteLine("Hello World");
 

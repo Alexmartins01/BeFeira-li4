@@ -1,6 +1,6 @@
 namespace BeFeira.Classes
 {
-    public class Produto
+    public class Produto // falta nome produto
     {
         int idProduto;
         String descricao;

@@ -62,7 +62,7 @@ namespace DAO
                 {
 
                     if (reader[4].Equals(password)) {
-                        return reader[0];
+                        return (int)reader[0];
                     }
                     else return -1;
                 }
@@ -79,7 +79,7 @@ namespace DAO
 
 
 
-        public static bool AddVendedor(User.Vendedor v) // Está a adicionar tudo a NULL
+        public static bool AddVendedor(User.Vendedor v)
         {
 
             if (v == null) { return false; }
@@ -96,7 +96,7 @@ namespace DAO
 
 
 
-            string sql = "INSERT INTO Vendedor (username,password,rating,mbway,iban) VALUES (@username,@password,@rating,@mbway,@iban)";
+            string sql = "INSERT INTO Vendedor (username,email,password,rating,mbway,iban) VALUES (@username,@email,@password,@rating,@mbway,@iban)";
 
             string con = @"Data Source=DESKTOP-VM78M9T;Initial Catalog=Befeira;Integrated Security=True";
 
