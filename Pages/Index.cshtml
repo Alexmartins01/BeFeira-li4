@@ -1,0 +1,14 @@
+﻿@page
+@using static Hello.Class1;
+@model IndexModel
+@{
+
+    var number = Hello.Class1.e();
+    ViewData["Title"] = "Home page";
+
+
+}
+
+<div class="text-center">
+    <h1>@number</h1>
+</div>
