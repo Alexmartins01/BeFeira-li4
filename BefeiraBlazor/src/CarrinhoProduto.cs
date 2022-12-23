@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Carrinho
+namespace CarrinhoProd
 {
     public class CarrinhoProduto
     {

@@ -7,13 +7,13 @@ namespace feira
     {
         int idFeira;
         string categoria;
-        List<Stand> stands = new List<Stand>();
+        List<stand.Stand> stands = new List<stand.Stand>();
 
-        public Feira(int idFeira, string categoria, List<Stand> stands)
+        public Feira(int idFeira, string categoria, List<stand.Stand> stands)
         {
             this.idFeira = idFeira;
             this.categoria = categoria;
-            this.stands = new List<Stand>(stands);
+            this.stands = new List<stand.Stand>(stands);
         }
 
         public int getIdFeira()
@@ -26,7 +26,7 @@ namespace feira
             return this.categoria;
         }
 
-        public List<Stand> getStands()
+        public List<stand.Stand> getStands()
         {
             return this.stands;
         }
@@ -41,19 +41,19 @@ namespace feira
             this.categoria = categoria;
         }
 
-        public void setStands(List<Stand> stands)
+        public void setStands(List<stand.Stand> stands)
         {
             this.stands = stands;
         }
 
-        public void addStand(Stand stand)
+        public void addStand(stand.Stand stand)
         {
             this.stands.Add(stand);
         }
 
-        public void removeStand(Stand stand)
+        public void removeStand(stand.Stand std)
         {
-            this.stands.Remove(stand);
+            this.stands.Remove(std);
         }
         
         public void removeStandWithId(int idStand)

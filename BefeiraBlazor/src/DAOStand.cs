@@ -47,7 +47,7 @@ namespace DAO
 
             if (st == null) { return false; }
 
-            string idStand =st.getIdStand();
+            int idStand =st.getIdStand();
             int idVendedor = st.getIdVendedor();
             int idFeira = st.getIdFeira();
 
@@ -65,13 +65,13 @@ namespace DAO
             SqlCommand cmd = new SqlCommand(sql, cnn);
 
 
-            cmd.Parameters.Add("@idStand", SqlDbType.int).Value = idStand;
-            cmd.Parameters.Add("@idVendedor", SqlDbType.int).Value = idVendedor;
+            cmd.Parameters.Add("@idStand", SqlDbType.Int).Value = idStand;
+            cmd.Parameters.Add("@idVendedor", SqlDbType.Int).Value = idVendedor;
             cmd.Parameters.Add("@idFeira", SqlDbType.Int).Value = idFeira;
 
-            List<SubCategoria> sc = st.getIdsubCategoria();
+            List<subcat.SubCategoria> sc = st.getSubCats();
 
-            foreach(SubCategoria item in sc)
+            foreach(subcat.SubCategoria item in sc)
             {
                 AddSubCat(item);
             }
@@ -88,7 +88,7 @@ namespace DAO
         }
 
 
-        public static bool AddSubCat(stand.SubCategoria sc)
+        public static bool AddSubCat(subcat.SubCategoria sc)
         {
 
             if (sc == null) { return false; }
@@ -107,9 +107,9 @@ namespace DAO
             SqlCommand cmd = new SqlCommand(sql, cnn);
 
 
-            cmd.Parameters.Add("@idStand", SqlDbType.int).Value = idStand;
-            cmd.Parameters.Add("@idsubCategoria", SqlDbType.int).Value = idsubCategoria;
-            cmd.Parameters.Add("@descricao", SqlDbType.VarChar.50).Value = descricao;
+            cmd.Parameters.Add("@idStand", SqlDbType.Int).Value = idStand;
+            cmd.Parameters.Add("@idsubCategoria", SqlDbType.Int).Value = idsubCategoria;
+            cmd.Parameters.Add("@descricao", SqlDbType.VarChar).Value = descricao;
 
 
             cnn.Open();

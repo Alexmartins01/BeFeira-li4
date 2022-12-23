@@ -8,7 +8,7 @@ using System.Linq;
 using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
-using static Carrinho.CarrinhoProduto;
+using static CarrinhoProd.CarrinhoProduto;
 
 
 namespace DAO
@@ -44,7 +44,7 @@ namespace DAO
 
 
 
-        public static bool AddCarrinhoProduto(Carrinho.CarrinhoProtuto c)
+        public static bool AddCarrinhoProduto(CarrinhoProd.CarrinhoProduto c)
         {
 
             if (c == null) { return false; }

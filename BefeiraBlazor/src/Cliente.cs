@@ -1,4 +1,8 @@
-﻿using System;
+﻿using Carrinho;
+using stand;
+using System;
+
+namespace client { 
 
 public class Cliente {
 	string email;
@@ -11,5 +15,23 @@ public class Cliente {
 		this.username = (String)username.Clone();
 	}
 
-	
+
+        public string getemail()
+        {
+            return email;
+        }
+
+        public string getusername()
+        {
+            return username;
+        }
+
+        public string getPassword()
+        {
+            return password;
+        }
+      
+
+
+    }
 }

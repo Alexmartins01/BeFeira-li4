@@ -40,17 +40,17 @@ namespace DAO
         
 
 
-        public static bool AddProduto(User.Produto p)
+        public static bool AddProduto(prod.Produto p)
         {
 
             if (p == null) { return false; }
 
-            int idStand = p.get_idStand();
-            double preco = p.get_preco();
-            int promocao = p.get_promocao();
-            int stock = p.get_stock();
-            int categoria = p.get_categoria();
-            int rating = p.get_rating();
+            int idStand = p.getIdStand();
+            double preco = p.getPreco();
+            int promocao = p.getPromocao();
+            int stock = p.getStock();
+            int categoria = p.getCategoria();
+            int rating = p.getRating();
 
 
 
@@ -64,7 +64,7 @@ namespace DAO
 
 
             cmd.Parameters.Add("@idStand", SqlDbType.Int).Value = idStand;
-            cmd.Parameters.Add("@preco", SqlDbType.Decimal, (6,2)).Value = preco;
+            cmd.Parameters.Add("@preco", SqlDbType.Decimal, (6)).Value = preco;
             cmd.Parameters.Add("@promocao", SqlDbType.Int).Value = promocao;
             cmd.Parameters.Add("@stock", SqlDbType.Int).Value = stock;
             cmd.Parameters.Add("@rating", SqlDbType.Int).Value = rating;

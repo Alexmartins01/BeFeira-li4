@@ -27,6 +27,10 @@ namespace Carrinho
             return idCliente;
         }
 
+        public int getIdStand()
+        {
+            return idStand;
+        }
         public double getTotal() 
         { 
             return total;

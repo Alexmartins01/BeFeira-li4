@@ -69,7 +69,7 @@ namespace DAO
 
             cmd.Parameters.Add("@idCarrinho", SqlDbType.Int).Value = idCarrinho;
             cmd.Parameters.Add("@idCliente", SqlDbType.Int).Value = idCliente;
-            cmd.Parameters.Add("@idStand", SqlDbType.Decimal, (6,2)).Value = idStand;
+            cmd.Parameters.Add("@idStand", SqlDbType.Decimal, (6)).Value = idStand;
             cmd.Parameters.Add("@total", SqlDbType.Int).Value = total;
 
 

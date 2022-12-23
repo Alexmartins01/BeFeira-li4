@@ -76,14 +76,14 @@ namespace DAO
 
 
 
-        public static bool AddCliente(User.Cliente c)
+        public static bool AddCliente(client.Cliente c)
         {
 
             if (c == null) { return false; }
 
-            string username = c.get_username();
-            string email = c.get_email();
-            string password = c.get_password();
+            string username = c.getusername();
+            string email = c.getemail();
+            string password = c.getPassword();
 
 
             Console.WriteLine("Cliente:" + username + ";" + email + ";" + password + ";");

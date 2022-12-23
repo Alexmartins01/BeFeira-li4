@@ -77,13 +77,13 @@ namespace DAO
         }
 
 
-        public static bool AddAdmin(User.Admin a)
+        public static bool AddAdmin(admin.Administrador a)
         {
 
             if (a == null) { return false; }
 
-            string username = a.get_username();
-            string password = a.get_password();
+            string username = a.getUsername();
+            string password = a.getPassword();
 
 
             Console.WriteLine("Cliente:" + username + ";" + password + ";");
