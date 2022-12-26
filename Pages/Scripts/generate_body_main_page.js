@@ -35,6 +35,7 @@ function valid_categoria(nome_identificador) {
         case "smartphones_e_acessorios": return true;
         case "informatica": return true;
         case "desporto": return true;
+        case "moda": return true;
         case "random": return true;
 
         default: return false;
@@ -64,6 +65,7 @@ function nome_identificador_to_nome_completo(nome_identificador) {
         case "smartphones_e_acessorios": return "SMARTPHONES E ACESSÓRIOS";
         case "informatica": return "INFORMÁTICA";
         case "desporto": return "DESPORTO";
+        case "moda": return "MODA";
         case "random": return "";
 
         default: return null;
@@ -93,6 +95,7 @@ function nome_identificador_to_img_url(nome_identificador) {
         case "smartphones_e_acessorios": return "Images/categoria_" + nome_identificador + ".png";
         case "informatica": return "Images/categoria_" + nome_identificador + ".png";
         case "desporto": return "Images/categoria_" + nome_identificador + ".png";
+        case "moda": return "Images/categoria_" + nome_identificador + ".png";
         case "random": return "Images/categoria_" + nome_identificador + ".png";
 
         default: return null;

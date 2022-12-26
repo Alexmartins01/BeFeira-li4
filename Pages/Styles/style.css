@@ -34,27 +34,28 @@ header i {
 
 #main_page {
 
-    margin: 120px 90px 0 90px;
+    margin: 120px 200px 0 200px;
     display: flex;
     flex-wrap: wrap;
 }
 
 #main_page .container_categoria {
 
-    margin-left: 140px;
+    margin-left: 0px; /*140px;*/
     margin-bottom: 90px;
     text-align: center;
+    flex: 0 0 14.2857%;
 }
 
 #main_page img {
 
-    width: 100px;
-    height: 100px;
+    width: 90px;
+    height: 90px;
 }
 
 #main_page p {
 
     text-align: center;
-    margin-top: 5px;
-    font-size: 18px;
+    margin-top: 10px;
+    font-size: 17px;
 }
