@@ -1,0 +1,66 @@
+﻿@page
+@model BeFeira.Pages.Vendedor.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Vendedor[0].Iban)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Vendedor[0].Mbway)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Vendedor[0].Username)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Vendedor[0].Password)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Vendedor[0].Rating)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Vendedor[0].Email)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Vendedor) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Iban)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Mbway)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Username)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Password)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Rating)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.VendedorId">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.VendedorId">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.VendedorId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,60 @@
+﻿@page
+@model BeFeira.Pages.Vendedor.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Vendedor</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Vendedor.VendedorId" />
+            <div class="form-group">
+                <label asp-for="Vendedor.Iban" class="control-label"></label>
+                <input asp-for="Vendedor.Iban" class="form-control" />
+                <span asp-validation-for="Vendedor.Iban" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Vendedor.Mbway" class="control-label"></label>
+                <input asp-for="Vendedor.Mbway" class="form-control" />
+                <span asp-validation-for="Vendedor.Mbway" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Vendedor.Username" class="control-label"></label>
+                <input asp-for="Vendedor.Username" class="form-control" />
+                <span asp-validation-for="Vendedor.Username" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Vendedor.Password" class="control-label"></label>
+                <input asp-for="Vendedor.Password" class="form-control" />
+                <span asp-validation-for="Vendedor.Password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Vendedor.Rating" class="control-label"></label>
+                <input asp-for="Vendedor.Rating" class="form-control" />
+                <span asp-validation-for="Vendedor.Rating" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Vendedor.Email" class="control-label"></label>
+                <input asp-for="Vendedor.Email" class="form-control" />
+                <span asp-validation-for="Vendedor.Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

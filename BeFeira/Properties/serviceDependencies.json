@@ -1,0 +1,52 @@
+{
+  "dependencies": {
+    "mssql1": {
+      "type": "mssql",
+      "connectionId": "ConnectionStrings:BeFeiraContext"
+    },
+    "mssql2": {
+      "type": "mssql",
+      "connectionId": "ConnectionStrings:BeFeiraClienteContext"
+    },
+    "mssql3": {
+      "type": "mssql",
+      "connectionId": "ConnectionStrings:BeFeiraVendedorContext"
+    },
+    "mssql4": {
+      "type": "mssql",
+      "connectionId": "ConnectionStrings:BeFeiraStandContext"
+    },
+    "mssql5": {
+      "type": "mssql",
+      "connectionId": "ConnectionStrings:BeFeiraFeiraContext"
+    },
+    "mssql6": {
+      "type": "mssql",
+      "connectionId": "ConnectionStrings:BeFeiraCarrinhoContext"
+    },
+    "mssql7": {
+      "type": "mssql",
+      "connectionId": "ConnectionStrings:BeFeiraCarrinhoProdutoContext"
+    },
+    "mssql8": {
+      "type": "mssql",
+      "connectionId": "ConnectionStrings:BeFeiraProdutoContext"
+    },
+    "mssql9": {
+      "type": "mssql",
+      "connectionId": "ConnectionStrings:BeFeiraPromocaoContext"
+    },
+    "mssql10": {
+      "type": "mssql",
+      "connectionId": "ConnectionStrings:BeFeiraSubcategoriaContext"
+    },
+    "mssql11": {
+      "type": "mssql",
+      "connectionId": "ConnectionStrings:BeFeiraVendaContext"
+    },
+    "mssql12": {
+      "type": "mssql",
+      "connectionId": "ConnectionStrings:BeFeiraVendaProdutoContext"
+    }
+  }
+}

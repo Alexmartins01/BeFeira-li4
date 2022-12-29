@@ -1,0 +1,40 @@
+﻿@page
+@model BeFeira.Pages.Carrinho.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Carrinho</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Carrinho.ClienteId)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Carrinho.ClienteId)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Carrinho.StandId)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Carrinho.StandId)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Carrinho.Total)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Carrinho.Total)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="Carrinho.CarrinhoId" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-page="./Index">Back to List</a>
+    </form>
+</div>

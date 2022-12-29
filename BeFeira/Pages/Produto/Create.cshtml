@@ -1,0 +1,59 @@
+﻿@page
+@model BeFeira.Pages.Produto.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Produto</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Produto.IdStand" class="control-label"></label>
+                <input asp-for="Produto.IdStand" class="form-control" />
+                <span asp-validation-for="Produto.IdStand" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Produto.Preco" class="control-label"></label>
+                <input asp-for="Produto.Preco" class="form-control" />
+                <span asp-validation-for="Produto.Preco" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Produto.Promocao" class="control-label"></label>
+                <input asp-for="Produto.Promocao" class="form-control" />
+                <span asp-validation-for="Produto.Promocao" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Produto.Stock" class="control-label"></label>
+                <input asp-for="Produto.Stock" class="form-control" />
+                <span asp-validation-for="Produto.Stock" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Produto.Rating" class="control-label"></label>
+                <input asp-for="Produto.Rating" class="form-control" />
+                <span asp-validation-for="Produto.Rating" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Produto.SubCategoria" class="control-label"></label>
+                <input asp-for="Produto.SubCategoria" class="form-control" />
+                <span asp-validation-for="Produto.SubCategoria" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
