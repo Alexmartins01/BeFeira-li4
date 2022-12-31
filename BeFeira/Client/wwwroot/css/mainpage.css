@@ -19,12 +19,9 @@ header img {
 }
 
 header i {
-    left: auto;
-    right: 60px;
     color:white;
     font-size: 40px;
-    top: 25px;
-    position: absolute;
+    text-align: end;
     
 }
 
