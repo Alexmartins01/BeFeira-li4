@@ -1,0 +1,38 @@
+﻿@page "/stand"
+@inject IStandService StandService
+
+<PageTitle> Stand </PageTitle>
+
+<h3>Stand</h3>
+
+<table>
+	<thead>
+		<tr>
+			<th> Vendedor </th>
+			<th> StandId </th>
+			<th> FeiraId </th>
+			<th></th>
+
+		</tr>
+	</thead>
+	<tbody>
+		@foreach(var stand in StandService.Stands)
+		{
+			<tr>
+				<td>@stand.VendedorId</td>
+				<td>@stand.StandId</td>
+				<td>@stand.FeiraId</td>
+				<td>
+
+				</td>
+			</tr>
+		}
+	</tbody>
+</table>
+
+@code {
+	protected override async Task OnInitializedAsync()
+	{
+		await StandService.GetStands();
+	}
+}
