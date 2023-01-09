@@ -76,11 +76,32 @@ header i {
     text-align: center;
     margin-top: 15px;
     margin-bottom: 30px;
+    font-weight: 600;
 }
 
 .produtos_carrinho {
 
     margin: 0 40px 0 40px;
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+    overflow-x: auto;
+    margin-bottom: 50px;
+    border: 3px solid black;
+}
+
+.produto_carrinho {
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+    border: 2px solid black;
+    margin-top: -1px;
+}
+
+.produto_carrinho p {
+
+    flex: 15%;
 }
 
 
