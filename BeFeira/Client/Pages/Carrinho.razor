@@ -9,31 +9,40 @@
     <i class="fa-solid fa-circle-user"></i>
 </header>
 
-
 <body>
     <div class="carrinho_container">
         <h3>Carrinho</h3>
         <div class="produtos_carrinho">
             @foreach(var produto in produtos)
-            {
-            
-                <p>@produto.Descricao</p>
+            {   
+                <div class="produto_carrinho">
+                    <p>@String.Format("{0}",produto.Descricao)</p>
+                    <p>@String.Format("Preço: {0}€",produto.Preco.ToString("0.00"))</p>
+                    <p>@produto.Promocao</p>
+                    <p>@produto.Stock</p>
+                    <p>@produto.Rating</p>
+                    <p>(butão de remover produto)</p>
+                </div>
             }
         </div>
-        
+        <button>Voltar</button>
+        <button>Finalizar compra</button>
     </div>
 </body>
 
 @code {
     public static List<Produto> produtos = new List<Produto>
         {
-            new Produto{ProdutoId=1,Descricao="A",StandId=1,Preco=0.5f,Promocao=0,Stock=10,Rating=80,SubCategoria=new Subcategoria{StandId=0,Descricao="1",SubCategoriaId=0}},
-            new Produto{ProdutoId=2,Descricao="B",StandId=1,Preco=0.2f,Promocao=0,Stock=30,Rating=50,SubCategoria=new Subcategoria{StandId=0,Descricao="1",SubCategoriaId=0}},
-            new Produto{ProdutoId=3,Descricao="C",StandId=1,Preco=0.6f,Promocao=0,Stock=7,Rating=96,SubCategoria=new Subcategoria{StandId=0,Descricao="1",SubCategoriaId=0}},
-            new Produto{ProdutoId=4,Descricao="D",StandId=1,Preco=0.7f,Promocao=0,Stock=2,Rating=34,SubCategoria=new Subcategoria{StandId=0,Descricao="1",SubCategoriaId=0}},
-            new Produto{ProdutoId=5,Descricao="E",StandId=1,Preco=0.5f,Promocao=0,Stock=10,Rating=80,SubCategoria=new Subcategoria{StandId=0,Descricao="1",SubCategoriaId=0}},
-            new Produto{ProdutoId=6,Descricao="F",StandId=1,Preco=0.2f,Promocao=0,Stock=5,Rating=77,SubCategoria=new Subcategoria{StandId=0,Descricao="1",SubCategoriaId=0}},
-            new Produto{ProdutoId=7,Descricao="G",StandId=1,Preco=0.6f,Promocao=0,Stock=14,Rating=44,SubCategoria=new Subcategoria{StandId=0,Descricao="1",SubCategoriaId=0}},
-            new Produto{ProdutoId=8,Descricao="H",StandId=1,Preco=0.7f,Promocao=0,Stock=32,Rating=87,SubCategoria=new Subcategoria{StandId=0,Descricao="1",SubCategoriaId=0}}
+            new Produto{ProdutoId=1,Descricao="A",StandId=1,Preco=0.50f,Promocao=0,Stock=10,Rating=80,SubCategoria=new Subcategoria{StandId=0,Descricao="1",SubCategoriaId=0}},
+            new Produto{ProdutoId=2,Descricao="B",StandId=1,Preco=0.20f,Promocao=0,Stock=30,Rating=50,SubCategoria=new Subcategoria{StandId=0,Descricao="1",SubCategoriaId=0}},
+            new Produto{ProdutoId=3,Descricao="C",StandId=1,Preco=0.60f,Promocao=0,Stock=7,Rating=96,SubCategoria=new Subcategoria{StandId=0,Descricao="1",SubCategoriaId=0}},
+            new Produto{ProdutoId=4,Descricao="D",StandId=1,Preco=0.70f,Promocao=0,Stock=2,Rating=34,SubCategoria=new Subcategoria{StandId=0,Descricao="1",SubCategoriaId=0}},
+            new Produto{ProdutoId=5,Descricao="E",StandId=1,Preco=0.50f,Promocao=0,Stock=10,Rating=80,SubCategoria=new Subcategoria{StandId=0,Descricao="1",SubCategoriaId=0}},
+            new Produto{ProdutoId=6,Descricao="F",StandId=1,Preco=0.20f,Promocao=0,Stock=5,Rating=77,SubCategoria=new Subcategoria{StandId=0,Descricao="1",SubCategoriaId=0}},
+            new Produto{ProdutoId=7,Descricao="G",StandId=1,Preco=0.60f,Promocao=0,Stock=14,Rating=44,SubCategoria=new Subcategoria{StandId=0,Descricao="1",SubCategoriaId=0}},
+            new Produto{ProdutoId=8,Descricao="I",StandId=1,Preco=0.70f,Promocao=0,Stock=32,Rating=87,SubCategoria=new Subcategoria{StandId=0,Descricao="1",SubCategoriaId=0}},
+            new Produto{ProdutoId=9,Descricao="J",StandId=1,Preco=0.70f,Promocao=0,Stock=32,Rating=87,SubCategoria=new Subcategoria{StandId=0,Descricao="1",SubCategoriaId=0}},
+            new Produto{ProdutoId=10,Descricao="K",StandId=1,Preco=0.70f,Promocao=0,Stock=32,Rating=87,SubCategoria=new Subcategoria{StandId=0,Descricao="1",SubCategoriaId=0}},
+            new Produto{ProdutoId=11,Descricao="L",StandId=1,Preco=0.70f,Promocao=0,Stock=32,Rating=87,SubCategoria=new Subcategoria{StandId=0,Descricao="1",SubCategoriaId=0}}
         };
 }
