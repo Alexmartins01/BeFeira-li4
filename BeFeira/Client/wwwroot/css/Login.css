@@ -1,0 +1,106 @@
+@charset "UTF-8";
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    height: 12vh;
+    width: 100%;
+    background-color: darkred;
+}
+
+    header img {
+        height: 80%;
+        margin-left: 100px;
+        margin-top: 8px;
+    }
+
+    header i {
+        color: white;
+        font-size: 40px;
+        left: auto;
+        right: 140px;
+        position: absolute;
+    }
+
+.container {
+    position: relative;
+    max-width: 850px;
+    width: 100%;
+    background: white;
+    padding: 40px 30px;
+    box-shadow: 0 5px 10px lightgray;
+}
+
+.container .forms {
+    height: 100%;
+    width: 100%;
+    background: white;
+}
+
+.container .form-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.form-content .login-form,
+.form-content .signup-form {
+    width: calc(100% / 2 - 25px);
+}
+
+.forms .form-content .input-boxes {
+    margin-top: 30px;
+}
+
+.forms .form-content .input-box {
+    display: flex;
+    align-items: center;
+    height: 50px;
+    width: 100%;
+    margin: 10px 0;
+    position: relative;
+}
+
+.form-content .input-box input {
+    height: 100%;
+    width: 100%;
+    outline: none;
+    border: none;
+    padding: 0 30px;
+    font-size: 16px;
+    font-weight: 500;
+    border-bottom: 2px solid gray;
+    transition: all 0.3s ease;
+}
+
+
+.form-content .input-box i {
+    position: absolute;
+    color: black;
+    font-size: 17px;
+}
+
+.forms .form-content .button {
+    color: white;
+    margin-top: 40px;
+}
+
+    .forms .form-content .button input {
+        color: white;
+        background: black;
+        border-radius: 6px;
+        padding: 0;
+        cursor: pointer;
+        transition: all 0.4s ease;
+    }
+
+        .forms .form-content .button input:hover {
+            background: dimgray;
+        }
+
+.container #flip {
+    display: none;
+}
