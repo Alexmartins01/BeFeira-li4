@@ -12,7 +12,8 @@
 
 }
 else {
-    <h3>Edit @prod</h3>
+    <PageTitle> Editar um produto </PageTitle>
+    <h3>@String.Format("edit {0}",prod.Nome_Produto) </h3>
 
 
 }
@@ -23,7 +24,7 @@ else {
 
 
 @code {
-    Produto prod;
+    Produto prod=new Produto{};
 
 
     [Parameter]
@@ -34,11 +35,11 @@ else {
     {
         if (id == null)
         {
-            
+
         }
         else
         {
-
+            prod =await  ProdutoService.GetSingleProd((int)id);
         }
     }
 

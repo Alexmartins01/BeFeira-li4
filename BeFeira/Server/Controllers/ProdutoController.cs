@@ -50,7 +50,7 @@ namespace BeFeira.Server.Controllers
         }
 
 
-        [HttpGet("{id}")]
+        [HttpPut("{id}")]
         [Route("id")]
         public async Task<ActionResult<Produto>> UpdateProduto(Produto p,int id)
         {

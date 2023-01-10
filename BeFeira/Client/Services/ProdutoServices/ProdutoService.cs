@@ -14,7 +14,9 @@ namespace BeFeira.Client.Services.ProdutoServices
             this.navigationManager = navigation;
 
         }
-        public  List<Produto> produtos { get ; set ; }=new List<Produto>();
+        public  List<Produto> produtos { get ; set ; }
+        
+        public Produto singlePROD { get; set; }
         
 
         public async void SetProdutos(HttpResponseMessage result)
@@ -42,6 +44,7 @@ namespace BeFeira.Client.Services.ProdutoServices
             var result = await _http.GetFromJsonAsync<Produto>($"api/Produto/{id}");
             if (result != null)
             {
+                Console.WriteLine(result.ID);
                 return result;
             }
             throw new Exception("Hero not found");
