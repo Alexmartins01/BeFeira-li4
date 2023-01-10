@@ -19,11 +19,7 @@ namespace BeFeira.Server.Controllers
 			new Subcategoria { SubCategoriaId = 2, Descricao = "Aventura", StandId = 1},
 		};
 
-		public static List<Feira> feira = new List<Feira>
-		{
-			new Feira { FeiraId = 1, Categoria = "Biblioteca"},
-			new Feira { FeiraId = 2, Categoria = "Tecnologia"}
-		};
+		
 
 		[HttpGet]
 		public async Task<ActionResult<List<Stand>>> GetStands()

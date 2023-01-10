@@ -1,4 +1,5 @@
 global using BeFeira.Services.StandServices;
+global using BeFeira.Client.Services.FeiraServices;
 global using BeFeira.Shared;
 using BeFeira.Client;
 using BeFeira.Client.Services.ProdutoServices;
@@ -12,5 +13,7 @@ builder.RootComponents.Add<HeadOutlet>("head::after");
 builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
 builder.Services.AddScoped<IStandService,StandService>();
 builder.Services.AddScoped<IProdutoService, ProdutoService>();
+builder.Services.AddScoped<IFeiraService, FeiraService>();
+
 
 await builder.Build().RunAsync();
