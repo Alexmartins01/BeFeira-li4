@@ -1,0 +1,48 @@
+﻿@charset "UTF-8";
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    height: 12vh;
+    width: 100%;
+    background-color: darkred;
+}
+
+    header img {
+        display:flex;
+        width: 7%;
+        margin-left: 60px;
+        margin-top: 5px;
+    }
+
+
+    header i {
+        color:white;
+        font-size:35px;
+        margin-left: 950px;
+        margin-top: 28px;
+    }
+
+
+#main_page {
+    margin: 120px 100px 0 100px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+    #main_page .container_categoria {
+        margin-left: 0px;
+        margin-bottom: 90px;
+        text-align: center;
+        flex: 0 0 14.2857%;
+    }
+
+    #main_page img {
+        width: 90px;
+        height: 90px;
+    }
+
+

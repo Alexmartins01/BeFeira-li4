@@ -10,12 +10,14 @@ namespace BeFeira.Shared
         public int ProdutoId { get; set; }
         [ForeignKey("IdStand")]
         public int StandId { get; set; }
+
+        public String Nome_Produto { get; set; } 
         public float Preco { get; set; } = 0f;
         public int Promocao { get; set; } = 0;
         public int Stock { get; set; } = 0;
         public int Rating { get; set; } = 0;
         [ForeignKey("SubCategoria")]
-        public Subcategoria? SubCategoria { get; set; }
+        public int? SubCategoria { get; set; }
     }
 }
 

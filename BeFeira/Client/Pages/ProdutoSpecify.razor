@@ -1,0 +1,51 @@
+﻿use Befeira.Shared
+@page "/produtospecify"
+@page "/produtospecify/{id:int}"
+@inject IProdutoService ProdutoService
+
+
+@if (id ==null){
+    <PageTitle> Criar um produto novo</PageTitle>
+    <h3>Create a new Product</h3>
+
+ 
+
+}
+else {
+    <h3>Edit @prod</h3>
+
+
+}
+
+
+
+
+
+
+@code {
+    Produto prod;
+
+
+    [Parameter]
+    public int? id{ get; set;}
+
+
+    protected override async Task OnParametersSetAsync()
+    {
+        if (id == null)
+        {
+            
+        }
+        else
+        {
+
+        }
+    }
+
+
+    async Task HandleSubmit()
+    {
+       
+        
+    }
+}
