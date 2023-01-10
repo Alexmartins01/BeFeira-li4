@@ -14,10 +14,10 @@ namespace BeFeira.Server.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Administradores",
+                name: "Administrador",
                 columns: table => new
                 {
-                    AdministradorId = table.Column<int>(type: "int", nullable: false)
+                    ID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Password = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Createdat = table.Column<DateTime>(name: "Created_at", type: "datetime2", nullable: false),
@@ -26,46 +26,46 @@ namespace BeFeira.Server.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Administradores", x => x.AdministradorId);
+                    table.PrimaryKey("PK_Administrador", x => x.ID);
                 });
 
             migrationBuilder.CreateTable(
-                name: "CarrinhoProdutos",
+                name: "Carrinho",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
+                    ID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    CarrinhoId = table.Column<int>(type: "int", nullable: false),
-                    ProdutoId = table.Column<int>(type: "int", nullable: false),
+                    ClienteID = table.Column<int>(type: "int", nullable: false),
+                    StandID = table.Column<int>(type: "int", nullable: false),
+                    Total = table.Column<decimal>(type: "decimal(18,2)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Carrinho", x => x.ID);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "CarrinhoProduto",
+                columns: table => new
+                {
+                    ID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    CarrinhoID = table.Column<int>(type: "int", nullable: false),
+                    ProdutoID = table.Column<int>(type: "int", nullable: false),
                     Quantidade = table.Column<int>(type: "int", nullable: false),
                     Preco = table.Column<float>(type: "real", nullable: false),
                     TaxaBefeira = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_CarrinhoProdutos", x => x.Id);
+                    table.PrimaryKey("PK_CarrinhoProduto", x => x.ID);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Carrinhos",
+                name: "Cliente",
                 columns: table => new
                 {
-                    CarrinhoId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    ClienteId = table.Column<int>(type: "int", nullable: false),
-                    StandId = table.Column<int>(type: "int", nullable: false),
-                    Total = table.Column<decimal>(type: "decimal(18,2)", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Carrinhos", x => x.CarrinhoId);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Clientes",
-                columns: table => new
-                {
-                    ClienteId = table.Column<int>(type: "int", nullable: false)
+                    ID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Username = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Password = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -73,121 +73,121 @@ namespace BeFeira.Server.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Clientes", x => x.ClienteId);
+                    table.PrimaryKey("PK_Cliente", x => x.ID);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Feiras",
+                name: "Feira",
                 columns: table => new
                 {
-                    FeiraId = table.Column<int>(type: "int", nullable: false)
+                    ID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Categoria = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Feiras", x => x.FeiraId);
+                    table.PrimaryKey("PK_Feira", x => x.ID);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Produtos",
+                name: "Produto",
                 columns: table => new
                 {
-                    ProdutoId = table.Column<int>(type: "int", nullable: false)
+                    ID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    StandId = table.Column<int>(type: "int", nullable: false),
+                    StandID = table.Column<int>(type: "int", nullable: false),
                     NomeProduto = table.Column<string>(name: "Nome_Produto", type: "nvarchar(max)", nullable: false),
                     Preco = table.Column<float>(type: "real", nullable: false),
                     Promocao = table.Column<int>(type: "int", nullable: false),
                     Stock = table.Column<int>(type: "int", nullable: false),
                     Rating = table.Column<int>(type: "int", nullable: false),
-                    SubCategoria = table.Column<int>(type: "int", nullable: true)
+                    SubCategoriaID = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Produtos", x => x.ProdutoId);
+                    table.PrimaryKey("PK_Produto", x => x.ID);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Promocoes",
+                name: "Promocao",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
+                    ID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    ProdutoId = table.Column<int>(type: "int", nullable: false),
+                    ProdutoID = table.Column<int>(type: "int", nullable: false),
                     Date = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Desconto = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Promocoes", x => x.Id);
+                    table.PrimaryKey("PK_Promocao", x => x.ID);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Stands",
+                name: "Stand",
                 columns: table => new
                 {
-                    StandId = table.Column<int>(type: "int", nullable: false)
+                    ID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    VendedorId = table.Column<int>(type: "int", nullable: false),
-                    FeiraId = table.Column<int>(type: "int", nullable: false)
+                    VendedorID = table.Column<int>(type: "int", nullable: false),
+                    FeiraID = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Stands", x => x.StandId);
+                    table.PrimaryKey("PK_Stand", x => x.ID);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Subcategorias",
+                name: "Subcategoria",
                 columns: table => new
                 {
-                    SubCategoriaId = table.Column<int>(type: "int", nullable: false)
+                    ID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Descricao = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    StandId = table.Column<int>(type: "int", nullable: false)
+                    StandID = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Subcategorias", x => x.SubCategoriaId);
+                    table.PrimaryKey("PK_Subcategoria", x => x.ID);
                 });
 
             migrationBuilder.CreateTable(
-                name: "VendaProdutos",
+                name: "Venda",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
+                    ID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    VendaId = table.Column<int>(type: "int", nullable: false),
-                    ProdutoId = table.Column<int>(type: "int", nullable: false),
+                    CarrinhoID = table.Column<int>(type: "int", nullable: false),
+                    Total = table.Column<float>(type: "real", nullable: false),
+                    Date = table.Column<DateTime>(type: "datetime2", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Venda", x => x.ID);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "VendaProduto",
+                columns: table => new
+                {
+                    ID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    VendaID = table.Column<int>(type: "int", nullable: false),
+                    ProdutoID = table.Column<int>(type: "int", nullable: false),
                     Quantidade = table.Column<int>(type: "int", nullable: false),
                     Preco = table.Column<float>(type: "real", nullable: false),
                     TaxaBefeira = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_VendaProdutos", x => x.Id);
+                    table.PrimaryKey("PK_VendaProduto", x => x.ID);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Vendas",
+                name: "Vendedor",
                 columns: table => new
                 {
-                    VendaId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    CarrinhoId = table.Column<int>(type: "int", nullable: false),
-                    Total = table.Column<float>(type: "real", nullable: false),
-                    Date = table.Column<DateTime>(type: "datetime2", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Vendas", x => x.VendaId);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Vendedores",
-                columns: table => new
-                {
-                    VendedorId = table.Column<int>(type: "int", nullable: false)
+                    ID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Iban = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Mbway = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -198,22 +198,31 @@ namespace BeFeira.Server.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Vendedores", x => x.VendedorId);
+                    table.PrimaryKey("PK_Vendedor", x => x.ID);
                 });
 
             migrationBuilder.InsertData(
-                table: "Feiras",
-                columns: new[] { "FeiraId", "Categoria" },
+                table: "Feira",
+                columns: new[] { "ID", "Categoria" },
                 values: new object[] { 1, "lOUCOS" });
 
             migrationBuilder.InsertData(
-                table: "Produtos",
-                columns: new[] { "ProdutoId", "Nome_Produto", "Preco", "Promocao", "Rating", "StandId", "Stock", "SubCategoria" },
+                table: "Produto",
+                columns: new[] { "ID", "Nome_Produto", "Preco", "Promocao", "Rating", "StandID", "Stock", "SubCategoriaID" },
                 values: new object[,]
                 {
                     { 2, "Maçãs", 2.9f, 0, 4, 1, 3, 1 },
                     { 3, "Bonecos", 25.9f, 0, 2, 2, 2, 4 },
                     { 4, "Tapetea", 23.9f, 0, 3, 3, 1, 3 }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Subcategoria",
+                columns: new[] { "ID", "Descricao", "StandID" },
+                values: new object[,]
+                {
+                    { 1, "Terror", 1 },
+                    { 2, "Aventura", 1 }
                 });
         }
 
@@ -221,40 +230,40 @@ namespace BeFeira.Server.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Administradores");
+                name: "Administrador");
 
             migrationBuilder.DropTable(
-                name: "CarrinhoProdutos");
+                name: "Carrinho");
 
             migrationBuilder.DropTable(
-                name: "Carrinhos");
+                name: "CarrinhoProduto");
 
             migrationBuilder.DropTable(
-                name: "Clientes");
+                name: "Cliente");
 
             migrationBuilder.DropTable(
-                name: "Feiras");
+                name: "Feira");
 
             migrationBuilder.DropTable(
-                name: "Produtos");
+                name: "Produto");
 
             migrationBuilder.DropTable(
-                name: "Promocoes");
+                name: "Promocao");
 
             migrationBuilder.DropTable(
-                name: "Stands");
+                name: "Stand");
 
             migrationBuilder.DropTable(
-                name: "Subcategorias");
+                name: "Subcategoria");
 
             migrationBuilder.DropTable(
-                name: "VendaProdutos");
+                name: "Venda");
 
             migrationBuilder.DropTable(
-                name: "Vendas");
+                name: "VendaProduto");
 
             migrationBuilder.DropTable(
-                name: "Vendedores");
+                name: "Vendedor");
         }
     }
 }

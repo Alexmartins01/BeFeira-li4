@@ -10,8 +10,8 @@ namespace BeFeira.Server.Controllers
     {
         public static List<Feira> feiras = new List<Feira>
         {
-            new Feira { FeiraId = 1, Categoria = "Biblioteca"},
-            new Feira { FeiraId = 2, Categoria = "Tecnologia"}
+            new Feira { ID = 1, Categoria = "Biblioteca"},
+            new Feira { ID = 2, Categoria = "Tecnologia"}
         };
 
 
@@ -26,7 +26,7 @@ namespace BeFeira.Server.Controllers
         [Route("id")]
         public async Task<ActionResult<Feira>> GetSingleFeira(int id)
         {
-            var stand = feiras.FirstOrDefault(s => s.FeiraId == id);
+            var stand = feiras.FirstOrDefault(s => s.ID == id);
             if (stand == null)
             {
                 return NotFound("No feira here");

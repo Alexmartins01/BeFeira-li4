@@ -64,7 +64,7 @@ namespace BeFeira.Client.Services.ProdutoServices
 
         public async Task UpdateProduto(Produto p)
         {
-            var result = await _http.PutAsJsonAsync($"api/Produto/{p.ProdutoId}", p);
+            var result = await _http.PutAsJsonAsync($"api/Produto/{p.ID}", p);
             var response = await result.Content.ReadFromJsonAsync<List<Produto>>();
             SetProdutos(result);
         }

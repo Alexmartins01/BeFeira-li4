@@ -2,11 +2,11 @@
 {
 	public interface IStandService
 	{
-		List<Stand> Stands { get; set; }
-		List<Feira> Feiras { get; set;}
 
-		Task GetFeiras();
+         List<Stand> Stands { get; set; } 
+         List<Feira> Feiras { get; set; } 
 		Task GetStands();
 		Task<Stand> GetStand(int id);
+
 	}
 }

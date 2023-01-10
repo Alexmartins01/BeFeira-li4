@@ -1,0 +1,70 @@
+﻿@page "/produtopage"
+
+@inject IProdutoService ProdutoService
+@inject NavigationManager  NavigationManager
+
+<header>
+    <link rel="stylesheet" href="icons/icons/css/all.css">
+    <link rel="stylesheet" href="css/ProdutoPage.css">
+
+    <img src="logo.png" alt="BeFeira Logo">
+    <p>Login/Registo</p>
+    <i class="fa-solid fa-circle-user"></i>
+</header>
+
+<body>
+    <table>
+
+        <thead>
+            <tr>
+                <th>Nome do Produto</th>
+                <th>Id do Produto</th>
+                <th>Id do Stand</th>
+                <th>Preço</th>
+                <th>Stock</th>
+                <th>Rating</th>
+
+
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var prod in ProdutoService.produtos)
+            {
+                <tr>
+                    <td>@prod.Nome_Produto</td>
+                    <td>@prod.ID</td>
+                    <td>@prod.StandID</td>
+                    <td>@prod.Preco</td>
+                    <td>@prod.Stock</td>
+                    <td>@prod.Rating</td>
+                    <td>
+                        <button style ="background:blue" class="btn" @onclick="(()=>ShowProduct(prod.ID))">  <i class="oioipen"></i></button>
+
+                    </td>
+
+
+                </tr>
+
+            }
+        </tbody>
+
+
+    </table>
+</body>
+
+
+@code{
+
+    protected override async Task OnInitializedAsync()
+    {
+        await ProdutoService.GetProdutos();
+    }
+
+
+    void ShowProduct(int id)
+    {
+        NavigationManager.NavigateTo($"produtospecify/{id}");
+    }
+ 
+}

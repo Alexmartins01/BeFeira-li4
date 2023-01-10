@@ -3,12 +3,13 @@ using System.ComponentModel.DataAnnotations;
 
 namespace BeFeira.Shared
 {
+    [Table("Subcategoria")]
     public class Subcategoria
     {
         [Key]
-        public int SubCategoriaId { get; set; }
+        public int ID { get; set; }
         public string Descricao { get; set; } = string.Empty;
-        [ForeignKey("StandId")]
-        public int StandId { get; set; }
+        [ForeignKey("Stand")]
+        public int StandID { get; set; }
     }
 }

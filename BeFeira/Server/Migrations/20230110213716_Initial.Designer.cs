@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BeFeira.Server.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20230110182501_Initial")]
+    [Migration("20230110213716_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -27,11 +27,11 @@ namespace BeFeira.Server.Migrations
 
             modelBuilder.Entity("BeFeira.Shared.Administrador", b =>
                 {
-                    b.Property<int>("AdministradorId")
+                    b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("AdministradorId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
 
                     b.Property<DateTime>("Created_at")
                         .HasColumnType("datetime2");
@@ -47,48 +47,48 @@ namespace BeFeira.Server.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("AdministradorId");
+                    b.HasKey("ID");
 
-                    b.ToTable("Administradores");
+                    b.ToTable("Administrador");
                 });
 
             modelBuilder.Entity("BeFeira.Shared.Carrinho", b =>
                 {
-                    b.Property<int>("CarrinhoId")
+                    b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CarrinhoId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
 
-                    b.Property<int>("ClienteId")
+                    b.Property<int>("ClienteID")
                         .HasColumnType("int");
 
-                    b.Property<int>("StandId")
+                    b.Property<int>("StandID")
                         .HasColumnType("int");
 
                     b.Property<decimal>("Total")
                         .HasColumnType("decimal(18,2)");
 
-                    b.HasKey("CarrinhoId");
+                    b.HasKey("ID");
 
-                    b.ToTable("Carrinhos");
+                    b.ToTable("Carrinho");
                 });
 
             modelBuilder.Entity("BeFeira.Shared.CarrinhoProduto", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
 
-                    b.Property<int>("CarrinhoId")
+                    b.Property<int>("CarrinhoID")
                         .HasColumnType("int");
 
                     b.Property<float>("Preco")
                         .HasColumnType("real");
 
-                    b.Property<int>("ProdutoId")
+                    b.Property<int>("ProdutoID")
                         .HasColumnType("int");
 
                     b.Property<int>("Quantidade")
@@ -97,18 +97,18 @@ namespace BeFeira.Server.Migrations
                     b.Property<int>("TaxaBefeira")
                         .HasColumnType("int");
 
-                    b.HasKey("Id");
+                    b.HasKey("ID");
 
-                    b.ToTable("CarrinhoProdutos");
+                    b.ToTable("CarrinhoProduto");
                 });
 
             modelBuilder.Entity("BeFeira.Shared.Cliente", b =>
                 {
-                    b.Property<int>("ClienteId")
+                    b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ClienteId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -122,42 +122,42 @@ namespace BeFeira.Server.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("ClienteId");
+                    b.HasKey("ID");
 
-                    b.ToTable("Clientes");
+                    b.ToTable("Cliente");
                 });
 
             modelBuilder.Entity("BeFeira.Shared.Feira", b =>
                 {
-                    b.Property<int>("FeiraId")
+                    b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("FeiraId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
 
                     b.Property<string>("Categoria")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("FeiraId");
+                    b.HasKey("ID");
 
-                    b.ToTable("Feiras");
+                    b.ToTable("Feira");
 
                     b.HasData(
                         new
                         {
-                            FeiraId = 1,
+                            ID = 1,
                             Categoria = "lOUCOS"
                         });
                 });
 
             modelBuilder.Entity("BeFeira.Shared.Produto", b =>
                 {
-                    b.Property<int>("ProdutoId")
+                    b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ProdutoId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
 
                     b.Property<string>("Nome_Produto")
                         .IsRequired()
@@ -172,62 +172,62 @@ namespace BeFeira.Server.Migrations
                     b.Property<int>("Rating")
                         .HasColumnType("int");
 
-                    b.Property<int>("StandId")
+                    b.Property<int>("StandID")
                         .HasColumnType("int");
 
                     b.Property<int>("Stock")
                         .HasColumnType("int");
 
-                    b.Property<int?>("SubCategoria")
+                    b.Property<int?>("SubCategoriaID")
                         .HasColumnType("int");
 
-                    b.HasKey("ProdutoId");
+                    b.HasKey("ID");
 
-                    b.ToTable("Produtos");
+                    b.ToTable("Produto");
 
                     b.HasData(
                         new
                         {
-                            ProdutoId = 2,
+                            ID = 2,
                             NomeProduto = "Maçãs",
                             Preco = 2.9f,
                             Promocao = 0,
                             Rating = 4,
-                            StandId = 1,
+                            StandID = 1,
                             Stock = 3,
-                            SubCategoria = 1
+                            SubCategoriaID = 1
                         },
                         new
                         {
-                            ProdutoId = 3,
+                            ID = 3,
                             NomeProduto = "Bonecos",
                             Preco = 25.9f,
                             Promocao = 0,
                             Rating = 2,
-                            StandId = 2,
+                            StandID = 2,
                             Stock = 2,
-                            SubCategoria = 4
+                            SubCategoriaID = 4
                         },
                         new
                         {
-                            ProdutoId = 4,
+                            ID = 4,
                             NomeProduto = "Tapetea",
                             Preco = 23.9f,
                             Promocao = 0,
                             Rating = 3,
-                            StandId = 3,
+                            StandID = 3,
                             Stock = 1,
-                            SubCategoria = 3
+                            SubCategoriaID = 3
                         });
                 });
 
             modelBuilder.Entity("BeFeira.Shared.Promocao", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
 
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
@@ -235,62 +235,76 @@ namespace BeFeira.Server.Migrations
                     b.Property<int>("Desconto")
                         .HasColumnType("int");
 
-                    b.Property<int>("ProdutoId")
+                    b.Property<int>("ProdutoID")
                         .HasColumnType("int");
 
-                    b.HasKey("Id");
+                    b.HasKey("ID");
 
-                    b.ToTable("Promocoes");
+                    b.ToTable("Promocao");
                 });
 
             modelBuilder.Entity("BeFeira.Shared.Stand", b =>
                 {
-                    b.Property<int>("StandId")
+                    b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("StandId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
 
-                    b.Property<int>("FeiraId")
+                    b.Property<int>("FeiraID")
                         .HasColumnType("int");
 
-                    b.Property<int>("VendedorId")
+                    b.Property<int>("VendedorID")
                         .HasColumnType("int");
 
-                    b.HasKey("StandId");
+                    b.HasKey("ID");
 
-                    b.ToTable("Stands");
+                    b.ToTable("Stand");
                 });
 
             modelBuilder.Entity("BeFeira.Shared.Subcategoria", b =>
                 {
-                    b.Property<int>("SubCategoriaId")
+                    b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("SubCategoriaId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
 
                     b.Property<string>("Descricao")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("StandId")
+                    b.Property<int>("StandID")
                         .HasColumnType("int");
 
-                    b.HasKey("SubCategoriaId");
+                    b.HasKey("ID");
 
-                    b.ToTable("Subcategorias");
+                    b.ToTable("Subcategoria");
+
+                    b.HasData(
+                        new
+                        {
+                            ID = 1,
+                            Descricao = "Terror",
+                            StandID = 1
+                        },
+                        new
+                        {
+                            ID = 2,
+                            Descricao = "Aventura",
+                            StandID = 1
+                        });
                 });
 
             modelBuilder.Entity("BeFeira.Shared.Venda", b =>
                 {
-                    b.Property<int>("VendaId")
+                    b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("VendaId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
 
-                    b.Property<int>("CarrinhoId")
+                    b.Property<int>("CarrinhoID")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("Date")
@@ -299,23 +313,23 @@ namespace BeFeira.Server.Migrations
                     b.Property<float>("Total")
                         .HasColumnType("real");
 
-                    b.HasKey("VendaId");
+                    b.HasKey("ID");
 
-                    b.ToTable("Vendas");
+                    b.ToTable("Venda");
                 });
 
             modelBuilder.Entity("BeFeira.Shared.VendaProduto", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
 
                     b.Property<float>("Preco")
                         .HasColumnType("real");
 
-                    b.Property<int>("ProdutoId")
+                    b.Property<int>("ProdutoID")
                         .HasColumnType("int");
 
                     b.Property<int>("Quantidade")
@@ -324,21 +338,21 @@ namespace BeFeira.Server.Migrations
                     b.Property<int>("TaxaBefeira")
                         .HasColumnType("int");
 
-                    b.Property<int>("VendaId")
+                    b.Property<int>("VendaID")
                         .HasColumnType("int");
 
-                    b.HasKey("Id");
+                    b.HasKey("ID");
 
-                    b.ToTable("VendaProdutos");
+                    b.ToTable("VendaProduto");
                 });
 
             modelBuilder.Entity("BeFeira.Shared.Vendedor", b =>
                 {
-                    b.Property<int>("VendedorId")
+                    b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("VendedorId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -363,9 +377,9 @@ namespace BeFeira.Server.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("VendedorId");
+                    b.HasKey("ID");
 
-                    b.ToTable("Vendedores");
+                    b.ToTable("Vendedor");
                 });
 #pragma warning restore 612, 618
         }

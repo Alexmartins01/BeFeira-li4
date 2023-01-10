@@ -1,5 +1,7 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using BeFeira.Server.Data;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace BeFeira.Server.Controllers
 {
@@ -7,36 +9,33 @@ namespace BeFeira.Server.Controllers
 	[ApiController]
 	public class StandController : ControllerBase
 	{
-		public static List<Stand> stands = new List<Stand>
-		{
-			new Stand { StandId= 1, VendedorId = 1, FeiraId = 1},
-			new Stand { StandId= 2, VendedorId = 2, FeiraId = 1}
-		};
 
-		public static List<Subcategoria> subCategoria = new List<Subcategoria>
-		{
-			new Subcategoria { SubCategoriaId = 1, Descricao = "Terror", StandId = 1},
-			new Subcategoria { SubCategoriaId = 2, Descricao = "Aventura", StandId = 1},
-		};
+       
+            private readonly DataContext _context;
 
-		
+            public StandController(DataContext context)
+            {
+                _context = context;
+            }
 
-		[HttpGet]
+
+            [HttpGet]
 		public async Task<ActionResult<List<Stand>>> GetStands()
 		{
-			return Ok(stands);
+            var stands = await _context.Stands.ToListAsync();
+            return Ok(stands);
 		}
 
 		[HttpGet("{id}")]
 		[Route("id")]
 		public async Task<ActionResult<Stand>> GetSingleStand(int id)
 		{
-			var stand = stands.FirstOrDefault(s => s.StandId == id);
-			if(stand == null)
-			{
-				return NotFound("No stand here");
-			}
-			return Ok(stand);
-		}
+            var prod = await _context.Stands.FirstOrDefaultAsync(h => h.ID == id);
+            if (prod == null)
+            {
+                return NotFound("Sorry,no productHere");
+            }
+            return Ok(prod);
+        }
 	}
 }

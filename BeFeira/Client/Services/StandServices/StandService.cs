@@ -1,17 +1,20 @@
-﻿using System.Net.Http.Json;
+﻿using Microsoft.AspNetCore.Components;
+using System.Net.Http.Json;
 
 namespace BeFeira.Services.StandServices
 {
 	public class StandService : IStandService
 	{
 		private readonly HttpClient _http;
-
-		public StandService(HttpClient http)
+        private readonly NavigationManager navigationManager;
+        public List<Stand> Stands { get; set; } = new List<Stand>();
+        public List<Feira> Feiras { get; set; } = new List<Feira>();
+        public StandService(HttpClient http,NavigationManager navigation)
 		{
 			_http = http;
+			navigationManager = navigation;
 		}
-		public List<Stand> Stands { get; set; } = new List<Stand>();
-		public List<Feira> Feiras { get; set; } = new List<Feira>();
+		
 
 		public Task<Stand> GetStand(int id)
 		{

@@ -1,4 +1,6 @@
 ﻿@page "/standpage"
+@inject IStandService StandService
+@inject NavigationManager  NavigationManager
 
 <header>
     <link rel="stylesheet" href="icons/icons/css/all.css">
@@ -9,6 +11,43 @@
     <i class="fa-solid fa-circle-user"></i>
 </header>
 
+
+<thead>
+    <tr>
+        <th>Id Stand</th>
+        <th>Id do Vendedor</th>
+        <th>Id da Feira</th>
+    </tr>
+</thead>
+
+     <tbody>
+        @foreach(var stand in StandService.Stands)
+        {
+            <tr>
+                <td>@stand.ID</td>
+                <td>@stand.VendedorID</td>
+                <td>@stand.FeiraID</td>
+                <td>
+                    <button class="btn" @onclick="(()=>ShowStand(stand.ID))">  <i class="oioipen"></i></button>
+
+                </td>
+
+
+            </tr>
+            
+        }
+    </tbody>
+
 @code {
+
+    protected override async Task OnInitializedAsync()
+    {
+        await StandService.GetStands();
+    }
+
+    void ShowStand(int id)
+    {
+        NavigationManager.NavigateTo($"standspecify/{id}");
+    }
 
 }
