@@ -94,6 +94,7 @@ header i {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    padding: 0 5px 0 5px;
 }
 
     .produto_carrinho > p, .produto_carrinho > button {
@@ -139,4 +140,17 @@ header i {
     margin-right: 40px;
     font-weight: 600;
     font-size: 18px;
+}
+
+.carrinho_buttons_container {
+
+    display: flex;
+    justify-content: space-between;
+    margin: 0 30px 15px 20px;
+}
+
+.carrinho_buttons_container > button {
+
+    padding: 5px 10px 5px 10px;
+    border-radius: 10px;
 }
