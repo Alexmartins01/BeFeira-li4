@@ -154,3 +154,57 @@ header i {
     padding: 5px 10px 5px 10px;
     border-radius: 10px;
 }
+
+.feira_container {
+    background-color: antiquewhite;
+}
+
+.feira_container > h3 {
+
+    text-align: center;
+    padding-top: 30px;
+    font-weight: 600;
+    font-family: Cambria;
+    font-size: 32px;
+}
+
+.feira_stands_container {
+
+    margin: 40px 40px 0 40px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.feira_stand_container {
+    
+    flex: 0 0 20%;
+    text-align: center;
+    border: 2px solid darkred;
+    border-radius: 15px;
+    margin: 20px 15px 20px 15px;
+    background-color: white;
+    position: relative;
+    transition: all ease .5s;
+}
+
+.feira_stand_container > .stand_name {
+
+    font-weight: 600;
+    margin-top: 15px;
+    font-size: 23px;
+    margin-bottom: 5px;
+}
+
+.feira_stand_container > .vendedor_name {
+
+    font-family: monospace;
+    margin-bottom: 15px;
+}
+
+.feira_stand_container:hover {
+
+    background-color: darkred;
+    color: white;
+    top: -12px;
+}
