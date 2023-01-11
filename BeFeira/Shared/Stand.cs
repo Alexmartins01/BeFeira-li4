@@ -6,15 +6,16 @@ namespace BeFeira.Shared
     [Table("Stand")]
     public class Stand
     {
-        [Key]
         public int ID { get; set; }
 
-        public string Nome { get; set; }
-
         [ForeignKey("Vendedor")]
-        public int VendedorID { get; set; }
+        public int? VendedorID { get; set; }
+
+        public string Nome { get; set; }
+        public virtual Vendedor? Vendedor { get; set; }
 
         [ForeignKey("Feira")]
-        public int FeiraID { get; set; }
+        public int? FeiraID { get; set; }
+        public virtual Feira? Feira { get; set; }
     }
 }

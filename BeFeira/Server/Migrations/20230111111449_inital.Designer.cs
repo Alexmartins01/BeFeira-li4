@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BeFeira.Server.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20230110233633_initial")]
-    partial class initial
+    [Migration("20230111111449_inital")]
+    partial class inital
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -33,14 +33,14 @@ namespace BeFeira.Server.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
 
-                    b.Property<DateTime>("Created_at")
+                    b.Property<DateTime?>("Created_at")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Password")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("Updated_at")
+                    b.Property<DateTime?>("Updated_at")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Username")
@@ -60,7 +60,7 @@ namespace BeFeira.Server.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
 
-                    b.Property<int>("ClienteID")
+                    b.Property<int?>("ClienteID")
                         .HasColumnType("int");
 
                     b.Property<int>("StandID")
@@ -70,6 +70,10 @@ namespace BeFeira.Server.Migrations
                         .HasColumnType("decimal(18,2)");
 
                     b.HasKey("ID");
+
+                    b.HasIndex("ClienteID");
+
+                    b.HasIndex("StandID");
 
                     b.ToTable("Carrinho");
                 });
@@ -82,13 +86,13 @@ namespace BeFeira.Server.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
 
-                    b.Property<int>("CarrinhoID")
+                    b.Property<int?>("CarrinhoID")
                         .HasColumnType("int");
 
                     b.Property<float>("Preco")
                         .HasColumnType("real");
 
-                    b.Property<int>("ProdutoID")
+                    b.Property<int?>("ProdutoID")
                         .HasColumnType("int");
 
                     b.Property<int>("Quantidade")
@@ -98,6 +102,10 @@ namespace BeFeira.Server.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("ID");
+
+                    b.HasIndex("CarrinhoID");
+
+                    b.HasIndex("ProdutoID");
 
                     b.ToTable("CarrinhoProduto");
                 });
@@ -142,23 +150,6 @@ namespace BeFeira.Server.Migrations
                     b.HasKey("ID");
 
                     b.ToTable("Feira");
-
-                    b.HasData(
-                        new
-                        {
-                            ID = 1,
-                            Categoria = "lOUCOS"
-                        },
-                        new
-                        {
-                            ID = 2,
-                            Categoria = "Biblioteca"
-                        },
-                        new
-                        {
-                            ID = 3,
-                            Categoria = "Tecnologia"
-                        });
                 });
 
             modelBuilder.Entity("BeFeira.Shared.Produto", b =>
@@ -182,7 +173,7 @@ namespace BeFeira.Server.Migrations
                     b.Property<int>("Rating")
                         .HasColumnType("int");
 
-                    b.Property<int>("StandID")
+                    b.Property<int?>("StandID")
                         .HasColumnType("int");
 
                     b.Property<int>("Stock")
@@ -193,42 +184,11 @@ namespace BeFeira.Server.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("Produto");
+                    b.HasIndex("StandID");
 
-                    b.HasData(
-                        new
-                        {
-                            ID = 2,
-                            NomeProduto = "Maçãs",
-                            Preco = 2.9f,
-                            Promocao = 0,
-                            Rating = 4,
-                            StandID = 1,
-                            Stock = 3,
-                            SubCategoriaID = 1
-                        },
-                        new
-                        {
-                            ID = 3,
-                            NomeProduto = "Bonecos",
-                            Preco = 25.9f,
-                            Promocao = 0,
-                            Rating = 2,
-                            StandID = 2,
-                            Stock = 2,
-                            SubCategoriaID = 4
-                        },
-                        new
-                        {
-                            ID = 4,
-                            NomeProduto = "Tapetea",
-                            Preco = 23.9f,
-                            Promocao = 0,
-                            Rating = 3,
-                            StandID = 3,
-                            Stock = 1,
-                            SubCategoriaID = 3
-                        });
+                    b.HasIndex("SubCategoriaID");
+
+                    b.ToTable("Produto");
                 });
 
             modelBuilder.Entity("BeFeira.Shared.Promocao", b =>
@@ -245,10 +205,12 @@ namespace BeFeira.Server.Migrations
                     b.Property<int>("Desconto")
                         .HasColumnType("int");
 
-                    b.Property<int>("ProdutoID")
+                    b.Property<int?>("ProdutoID")
                         .HasColumnType("int");
 
                     b.HasKey("ID");
+
+                    b.HasIndex("ProdutoID");
 
                     b.ToTable("Promocao");
                 });
@@ -261,17 +223,21 @@ namespace BeFeira.Server.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
 
-                    b.Property<int>("FeiraID")
+                    b.Property<int?>("FeiraID")
                         .HasColumnType("int");
 
                     b.Property<string>("Nome")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("VendedorID")
+                    b.Property<int?>("VendedorID")
                         .HasColumnType("int");
 
                     b.HasKey("ID");
+
+                    b.HasIndex("FeiraID");
+
+                    b.HasIndex("VendedorID");
 
                     b.ToTable("Stand");
                 });
@@ -288,26 +254,14 @@ namespace BeFeira.Server.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("StandID")
+                    b.Property<int?>("StandID")
                         .HasColumnType("int");
 
                     b.HasKey("ID");
 
-                    b.ToTable("Subcategoria");
+                    b.HasIndex("StandID");
 
-                    b.HasData(
-                        new
-                        {
-                            ID = 1,
-                            Descricao = "Terror",
-                            StandID = 1
-                        },
-                        new
-                        {
-                            ID = 2,
-                            Descricao = "Aventura",
-                            StandID = 1
-                        });
+                    b.ToTable("Subcategoria");
                 });
 
             modelBuilder.Entity("BeFeira.Shared.Venda", b =>
@@ -318,7 +272,7 @@ namespace BeFeira.Server.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
 
-                    b.Property<int>("CarrinhoID")
+                    b.Property<int?>("CarrinhoID")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("Date")
@@ -328,6 +282,8 @@ namespace BeFeira.Server.Migrations
                         .HasColumnType("real");
 
                     b.HasKey("ID");
+
+                    b.HasIndex("CarrinhoID");
 
                     b.ToTable("Venda");
                 });
@@ -343,7 +299,7 @@ namespace BeFeira.Server.Migrations
                     b.Property<float>("Preco")
                         .HasColumnType("real");
 
-                    b.Property<int>("ProdutoID")
+                    b.Property<int?>("ProdutoID")
                         .HasColumnType("int");
 
                     b.Property<int>("Quantidade")
@@ -352,10 +308,14 @@ namespace BeFeira.Server.Migrations
                     b.Property<int>("TaxaBefeira")
                         .HasColumnType("int");
 
-                    b.Property<int>("VendaID")
+                    b.Property<int?>("VendaID")
                         .HasColumnType("int");
 
                     b.HasKey("ID");
+
+                    b.HasIndex("ProdutoID");
+
+                    b.HasIndex("VendaID");
 
                     b.ToTable("VendaProduto");
                 });
@@ -394,6 +354,110 @@ namespace BeFeira.Server.Migrations
                     b.HasKey("ID");
 
                     b.ToTable("Vendedor");
+                });
+
+            modelBuilder.Entity("BeFeira.Shared.Carrinho", b =>
+                {
+                    b.HasOne("BeFeira.Shared.Cliente", "Cliente")
+                        .WithMany()
+                        .HasForeignKey("ClienteID");
+
+                    b.HasOne("BeFeira.Shared.Stand", "Stand")
+                        .WithMany()
+                        .HasForeignKey("StandID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Cliente");
+
+                    b.Navigation("Stand");
+                });
+
+            modelBuilder.Entity("BeFeira.Shared.CarrinhoProduto", b =>
+                {
+                    b.HasOne("BeFeira.Shared.Carrinho", "Carrinho")
+                        .WithMany()
+                        .HasForeignKey("CarrinhoID");
+
+                    b.HasOne("BeFeira.Shared.Produto", "Produto")
+                        .WithMany()
+                        .HasForeignKey("ProdutoID");
+
+                    b.Navigation("Carrinho");
+
+                    b.Navigation("Produto");
+                });
+
+            modelBuilder.Entity("BeFeira.Shared.Produto", b =>
+                {
+                    b.HasOne("BeFeira.Shared.Stand", "Stand")
+                        .WithMany()
+                        .HasForeignKey("StandID");
+
+                    b.HasOne("BeFeira.Shared.Subcategoria", "Subcategoria")
+                        .WithMany()
+                        .HasForeignKey("SubCategoriaID");
+
+                    b.Navigation("Stand");
+
+                    b.Navigation("Subcategoria");
+                });
+
+            modelBuilder.Entity("BeFeira.Shared.Promocao", b =>
+                {
+                    b.HasOne("BeFeira.Shared.Produto", "Produto")
+                        .WithMany()
+                        .HasForeignKey("ProdutoID");
+
+                    b.Navigation("Produto");
+                });
+
+            modelBuilder.Entity("BeFeira.Shared.Stand", b =>
+                {
+                    b.HasOne("BeFeira.Shared.Feira", "Feira")
+                        .WithMany()
+                        .HasForeignKey("FeiraID");
+
+                    b.HasOne("BeFeira.Shared.Vendedor", "Vendedor")
+                        .WithMany()
+                        .HasForeignKey("VendedorID");
+
+                    b.Navigation("Feira");
+
+                    b.Navigation("Vendedor");
+                });
+
+            modelBuilder.Entity("BeFeira.Shared.Subcategoria", b =>
+                {
+                    b.HasOne("BeFeira.Shared.Stand", "Stand")
+                        .WithMany()
+                        .HasForeignKey("StandID");
+
+                    b.Navigation("Stand");
+                });
+
+            modelBuilder.Entity("BeFeira.Shared.Venda", b =>
+                {
+                    b.HasOne("BeFeira.Shared.Carrinho", "Carrinho")
+                        .WithMany()
+                        .HasForeignKey("CarrinhoID");
+
+                    b.Navigation("Carrinho");
+                });
+
+            modelBuilder.Entity("BeFeira.Shared.VendaProduto", b =>
+                {
+                    b.HasOne("BeFeira.Shared.Produto", "Produto")
+                        .WithMany()
+                        .HasForeignKey("ProdutoID");
+
+                    b.HasOne("BeFeira.Shared.Venda", "Venda")
+                        .WithMany()
+                        .HasForeignKey("VendaID");
+
+                    b.Navigation("Produto");
+
+                    b.Navigation("Venda");
                 });
 #pragma warning restore 612, 618
         }

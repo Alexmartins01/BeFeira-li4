@@ -7,10 +7,14 @@ namespace BeFeira.Shared
     public class Promocao
     {
         public int ID { get; set; }
+
         [ForeignKey("Produto")]
-        public int ProdutoID{get; set;}
+        public int? ProdutoID { get; set; }
+        public virtual Produto? Produto { get; set; }
+
+
         [DataType(DataType.Date)]
-        public DateTime Date{get; set;} = DateTime.Now;
-        public int Desconto{get; set;} = 0;
+        public DateTime Date { get; set; } = DateTime.Now;
+        public int Desconto { get; set; } = 0;
     }
 }

@@ -18,11 +18,12 @@
 	<h3>@String.Format("Feira de {0}",nome_da_feira)</h3>
 	<div class="feira_stands_container">
 
-		@for (int i = 0; i < len; i++)
+		@foreach (var std in StandService.Stands)
 		{
-			<div class="feira_stand_container">
-				<p class="stand_name">@stands[i]</p>
-				<p class="vendedor_name">@vendedores[i]</p>
+			<div class="feira_stand_container" @onclick="(()=>ShowBarraca(std.ID))">
+				<p class="stand_name">@std.Nome</p>
+				<p class="vendedor_name">@std.ID</p>
+	
 			</div>
 		}
 	</div>
