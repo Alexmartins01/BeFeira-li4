@@ -14,7 +14,7 @@
 
 <body class="produtos_stand_container">
 
-    <h1 class="products_stand_name">@nome_da_stand</h1>
+    <h1 class="products_stand_name">@String.Format("{0} - {1}", nome_da_stand, nome_da_subcategoria)</h1>
 
     <div class="lista_produtos">
 
@@ -50,6 +50,7 @@
     // Código para testar
 
     string nome_da_stand = "<Nome da Stand>";
+    string nome_da_subcategoria = "<Subcategoria>";
 
     public static List<Produto> produtos = new List<Produto>
     {
