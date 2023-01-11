@@ -12,22 +12,67 @@
 <body>
     <div class="carrinho_container">
         <h3>Carrinho</h3>
+        <div class="produto_carrinho produto_carrinho_title">
+            <p>Nome do produto</p>
+            <p>Preço</p>
+            <p>Promoção</p>
+            <p>Stock</p>
+            <p>Rating</p>
+            <p>Remover</p>
+        </div>
         <div class="produtos_carrinho">
-            @foreach(var produto in produtos)
-            {   
-                <div class="produto_carrinho">
-                  
-                    <p>(butão de remover produto)</p>
-                </div>
+            @{
+                Boolean even = false; 
+                foreach(var produto in produtos)
+                {
+
+                    even = !even;
+                    
+                    <div class="produto_carrinho @String.Format("{0}", even ? "even" : "odd")">
+                        <p>@produto.Nome_Produto</p>
+                        <p>@String.Format("{0}€",produto.Preco.ToString("0.00"))</p>
+                        <p>@String.Format("{0}%", produto.Promocao)</p>
+                        <p>@String.Format("{0} uni.", produto.Stock)</p>
+                        <p>@String.Format("{0}%.", produto.Rating)</p>
+                        <button><i class="fa-sharp fa-solid fa-square-xmark"></i></button>
+                    </div>
+                }
             }
         </div>
-        <button>Voltar</button>
-        <button>Finalizar compra</button>
+        <p>@String.Format("Total: {0}€",total.ToString("0.00"))</p>
+        <div class="carrinho_buttons_container">
+            <button>Voltar</button>
+            <button>Finalizar compra</button>
+        </div>
     </div>
 </body>
 
 @code {
+    Boolean even = false;
+
+    float total = 10.50f; // TODO: tem que ser calculado com base na lista de produtos
+
     public static List<Produto> produtos = new List<Produto>
-        {
-        };
+    {
+            new Produto{ID=1,StandID=1,Nome_Produto="A", Preco=0.50f,Promocao=0,Stock=10,Rating=80,SubCategoriaID=1},
+            new Produto{ID=1,StandID=1,Nome_Produto="A", Preco=0.50f,Promocao=0,Stock=10,Rating=80,SubCategoriaID=1},
+            new Produto{ID=1,StandID=1,Nome_Produto="A", Preco=0.50f,Promocao=0,Stock=10,Rating=80,SubCategoriaID=1},
+            new Produto{ID=1,StandID=1,Nome_Produto="A", Preco=0.50f,Promocao=0,Stock=10,Rating=80,SubCategoriaID=1},
+            new Produto{ID=1,StandID=1,Nome_Produto="A", Preco=0.50f,Promocao=0,Stock=10,Rating=80,SubCategoriaID=1},
+            new Produto{ID=1,StandID=1,Nome_Produto="A", Preco=0.50f,Promocao=0,Stock=10,Rating=80,SubCategoriaID=1},
+            new Produto{ID=1,StandID=1,Nome_Produto="A", Preco=0.50f,Promocao=0,Stock=10,Rating=80,SubCategoriaID=1},
+            new Produto{ID=1,StandID=1,Nome_Produto="A", Preco=0.50f,Promocao=0,Stock=10,Rating=80,SubCategoriaID=1},
+            new Produto{ID=1,StandID=1,Nome_Produto="A", Preco=0.50f,Promocao=0,Stock=10,Rating=80,SubCategoriaID=1},
+            new Produto{ID=1,StandID=1,Nome_Produto="A", Preco=0.50f,Promocao=0,Stock=10,Rating=80,SubCategoriaID=1},
+            new Produto{ID=1,StandID=1,Nome_Produto="A", Preco=0.50f,Promocao=0,Stock=10,Rating=80,SubCategoriaID=1},
+            new Produto{ID=1,StandID=1,Nome_Produto="A", Preco=0.50f,Promocao=0,Stock=10,Rating=80,SubCategoriaID=1},
+            new Produto{ID=1,StandID=1,Nome_Produto="A", Preco=0.50f,Promocao=0,Stock=10,Rating=80,SubCategoriaID=1},
+            new Produto{ID=1,StandID=1,Nome_Produto="A", Preco=0.50f,Promocao=0,Stock=10,Rating=80,SubCategoriaID=1},
+            new Produto{ID=1,StandID=1,Nome_Produto="A", Preco=0.50f,Promocao=0,Stock=10,Rating=80,SubCategoriaID=1},
+            new Produto{ID=1,StandID=1,Nome_Produto="A", Preco=0.50f,Promocao=0,Stock=10,Rating=80,SubCategoriaID=1},
+            new Produto{ID=1,StandID=1,Nome_Produto="A", Preco=0.50f,Promocao=0,Stock=10,Rating=80,SubCategoriaID=1},
+            new Produto{ID=1,StandID=1,Nome_Produto="A", Preco=0.50f,Promocao=0,Stock=10,Rating=80,SubCategoriaID=1},
+            new Produto{ID=1,StandID=1,Nome_Produto="A", Preco=0.50f,Promocao=0,Stock=10,Rating=80,SubCategoriaID=1},
+            new Produto{ID=1,StandID=1,Nome_Produto="A", Preco=0.50f,Promocao=0,Stock=10,Rating=80,SubCategoriaID=1}
+    };
 }
