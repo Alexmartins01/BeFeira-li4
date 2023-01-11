@@ -44,10 +44,10 @@ namespace BeFeira.Client.Services.ProdutoServices
             var result = await _http.GetFromJsonAsync<Produto>($"api/Produto/{id}");
             if (result != null)
             {
-                Console.WriteLine(result.ID);
+            
                 return result;
             }
-            throw new Exception("Hero not found");
+            throw new Exception("Product not found");
         }
 
         public async Task CreateProduto(Produto p)

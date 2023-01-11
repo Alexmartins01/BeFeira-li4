@@ -1,53 +1,57 @@
 ﻿@page "/standpage"
+@page "/standpage/{id:int}"
+
+
 @inject IStandService StandService
 @inject NavigationManager  NavigationManager
 
-<header>
-    <link rel="stylesheet" href="icons/icons/css/all.css">
-    <link rel="stylesheet" href="css/StandPage.css">
 
-    <img src="logo.png" alt="BeFeira Logo">
-    <p>Login/Registo</p>
-    <i class="fa-solid fa-circle-user"></i>
-</header>
+@if (id==null){
 
-
-<thead>
-    <tr>
-        <th>Id Stand</th>
-        <th>Id do Vendedor</th>
-        <th>Id da Feira</th>
-    </tr>
-</thead>
-
-     <tbody>
-        @foreach(var stand in StandService.Stands)
-        {
-            <tr>
-                <td>@stand.ID</td>
-                <td>@stand.VendedorID</td>
-                <td>@stand.FeiraID</td>
-                <td>
-                    <button class="btn" @onclick="(()=>ShowStand(stand.ID))">  <i class="oioipen"></i></button>
-
-                </td>
+   <h3>Criar sTAND</h3>
+}
+else {
+    
+    <h3>StandName : @stand.Nome   </h3>
+    <h3>StandId : @stand.ID   </h3>
+    <h3>ID da Feira : @stand.FeiraID   </h3>
+    <h3>ID do Vendedor : @stand.VendedorID   </h3>
 
 
-            </tr>
-            
-        }
-    </tbody>
+
+    <h3>Subcategorias no programa todo</h3>
+    @foreach (Subcategoria c in subcats)
+    {
+        <h3>@c.Descricao</h3>
+    }
+
+}
+
+   
+
 
 @code {
 
-    protected override async Task OnInitializedAsync()
-    {
-        await StandService.GetStands();
-    }
+    Stand stand = new Stand { };
+    List<Subcategoria> subcats = new List<Subcategoria>();
+  
 
-    void ShowStand(int id)
+
+    [Parameter]
+    public int? id { get; set; }
+
+
+    protected override async Task OnParametersSetAsync()
     {
-        NavigationManager.NavigateTo($"standspecify/{id}");
+        if (id == null)
+        {
+
+        }
+        else
+        {
+            stand = await StandService.GetSingleStand((int)id);
+            subcats = await StandService.GetSubcategoriasbyStand((int)id);
+        }
     }
 
 }

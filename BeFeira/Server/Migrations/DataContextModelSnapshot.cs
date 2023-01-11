@@ -145,6 +145,16 @@ namespace BeFeira.Server.Migrations
                         {
                             ID = 1,
                             Categoria = "lOUCOS"
+                        },
+                        new
+                        {
+                            ID = 2,
+                            Categoria = "Biblioteca"
+                        },
+                        new
+                        {
+                            ID = 3,
+                            Categoria = "Tecnologia"
                         });
                 });
 
@@ -250,6 +260,10 @@ namespace BeFeira.Server.Migrations
 
                     b.Property<int>("FeiraID")
                         .HasColumnType("int");
+
+                    b.Property<string>("Nome")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("VendedorID")
                         .HasColumnType("int");

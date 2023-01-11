@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace BeFeira.Server.Migrations
 {
     /// <inheritdoc />
-    public partial class Initial : Migration
+    public partial class initial : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -129,6 +129,7 @@ namespace BeFeira.Server.Migrations
                 {
                     ID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    Nome = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     VendedorID = table.Column<int>(type: "int", nullable: false),
                     FeiraID = table.Column<int>(type: "int", nullable: false)
                 },
@@ -204,7 +205,12 @@ namespace BeFeira.Server.Migrations
             migrationBuilder.InsertData(
                 table: "Feira",
                 columns: new[] { "ID", "Categoria" },
-                values: new object[] { 1, "lOUCOS" });
+                values: new object[,]
+                {
+                    { 1, "lOUCOS" },
+                    { 2, "Biblioteca" },
+                    { 3, "Tecnologia" }
+                });
 
             migrationBuilder.InsertData(
                 table: "Produto",

@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BeFeira.Server.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20230110213716_Initial")]
-    partial class Initial
+    [Migration("20230110233633_initial")]
+    partial class initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -148,6 +148,16 @@ namespace BeFeira.Server.Migrations
                         {
                             ID = 1,
                             Categoria = "lOUCOS"
+                        },
+                        new
+                        {
+                            ID = 2,
+                            Categoria = "Biblioteca"
+                        },
+                        new
+                        {
+                            ID = 3,
+                            Categoria = "Tecnologia"
                         });
                 });
 
@@ -253,6 +263,10 @@ namespace BeFeira.Server.Migrations
 
                     b.Property<int>("FeiraID")
                         .HasColumnType("int");
+
+                    b.Property<string>("Nome")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("VendedorID")
                         .HasColumnType("int");

@@ -1,6 +1,7 @@
 ﻿@page "/feira"
 @inject IStandService StandService
 @inject IFeiraService SFeiraService
+@inject NavigationManager NavigationManager
 
 
 <PageTitle> Feira </PageTitle>
@@ -13,6 +14,7 @@
 			<th> Vendedor </th>
 			<th> StandId </th>
 			<th> Feira </th>
+			<th> Nome </th>
 			<th></th>
 
 		</tr>
@@ -24,8 +26,9 @@
 				<td>@stand.VendedorID</td>
 				<td>@stand.ID</td>
 				<td>@stand.FeiraID</td>
+				<td>@stand.Nome</td>
 				<td>
-
+					<button class="btn" style="color:blue" @onclick="(()=>ShowBarraca(stand.ID))">  <i class="oioipen"></i></button>
 				</td>
 			</tr>
 		}
@@ -36,5 +39,9 @@
 	protected override async Task OnInitializedAsync()
 	{
 		await StandService.GetStands();
+	}
+	void ShowBarraca(int id)
+	{
+		NavigationManager.NavigateTo($"standpage/{id}");
 	}
 }

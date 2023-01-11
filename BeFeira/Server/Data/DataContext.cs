@@ -17,7 +17,9 @@ namespace BeFeira.Server.Data
                 );
 
             modelBuilder.Entity<Feira>().HasData(
-                   new Feira { ID = 1, Categoria = "lOUCOS" }
+                   new Feira { ID = 1, Categoria = "lOUCOS" },
+                   new Feira { ID = 2, Categoria = "Biblioteca" },
+                   new Feira { ID = 3, Categoria = "Tecnologia" }
 
                );
             modelBuilder.Entity<Subcategoria>().HasData(
