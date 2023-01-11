@@ -1,0 +1,287 @@
+﻿@charset "UTF-8";
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    height: 12vh;
+    width: 100%;
+    background-color: darkred;
+    display: flex;
+    justify-content: space-between;
+}
+
+header img {
+        height: 80%;
+        margin-left: 100px;
+        margin-top: 8px;
+}
+
+header i {
+    color:white;
+    font-size: 40px;
+    margin: auto 40px auto 0;
+}
+
+    header p {
+        left: auto;
+        right: 140px;
+        color: white;
+        font-size: 20px;
+        top: 35px;
+        position: absolute;
+    }
+
+body {
+    min-height: 88vh;
+}
+
+
+#main_page {
+    margin: 120px 100px 0 100px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+    #main_page .container_categoria {
+        margin-left:0px;
+        margin-bottom: 90px;
+        text-align: center;
+        flex: 0 0 14.2857%;
+    }
+
+    #main_page img {
+        width: 90px;
+        height: 90px;
+    }
+
+    #main_page p {
+        text-align: center;
+        margin-top: 10px;
+        font-size: 17px;
+    }
+
+    #main_page i {
+        width: 90px;
+        height: 80px;
+        font-size: 60px;
+        margin-top: 10px;
+    }
+
+.carrinho_container {
+    border: 4px solid black;
+    margin: 50px 120px 0 120px;
+    background-color: aliceblue;
+}
+
+.carrinho_container h3 {
+
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 30px;
+    font-weight: 600;
+}
+
+.produtos_carrinho {
+    margin: 0 40px 0 40px;
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+    overflow-x: auto;
+    margin-bottom: 30px;
+    border: 3px solid black;
+}
+
+.produto_carrinho {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0 5px 0 5px;
+}
+
+    .produto_carrinho > p, .produto_carrinho > button {
+        flex: 15%;
+        text-align: center;
+        font-weight: 600;
+        font-size: 17px;
+        margin: 10px 0 10px 0;
+    }
+
+.produto_carrinho_title {
+    background: black;
+    margin: 0 40px 0 40px;
+}
+.produto_carrinho_title > p {
+    font-size: 17px;
+    font-weight: 600;
+    color: white;
+}
+
+.produto_carrinho > button {
+
+    background: none;
+    border-width: 0;
+}
+
+.produto_carrinho > button > i {
+
+    font-size: 22px;
+}
+
+.even {
+    background: white;
+}
+
+.odd {
+    background: lightgray;
+}
+
+.carrinho_container > p {
+
+    text-align: right;
+    margin-right: 40px;
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.carrinho_buttons_container {
+
+    display: flex;
+    justify-content: space-between;
+    margin: 0 30px 15px 20px;
+}
+
+.carrinho_buttons_container > button {
+
+    padding: 5px 10px 5px 10px;
+    border-radius: 10px;
+}
+
+.feira_container {
+    background-color: antiquewhite;
+    height: 88vh;
+}
+
+.feira_container > h3 {
+
+    text-align: center;
+    padding-top: 30px;
+    font-weight: 600;
+    font-family: Cambria;
+    font-size: 32px;
+}
+
+.feira_stands_container {
+
+    margin: 40px 40px 0 40px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.feira_stand_container {
+    
+    flex: 0 0 20%;
+    text-align: center;
+    border: 2px solid darkred;
+    border-radius: 15px;
+    margin: 20px 15px 20px 15px;
+    background-color: white;
+    position: relative;
+    transition: all ease .5s;
+}
+
+.feira_stand_container > .stand_name {
+
+    font-weight: 600;
+    margin-top: 15px;
+    font-size: 23px;
+    margin-bottom: 5px;
+}
+
+.feira_stand_container > .vendedor_name {
+
+    font-family: monospace;
+    margin-bottom: 15px;
+}
+
+.feira_stand_container:hover {
+
+    background-color: darkred;
+    color: white;
+    top: -12px;
+}
+
+.produtos_stand_container {
+    background-color: antiquewhite;
+}
+
+.lista_produtos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-top: 10px
+}
+
+    .produtos_stand_container .produto_basic_info {
+        flex: 0 0 15%;
+        text-align: center;
+        border: 2px solid darkred;
+        border-radius: 15px;
+        margin: 20px 12px 0px 12px;
+        background-color: white;
+        height: 240px;
+    }
+
+        .produtos_stand_container img {
+            height: 60px;
+            padding: 5px;
+            border: 2px solid black;
+            margin-top: 20px;
+            margin-bottom: 5px;
+        }
+
+.produtos_stand_container .nome_produto {
+
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+        .produtos_stand_container .preco_produto, .stock_produto {
+            text-align: left;
+            margin-left: 5px;
+            font-family: monospace;
+            margin-bottom: 0 !important;
+        }
+
+    .produtos_stand_container button {
+        border: none;
+        margin-top: 20px;
+        background: transparent;
+    }
+
+    .produtos_stand_container button i {
+
+        font-size: 25px;
+        color: darkred;
+        background-color: white;
+        transition: all 0.2s ease;
+    }
+
+    .produtos_stand_container button i:hover {
+
+        transform: scale(1.12);
+        color: red;
+    }
+
+.products_stand_name {
+
+    text-align: center;
+    padding-top: 25px;
+    padding-bottom: 15px;
+    font-weight: 600;
+    font-family: Cambria;
+    font-size: 32px;
+}
