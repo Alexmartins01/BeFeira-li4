@@ -1,0 +1,57 @@
+﻿@page "/standpage"
+@page "/standpage/{id:int}"
+
+
+@inject IStandService StandService
+@inject NavigationManager  NavigationManager
+
+
+@if (id==null){
+
+   <h3>Criar sTAND</h3>
+}
+else {
+    
+    <h3>StandName : @stand.Nome   </h3>
+    <h3>StandId : @stand.ID   </h3>
+    <h3>ID da Feira : @stand.FeiraID   </h3>
+    <h3>ID do Vendedor : @stand.VendedorID   </h3>
+
+
+
+    <h3>Subcategorias no programa todo</h3>
+    @foreach (Subcategoria c in subcats)
+    {
+        <h3>@c.Descricao</h3>
+    }
+
+}
+
+   
+
+
+@code {
+
+    Stand stand = new Stand { };
+    List<Subcategoria> subcats = new List<Subcategoria>();
+  
+
+
+    [Parameter]
+    public int? id { get; set; }
+
+
+    protected override async Task OnParametersSetAsync()
+    {
+        if (id == null)
+        {
+
+        }
+        else
+        {
+            stand = await StandService.GetSingleStand((int)id);
+            subcats = await StandService.GetSubcategoriasbyStand((int)id);
+        }
+    }
+
+}
