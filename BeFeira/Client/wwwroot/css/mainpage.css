@@ -69,6 +69,7 @@ header i {
 .carrinho_container {
     border: 4px solid black;
     margin: 50px 120px 0 120px;
+    background-color: aliceblue;
 }
 
 .carrinho_container h3 {
@@ -80,28 +81,67 @@ header i {
 }
 
 .produtos_carrinho {
-
     margin: 0 40px 0 40px;
     height: 350px;
     display: flex;
     flex-direction: column;
     overflow-x: auto;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
     border: 3px solid black;
 }
 
 .produto_carrinho {
-
     display: flex;
     flex-wrap: wrap;
-    justify-content: left;
-    border: 2px solid black;
-    margin-top: -1px;
+    justify-content: center;
 }
 
-.produto_carrinho p {
+    .produto_carrinho > p, .produto_carrinho > button {
+        flex: 15%;
+        text-align: center;
+        font-weight: 600;
+        font-size: 17px;
+        margin: 10px 0 10px 0;
+    }
 
-    flex: 15%;
+.produto_carrinho_title {
+    background: black;
+    margin: 0 40px 0 40px;
 }
+.produto_carrinho_title > p {
+    font-size: 17px;
+    font-weight: 600;
+    color: white;
+}
+
+.produto_carrinho > button {
+
+    background: none;
+    border-width: 0;
+}
+
+.produto_carrinho > button > i {
+
+    font-size: 22px;
+}
+
+.even {
+    background: white;
+}
+
+.odd {
+    background: lightgray;
+}
+
+.carrinho_container > p {
+
+    text-align: right;
+    margin-right: 40px;
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.carrinho
+
 
 
