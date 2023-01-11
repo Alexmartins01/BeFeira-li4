@@ -3,39 +3,33 @@
 @inject IFeiraService SFeiraService
 @inject NavigationManager NavigationManager
 
-
 <PageTitle> Feira </PageTitle>
 
-<h3>Feira</h3>
+<header>
+    <link rel="stylesheet" href="icons/icons/css/all.css">
+    <link rel="stylesheet" href="css/mainpage.css">
 
-<table>
-	<thead>
-		<tr>
-			<th> Vendedor </th>
-			<th> StandId </th>
-			<th> Feira </th>
-			<th> Nome </th>
-			<th></th>
+    <img src="logo.png" alt="BeFeira Logo">
+    <p>Login/Registo</p>
+    <i class="fa-solid fa-circle-user"></i>
+</header>
 
-		</tr>
-	</thead>
-	<tbody>
-		@foreach(var stand in StandService.Stands)
+<body class="feira_container">
+	<h3>@String.Format("Feira de {0}",nome_da_feira)</h3>
+	<div class="feira_stands_container">
+
+		@for (int i = 0; i < len; i++)
 		{
-			<tr>
-				<td>@stand.VendedorID</td>
-				<td>@stand.ID</td>
-				<td>@stand.FeiraID</td>
-				<td>@stand.Nome</td>
-				<td>
-					<button class="btn" style="color:blue" @onclick="(()=>ShowBarraca(stand.ID))">  <i class="oioipen"></i></button>
-				</td>
-			</tr>
+			<div class="feira_stand_container">
+				<p class="stand_name">@stands[i]</p>
+				<p class="vendedor_name">@vendedores[i]</p>
+			</div>
 		}
-	</tbody>
-</table>
+	</div>
+</body>
 
 @code {
+
 	protected override async Task OnInitializedAsync()
 	{
 		await StandService.GetStands();
@@ -44,4 +38,14 @@
 	{
 		NavigationManager.NavigateTo($"standpage/{id}");
 	}
+
+	// Código para testes
+
+	string nome_da_feira = "<Nome da Feira>";
+
+	int len = 10;
+
+	string[] stands = {"Stand", "Stand", "Stand", "Stand", "Stand", "Stand", "Stand", "Stand", "Stand", "Stand" };
+
+	string[] vendedores = { "Vendedor", "Vendedor", "Vendedor", "Vendedor", "Vendedor", "Vendedor", "Vendedor", "Vendedor", "Vendedor", "Vendedor"};
 }
