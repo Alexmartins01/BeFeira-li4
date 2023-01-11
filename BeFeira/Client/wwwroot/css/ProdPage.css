@@ -18,12 +18,9 @@ header {
     }
 
     header i {
-        left: auto;
-        right: 60px;
         color: white;
         font-size: 40px;
-        top: 25px;
-        position: absolute;
+        text-align: end;
     }
 
     header p {
@@ -35,16 +32,6 @@ header {
         position: absolute;
     }
 
-
-    btn{
-        color:blue;
-
-    }
-
-#main_page {
-    margin: 120px 100px 0 100px;
-    display: flex;
-    flex-wrap: wrap;
+#body.btn{
+    color:aqua;
 }
-
-

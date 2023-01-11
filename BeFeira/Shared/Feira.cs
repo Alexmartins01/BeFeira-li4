@@ -3,9 +3,10 @@
 
 namespace BeFeira.Shared
 {
-	public class Feira
+    [Table("Feira")]
+    public class Feira
 	{
-		public int FeiraId { get; set; }
+		public int ID { get; set; }
 		public string Categoria { get; set; } = string.Empty;
 	}
 }

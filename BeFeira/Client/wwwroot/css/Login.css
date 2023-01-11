@@ -9,6 +9,8 @@ header {
     height: 12vh;
     width: 100%;
     background-color: darkred;
+    display: flex;
+    justify-content: space-between;
 }
 
     header img {
@@ -20,9 +22,7 @@ header {
     header i {
         color: white;
         font-size: 40px;
-        left: auto;
-        right: 140px;
-        position: absolute;
+        margin: auto 40px auto 0;
     }
 
 .container {

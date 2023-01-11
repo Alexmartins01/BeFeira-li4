@@ -1,14 +1,68 @@
 ﻿@page "/standpage"
+@page "/standpage/{id:int}"
+
+
+@inject IStandService StandService
+@inject NavigationManager  NavigationManager
 
 <header>
     <link rel="stylesheet" href="icons/icons/css/all.css">
-    <link rel="stylesheet" href="css/StandPage.css">
+    <link rel="stylesheet" href="css/mainpage.css">
 
     <img src="logo.png" alt="BeFeira Logo">
-    <p>Login/Registo</p>
     <i class="fa-solid fa-circle-user"></i>
 </header>
 
+<body class="stand_page_container">
+
+    <h1 class="products_stand_name">@nome_do_stand</h1>
+
+    <div class="subcategorias_container">
+
+        @foreach (var subcat in subcategorias)
+        {
+            <!--TODO: criar listas para produtos das subcategorias-->
+            <!--TODO: meter efeito de hover na subcategoria e em cada um dos produtos-->
+        }
+
+    </div>
+
+</body>
+
 @code {
 
+    Stand stand = new Stand { };
+    List<Subcategoria> subcats = new List<Subcategoria>();
+
+
+
+    [Parameter]
+    public int? id { get; set; }
+
+
+    protected override async Task OnParametersSetAsync()
+    {
+        if (id == null)
+        {
+
+        }
+        else
+        {
+            stand = await StandService.GetSingleStand((int)id);
+            subcats = await StandService.GetSubcategoriasbyStand((int)id);
+        }
+    }
+
+    // Código para testes
+
+    string nome_do_stand = "<Nome do Stand>";
+
+    List<Subcategoria> subcategorias = new List<Subcategoria>{
+
+        new Subcategoria{ID=0,Descricao="Descrição",StandID=0},
+        new Subcategoria{ID=1,Descricao="Descrição",StandID=0},
+        new Subcategoria{ID=2,Descricao="Descrição",StandID=0},
+        new Subcategoria{ID=3,Descricao="Descrição",StandID=0},
+        new Subcategoria{ID=4,Descricao="Descrição",StandID=0}
+    };
 }

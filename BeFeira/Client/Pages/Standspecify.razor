@@ -1,0 +1,54 @@
+﻿@page "/standspecify"
+@page "/standspecify/{id:int}"
+
+
+@inject IStandService StandService 
+
+
+@if (id == null)
+{
+        <PageTitle> Criar um produto novo</PageTitle>
+        <h3>Create a new Product</h3>
+
+
+
+}
+else
+{
+        <PageTitle> Editar um Stand </PageTitle>
+        <h3>@String.Format("edit {0}",stand.Nome) </h3>
+
+
+}
+
+
+
+@code {
+    Stand stand  = new Stand { };
+
+    Subcategoria subcategoria = new Subcategoria { };
+
+
+    [Parameter]
+    public int? id { get; set; }
+
+
+    protected override async Task OnParametersSetAsync()
+    {
+        if (id == null)
+        {
+
+        }
+        else
+        {
+            stand  = await StandService.GetSingleStand((int)id);
+        }
+    }
+
+
+    async Task HandleSubmit()
+    {
+
+
+    }
+}

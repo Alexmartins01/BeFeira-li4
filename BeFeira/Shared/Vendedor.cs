@@ -1,11 +1,13 @@
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BeFeira.Shared
 {
+    [Table("Vendedor")]
     public class Vendedor
     {
         [Key]
-        public int VendedorId { get; set; }
+        public int ID { get; set; }
         public string Iban { get; set; } = string.Empty;
         public string Mbway { get; set; } = string.Empty;
 		public string Username { get; set; } = string.Empty;

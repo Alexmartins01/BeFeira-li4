@@ -1,40 +1,52 @@
 ﻿@page "/feira"
 @inject IStandService StandService
 @inject IFeiraService SFeiraService
-
+@inject NavigationManager NavigationManager
 
 <PageTitle> Feira </PageTitle>
 
-<h3>Feira</h3>
+<header>
+    <link rel="stylesheet" href="icons/icons/css/all.css">
+    <link rel="stylesheet" href="css/mainpage.css">
 
-<table>
-	<thead>
-		<tr>
-			<th> Vendedor </th>
-			<th> StandId </th>
-			<th> Feira </th>
-			<th></th>
+    <img src="logo.png" alt="BeFeira Logo">
+    <p>Login/Registo</p>
+    <i class="fa-solid fa-circle-user"></i>
+</header>
 
-		</tr>
-	</thead>
-	<tbody>
-		@foreach(var stand in StandService.Stands)
+<body class="feira_container">
+	<h3>@String.Format("Feira de {0}",nome_da_feira)</h3>
+	<div class="feira_stands_container">
+
+		@foreach (var std in StandService.Stands)
 		{
-			<tr>
-				<td>@stand.VendedorId</td>
-				<td>@stand.StandId</td>
-				<td>@stand.FeiraId</td>
-				<td>
-
-				</td>
-			</tr>
+			<div class="feira_stand_container" @onclick="(()=>ShowBarraca(std.ID))">
+				<p class="stand_name">@std.Nome</p>
+				<p class="vendedor_name">@std.ID</p>
+	
+			</div>
 		}
-	</tbody>
-</table>
+	</div>
+</body>
 
 @code {
+
 	protected override async Task OnInitializedAsync()
 	{
 		await StandService.GetStands();
 	}
+	void ShowBarraca(int id)
+	{
+		NavigationManager.NavigateTo($"standpage/{id}");
+	}
+
+	// Código para testes
+
+	string nome_da_feira = "<Nome da Feira>";
+
+	int len = 10;
+
+	string[] stands = {"Stand", "Stand", "Stand", "Stand", "Stand", "Stand", "Stand", "Stand", "Stand", "Stand" };
+
+	string[] vendedores = { "Vendedor", "Vendedor", "Vendedor", "Vendedor", "Vendedor", "Vendedor", "Vendedor", "Vendedor", "Vendedor", "Vendedor"};
 }

@@ -3,15 +3,19 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BeFeira.Shared
 {
+    [Table("Stand")]
     public class Stand
     {
-        [Key]
-        public int StandId { get; set; }
+        public int ID { get; set; }
 
-        [ForeignKey("VendedorId")]
-        public int VendedorId { get; set; }
+        [ForeignKey("Vendedor")]
+        public int? VendedorID { get; set; }
 
-        [ForeignKey("FeiraId")]
-        public int FeiraId { get; set; }
+        public string Nome { get; set; }
+        public virtual Vendedor? Vendedor { get; set; }
+
+        [ForeignKey("Feira")]
+        public int? FeiraID { get; set; }
+        public virtual Feira? Feira { get; set; }
     }
 }
