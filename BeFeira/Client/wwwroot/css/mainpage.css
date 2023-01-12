@@ -265,7 +265,7 @@ body {
             margin-bottom: 0 !important;
         }
 
-    .produtos_stand_container button {
+    .produto_basic_info_buttons > button {
         border: none;
         margin-top: 20px;
         background: transparent;
@@ -299,10 +299,10 @@ body {
     top: 210px;
     background-color: white;
     border: 3px solid darkred;
-    width: 800px;
-    height: 400px;
+    width: 700px;
+    height: 310px;
     text-align: center;
-
+    border-radius: 20px;
     display: none;
 }
 
@@ -310,16 +310,25 @@ body {
 
         margin-top: 15px;
         font-size: 36px;
+        margin-bottom: 25px;
     }
 
-    .products_stand_name {
-        text-align: center;
-        padding-top: 25px;
-        padding-bottom: 15px;
-        font-weight: 600;
-        font-family: Cambria;
-        font-size: 32px;
-    }
+        .produto_expanded_info  p {
+
+            text-align: left;
+            margin-left: 20px;
+            font-weight: 600;
+            font-family: monospace;
+        }
+
+        .products_stand_name {
+            text-align: center;
+            padding-top: 25px;
+            padding-bottom: 15px;
+            font-weight: 600;
+            font-family: Cambria;
+            font-size: 32px;
+        }
 
 .subcategorias_container {
 
@@ -368,3 +377,20 @@ body {
         color: darkred;
         font-weight: 600;
     }
+
+.botao_voltar {
+
+    background: white;
+    border: 3px solid darkred;
+    padding: 5px 20px 5px 20px;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 15px;
+    transition: all 0.1s ease;
+}
+
+.botao_voltar:hover {
+
+    background-color: darkred;
+    color: white;
+}
