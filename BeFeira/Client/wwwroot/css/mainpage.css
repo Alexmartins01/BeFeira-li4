@@ -230,7 +230,8 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    padding-top: 10px
+    padding-top: 10px;
+    position: relative;
 }
 
     .produtos_stand_container .produto_basic_info {
@@ -284,14 +285,41 @@ body {
         color: red;
     }
 
-.products_stand_name {
-    text-align: center;
-    padding-top: 25px;
-    padding-bottom: 15px;
-    font-weight: 600;
-    font-family: Cambria;
-    font-size: 32px;
+.produto_basic_info_buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 0 25px 0 25px;
 }
+
+.produto_expanded_info {
+
+    position: fixed;
+    z-index: 99999;
+    top: 210px;
+    background-color: white;
+    border: 3px solid darkred;
+    width: 800px;
+    height: 400px;
+    text-align: center;
+
+    display: none;
+}
+
+    .produto_expanded_info > h1 {
+
+        margin-top: 15px;
+        font-size: 36px;
+    }
+
+    .products_stand_name {
+        text-align: center;
+        padding-top: 25px;
+        padding-bottom: 15px;
+        font-weight: 600;
+        font-family: Cambria;
+        font-size: 32px;
+    }
 
 .subcategorias_container {
 

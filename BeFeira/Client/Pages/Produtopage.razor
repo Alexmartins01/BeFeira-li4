@@ -18,6 +18,7 @@
 
     <div class="lista_produtos">
 
+        
         @foreach (var produto in produtos)
         {
         <div class="produto_basic_info">
@@ -25,9 +26,25 @@
             <p class="nome_produto">@produto.Nome_Produto</p>
             <p class="preco_produto">@String.Format("Preço: {0}€",produto.Preco.ToString("0.00"))</p>
             <p class="stock_produto">@String.Format("Stock: {0} uni.",produto.Stock)</p>
-            <button><i class="fas fa-shopping-cart"></i></button>
+            <div class="produto_basic_info_buttons">
+                    <button><i class="fa-solid fa-circle-info"></i></button>
+                    <button><i class="fas fa-shopping-cart"></i></button>
+            </div>
+            
         </div>
         }
+           
+        <!--TODO: terminar div abaixo-->
+        <!--TODO: foreach para todos os produtos-->
+        <!--TODO: quando a div abaixo, mete display=none em todas as outras-->
+
+        <div class="produto_expanded_info">
+
+            <h1>Nome</h1>
+
+            <button>Voltar</button>
+
+        </div>
 
     </div>
 
