@@ -104,3 +104,19 @@ header {
 .container #flip {
     display: none;
 }
+
+.botao_voltar_bottom:hover {
+    background-color: darkred;
+    color: white;
+}
+
+.botao_voltar_bottom {
+    background: white;
+    border: 3px solid darkred;
+    padding: 5px 20px 5px 20px;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 15px;
+    transition: all 0.1s ease;
+    margin: 20px 0 20px 1050px;
+}

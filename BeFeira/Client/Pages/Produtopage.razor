@@ -3,14 +3,15 @@
 @inject IProdutoService ProdutoService
 @inject NavigationManager  NavigationManager
 
-
-
-
 <header>
     <link rel="stylesheet" href="icons/icons/css/all.css">
     <link rel="stylesheet" href="css/mainpage.css">
 
     <img src="logo.png" alt="BeFeira Logo">
+    <div class="user_header_info">
+        <h1>Guest</h1>
+        <i class="fa-solid fa-cart-shopping"></i>
+    </div>
     <i class="fa-solid fa-circle-user"></i>
 </header>
 
@@ -51,6 +52,8 @@
         }
 
     </div>
+
+    <button class="botao_voltar_bottom">Voltar</button>
 
 </body>
 
