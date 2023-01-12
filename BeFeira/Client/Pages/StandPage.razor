@@ -21,8 +21,20 @@
 
         @foreach (var subcat in subcategorias)
         {
-            <!--TODO: criar listas para produtos das subcategorias-->
-            <!--TODO: meter efeito de hover na subcategoria e em cada um dos produtos-->
+
+            <div class="subcategoria_container">
+
+                <h3>@subcat.Descricao</h3>
+
+                <!--Mostra os primeiros 4 produtos (sugestão: ordenar por rating a lista de produtos)-->
+
+                @for (int i = 0; i < 4 && i < produtos_subcats[subcat.ID].Count; i++)
+                {
+
+                    <p>@produtos_subcats[subcat.ID][i]</p>
+                }
+
+            </div>
         }
 
     </div>
@@ -64,5 +76,55 @@
         new Subcategoria{ID=2,Descricao="Descrição",StandID=0},
         new Subcategoria{ID=3,Descricao="Descrição",StandID=0},
         new Subcategoria{ID=4,Descricao="Descrição",StandID=0}
+    };
+
+    List<List<String>> produtos_subcats = new List<List<String>>
+    {
+
+        new List<String>
+    {
+       "Produto",
+       "Produto",
+       "Produto",
+       "Produto",
+       "Produto",
+       "Produto",
+       "Produto",
+       "Produto",
+       "Produto",
+       "Produto"
+    },
+
+    new List<String>
+    {
+       "Produto",
+       "Produto",
+       "Produto"
+    },
+
+    new List<String>
+    {
+       "Produto",
+       "Produto",
+       "Produto",
+       "Produto"
+    },
+
+    new List<String>
+    {
+       "Produto",
+       "Produto",
+       "Produto",
+       "Produto",
+       "Produto",
+       "Produto",
+       "Produto"
+    },
+
+    new List<String>
+    {
+       "Produto",
+       "Produto"
+    }
     };
 }
