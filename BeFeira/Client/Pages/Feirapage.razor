@@ -1,5 +1,5 @@
 ﻿@page "/feirapage"
-@page "/feirapage/{id:int}"
+@page "/feirapage/{id:int}/{s}"
 @inject IStandService StandService
 @inject IFeiraService SFeiraService
 @inject NavigationManager NavigationManager
@@ -48,6 +48,9 @@ else {
 
     [Parameter]
     public int? id { get; set; }
+
+	[Parameter]
+	public string? s { get; set; }
 
 
 
