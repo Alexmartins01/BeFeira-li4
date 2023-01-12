@@ -120,3 +120,27 @@ header {
     transition: all 0.1s ease;
     margin: 20px 0 20px 1050px;
 }
+
+.user_header_info {
+    display: flex;
+}
+
+    .user_header_info h1 {
+        color: white;
+        font-size: 18px;
+        margin: auto 30px auto 0;
+    }
+
+    .user_header_info i {
+        font-size: 20px;
+        background-color: white;
+        color: darkred !important;
+        border-radius: 50%;
+        padding: 10px;
+        transition: all 0.1s ease;
+    }
+
+        .user_header_info i:hover {
+            color: red;
+            transform: scale(1.1);
+        }
