@@ -1,5 +1,5 @@
 ﻿@page "/feirapage"
-@page "/feirapage/{id:int}/{s}"
+@page "/feirapage/{id:int}"
 @inject IStandService StandService
 @inject IFeiraService SFeiraService
 @inject NavigationManager NavigationManager
@@ -70,9 +70,10 @@ else {
 	{
 		await StandService.GetStands();
 	}
-	void ShowBarraca(int id)
+	void ShowBarraca(int idstand)
 	{
-		NavigationManager.NavigateTo($"standpage/{id}");
+		NavigationManager.NavigateTo($"standpage/{id}/{idstand}");
 	}
+	
 
 }

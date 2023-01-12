@@ -1,5 +1,5 @@
 ﻿@page "/standpage"
-@page "/standpage/{id:int}"
+@page "/standpage/{idfeira:int}/{idbarraca:int}"
 
 @inject IProdutoService ProdutoService
 @inject ISubcatserv SubCatService
@@ -59,7 +59,10 @@
 
 
     [Parameter]
-    public int? id { get; set; }
+    public int? idfeira { get; set; }
+
+     [Parameter]
+    public int? idbarraca { get; set; }
 
 
     protected override async Task OnInitializedAsync()
@@ -70,14 +73,14 @@
 
     protected override async Task OnParametersSetAsync()
     {
-        if (id == null)
+        if (idbarraca == null)
         {
 
         }
         else
         {
-            stand = await StandService.GetSingleStand((int)id);
-            subcats = await SubCatService.GetSubcatsByStand((int)id);
+            stand = await StandService.GetSingleStand((int)idbarraca);
+            subcats = await SubCatService.GetSubcatsByStand((int)idbarraca);
             int i = 0;
             foreach(var p in subcats)
             {
