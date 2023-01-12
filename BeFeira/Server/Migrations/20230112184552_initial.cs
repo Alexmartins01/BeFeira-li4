@@ -3,10 +3,12 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
+#pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
+
 namespace BeFeira.Server.Migrations
 {
     /// <inheritdoc />
-    public partial class inital : Migration
+    public partial class initial : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -18,8 +20,8 @@ namespace BeFeira.Server.Migrations
                     ID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Password = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Createdat = table.Column<DateTime>(name: "Created_at", type: "datetime2", nullable: true),
-                    Updatedat = table.Column<DateTime>(name: "Updated_at", type: "datetime2", nullable: true),
+                    Createdat = table.Column<DateTime>(name: "Created_at", type: "datetime2", nullable: false),
+                    Updatedat = table.Column<DateTime>(name: "Updated_at", type: "datetime2", nullable: false),
                     Username = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
@@ -264,6 +266,169 @@ namespace BeFeira.Server.Migrations
                         column: x => x.VendaID,
                         principalTable: "Venda",
                         principalColumn: "ID");
+                });
+
+            migrationBuilder.InsertData(
+                table: "Administrador",
+                columns: new[] { "ID", "Created_at", "Password", "Updated_at", "Username" },
+                values: new object[,]
+                {
+                    { 1, new DateTime(2023, 1, 12, 18, 45, 51, 956, DateTimeKind.Local).AddTicks(2889), "1234", new DateTime(2023, 1, 12, 18, 45, 51, 956, DateTimeKind.Local).AddTicks(2932), "Bernas" },
+                    { 2, new DateTime(2023, 1, 12, 18, 45, 51, 956, DateTimeKind.Local).AddTicks(2936), "2345", new DateTime(2023, 1, 12, 18, 45, 51, 956, DateTimeKind.Local).AddTicks(2937), "Cebolinha" },
+                    { 3, new DateTime(2023, 1, 12, 18, 45, 51, 956, DateTimeKind.Local).AddTicks(2939), "3456", new DateTime(2023, 1, 12, 18, 45, 51, 956, DateTimeKind.Local).AddTicks(2940), "Sergio" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Cliente",
+                columns: new[] { "ID", "Email", "Password", "Username" },
+                values: new object[,]
+                {
+                    { 1, "a@uminho.pt", "sporting", "pedro" },
+                    { 2, "a@uminho.pt", "benfica", "joao" },
+                    { 3, "a@uminho.pt", "porto", "ze" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Feira",
+                columns: new[] { "ID", "Categoria" },
+                values: new object[,]
+                {
+                    { 1, "Casa e Decoração" },
+                    { 2, "Animais" },
+                    { 3, "Mercearia e Produtos Frescos" },
+                    { 4, "Cultura" },
+                    { 5, "Véiculos" },
+                    { 6, "Escritório" },
+                    { 7, "Moda" },
+                    { 8, "Bricolagem" },
+                    { 9, "Animais de Estimação" },
+                    { 10, "Brinquedos" },
+                    { 11, "Gaming" },
+                    { 12, "Lazer" },
+                    { 13, "Saúde" },
+                    { 14, "Beleza" },
+                    { 15, "Eletrodomésticos" },
+                    { 16, "Imagem" },
+                    { 17, "Som" },
+                    { 18, "Smartphones e Acessórios" },
+                    { 19, "Informática" },
+                    { 20, "Desporto" },
+                    { 21, "Random" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Vendedor",
+                columns: new[] { "ID", "Email", "Iban", "Mbway", "Password", "Rating", "Username" },
+                values: new object[,]
+                {
+                    { 1, "a@uminho.pt", "1113231", "964888999", "0000", 9, "Lucas" },
+                    { 2, "a@uminho.pt", "3453661", "96282289", "0101", 6, "Jonny" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Stand",
+                columns: new[] { "ID", "FeiraID", "Nome", "VendedorID" },
+                values: new object[,]
+                {
+                    { 1, 1, "ZaraHome", 1 },
+                    { 2, 2, "Agriloja", 1 },
+                    { 3, 3, "Pingo Doce", 1 },
+                    { 4, 4, "Bertrand", 1 },
+                    { 5, 5, "BMW", 1 },
+                    { 6, 6, "IKEA", 1 },
+                    { 7, 7, "Zara", 1 },
+                    { 8, 8, "Leroy Merlin", 1 },
+                    { 9, 9, "Animais e Companhia", 1 },
+                    { 10, 10, "ToysRus", 1 },
+                    { 11, 11, "CEX", 2 },
+                    { 12, 12, "Worten", 1 },
+                    { 13, 13, "WELLS", 2 },
+                    { 14, 14, "Perfumes e Companhia", 1 },
+                    { 15, 15, "Tien21", 1 },
+                    { 16, 16, "Canon", 2 },
+                    { 17, 17, "JBL", 1 },
+                    { 18, 18, "WortenMobile", 1 },
+                    { 19, 19, "PCDiga", 2 },
+                    { 20, 20, "SoloPorteros", 1 },
+                    { 21, 21, "Pilhas e Companhia", 1 }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Carrinho",
+                columns: new[] { "ID", "ClienteID", "StandID", "Total" },
+                values: new object[,]
+                {
+                    { 1, 1, 1, 0m },
+                    { 2, 2, 2, 10m },
+                    { 3, 3, 3, 5m }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Subcategoria",
+                columns: new[] { "ID", "Descricao", "StandID" },
+                values: new object[,]
+                {
+                    { 1, "Casa de Banho", 1 },
+                    { 2, "Sala", 1 },
+                    { 3, "Cozinha", 1 },
+                    { 4, "Rações", 2 },
+                    { 5, "Frangos", 2 },
+                    { 6, "Coelhos", 2 },
+                    { 7, "Higiene", 3 },
+                    { 8, "Talho", 3 },
+                    { 9, "Peixaria", 3 },
+                    { 10, "Terror", 4 },
+                    { 11, "Comédia", 4 },
+                    { 12, "Romance", 4 },
+                    { 13, "Elétricos", 5 },
+                    { 14, "Gasóleo", 5 },
+                    { 15, "Hibrídos", 5 },
+                    { 16, "Secretárias", 6 },
+                    { 17, "Tapetes", 6 },
+                    { 18, "Cadeiras", 6 }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Produto",
+                columns: new[] { "ID", "Nome_Produto", "Preco", "Promocao", "Rating", "StandID", "Stock", "SubCategoriaID" },
+                values: new object[,]
+                {
+                    { 1, "Maçãs", 2.9f, 0, 4, 1, 3, 1 },
+                    { 2, "Bonecos", 25.9f, 0, 2, 2, 2, 2 },
+                    { 3, "Tapetea", 23.9f, 0, 3, 3, 1, 2 }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Venda",
+                columns: new[] { "ID", "CarrinhoID", "Date", "Total" },
+                values: new object[,]
+                {
+                    { 1, 1, new DateTime(2023, 1, 12, 18, 45, 51, 956, DateTimeKind.Local).AddTicks(3160), 0f },
+                    { 2, 2, new DateTime(2023, 1, 12, 18, 45, 51, 956, DateTimeKind.Local).AddTicks(3163), 0f }
+                });
+
+            migrationBuilder.InsertData(
+                table: "CarrinhoProduto",
+                columns: new[] { "ID", "CarrinhoID", "Preco", "ProdutoID", "Quantidade", "TaxaBefeira" },
+                values: new object[,]
+                {
+                    { 1, 1, 10f, 1, 1, 10 },
+                    { 2, 2, 120f, 2, 4, 10 },
+                    { 3, 3, 22f, 3, 2, 10 }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Promocao",
+                columns: new[] { "ID", "Date", "Desconto", "ProdutoID" },
+                values: new object[] { 1, new DateTime(2023, 1, 12, 18, 45, 51, 956, DateTimeKind.Local).AddTicks(3121), 10, 1 });
+
+            migrationBuilder.InsertData(
+                table: "VendaProduto",
+                columns: new[] { "ID", "Preco", "ProdutoID", "Quantidade", "TaxaBefeira", "VendaID" },
+                values: new object[,]
+                {
+                    { 1, 10f, 1, 2, 10, 1 },
+                    { 2, 20f, 3, 3, 10, 2 }
                 });
 
             migrationBuilder.CreateIndex(

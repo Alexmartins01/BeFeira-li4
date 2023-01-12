@@ -16,7 +16,7 @@ namespace BeFeira.Client.Services.ProdutoServices
         }
         public  List<Produto> produtos { get ; set ; }
         
-        public Produto singlePROD { get; set; }
+     
         
 
         public async void SetProdutos(HttpResponseMessage result)
@@ -25,10 +25,21 @@ namespace BeFeira.Client.Services.ProdutoServices
             this.produtos= response;
             navigationManager.NavigateTo("produto");
         }
-        public async Task<List<Produto>> GetByIdStand(int id)
+
+
+        public async Task<List<Produto>> GetProdutosBySubcat(int idsubcat)
         {
-            throw new NotImplementedException();
+            List<Produto> prods= new List<Produto> ();
+            foreach(var p in produtos)
+            {
+                if (p.SubCategoriaID == idsubcat)
+                {
+                    prods.Add(p);
+                }
+            }
+            return prods;
         }
+
 
         public  async Task GetProdutos()
         {
@@ -70,6 +81,25 @@ namespace BeFeira.Client.Services.ProdutoServices
             var result = await _http.PutAsJsonAsync($"api/Produto/{p.ID}", p);
             var response = await result.Content.ReadFromJsonAsync<List<Produto>>();
             SetProdutos(result);
+        }
+
+        public async Task<List<Produto>> GetByIdStand(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+         public async Task<List<Produto>> GetProdutosBySubcat4(int idsubcat)
+        {
+    
+            List<Produto> prods = new List<Produto>();
+            foreach (var p in produtos)
+            {
+                if (p.SubCategoriaID == idsubcat && prods.Count<4)
+                {
+                    prods.Add(p);
+                }
+            }
+            return prods;
         }
     }
 }

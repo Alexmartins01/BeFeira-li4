@@ -7,7 +7,7 @@ namespace BeFeira.Server.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class SubcategoriaController : ControllerBase
+    public class SubcategoriaController : Controller
     {
         private readonly DataContext _context;
         public SubcategoriaController(DataContext context)
@@ -18,7 +18,7 @@ namespace BeFeira.Server.Controllers
 
 
 
-        [HttpGet("")]
+        [HttpGet]
         public async Task<ActionResult<List<Subcategoria>>> GetSubcategorias()
         {
             var subs = await _context.Subcategorias.ToListAsync();
@@ -26,17 +26,7 @@ namespace BeFeira.Server.Controllers
         }
 
 
-        [HttpGet("{id}")]
-        [Route("id")]
-        public async Task<ActionResult<List<Subcategoria>>> GetSubcatsByStand(int idStand)
-        {
-            var feira = await _context.Subcategorias.Where(h=>h.StandID== idStand).ToListAsync();
-            if (feira == null)
-            {
-                return NotFound("Sorry,no Feira Here");
-            }
-            return Ok(feira);
-        }
+       
 
     }
 }

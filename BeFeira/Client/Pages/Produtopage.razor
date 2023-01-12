@@ -3,12 +3,7 @@
 @inject IProdutoService ProdutoService
 @inject NavigationManager  NavigationManager
 
-@section Scripts {
-    
-    <script>
-        
-    </script>
-}
+
 
 
 <header>
@@ -35,7 +30,7 @@
             <p class="preco_produto">@String.Format("Preço: {0}€",produto.Preco.ToString("0.00"))</p>
             <p class="stock_produto">@String.Format("Stock: {0} uni.",produto.Stock)</p>
             <div class="produto_basic_info_buttons">
-                    <button><i class="fa-solid fa-circle-info"></i></button>
+                    <button><i class="fa-solid fa-circle-info" ></i></button>
                     <button><i class="fas fa-shopping-cart"></i></button>
             </div>
             

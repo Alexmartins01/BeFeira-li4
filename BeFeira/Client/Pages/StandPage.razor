@@ -1,7 +1,8 @@
 ﻿@page "/standpage"
 @page "/standpage/{id:int}"
 
-
+@inject IProdutoService ProdutoService
+@inject ISubcatserv SubCatService
 @inject IStandService StandService
 @inject NavigationManager  NavigationManager
 
@@ -15,26 +16,32 @@
 
 <body class="stand_page_container">
 
-    <h1 class="products_stand_name">@nome_do_stand</h1>
+    <h1 class="products_stand_name">@stand.Nome</h1>
 
     <div class="subcategorias_container">
 
-        @foreach (var subcat in subcategorias)
+
+
+        
+        @foreach (var subcat in subcats)
         {
+           
+                <div class="subcategoria_container">
 
-            <div class="subcategoria_container">
-
-                <h3>@subcat.Descricao</h3>
-
-                <!--Mostra os primeiros 4 produtos (sugestão: ordenar por rating a lista de produtos)-->
-
-                @for (int i = 0; i < 4 && i < produtos_subcats[subcat.ID].Count; i++)
+                    <h3>@subcat.Descricao</h3>
+                @foreach (var prod in produtos_subcats[n])
                 {
+              
+                        <p>@prod.Nome_Produto</p>
+                    {
+                        n++;
+                    }
 
-                    <p>@produtos_subcats[subcat.ID][i]</p>
-                }
+
+            }
 
             </div>
+            
         }
 
     </div>
@@ -42,15 +49,24 @@
 </body>
 
 @code {
-
+    int n = 0;
+    int l = 0;
     Stand stand = new Stand { };
-    List<Subcategoria> subcats = new List<Subcategoria>();
+    List<Subcategoria> subcats = new List<Subcategoria> { };
+    List<List<Produto>> produtos_subcats = new List<List<Produto>>();
+
 
 
 
     [Parameter]
     public int? id { get; set; }
 
+
+    protected override async Task OnInitializedAsync()
+    {
+        await ProdutoService.GetProdutos();
+        await SubCatService.GetSubcats();
+    }
 
     protected override async Task OnParametersSetAsync()
     {
@@ -61,70 +77,78 @@
         else
         {
             stand = await StandService.GetSingleStand((int)id);
-            subcats = await StandService.GetSubcategoriasbyStand((int)id);
+            subcats = await SubCatService.GetSubcatsByStand((int)id);
+            int i = 0;
+            foreach(var p in subcats)
+            {
+                produtos_subcats.Add(await ProdutoService.GetProdutosBySubcat4(p.ID));
+                i++;
+            }
+           
+
         }
     }
 
     // Código para testes
 
-    string nome_do_stand = "<Nome do Stand>";
+ 
 
-    List<Subcategoria> subcategorias = new List<Subcategoria>{
+   /*
 
-        new Subcategoria{ID=0,Descricao="Descrição",StandID=0},
-        new Subcategoria{ID=1,Descricao="Descrição",StandID=0},
-        new Subcategoria{ID=2,Descricao="Descrição",StandID=0},
-        new Subcategoria{ID=3,Descricao="Descrição",StandID=0},
-        new Subcategoria{ID=4,Descricao="Descrição",StandID=0}
-    };
+     @for (int i = 0; i < 4 && i < produtos_subcats[subcat.ID].Count; i++)
+                     {
+
+                     <p>@produtos_subcats[subcat.ID][i]</p>
+    }
+
 
     List<List<String>> produtos_subcats = new List<List<String>>
-    {
+         {
 
-        new List<String>
-    {
-       "Produto",
-       "Produto",
-       "Produto",
-       "Produto",
-       "Produto",
-       "Produto",
-       "Produto",
-       "Produto",
-       "Produto",
-       "Produto"
-    },
+     new List<String>
+        {
+        "Produto",
+        "Produto",
+        "Produto",
+        "Produto",
+        "Produto",
+        "Produto",
+        "Produto",
+        "Produto",
+        "Produto",
+     "Produto"
+     },
 
-    new List<String>
-    {
-       "Produto",
-       "Produto",
-       "Produto"
-    },
+     new List<String>
+        {
+        "Produto",
+        "Produto",
+     "Produto"
+     },
 
-    new List<String>
-    {
-       "Produto",
-       "Produto",
-       "Produto",
-       "Produto"
-    },
+     new List<String>
+        {
+        "Produto",
+        "Produto",
+        "Produto",
+     "Produto"
+     },
 
-    new List<String>
-    {
-       "Produto",
-       "Produto",
-       "Produto",
-       "Produto",
-       "Produto",
-       "Produto",
-       "Produto"
-    },
+     new List<String>
+        {
+        "Produto",
+        "Produto",
+        "Produto",
+        "Produto",
+        "Produto",
+        "Produto",
+     "Produto"
+     },
 
-    new List<String>
-    {
-       "Produto",
-       "Produto"
-    }
-    };
+     new List<String>
+        {
+        "Produto",
+     "Produto"
+         }
+    };*/
 }

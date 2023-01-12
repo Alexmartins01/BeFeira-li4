@@ -5,6 +5,7 @@ using BeFeira.Client;
 using BeFeira.Client.Services.ProdutoServices;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
+using BeFeira.Client.Services.SubcategoriaServices;
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
 builder.RootComponents.Add<App>("#app");
@@ -14,6 +15,7 @@ builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.
 builder.Services.AddScoped<IStandService,StandService>();
 builder.Services.AddScoped<IProdutoService, ProdutoService>();
 builder.Services.AddScoped<IFeiraService, FeiraService>();
+builder.Services.AddScoped<ISubcatserv, SubCatService>();
 
 
 await builder.Build().RunAsync();

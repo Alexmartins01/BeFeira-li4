@@ -11,6 +11,8 @@
         Task CreateProduto(Produto p);
         Task UpdateProduto(Produto p);
         Task DeleteProduto( int id);
+        Task<List<Produto>> GetProdutosBySubcat(int idsubcat);
+        Task<List<Produto>> GetProdutosBySubcat4(int idsubcat);
 
     }
 }

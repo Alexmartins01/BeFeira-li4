@@ -19,7 +19,7 @@ namespace BeFeira.Server.Controllers
 
 
 
-        [HttpGet("")]
+        [HttpGet]
         public async Task <ActionResult<List<Produto>>> GetProdutos()
         {
             var produto = await _context.Produtos.ToListAsync();
@@ -39,63 +39,7 @@ namespace BeFeira.Server.Controllers
         }
 
 
-        [HttpPost]
-        public async Task<ActionResult<Produto>> CreateProduto(Produto p)
-        {
-
-            _context.Produtos.Add(p);
-            await _context.SaveChangesAsync();
-
-            return Ok(await GetDBProds());
-        }
-
-
-        [HttpPut("{id}")]
-        [Route("id")]
-        public async Task<ActionResult<Produto>> UpdateProduto(Produto p,int id)
-        {
-
-            var dbProd = await _context.Produtos.FirstOrDefaultAsync(sh=>sh.ID==id);
-
-            if (dbProd == null)
-                return NotFound("No product ");
-
-            dbProd.Preco = p.Preco;
-            dbProd.ID = id;
-            dbProd.Promocao = p.Promocao;
-            dbProd.Nome_Produto = p.Nome_Produto;
-            dbProd.Rating = p.Rating;
-            dbProd.StandID = p.StandID;
-            dbProd.SubCategoriaID = p.SubCategoriaID;
-            dbProd.Stock = p.Stock;
-
-            await _context.SaveChangesAsync();
-            return Ok(await GetDBProds());
-            }
-
-
-        [HttpDelete("{id}")]
-        [Route("id")]
-        public async Task<ActionResult<Produto>> DeleteProduto(Produto p, int id)
-        {
-
-            var dbProd = await _context.Produtos.FirstOrDefaultAsync(sh => sh.ID == id);
-
-            if (dbProd == null)
-                return NotFound("No product ");
-
-          
-
-             _context.Produtos.Remove(dbProd);
-            return Ok(await GetDBProds());
-        }
-
-        private async Task<List<Produto>> GetDBProds()
-        {
-
-            return await _context.Produtos.ToListAsync();
-        }
-
+    
 
 
     }

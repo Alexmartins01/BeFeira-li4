@@ -1,0 +1,75 @@
+﻿@page "/feirapage"
+@page "/feirapage/{id:int}"
+@inject IStandService StandService
+@inject IFeiraService SFeiraService
+@inject NavigationManager NavigationManager
+
+
+<PageTitle> Feirapage </PageTitle>
+
+@if (id == null)
+{
+	
+
+}
+else {
+
+<header>
+    <link rel="stylesheet" href="icons/icons/css/all.css">
+    <link rel="stylesheet" href="css/mainpage.css">
+
+    <img src="logo.png" alt="BeFeira Logo">
+    <p>Login/Registo</p>
+    <i class="fa-solid fa-circle-user"></i>
+</header>
+
+<body class="feira_container">
+	<h3>@String.Format("Feira de {0}",f.Categoria)</h3>
+	<div class="feira_stands_container">
+
+		@foreach (var std in StandService.Stands)
+			{
+				if (std.FeiraID == id)
+				{
+					<div class="feira_stand_container" @onclick="(()=>ShowBarraca(std.ID))">
+						<p class="stand_name">@std.Nome</p>
+						<p class="vendedor_name">@std.ID</p>
+
+					</div>
+				}
+			}
+	</div>
+</body>
+}
+@code {
+
+	Feira f = new Feira {};
+
+
+    [Parameter]
+    public int? id { get; set; }
+
+
+
+	protected override async Task OnParametersSetAsync()
+	{
+		if (id == null)
+		{
+
+		}
+		else
+		{
+			f = await SFeiraService.GetSingleFeira((int)id);
+		}
+	}
+
+	protected override async Task OnInitializedAsync()
+	{
+		await StandService.GetStands();
+	}
+	void ShowBarraca(int id)
+	{
+		NavigationManager.NavigateTo($"standpage/{id}");
+	}
+
+}
