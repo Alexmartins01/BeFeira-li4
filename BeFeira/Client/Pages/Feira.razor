@@ -1,4 +1,5 @@
 ﻿@page "/feira"
+@page "/feira/{id:int}"
 @inject IStandService StandService
 @inject IFeiraService SFeiraService
 @inject NavigationManager NavigationManager
@@ -30,6 +31,9 @@
 </body>
 
 @code {
+	
+    [Parameter]
+    public int? id { get; set; }
 
 	protected override async Task OnInitializedAsync()
 	{
