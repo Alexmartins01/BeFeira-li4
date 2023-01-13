@@ -1,6 +1,7 @@
 ﻿@page "/feirapage"
 @page "/feirapage/{id:int}"
 @inject IStandService StandService
+@inject IVendedorService VendedorService
 @inject IFeiraService SFeiraService
 @inject NavigationManager NavigationManager
 
@@ -36,7 +37,7 @@ else {
 				{
 					<div class="feira_stand_container" @onclick="(()=>ShowBarraca(std.ID))">
 						<p class="stand_name">@std.Nome</p>
-						<p class="vendedor_name">@std.ID</p>
+						<p class="vendedor_name"> ID Vendedor :@std.VendedorID </p>
 
 					</div>
 				}
@@ -50,8 +51,8 @@ else {
 	Feira f = new Feira {};
 
 
-    [Parameter]
-    public int? id { get; set; }
+	[Parameter]
+	public int? id { get; set; }
 
 	[Parameter]
 	public string? s { get; set; }
@@ -72,12 +73,17 @@ else {
 
 	protected override async Task OnInitializedAsync()
 	{
+		await VendedorService.GetVendedores();
 		await StandService.GetStands();
 	}
 	void ShowBarraca(int idstand)
 	{
 		NavigationManager.NavigateTo($"standpage/{id}/{idstand}");
 	}
+
 	
+
+
+
 
 }

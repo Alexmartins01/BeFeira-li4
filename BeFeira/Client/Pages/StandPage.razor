@@ -29,14 +29,14 @@
         
         @foreach (var subcat in subcats)
         {
-           
-                <div class="subcategoria_container">
 
-                    <h3>@subcat.Descricao</h3>
+            <div class="subcategoria_container" @onclick="(()=>ShowProductsCategory(subcat.ID))">
+
+                <h3>@subcat.Descricao </h3>
                 @foreach (var prod in produtos_subcats[n])
                 {
               
-                        <p>@prod.Nome_Produto</p>
+                        <p>@prod.Nome_Produto </p>
                     {
                         n++;
                     }
@@ -98,66 +98,8 @@
         }
     }
 
-    // Código para testes
-
- 
-
-   /*
-
-     @for (int i = 0; i < 4 && i < produtos_subcats[subcat.ID].Count; i++)
-                     {
-
-                     <p>@produtos_subcats[subcat.ID][i]</p>
+    void ShowProductsCategory(int subcat)
+    {
+        NavigationManager.NavigateTo($"produtopage/{subcat}/{idbarraca}/{idfeira}");
     }
-
-
-    List<List<String>> produtos_subcats = new List<List<String>>
-         {
-
-     new List<String>
-        {
-        "Produto",
-        "Produto",
-        "Produto",
-        "Produto",
-        "Produto",
-        "Produto",
-        "Produto",
-        "Produto",
-        "Produto",
-     "Produto"
-     },
-
-     new List<String>
-        {
-        "Produto",
-        "Produto",
-     "Produto"
-     },
-
-     new List<String>
-        {
-        "Produto",
-        "Produto",
-        "Produto",
-     "Produto"
-     },
-
-     new List<String>
-        {
-        "Produto",
-        "Produto",
-        "Produto",
-        "Produto",
-        "Produto",
-        "Produto",
-     "Produto"
-     },
-
-     new List<String>
-        {
-        "Produto",
-     "Produto"
-         }
-    };*/
 }
