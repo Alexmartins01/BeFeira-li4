@@ -34,24 +34,11 @@
             <p class="preco_produto">@String.Format("Preço: {0}€",produto.Preco.ToString("0.00"))</p>
             <p class="stock_produto">@String.Format("Stock: {0} uni.",produto.Stock)</p>
             <div class="produto_basic_info_buttons">
-                    <button><i class="fa-solid fa-circle-info" ></i></button>
+                    <button><i class="fa-solid fa-circle-info"@onclick="(()=>showProdInfo((int)idsubcategoria,produto.ID))"></i></button>
                     <button><i class="fas fa-shopping-cart"></i></button>
             </div>
             
         </div>
-
-            <div class="produto_expanded_info" id="@produto.ID">
-
-                <h1>@produto.Nome_Produto</h1>
-
-                <p>@String.Format("Preço: {0}€",produto.Preco.ToString("0.00"))</p>
-                <p>@String.Format("Preço: {0}%",produto.Promocao)</p>
-                <p>@String.Format("Stock: {0} uni.",produto.Stock)</p>
-                <p>@String.Format("Preço: {0}%",produto.Rating)</p>
-
-              
-
-            </div>
         }
 
     </div>
@@ -114,6 +101,11 @@
     void gomain()
     {
         NavigationManager.NavigateTo("mainpage");
+    }
+
+    void showProdInfo(int subcat, int prod)
+    {
+        NavigationManager.NavigateTo($"produtoinfo/{prod}/{subcat}/{idstand}/{idfeira}/0");
     }
 
 }

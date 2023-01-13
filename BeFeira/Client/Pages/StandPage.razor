@@ -33,19 +33,13 @@
             <div class="subcategoria_container" >
 
                 <h3 @onclick="(()=>ShowProductsCategory(subcat.ID))">  @subcat.Descricao  </h3>
-                @foreach (var prod in produtos_subcats[n])
+                @foreach (var prod in produtos_subcats[subcat.ID])
                 {
               
-                        <p>@prod.Nome_Produto </p>
-                    {
-                        n++;
-                    }
-
-
-            }
+                    <p @onclick="(()=>showProdInfo(subcat.ID,prod.ID))">@prod.Nome_Produto</p>
+                }
 
             </div>
-            
         }
 
     </div>
@@ -55,10 +49,9 @@
 
 @code {
     int n = 0;
-    int l = 0;
     Stand stand = new Stand { };
     List<Subcategoria> subcats = new List<Subcategoria> { };
-    List<List<Produto>> produtos_subcats = new List<List<Produto>>();
+    Dictionary<int, List<Produto>> produtos_subcats = new Dictionary<int, List<Produto>>();
 
 
 
@@ -85,14 +78,10 @@
         {
             stand = await StandService.GetSingleStand((int)idbarraca);
             subcats = await SubCatService.GetSubcatsByStand((int)idbarraca);
-            int i = 0;
-            foreach(var p in subcats)
+            foreach(var sub in subcats)
             {
-                produtos_subcats.Add(await ProdutoService.GetProdutosBySubcat4(p.ID));
-                i++;
+                produtos_subcats.Add(sub.ID, await ProdutoService.GetProdutosBySubcat4(sub.ID));
             }
-           
-
         }
     }
 
@@ -108,6 +97,11 @@
     void gomain()
     {
         NavigationManager.NavigateTo("mainpage");
+    }
+
+    void showProdInfo(int subcat,int prod)
+    {
+        NavigationManager.NavigateTo($"produtoinfo/{prod}/{subcat}/{idbarraca}/{idfeira}/1");
     }
 
 }
