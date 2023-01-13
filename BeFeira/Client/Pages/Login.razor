@@ -37,7 +37,7 @@
                                 <input type="password" @bind-value="model.pass" placeholder="Password" required>
                             </div>
                             <div class="button input-box">
-                                <input type="submit" runat="server" @onclick="Submit" value="Entrar">
+                                <input type="submit" @onclick="Submit" value="Entrar">
                             </div>
                            
                         </div>
@@ -45,53 +45,29 @@
                     </Editform>
                 </div>
                 <div class="signup-form">
-                    <div>Registar Cliente</div>
+                    <div>Registar</div>
                     <form action="mainpage">
                         <div class="input-boxes">
+                            <div>
+                                <select class="form-select">
+                                    <option value="Vendedor">Vendedor</option>
+                                    <option value="Cliente">Cliente</option>
+                                </select>
+                            </div>
                             <div class="input-box">
                                 <i class="fas fa-user"></i>
-                                <input type="text" placeholder="Nome Completo" required>
+                                <input type="text" @bind-value="cli.Username" @bind-value:event="oninput" placeholder="Username" required>
                             </div>
                             <div class="input-box">
                                 <i class="fas fa-envelope"></i>
-                                <input type="text" placeholder="Email" required>
+                                <input type="text" @bind-value="cli.Email" @bind-value:event="oninput" placeholder="Email" required>
                             </div>
                             <div class="input-box">
                                 <i class="fas fa-lock"></i>
-                                <input type="password" placeholder="Password" required>
+                                <input type="password" @bind-value="cli.Password" @bind-value:event="oninput"  placeholder="Password" required>
                             </div>
                             <div class="button input-box">
-                                <input type="submit" value="Registar Cliente">
-                            </div>
-                        </div>
-                    </form>
-                </div>
-                <div class="signup-form">
-                    <div>Registar Vendedor</div>
-                    <form action="mainpage">
-                        <div class="input-boxes">
-                            <div class="input-box">
-                                <i class="fas fa-user"></i>
-                                <input type="text" placeholder="Nome Completo" required>
-                            </div>
-                            <div class="input-box">
-                                <i class="fas fa-envelope"></i>
-                                <input type="text" placeholder="Email" required>
-                            </div>
-                            <div class="input-box">
-                                <i class="fas fa-lock"></i>
-                                <input type="password" placeholder="Password" required>
-                            </div>
-                            <div class="input-box">
-                                <i class="fas fa-lock"></i>
-                                <input type="number" placeholder="Iban" required>
-                            </div>
-                            <div class="input-box">
-                                <i class="fas fa-lock"></i>
-                                <input type="number" placeholder="MBWay" required>
-                            </div>
-                            <div class="button input-box">
-                                <input type="submit" value="Registar Vendedor">
+                                <input type="submit" @onclick="Register" value="Registar">
                             </div>
                         </div>
                     </form>
@@ -109,6 +85,8 @@
 
     Formulario model = new Formulario { };
 
+    Cliente cli = new Cliente { };
+
     private  bool aux;
 
     protected override async Task OnInitializedAsync()
@@ -116,10 +94,10 @@
         await VendedorService.GetVendedores();
         await ClientService.GetClientes();
     }
-     void moveasguest()
-        {
-            NavigationManager.NavigateTo($"/mainpage/{-1}");
-        }
+    void moveasguest()
+    {
+        NavigationManager.NavigateTo($"/mainpage/{-1}");
+    }
 
     void OnSelect(ChangeEventArgs e)
     {
@@ -136,15 +114,22 @@
                 //NavigationManager.NavigateTo($"/vendedeorpage");
             }
         }
-       else  if (model.opcao.Equals("Cliente"))
+        else  if (model.opcao.Equals("Cliente"))
         {
-             aux  =  await ClientService.ValidClient(model.username, model.pass);
-           if (aux ==true)
+            aux  =  await ClientService.ValidClient(model.username, model.pass);
+            if (aux ==true)
             {
                 NavigationManager.NavigateTo($"/mainpage/{@model.username}");
             }
-            
+
         }
         else{} 
+    }
+    private async void Register()
+    {
+       
+        await ClientService.AddCliente(cli);
+        NavigationManager.NavigateTo($"/mainpage/{cli.Username}");
+
     }
 }

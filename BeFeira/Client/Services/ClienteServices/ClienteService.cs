@@ -37,5 +37,14 @@ namespace BeFeira.Client.Services.ClienteServices
             }
             return false;
         }
+
+
+        public async Task AddCliente(Cliente client)
+        {
+            var result = await _http.PostAsJsonAsync("api/cliente", client);
+            var response = await result.Content.ReadFromJsonAsync<List<Cliente>>();
+            clientes = response.ToList();
+        }
+
     }
 }
