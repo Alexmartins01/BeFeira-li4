@@ -46,5 +46,19 @@ namespace BeFeira.Services.StandServices
             if (result != null) { return result; }
             throw new Exception("invalid");
         }
-    }
+
+		public async Task<List<Stand>> GetStandsByFeira(int id)
+		{
+			List<Stand> std=new List<Stand>() { };
+			foreach (var p in Stands)
+			{
+				if (p.FeiraID == id)
+				{
+					std.Add(p);
+				}
+
+			}
+			return std; 
+		}
+	}
 }

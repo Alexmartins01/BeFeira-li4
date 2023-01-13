@@ -32,8 +32,4 @@
     <ProjectReference Include="..\Shared\BeFeira.Shared.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Services\ClienteServices\" />
-  </ItemGroup>
-
 </Project>

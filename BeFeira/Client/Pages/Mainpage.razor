@@ -1,4 +1,5 @@
 ﻿@page "/mainpage"
+@page "/mainpage/{uname}"
 @inject NavigationManager NavigationManager
 
 
@@ -9,7 +10,7 @@
 
     <img src="logo.png" alt="BeFeira Logo">
     <div class="user_header_info">
-        <h1>Guest</h1>
+        <h1>@uname</h1>
         <i class="fa-solid fa-cart-shopping"></i>
     </div>
     <i class="fa-solid fa-circle-user"></i>
@@ -125,6 +126,10 @@
 
 @code {
  
+     
+
+    [Parameter]
+    public string? uname  { get; set; }
     void ShowFeira(int id)
     {
         NavigationManager.NavigateTo($"/feirapage/{id}");

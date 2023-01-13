@@ -1,5 +1,9 @@
 ﻿@page "/login"
 
+
+@inject IVendedorService VendedorService
+@inject NavigationManager NavigationManager
+
 <header>
     <link rel="stylesheet" href="icons/icons/css/all.css">
     <link rel="stylesheet" href="css/Login.css">
@@ -15,29 +19,31 @@
             <div class="form-content">
                 <div class="login-form">
                     <div>Iniciar Sessão</div>
-                    <form action="mainpage">
+                    <Editform Model = "@model">
                         <div class="input-boxes">
                             <div>
-                                <select class="form-select">
+                                <select class="form-select" @onchange="@OnSelect" >
                                     <option disabled selected>Usuário</option>
-                                    <option value="Administrador">Administrador</option>
+                                    <option value="Administrador" >Administrador  </option>
                                     <option value="Vendedor">Vendedor</option>
                                     <option value="Cliente">Cliente</option>
                                 </select>
                             </div>
+                   
                             <div class="input-box">
                                 <i class="fas fa-envelope"></i>
-                                <input type="text" placeholder="Email" required>
+                                <input type="text" @bind-value="model.username"  placeholder="username" required>
                             </div>
                             <div class="input-box">
                                 <i class="fas fa-lock"></i>
-                                <input type="password" placeholder="Password" required>
+                                <input type="password" @bind-value="model.pass" placeholder="Password" required>
                             </div>
                             <div class="button input-box">
-                                <input type="submit" value="Entrar">
+                                <input type="submit" runat="server" @onclick="Submit" value="Entrar">
                             </div>
+                         
                         </div>
-                    </form>
+                    </Editform>
                 </div>
                 <div class="signup-form">
                     <div>Registar</div>
@@ -79,4 +85,30 @@
 
 @code {
 
+    Formulario model = new Formulario { };
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        await VendedorService.GetVendedores();
+    }
+
+    void OnSelect(ChangeEventArgs e)
+    {
+        model.opcao = e.Value.ToString();
+    }
+
+    private void Submit()
+    {
+        if (model.opcao.Equals("Vendedor"))
+        {
+             
+           // NavigationManager.NavigateTo($"/vendedorpage/{@model.opcao}");
+        }
+        if (model.opcao.Equals("Cliente")){
+
+
+            NavigationManager.NavigateTo($"/mainpage/{@model.opcao}");
+        }
+    }
 }

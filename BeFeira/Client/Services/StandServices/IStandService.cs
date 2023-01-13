@@ -8,7 +8,9 @@
 		Task<Stand> GetSingleStand(int id);
 		Task GetSubcategorias();
 		Task<List<Subcategoria>> GetSubcategoriasbyStand(int id);
+		Task<List<Stand>> GetStandsByFeira(int id);
 
 
-    }
+
+	}
 }
