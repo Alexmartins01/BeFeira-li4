@@ -48,7 +48,7 @@ header {
 
 .form-content .login-form,
 .form-content .signup-form {
-    width: calc(100% / 2 - 25px);
+    width: calc(70% / 2 - 25px);
 }
 
 .forms .form-content .input-boxes {
