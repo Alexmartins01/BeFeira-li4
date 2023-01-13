@@ -448,3 +448,38 @@ body {
         color: red;
         transform: scale(1.1);
     }
+
+
+.search_container {
+    padding-top: 0.2%;
+}
+
+.search_input {
+    width: 100%;
+    padding: 12px 24px;
+    background-color: transparent;
+    transition: transform 250ms ease-in-out;
+    font-size: 14px;
+    line-height: 18px;
+    color: black;
+    border-radius: 50px;
+    border: 1px solid black;
+    transition: all 250ms ease-in-out;
+    backface-visibility: hidden;
+}
+
+    .search_input::placeholder {
+        color: black;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+    }
+
+    .search_input:hover,
+    .search_input:focus {
+        padding: 12px 0;
+        outline: 0;
+        border: 1px solid transparent;
+        border-bottom: 1px solid black;
+        border-radius: 0;
+        background-position: 100% center;
+    }
