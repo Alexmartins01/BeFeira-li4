@@ -32,7 +32,7 @@
             <img src="../exemplo_produto.png" alt="Imagem do produto">
             <p class="nome_produto">@produto.Nome_Produto</p>
             <p class="preco_produto">@String.Format("Preço: {0}€",produto.Preco.ToString("0.00"))</p>
-            <p class="stock_produto">@String.Format("Stock: {0} uni.",produto.Stock)</p>
+            <p class="stock_produto">Disponível</p> <!--se stock > 0-->
             <div class="produto_basic_info_buttons">
                     <button><i class="fa-solid fa-circle-info"@onclick="(()=>showProdInfo((int)idsubcategoria,produto.ID))"></i></button>
                     <button><i class="fas fa-shopping-cart"></i></button>
