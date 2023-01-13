@@ -19,7 +19,7 @@ else {
     <link rel="stylesheet" href="icons/icons/css/all.css">
     <link rel="stylesheet" href="css/mainpage.css">
 
-    <img src="logo.png" alt="BeFeira Logo">
+		<img src="logo.png" @onclick="(()=>gomain())" alt="BeFeira Logo">
 		<div class="user_header_info">
 			<h1>Guest</h1>
 			<i class="fa-solid fa-cart-shopping"></i>
@@ -37,13 +37,13 @@ else {
 				{
 					<div class="feira_stand_container" @onclick="(()=>ShowBarraca(std.ID))">
 						<p class="stand_name">@std.Nome</p>
-						<p class="vendedor_name"> ID Vendedor :@std.VendedorID </p>
+						<p class="vendedor_name"> (@std.Vendedor.Username) </p>
 
 					</div>
 				}
 			}
 	</div>
-	<button class="botao_voltar_bottom">Voltar</button>
+		<button class="botao_voltar_bottom" @onclick="(()=>goback())">Voltar</button>
 </body>
 }
 @code {
@@ -80,6 +80,16 @@ else {
 	{
 		NavigationManager.NavigateTo($"standpage/{id}/{idstand}");
 	}
+	void goback()
+	{
+		NavigationManager.NavigateTo("mainpage");
+	}
+
+	void gomain()
+	{
+		NavigationManager.NavigateTo("mainpage");
+	}
+
 
 	
 

@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="icons/icons/css/all.css">
     <link rel="stylesheet" href="css/mainpage.css">
 
-    <img src="logo.png" alt="BeFeira Logo">
+    <img src="logo.png" @onclick="(()=>gomain())" alt="BeFeira Logo">
     <div class="user_header_info">
         <h1>Guest</h1>
         <i class="fa-solid fa-cart-shopping"></i>
@@ -49,8 +49,7 @@
         }
 
     </div>
-
-    <button class="botao_voltar_bottom">Voltar</button>
+    <button class="botao_voltar_bottom" @onclick="(()=>goBack((int)idfeira))" >Voltar</button>
 
 </body>
 
@@ -60,7 +59,6 @@
     Stand stand = new Stand { };
     List<Subcategoria> subcats = new List<Subcategoria> { };
     List<List<Produto>> produtos_subcats = new List<List<Produto>>();
-
 
 
 
@@ -102,4 +100,14 @@
     {
         NavigationManager.NavigateTo($"produtopage/{subcat}/{idbarraca}/{idfeira}");
     }
+
+    void goBack(int idfeira)
+    {
+        NavigationManager.NavigateTo($"feirapage/{idfeira}");
+    }
+    void gomain()
+    {
+        NavigationManager.NavigateTo("mainpage");
+    }
+
 }
