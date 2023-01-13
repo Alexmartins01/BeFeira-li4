@@ -20,7 +20,7 @@
 
 <body class="stand_page_container">
 
-    <h1 class="products_stand_name">@stand.Nome</h1>
+    <h1 class="products_stand_name" >@stand.Nome</h1>
 
     <div class="subcategorias_container">
 
@@ -30,9 +30,9 @@
         @foreach (var subcat in subcats)
         {
 
-            <div class="subcategoria_container" @onclick="(()=>ShowProductsCategory(subcat.ID))">
+            <div class="subcategoria_container" >
 
-                <h3>@subcat.Descricao </h3>
+                <h3 @onclick="(()=>ShowProductsCategory(subcat.ID))">  @subcat.Descricao  </h3>
                 @foreach (var prod in produtos_subcats[n])
                 {
               

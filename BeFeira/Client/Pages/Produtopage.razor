@@ -1,8 +1,11 @@
-<<<<<<< Updated upstream
-﻿@page "/produtopage"
+@page "/produtopage"
+@page "/produtopage/{idsubcategoria:int}/{idstand:int}/{idfeira:int}"
 
 @inject IProdutoService ProdutoService
 @inject NavigationManager  NavigationManager
+
+
+
 
 <header>
     <link rel="stylesheet" href="icons/icons/css/all.css">
@@ -22,32 +25,6 @@
     <h1 class="products_stand_name">@String.Format("{0} - {1}", nome_da_stand, nome_da_subcategoria)</h1>
 
     <div class="lista_produtos">
-=======
-﻿@page "/produtopage"
-@page "/produtopage/{idsubcategoria:int}/{idstand:int}/{idfeira:int}"
-
-@inject IProdutoService ProdutoService
-@inject NavigationManager  NavigationManager
-
-
-
-
-<header>
-    <link rel="stylesheet" href="icons/icons/css/all.css">
-    <link rel="stylesheet" href="css/mainpage.css">
-
-    <img src="logo.png" alt="BeFeira Logo">
-    <i class="fa-solid fa-circle-user"></i>
-</header>
-
-
-<body class="produtos_stand_container">
-
-    <h1 class="products_stand_name">@String.Format("{0} - {1}", nome_da_stand, nome_da_subcategoria)</h1>
-
-    <div class="lista_produtos">
->>>>>>> Stashed changes
-
         
         @foreach (var produto in prods)
         {
@@ -98,7 +75,6 @@
 
 
 
-<<<<<<< Updated upstream
     protected override async Task OnInitializedAsync()
     {
         await ProdutoService.GetProdutos();
@@ -108,11 +84,8 @@
     void ShowProduct(int id)
     {
         NavigationManager.NavigateTo($"produtospecify/{id}");
-=======
-    protected override async Task OnInitializedAsync()
-    {
-        await ProdutoService.GetProdutos();
     }
+
 
     protected override async Task OnParametersSetAsync()
     {
@@ -126,13 +99,6 @@
 
 
         }
-    }
-
-
-    void ShowProduct(int id)
-    {
-        NavigationManager.NavigateTo($"produtospecify/{id}");
->>>>>>> Stashed changes
     }
 
     // Código para testar

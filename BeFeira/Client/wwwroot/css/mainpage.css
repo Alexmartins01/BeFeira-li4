@@ -309,11 +309,7 @@ body {
     height: 310px;
     text-align: center;
     border-radius: 20px;
-<<<<<<< Updated upstream
     display:none;
-=======
-    display: none;
->>>>>>> Stashed changes
 }
 
     .produto_expanded_info > h1 {
