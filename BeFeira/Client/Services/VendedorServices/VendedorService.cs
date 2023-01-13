@@ -41,7 +41,18 @@ namespace BeFeira.Client.Services.VendedorServices
             return false;
         }
 
+        public async Task AddVendedor(Vendedor vendedor)
+        {
+            var result = await _http.PostAsJsonAsync("api/vendedor", vendedor);
+            var response=await result.Content.ReadFromJsonAsync<List<Vendedor>>();
+            vendedores=response.ToList();
+        }
 
-
+        public async Task UpdateVendedor(Vendedor vendedor)
+        {
+            var result = await _http.PutAsJsonAsync($"api/vendedor/{vendedor.ID}", vendedor);
+            var response = await result.Content.ReadFromJsonAsync<List<Vendedor>>();
+            vendedores = response.ToList();
+        }
     }
 }

@@ -39,8 +39,9 @@
                             <div class="button input-box">
                                 <input type="submit" runat="server" @onclick="Submit" value="Entrar">
                             </div>
-                         
+                           
                         </div>
+                        
                     </Editform>
                 </div>
                 <div class="signup-form">
@@ -74,6 +75,7 @@
             </div>
         </div>
     </div>
+    <button class="botaoguest" @onclick="(()=>moveasguest())">Continuar como Guest</button>
     <button class="botao_voltar_bottom">Voltar</button>
 </body>
 </html>
@@ -90,6 +92,10 @@
         await VendedorService.GetVendedores();
         await ClientService.GetClientes();
     }
+     void moveasguest()
+        {
+            NavigationManager.NavigateTo($"/mainpage/{-1}");
+        }
 
     void OnSelect(ChangeEventArgs e)
     {

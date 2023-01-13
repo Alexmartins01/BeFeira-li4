@@ -41,7 +41,7 @@ namespace BeFeira.Server.Controllers
         }
 
 		[HttpPost]
-		public async Task<ActionResult<Vendedor>> Vendedor(Vendedor p)
+		public async Task<ActionResult<Vendedor>> addVendedor(Vendedor p)
 		{
 
 			_context.Vendedores.Add(p);
@@ -51,12 +51,11 @@ namespace BeFeira.Server.Controllers
 		}
 
 
-		[HttpPut("{id}")]
-		[Route("id")]
-		public async Task<ActionResult<Vendedor>> UpdateVendedor(Vendedor p, int id)
+		[HttpPut]
+		public async Task<ActionResult<Vendedor>> UpdateVendedor(Vendedor p)
 		{
 
-			var dbVend = await _context.Vendedores.FirstOrDefaultAsync(sh => sh.ID == id);
+			var dbVend = await _context.Vendedores.FirstOrDefaultAsync(sh => sh.ID == p.ID);
 
 			if (dbVend == null)
 				return NotFound("No Vendedor ");
