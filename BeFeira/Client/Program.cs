@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using BeFeira.Client.Services.SubcategoriaServices;
 using BeFeira.Client.Services.VendedorServices;
+using BeFeira.Client.Services.ClienteServices;
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
 builder.RootComponents.Add<App>("#app");
@@ -18,6 +19,7 @@ builder.Services.AddScoped<IProdutoService, ProdutoService>();
 builder.Services.AddScoped<IFeiraService, FeiraService>();
 builder.Services.AddScoped<ISubcatserv, SubCatService>();
 builder.Services.AddScoped<IVendedorService, VendedorService>();
+builder.Services.AddScoped<IClienteService, ClienteService>();
 
 
 await builder.Build().RunAsync();

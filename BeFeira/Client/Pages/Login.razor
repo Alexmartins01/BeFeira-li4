@@ -1,7 +1,7 @@
 ﻿@page "/login"
 
-
 @inject IVendedorService VendedorService
+@inject IClienteService ClientService
 @inject NavigationManager NavigationManager
 
 <header>
@@ -23,8 +23,6 @@
                         <div class="input-boxes">
                             <div>
                                 <select class="form-select" @onchange="@OnSelect" >
-                                    <option disabled selected>Usuário</option>
-                                    <option value="Administrador" >Administrador  </option>
                                     <option value="Vendedor">Vendedor</option>
                                     <option value="Cliente">Cliente</option>
                                 </select>
@@ -51,8 +49,6 @@
                         <div class="input-boxes">
                             <div>
                                 <select class="form-select">
-                                    <option disabled selected>Usuário</option>
-                                    <option value="Administrador">Administrador</option>
                                     <option value="Vendedor">Vendedor</option>
                                     <option value="Cliente">Cliente</option>
                                 </select>
@@ -87,10 +83,12 @@
 
     Formulario model = new Formulario { };
 
+    private  bool aux;
 
     protected override async Task OnInitializedAsync()
     {
         await VendedorService.GetVendedores();
+        await ClientService.GetClientes();
     }
 
     void OnSelect(ChangeEventArgs e)
@@ -98,17 +96,25 @@
         model.opcao = e.Value.ToString();
     }
 
-    private void Submit()
+    private async void Submit()
     {
         if (model.opcao.Equals("Vendedor"))
         {
-             
-           // NavigationManager.NavigateTo($"/vendedorpage/{@model.opcao}");
+            bool  a = await VendedorService.ValidVendedor(model.username, model.pass);
+            if (a    == true)
+            {
+                //NavigationManager.NavigateTo($"/vendedeorpage");
+            }
         }
-        if (model.opcao.Equals("Cliente")){
-
-
-            NavigationManager.NavigateTo($"/mainpage/{@model.opcao}");
+       else  if (model.opcao.Equals("Cliente"))
+        {
+             aux  =  await ClientService.ValidClient(model.username, model.pass);
+           if (aux ==true)
+            {
+                NavigationManager.NavigateTo($"/mainpage/{@model.username}");
+            }
+            
         }
+        else{} 
     }
 }

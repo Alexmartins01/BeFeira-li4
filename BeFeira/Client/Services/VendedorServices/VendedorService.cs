@@ -27,10 +27,21 @@ namespace BeFeira.Client.Services.VendedorServices
 
         public async Task GetVendedores()
         {
-            var result = await _http.GetFromJsonAsync<List<Vendedor>>("api/stand");
+            var result = await _http.GetFromJsonAsync<List<Vendedor>>("api/vendedor");
             if (result != null) { vendedores = result; }
 
         }
-		
-	}
+
+        public async Task<bool> ValidVendedor(string username, string pass)
+        {
+            if (vendedores.Any(h => h.Username == username && h.Password == pass))
+            {
+                return true;
+            }
+            return false;
+        }
+
+
+
+    }
 }

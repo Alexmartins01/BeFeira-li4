@@ -6,5 +6,7 @@
         Task GetClientes();
 
         Task<Cliente> GetSingleCliente(int id);
+
+         Task<bool> ValidClient(String username,String pass);
     }
 }
