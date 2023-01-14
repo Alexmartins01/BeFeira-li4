@@ -34,12 +34,15 @@ namespace BeFeira.Client.Services.ClienteServices
             else throw new Exception("NonExistantClient");
         }
 
-        public async Task<bool> ValidClient(string username, string pass)
+        public async Task<int> ValidClient(string username, string pass)
         {
-            if(clientes.Any(h=> h.Username==username && h.Password==pass)) {
-                return true;
+            Cliente c;
+            if(clientes.Any(h=> h.Username==username && h.Password==pass)) 
+            {
+                c = clientes.Find(h => h.Username == username && h.Password == pass);
+                return c.ID;
             }
-            return false;
+            return -1;
         }
 
 

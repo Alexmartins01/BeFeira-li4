@@ -32,13 +32,15 @@ namespace BeFeira.Client.Services.VendedorServices
 
         }
 
-        public async Task<bool> ValidVendedor(string username, string pass)
+        public async Task<int> ValidVendedor(string username, string pass)
         {
+            Vendedor vend ;
             if (vendedores.Any(h => h.Username == username && h.Password == pass))
             {
-                return true;
+               vend = vendedores.Find(h=> h.Username == username && h.Password == pass);
+               return vend.ID;
             }
-            return false;
+            return (-1);
         }
 
         public async Task AddVendedor(Vendedor vendedor)

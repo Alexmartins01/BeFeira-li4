@@ -133,8 +133,8 @@
 
     void OnSelect(ChangeEventArgs e)
     {
-       
-         model.opcao = e.Value.ToString();
+
+        model.opcao = e.Value.ToString();
         //model.opcao = "Vendedor";
     }
 
@@ -142,18 +142,18 @@
     {
         if (model.opcao =="Vendedor")
         {
-            bool  a = await VendedorService.ValidVendedor(model.username, model.pass);
-           if (a    == true)
+            int  a = await VendedorService.ValidVendedor(model.username, model.pass);
+            if (a>=0)
             {
-                NavigationManager.NavigateTo($"/vendedormain/{0}");
+                NavigationManager.NavigateTo($"/vendedormain/{a}");
             }
         }
         else  if (model.opcao =="Cliente")
         {
-            aux  =  await ClientService.ValidClient(model.username, model.pass);
-            if (aux ==true)
+            int id  =  await ClientService.ValidClient(model.username, model.pass);
+            if (id >=0)
             {
-                NavigationManager.NavigateTo($"/mainpage/{@model.username}");
+                NavigationManager.NavigateTo($"/mainpage/{id}");
             }
 
         }
