@@ -494,7 +494,7 @@ body {
     
     padding: 12px 24px;
     color: white;
-    width: 80%;
+    width: 50%;
     background-color: black;
     transition: transform 250ms ease-in-out;
     font-size: 14px;
@@ -505,6 +505,34 @@ body {
     backface-visibility: hidden;
     margin-top: 30px;
 }
+
+/* Search Button */
+#search {
+    margin-left: 10px;
+    background-color: black;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 50px;
+    border: 1px solid white;
+    transition: all 250ms ease-in-out;
+    font-size: 14px;
+    line-height: 18px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    cursor: pointer;
+}
+
+    #search:hover,
+    #search:focus {
+        background-color: white;
+        color: black;
+    }
+
+    #b{
+        color: white;
+    }
+
+
 
     .search_input::placeholder {
         color: white;
