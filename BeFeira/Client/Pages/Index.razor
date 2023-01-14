@@ -22,7 +22,8 @@
                     <Editform Model = "@model">
                         <div class="input-boxes">
                             <div>
-                                <select class="form-select" @onchange="@OnSelect" >
+                                <select class="form-select"  @onchange="@OnSelect">
+                                    <option disabled selected></option>
                                     <option value="Vendedor">Vendedor</option>
                                     <option value="Cliente">Cliente</option>
                                 </select>
@@ -45,15 +46,9 @@
                     </Editform>
                 </div>
                 <div class="signup-form">
-                    <div>Registar</div>
+                    <div>Registar Cliente </div>
                       <Editform Model = "@cli">
                         <div class="input-boxes">
-                            <div>
-                                <select class="form-select">
-                                    <option value="Vendedor">Vendedor</option>
-                                    <option value="Cliente">Cliente</option>
-                                </select>
-                            </div>
                             <div class="input-box">
                                 <i class="fas fa-user"></i>
                                 <input type="text" placeholder="Username" @bind-value="cli.Username" required>
@@ -68,11 +63,43 @@
                                
                             </div>
                             <div class="button input-box">
-                                <input type="submit" @onclick="RegisterClient" value="Registar">
+                                <input type="submit" @onclick="RegisterClient" value="Registar Cliente ">
                             </div>
                         </div>
                     </Editform>
                 </div>
+                     <div class="signup-form">
+                    <div>Registar Vendedor</div>
+                    <form action="mainpage">
+                        <div class="input-boxes">
+                            <div class="input-box">
+                                <i class="fas fa-user"></i>
+                                <input type="text" placeholder="Nome Completo" required>
+                            </div>
+                            <div class="input-box">
+                                <i class="fas fa-envelope"></i>
+                                <input type="text" placeholder="Email" required>
+                            </div>
+                            <div class="input-box">
+                                <i class="fas fa-lock"></i>
+                                <input type="password" placeholder="Password" required>
+                            </div>
+                            <div class="input-box">
+                                <i class="fas fa-lock"></i>
+                                <input type="number" placeholder="Iban" required>
+                            </div>
+                            <div class="input-box">
+                                <i class="fas fa-lock"></i>
+                                <input type="number" placeholder="MBWay" required>
+                            </div>
+                            <div class="button input-box">
+                                <input type="submit" @onclick="RegisterSeller" value="Registar Vendedor">
+                            </div>
+
+                            </div>
+                        </form>
+                        </div>
+
             </div>
         </div>
     </div>
@@ -106,20 +133,22 @@
 
     void OnSelect(ChangeEventArgs e)
     {
-        model.opcao = e.Value.ToString();
+       
+         model.opcao = e.Value.ToString();
+        //model.opcao = "Vendedor";
     }
 
     private async void Submit()
     {
-        if (model.opcao.Equals("Vendedor"))
+        if (model.opcao =="Vendedor")
         {
-            bool  a = await VendedorService.ValidVendedor(model.username, model.pass);
-            if (a    == true)
-            {
-                //NavigationManager.NavigateTo($"/vendedeorpage");
-            }
+           // bool  a = await VendedorService.ValidVendedor(model.username, model.pass);
+            //if (a    == true)
+           // {
+                NavigationManager.NavigateTo($"/vendedormain/{@model.username}");
+           // }
         }
-        else  if (model.opcao.Equals("Cliente"))
+        else  if (model.opcao =="Cliente")
         {
             aux  =  await ClientService.ValidClient(model.username, model.pass);
             if (aux ==true)
