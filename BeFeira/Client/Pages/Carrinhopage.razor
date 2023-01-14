@@ -92,7 +92,7 @@
 
         int p = await CarrinhoProdService.getCarrinhoprodbykartandprod(produto, kart.ID);
          CarrinhoProdService.DeleteCarrinhoProd(p);
-       // NavigationManager.NavigateTo($"/finalizarcompra/{kart.ID}/{p}");
+         NavigationManager.NavigateTo($"/carrinhopage/{idcliente}",forceLoad:true);
 
     }
 
