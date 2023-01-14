@@ -142,11 +142,11 @@
     {
         if (model.opcao =="Vendedor")
         {
-           // bool  a = await VendedorService.ValidVendedor(model.username, model.pass);
-            //if (a    == true)
-           // {
+            bool  a = await VendedorService.ValidVendedor(model.username, model.pass);
+           if (a    == true)
+            {
                 NavigationManager.NavigateTo($"/vendedormain/{@model.username}");
-           // }
+            }
         }
         else  if (model.opcao =="Cliente")
         {
