@@ -70,34 +70,34 @@
                 </div>
                      <div class="signup-form">
                     <div>Registar Vendedor</div>
-                    <form action="mainpage">
+                    <Editform Model = "@seller">
                         <div class="input-boxes">
                             <div class="input-box">
                                 <i class="fas fa-user"></i>
-                                <input type="text" placeholder="Nome Completo" required>
+                                <input type="text" placeholder="Username" @bind-value="seller.Username" required>
                             </div>
                             <div class="input-box">
                                 <i class="fas fa-envelope"></i>
-                                <input type="text" placeholder="Email" required>
+                                <input type="text" placeholder="Email" @bind-value="seller.Email" required>
                             </div>
                             <div class="input-box">
                                 <i class="fas fa-lock"></i>
-                                <input type="password" placeholder="Password" required>
+                                <input type="password" placeholder="Password" @bind-value="seller.Password" required>
                             </div>
                             <div class="input-box">
                                 <i class="fas fa-lock"></i>
-                                <input type="number" placeholder="Iban" required>
+                                <input type="number" placeholder="Iban" @bind-value="seller.Iban" required>
                             </div>
                             <div class="input-box">
                                 <i class="fas fa-lock"></i>
-                                <input type="number" placeholder="MBWay" required>
+                                <input type="number" placeholder="MBWay" @bind-value="seller.Mbway" required>
                             </div>
                             <div class="button input-box">
                                 <input type="submit" @onclick="RegisterSeller" value="Registar Vendedor">
                             </div>
 
                             </div>
-                        </form>
+                    </Editform>
                         </div>
 
             </div>
@@ -115,14 +115,12 @@
     Cliente cli = new Cliente {  };
     Vendedor seller = new Vendedor { };
 
-    private  int mostra;
     private  bool aux;
 
     protected override async Task OnInitializedAsync()
     {
         await VendedorService.GetVendedores();
         await ClientService.GetClientes();
-        mostra = await ClientService.getmyid();
 
     }
     void moveasguest()
@@ -164,15 +162,17 @@
     }
     private async void RegisterSeller()
     {
-        //await VendedorService.AddVendedor(seller);
-        //NavigationManager.NavigateTo($"/mainpage/{cli.Username}");
+        await VendedorService.AddVendedor(seller);
+        int id = await VendedorService.ValidVendedor(seller.Username, seller.Password);
+        NavigationManager.NavigateTo($"/vendedormain/{id}");
 
     }
 
     private async void RegisterClient()
     {
         await ClientService.AddCliente(cli);
-        NavigationManager.NavigateTo($"/mainpage/{cli.ID}");
+        int id =await ClientService.ValidClient(cli.Username, cli.Password);
+        NavigationManager.NavigateTo($"/mainpage/{id}");
 
     }
 }

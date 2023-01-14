@@ -47,7 +47,7 @@ namespace BeFeira.Client.Services.VendedorServices
         {
             var result = await _http.PostAsJsonAsync("api/vendedor", vendedor);
             var response=await result.Content.ReadFromJsonAsync<List<Vendedor>>();
-            vendedores=response.ToList();
+            vendedores=response;
         }
 
         public async Task UpdateVendedor(Vendedor vendedor)
