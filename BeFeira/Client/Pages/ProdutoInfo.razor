@@ -23,12 +23,68 @@
 
 <body class="produtos_stand_container">
 
-        <div class="produto_basic_info">
+        <div class="produto_basic_info" style="height : fit-content">
             <img src="../exemplo_produto.png" alt="Imagem do produto">
             <p class="nome_produto">@prod.Nome_Produto</p>
-            <p class="preco_produto">@String.Format("Preço: {0}€",prod.Preco.ToString("0.00"))</p>
+        @if (prod.Promocao!= 0)
+        {
+            <p class="preco_page_produto">Preço:  <del>@String.Format("{0}",prod.Preco.ToString("0.00"))</del> @String.Format("{0}",(prod.Preco * (1 - (float)prod.Promocao/100)).ToString("0.00"))€</p>
+            <p class="promocao_produto"> @String.Format("Promoção: {0}%",prod.Promocao)</p>
+        } else
+        {
+            <p class="preco_page_produto">Preço: @String.Format("{0}",prod.Preco.ToString("0.00"))€</p>
+
+        }
         <p class="stock_produto">@String.Format("Stock: {0} uni.",prod.Stock)</p>
-            <div class="produto_basic_info_buttons">
+        <p class="rating_produto">@String.Format("Rating: {0}",prod.Rating)</p>
+        @switch (prod.Rating)
+        {
+            case 0:
+                <i class="fa-regular fa-star"></i>
+                        <i class="fa-regular fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                                        <i class="fa-regular fa-star"></i>
+                                                <i class="fa-regular fa-star"></i>
+                break;
+
+            case 1:
+                    <i class="fa-solid fa-star"></i>
+                        <i class="fa-regular fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                                        <i class="fa-regular fa-star"></i>
+                                                <i class="fa-regular fa-star"></i>
+                break;
+            case 2:
+                    <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                                <i class="fa-regular fa-star"></i>
+                                        <i class="fa-regular fa-star"></i>
+                                                <i class="fa-regular fa-star"></i>
+                break;
+            case 3:
+                    <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                        <i class="fa-regular fa-star"></i>
+                                                <i class="fa-regular fa-star"></i>
+                break;
+            case 4:
+                    <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                                <i class="fa-regular fa-star"></i>
+                break;
+            case 5:
+                    <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                                <i class="fa-solid fa-star"></i>
+                break;
+
+        }
+        <div class="produto_basic_info_buttons">
                     <button><i class="fas fa-shopping-cart"></i></button>
             </div>
             

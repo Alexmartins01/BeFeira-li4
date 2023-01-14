@@ -264,18 +264,26 @@ body {
     margin-bottom: 15px;
 }
 
-        .produtos_stand_container .preco_produto, .stock_produto {
-            text-align: left;
-            margin-left: 5px;
-            font-family: monospace;
-            margin-bottom: 0 !important;
-        }
+.produtos_stand_container .preco_produto, .stock_produto, .promocao_produto, .rating_produto {
+    text-align: left;
+    margin-left: 5px;
+    font-family: monospace;
+    margin-bottom: 0 !important;
+}
 
-    .produto_basic_info_buttons > button {
-        border: none;
-        margin-top: 20px;
-        background: transparent;
-    }
+.preco_page_produto {
+    text-align: left;
+    margin-left: 5px;
+    font-family: monospace;
+    font-size: 30px;
+    margin-bottom: 0 !important;
+}
+
+.produto_basic_info_buttons > button {
+    border: none;
+    margin-top: 20px;
+    background: transparent;
+}
 
     .produtos_stand_container button i {
 
