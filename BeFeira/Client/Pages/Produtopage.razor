@@ -63,6 +63,7 @@
     [Parameter]
     public int? idsubcategoria { get; set; }
 
+
     [Parameter]
     public int? idcliente { get; set; }
 
@@ -99,8 +100,6 @@
         else
         {
             prods = await ProdutoService.GetProdutosBySubcat((int)idsubcategoria);
-
-
         }
     }
 

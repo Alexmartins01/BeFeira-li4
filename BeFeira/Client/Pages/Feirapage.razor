@@ -5,6 +5,7 @@
 @inject ISubcatserv s
 @inject IFeiraService SFeiraService
 @inject IClienteService ClientService
+@inject IProdutoService ProdutoService
 @inject NavigationManager NavigationManager
 
 
@@ -31,10 +32,12 @@ else {
 
 <body class="feira_container">
     <div class="search_container">
+		<Editform Model = "@searchProdName">
         <div class="search_bar">
-            <input class="search_input" type="text" placeholder="Search"> 
-			<button id="search"><i id="b" class="fa fa-search"></i></button>
+            <input class="search_input" type="text" @bind-value=searchProdName placeholder="Search">
+					<button id="search"><i id="b" class="fa fa-search" @onclick="Submit"></i></button>
         </div>
+			</Editform>
     </div>
     <h3>@String.Format("Feira de {0}",f.Categoria)</h3>
     <div class="feira_stands_container">
@@ -49,29 +52,6 @@ else {
     <button class="botao_voltar_bottom" @onclick="(() => goback())">Voltar</button>
 </body>
 
-/*
-<body class="feira_container">
-		<div class="search_container">
-			<input class="search_input" type="text" placeholder="Search">
-		</div>
-	<h3>@String.Format("Feira de {0}",f.Categoria)</h3>
-	<div class="feira_stands_container">
-
-		@foreach (var std in stands)
-			{
-				
-					<div class="feira_stand_container" @onclick="(()=>ShowBarraca(std.ID))">
-						<p class="stand_name">@std.Nome</p>
-						<p class="vendedor_name"> (@std.Vendedor.Username) </p>
-
-					</div>
-				
-			}
-	</div>
-		<button class="botao_voltar_bottom" @onclick="(()=>goback())">Voltar</button>
-
-</body>
-*/
 }
 @code {
 
@@ -87,6 +67,7 @@ else {
 
 	public string name;
 	public Cliente c;
+	public string searchProdName;
 
 	protected override async Task OnParametersSetAsync()
 	{
@@ -131,5 +112,14 @@ else {
 		NavigationManager.NavigateTo($"userinfo/{idcliente}");
 	}
 
+
+	private async void Submit()
+	{
+		if (searchProdName!=null)
+		{
+			NavigationManager.NavigateTo($"produtopage2/{id}/{idcliente}/{searchProdName}");
+		}
+
+	}
 
 }

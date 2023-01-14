@@ -1,0 +1,108 @@
+﻿@page "/produtopage2"
+@page "/produtopage2/{idfeira:int}/{idcliente:int}/{search}"
+
+@inject IProdutoService ProdutoService
+@inject IClienteService ClientService
+@inject IStandService StandService
+@inject ISubcatserv SubcatService
+@inject NavigationManager NavigationManager
+
+
+
+
+<header>
+    <link rel="stylesheet" href="icons/icons/css/all.css">
+    <link rel="stylesheet" href="css/mainpage.css">
+
+    <img src="logo.png" @onclick="(()=>gomain())" alt="BeFeira Logo">
+    <div class="user_header_info">
+        <h1>@name</h1>
+        <i class="fa-solid fa-cart-shopping"></i>
+    </div>
+    <button class="u"><i class="fa-solid fa-circle-user" @onclick="(()=>gouser())" alt=""></i></button>
+</header>
+
+
+<body class="produtos_stand_container">
+
+
+    <div class="lista_produtos">
+
+        @foreach (var produto in prods)
+        {
+            <div class="produto_basic_info">
+                <img src="../exemplo_produto.png" alt="Imagem do produto">
+                <p class="nome_produto">@produto.Nome_Produto</p>
+                <p class="preco_produto">@String.Format("Preço: {0}€",produto.Preco.ToString("0.00"))</p>
+                <p class="stock_produto">Disponível</p> <!--se stock > 0-->
+                <div class="produto_basic_info_buttons">
+                    <button><i class="fas fa-shopping-cart"></i></button>
+                </div>
+
+            </div>
+        }
+
+    </div>
+
+    <button class="botao_voltar_bottom" @onclick="(()=>goback())">Voltar</button>
+
+</body>
+
+@code {
+    List<Produto> prods = new List<Produto>();
+
+
+    [Parameter]
+    public int? idfeira { get; set; }
+
+
+    [Parameter]
+    public int? idcliente { get; set; }
+
+    [Parameter]
+    public string? search { get; set; }
+
+    public string name;
+    public Cliente c;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await ProdutoService.GetProdutos();
+        if (idcliente == -1) name = "Guest";
+        else
+        {
+            c = await ClientService.GetSingleCliente((int)idcliente);
+            name = c.Username;
+        }
+    }
+
+
+
+    protected override async Task OnParametersSetAsync()
+    {
+        if (search == null)
+        {
+
+        }
+        else
+        {
+            prods = await ProdutoService.GetProdutosBySearch(search);
+        }
+    }
+
+    void goback()
+    {
+        NavigationManager.NavigateTo($"feirapage/{idfeira}/{idcliente}");
+    }
+
+    void gomain()
+    {
+        NavigationManager.NavigateTo("mainpage");
+    }
+
+    void gouser()
+    {
+        NavigationManager.NavigateTo($"userinfo/{idcliente}");
+    }
+
+}
