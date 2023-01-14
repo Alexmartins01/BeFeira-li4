@@ -36,13 +36,13 @@ namespace BeFeira.Server.Controllers
 
 
         [HttpPost]
-        public async Task<ActionResult<List<Cliente>>> addCliente(Cliente c)
+        public async Task<ActionResult<Cliente>> addCliente(Cliente c)
         {
 
             _context.Clientes.Add(c);
             await _context.SaveChangesAsync();
 
-            return Ok(_context.Clientes);
+            return Ok(await getDBClientes());
         }
 
         private async Task<List<Cliente>> getDBClientes()
@@ -50,13 +50,6 @@ namespace BeFeira.Server.Controllers
 
             return await _context.Clientes.ToListAsync();
         }
-
-
-
-
-
-
-
 
 
     }

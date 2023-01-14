@@ -13,6 +13,10 @@ namespace BeFeira.Client.Services.ClienteServices
             _http = http;
         }
 
+        public async Task<int> getmyid()
+        {
+            return clientes.Count+1;
+        }
         public async  Task GetClientes()
         {
             
@@ -43,7 +47,8 @@ namespace BeFeira.Client.Services.ClienteServices
         {
             var result = await _http.PostAsJsonAsync("api/cliente", client);
             var response = await result.Content.ReadFromJsonAsync<List<Cliente>>();
-            clientes = response.ToList();
+            clientes = response;
+            
         }
 
     }

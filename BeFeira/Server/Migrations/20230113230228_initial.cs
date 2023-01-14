@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace BeFeira.Server.Migrations
 {
     /// <inheritdoc />
-    public partial class inital : Migration
+    public partial class initial : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -273,12 +273,12 @@ namespace BeFeira.Server.Migrations
                 columns: new[] { "ID", "Created_at", "Password", "Updated_at", "Username" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(2023, 1, 13, 0, 15, 37, 171, DateTimeKind.Local).AddTicks(2193), "1234", new DateTime(2023, 1, 13, 0, 15, 37, 171, DateTimeKind.Local).AddTicks(2243), "Bernas" },
-                    { 2, new DateTime(2023, 1, 13, 0, 15, 37, 171, DateTimeKind.Local).AddTicks(2247), "2345", new DateTime(2023, 1, 13, 0, 15, 37, 171, DateTimeKind.Local).AddTicks(2248), "Cebolinha" },
-                    { 3, new DateTime(2023, 1, 13, 0, 15, 37, 171, DateTimeKind.Local).AddTicks(2250), "3456", new DateTime(2023, 1, 13, 0, 15, 37, 171, DateTimeKind.Local).AddTicks(2251), "Sergio" },
-                    { 4, new DateTime(2023, 1, 13, 0, 15, 37, 171, DateTimeKind.Local).AddTicks(2253), "1134", new DateTime(2023, 1, 13, 0, 15, 37, 171, DateTimeKind.Local).AddTicks(2254), "Anastásia" },
-                    { 5, new DateTime(2023, 1, 13, 0, 15, 37, 171, DateTimeKind.Local).AddTicks(2256), "2245", new DateTime(2023, 1, 13, 0, 15, 37, 171, DateTimeKind.Local).AddTicks(2257), "Rodri" },
-                    { 6, new DateTime(2023, 1, 13, 0, 15, 37, 171, DateTimeKind.Local).AddTicks(2258), "3453", new DateTime(2023, 1, 13, 0, 15, 37, 171, DateTimeKind.Local).AddTicks(2259), "Jairzinho" }
+                    { 1, new DateTime(2023, 1, 13, 23, 2, 28, 292, DateTimeKind.Local).AddTicks(3522), "1234", new DateTime(2023, 1, 13, 23, 2, 28, 292, DateTimeKind.Local).AddTicks(3559), "Bernas" },
+                    { 2, new DateTime(2023, 1, 13, 23, 2, 28, 292, DateTimeKind.Local).AddTicks(3563), "2345", new DateTime(2023, 1, 13, 23, 2, 28, 292, DateTimeKind.Local).AddTicks(3564), "Cebolinha" },
+                    { 3, new DateTime(2023, 1, 13, 23, 2, 28, 292, DateTimeKind.Local).AddTicks(3566), "3456", new DateTime(2023, 1, 13, 23, 2, 28, 292, DateTimeKind.Local).AddTicks(3567), "Sergio" },
+                    { 4, new DateTime(2023, 1, 13, 23, 2, 28, 292, DateTimeKind.Local).AddTicks(3568), "1134", new DateTime(2023, 1, 13, 23, 2, 28, 292, DateTimeKind.Local).AddTicks(3569), "Anastásia" },
+                    { 5, new DateTime(2023, 1, 13, 23, 2, 28, 292, DateTimeKind.Local).AddTicks(3571), "2245", new DateTime(2023, 1, 13, 23, 2, 28, 292, DateTimeKind.Local).AddTicks(3572), "Rodri" },
+                    { 6, new DateTime(2023, 1, 13, 23, 2, 28, 292, DateTimeKind.Local).AddTicks(3573), "3453", new DateTime(2023, 1, 13, 23, 2, 28, 292, DateTimeKind.Local).AddTicks(3574), "Jairzinho" }
                 });
 
             migrationBuilder.InsertData(
@@ -474,7 +474,7 @@ namespace BeFeira.Server.Migrations
                     { 44, "Fitness", 20 },
                     { 45, "Cozinha", 21 },
                     { 46, "Decoração interior", 21 },
-                    { 47, "Toalhas de banho", 1 },
+                    { 47, "Aquecedores", 1 },
                     { 48, "Camas", 1 },
                     { 49, "Utensílios de cozinha", 3 },
                     { 50, "Artigos para animais exóticos", 2 },
@@ -544,8 +544,8 @@ namespace BeFeira.Server.Migrations
                 columns: new[] { "ID", "CarrinhoID", "Date", "Total" },
                 values: new object[,]
                 {
-                    { 1, 1, new DateTime(2023, 1, 13, 0, 15, 37, 171, DateTimeKind.Local).AddTicks(2702), 0f },
-                    { 2, 2, new DateTime(2023, 1, 13, 0, 15, 37, 171, DateTimeKind.Local).AddTicks(2705), 0f }
+                    { 1, 1, new DateTime(2023, 1, 13, 23, 2, 28, 292, DateTimeKind.Local).AddTicks(3944), 0f },
+                    { 2, 2, new DateTime(2023, 1, 13, 23, 2, 28, 292, DateTimeKind.Local).AddTicks(3946), 0f }
                 });
 
             migrationBuilder.InsertData(
@@ -561,7 +561,7 @@ namespace BeFeira.Server.Migrations
             migrationBuilder.InsertData(
                 table: "Promocao",
                 columns: new[] { "ID", "Date", "Desconto", "ProdutoID" },
-                values: new object[] { 1, new DateTime(2023, 1, 13, 0, 15, 37, 171, DateTimeKind.Local).AddTicks(2655), 10, 1 });
+                values: new object[] { 1, new DateTime(2023, 1, 13, 23, 2, 28, 292, DateTimeKind.Local).AddTicks(3908), 10, 1 });
 
             migrationBuilder.InsertData(
                 table: "VendaProduto",

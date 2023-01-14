@@ -46,7 +46,7 @@
                 </div>
                 <div class="signup-form">
                     <div>Registar</div>
-                    <form action="mainpage">
+                      <Editform Model = "@cli">
                         <div class="input-boxes">
                             <div>
                                 <select class="form-select">
@@ -56,21 +56,22 @@
                             </div>
                             <div class="input-box">
                                 <i class="fas fa-user"></i>
-                                <input type="text" @bind-value="cli.Username" @bind-value:event="oninput" placeholder="Username" required>
+                                <input type="text" placeholder="Username" @bind-value="cli.Username" required>
                             </div>
                             <div class="input-box">
                                 <i class="fas fa-envelope"></i>
-                                <input type="text" @bind-value="cli.Email" @bind-value:event="oninput" placeholder="Email" required>
+                                <input type="text" placeholder=" Email" @bind-value="cli.Email"required>
                             </div>
                             <div class="input-box">
                                 <i class="fas fa-lock"></i>
-                                <input type="password" @bind-value="cli.Password" @bind-value:event="oninput"  placeholder="Password" required>
+                                <input type="password" placeholder="Password" @bind-value="cli.Password"  required>
+                               
                             </div>
                             <div class="button input-box">
-                                <input type="submit" @onclick="Register" value="Registar">
+                                <input type="submit" @onclick="RegisterClient" value="Registar">
                             </div>
                         </div>
-                    </form>
+                    </Editform>
                 </div>
             </div>
         </div>
@@ -85,19 +86,24 @@
 
     Formulario model = new Formulario { };
 
-    Cliente cli = new Cliente { };
+    Cliente cli = new Cliente {  };
+    Vendedor seller = new Vendedor { };
 
+    private  int mostra;
     private  bool aux;
 
     protected override async Task OnInitializedAsync()
     {
         await VendedorService.GetVendedores();
         await ClientService.GetClientes();
+        mostra = await ClientService.getmyid();
+
     }
     void moveasguest()
     {
         NavigationManager.NavigateTo($"/mainpage/{-1}");
     }
+
 
     void OnSelect(ChangeEventArgs e)
     {
@@ -123,13 +129,22 @@
             }
 
         }
-        else{} 
+        else
+        {
+
+        } 
     }
-    private async void Register()
+    private async void RegisterSeller()
     {
-       
+        //await VendedorService.AddVendedor(seller);
+        //NavigationManager.NavigateTo($"/mainpage/{cli.Username}");
+
+    }
+
+    private async void RegisterClient()
+    {
         await ClientService.AddCliente(cli);
-        NavigationManager.NavigateTo($"/mainpage/{cli.Username}");
+        NavigationManager.NavigateTo($"/mainpage/{cli.ID}");
 
     }
 }

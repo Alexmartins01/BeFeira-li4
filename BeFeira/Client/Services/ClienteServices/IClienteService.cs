@@ -5,6 +5,8 @@
         List<Cliente> clientes { get; set; }
         Task GetClientes();
 
+        Task<int> getmyid();
+
         Task<Cliente> GetSingleCliente(int id);
 
          Task<bool> ValidClient(String username,String pass);
