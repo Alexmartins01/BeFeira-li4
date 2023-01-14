@@ -14,7 +14,7 @@
     <img src="logo.png" @onclick="(()=>gomain())" alt="BeFeira Logo">
     <div class="user_header_info">
         <h1>@name</h1>
-        <i class="fa-solid fa-cart-shopping"></i>
+        <i class="fa-solid fa-cart-shopping" @onclick="(()=>ShowKart())"></i>
     </div>
     <button class="u"><i class="fa-solid fa-circle-user" @onclick="(()=>gouser())" alt=""></i></button>
 </header>
@@ -114,6 +114,10 @@
     void showProdInfo(int subcat,int prod)
     {
         NavigationManager.NavigateTo($"produtoinfo/{prod}/{subcat}/{idbarraca}/{idfeira}/1/{idcliente}");
+    }
+    void ShowKart()
+    {
+        NavigationManager.NavigateTo($"/carrinhopage/{idcliente}");
     }
 
     void gouser()

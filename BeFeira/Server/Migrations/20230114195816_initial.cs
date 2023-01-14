@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace BeFeira.Server.Migrations
 {
     /// <inheritdoc />
-    public partial class Initial : Migration
+    public partial class initial : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -76,6 +76,25 @@ namespace BeFeira.Server.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Carrinho",
+                columns: table => new
+                {
+                    ID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ClienteID = table.Column<int>(type: "int", nullable: true),
+                    Total = table.Column<decimal>(type: "decimal(18,2)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Carrinho", x => x.ID);
+                    table.ForeignKey(
+                        name: "FK_Carrinho_Cliente_ClienteID",
+                        column: x => x.ClienteID,
+                        principalTable: "Cliente",
+                        principalColumn: "ID");
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Stand",
                 columns: table => new
                 {
@@ -101,29 +120,23 @@ namespace BeFeira.Server.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Carrinho",
+                name: "Venda",
                 columns: table => new
                 {
                     ID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    ClienteID = table.Column<int>(type: "int", nullable: true),
-                    StandID = table.Column<int>(type: "int", nullable: false),
-                    Total = table.Column<decimal>(type: "decimal(18,2)", nullable: false)
+                    CarrinhoID = table.Column<int>(type: "int", nullable: true),
+                    Total = table.Column<float>(type: "real", nullable: false),
+                    Date = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Carrinho", x => x.ID);
+                    table.PrimaryKey("PK_Venda", x => x.ID);
                     table.ForeignKey(
-                        name: "FK_Carrinho_Cliente_ClienteID",
-                        column: x => x.ClienteID,
-                        principalTable: "Cliente",
+                        name: "FK_Venda_Carrinho_CarrinhoID",
+                        column: x => x.CarrinhoID,
+                        principalTable: "Carrinho",
                         principalColumn: "ID");
-                    table.ForeignKey(
-                        name: "FK_Carrinho_Stand_StandID",
-                        column: x => x.StandID,
-                        principalTable: "Stand",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -142,26 +155,6 @@ namespace BeFeira.Server.Migrations
                         name: "FK_Subcategoria_Stand_StandID",
                         column: x => x.StandID,
                         principalTable: "Stand",
-                        principalColumn: "ID");
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Venda",
-                columns: table => new
-                {
-                    ID = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    CarrinhoID = table.Column<int>(type: "int", nullable: true),
-                    Total = table.Column<float>(type: "real", nullable: false),
-                    Date = table.Column<DateTime>(type: "datetime2", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Venda", x => x.ID);
-                    table.ForeignKey(
-                        name: "FK_Venda_Carrinho_CarrinhoID",
-                        column: x => x.CarrinhoID,
-                        principalTable: "Carrinho",
                         principalColumn: "ID");
                 });
 
@@ -273,12 +266,12 @@ namespace BeFeira.Server.Migrations
                 columns: new[] { "ID", "Created_at", "Password", "Updated_at", "Username" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(2023, 1, 14, 15, 23, 20, 449, DateTimeKind.Local).AddTicks(2113), "1234", new DateTime(2023, 1, 14, 15, 23, 20, 449, DateTimeKind.Local).AddTicks(2172), "Bernas" },
-                    { 2, new DateTime(2023, 1, 14, 15, 23, 20, 449, DateTimeKind.Local).AddTicks(2176), "2345", new DateTime(2023, 1, 14, 15, 23, 20, 449, DateTimeKind.Local).AddTicks(2178), "Cebolinha" },
-                    { 3, new DateTime(2023, 1, 14, 15, 23, 20, 449, DateTimeKind.Local).AddTicks(2180), "3456", new DateTime(2023, 1, 14, 15, 23, 20, 449, DateTimeKind.Local).AddTicks(2181), "Sergio" },
-                    { 4, new DateTime(2023, 1, 14, 15, 23, 20, 449, DateTimeKind.Local).AddTicks(2182), "1134", new DateTime(2023, 1, 14, 15, 23, 20, 449, DateTimeKind.Local).AddTicks(2183), "Anastásia" },
-                    { 5, new DateTime(2023, 1, 14, 15, 23, 20, 449, DateTimeKind.Local).AddTicks(2185), "2245", new DateTime(2023, 1, 14, 15, 23, 20, 449, DateTimeKind.Local).AddTicks(2186), "Rodri" },
-                    { 6, new DateTime(2023, 1, 14, 15, 23, 20, 449, DateTimeKind.Local).AddTicks(2188), "3453", new DateTime(2023, 1, 14, 15, 23, 20, 449, DateTimeKind.Local).AddTicks(2189), "Jairzinho" }
+                    { 1, new DateTime(2023, 1, 14, 19, 58, 16, 39, DateTimeKind.Local).AddTicks(9716), "1234", new DateTime(2023, 1, 14, 19, 58, 16, 39, DateTimeKind.Local).AddTicks(9755), "Bernas" },
+                    { 2, new DateTime(2023, 1, 14, 19, 58, 16, 39, DateTimeKind.Local).AddTicks(9759), "2345", new DateTime(2023, 1, 14, 19, 58, 16, 39, DateTimeKind.Local).AddTicks(9761), "Cebolinha" },
+                    { 3, new DateTime(2023, 1, 14, 19, 58, 16, 39, DateTimeKind.Local).AddTicks(9762), "3456", new DateTime(2023, 1, 14, 19, 58, 16, 39, DateTimeKind.Local).AddTicks(9763), "Sergio" },
+                    { 4, new DateTime(2023, 1, 14, 19, 58, 16, 39, DateTimeKind.Local).AddTicks(9765), "1134", new DateTime(2023, 1, 14, 19, 58, 16, 39, DateTimeKind.Local).AddTicks(9766), "Anastásia" },
+                    { 5, new DateTime(2023, 1, 14, 19, 58, 16, 39, DateTimeKind.Local).AddTicks(9769), "2245", new DateTime(2023, 1, 14, 19, 58, 16, 39, DateTimeKind.Local).AddTicks(9770), "Rodri" },
+                    { 6, new DateTime(2023, 1, 14, 19, 58, 16, 39, DateTimeKind.Local).AddTicks(9771), "3453", new DateTime(2023, 1, 14, 19, 58, 16, 39, DateTimeKind.Local).AddTicks(9772), "Jairzinho" }
                 });
 
             migrationBuilder.InsertData(
@@ -341,6 +334,16 @@ namespace BeFeira.Server.Migrations
                     { 6, "a18@uminho.pt", "5333161", "923852594", "8481", 2, "Marcelo" },
                     { 7, "a19@uminho.pt", "0102831", "964646797", "9039", 5, "Puskas" },
                     { 8, "a20@uminho.pt", "6003261", "937733894", "3131", 10, "Eusébio" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Carrinho",
+                columns: new[] { "ID", "ClienteID", "Total" },
+                values: new object[,]
+                {
+                    { 1, 1, 0m },
+                    { 2, 2, 10m },
+                    { 3, 3, 5m }
                 });
 
             migrationBuilder.InsertData(
@@ -411,16 +414,6 @@ namespace BeFeira.Server.Migrations
                     { 61, 19, "InformaTic", 2 },
                     { 62, 20, "Loja de desportos radicais", 8 },
                     { 63, 21, "Loja dos trezentos", 4 }
-                });
-
-            migrationBuilder.InsertData(
-                table: "Carrinho",
-                columns: new[] { "ID", "ClienteID", "StandID", "Total" },
-                values: new object[,]
-                {
-                    { 1, 1, 1, 0m },
-                    { 2, 2, 2, 10m },
-                    { 3, 3, 3, 5m }
                 });
 
             migrationBuilder.InsertData(
@@ -504,6 +497,15 @@ namespace BeFeira.Server.Migrations
                 });
 
             migrationBuilder.InsertData(
+                table: "Venda",
+                columns: new[] { "ID", "CarrinhoID", "Date", "Total" },
+                values: new object[,]
+                {
+                    { 1, 1, new DateTime(2023, 1, 14, 19, 58, 16, 40, DateTimeKind.Local).AddTicks(129), 0f },
+                    { 2, 2, new DateTime(2023, 1, 14, 19, 58, 16, 40, DateTimeKind.Local).AddTicks(132), 0f }
+                });
+
+            migrationBuilder.InsertData(
                 table: "Produto",
                 columns: new[] { "ID", "Nome_Produto", "Preco", "Promocao", "Rating", "StandID", "Stock", "SubCategoriaID" },
                 values: new object[,]
@@ -540,15 +542,6 @@ namespace BeFeira.Server.Migrations
                 });
 
             migrationBuilder.InsertData(
-                table: "Venda",
-                columns: new[] { "ID", "CarrinhoID", "Date", "Total" },
-                values: new object[,]
-                {
-                    { 1, 1, new DateTime(2023, 1, 14, 15, 23, 20, 449, DateTimeKind.Local).AddTicks(2651), 0f },
-                    { 2, 2, new DateTime(2023, 1, 14, 15, 23, 20, 449, DateTimeKind.Local).AddTicks(2653), 0f }
-                });
-
-            migrationBuilder.InsertData(
                 table: "CarrinhoProduto",
                 columns: new[] { "ID", "CarrinhoID", "Preco", "ProdutoID", "Quantidade", "TaxaBefeira" },
                 values: new object[,]
@@ -561,7 +554,7 @@ namespace BeFeira.Server.Migrations
             migrationBuilder.InsertData(
                 table: "Promocao",
                 columns: new[] { "ID", "Date", "Desconto", "ProdutoID" },
-                values: new object[] { 1, new DateTime(2023, 1, 14, 15, 23, 20, 449, DateTimeKind.Local).AddTicks(2604), 10, 1 });
+                values: new object[] { 1, new DateTime(2023, 1, 14, 19, 58, 16, 40, DateTimeKind.Local).AddTicks(91), 10, 1 });
 
             migrationBuilder.InsertData(
                 table: "VendaProduto",
@@ -576,11 +569,6 @@ namespace BeFeira.Server.Migrations
                 name: "IX_Carrinho_ClienteID",
                 table: "Carrinho",
                 column: "ClienteID");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Carrinho_StandID",
-                table: "Carrinho",
-                column: "StandID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_CarrinhoProduto_CarrinhoID",
@@ -666,10 +654,10 @@ namespace BeFeira.Server.Migrations
                 name: "Carrinho");
 
             migrationBuilder.DropTable(
-                name: "Cliente");
+                name: "Stand");
 
             migrationBuilder.DropTable(
-                name: "Stand");
+                name: "Cliente");
 
             migrationBuilder.DropTable(
                 name: "Feira");

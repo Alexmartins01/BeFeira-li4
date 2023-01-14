@@ -1,4 +1,8 @@
 ﻿@page "/finalizarcompra"
+@page "/finalizarcompra/{idkart:int}/{idcli:int}"
+
+@inject IClienteService ClientService
+@inject NavigationManager NavigationManager
 
 <header>
     <link rel="stylesheet" href="icons/icons/css/all.css">
@@ -36,5 +40,30 @@
 </body>
 
 @code {
+    [Parameter]
+    public int? idcli { get; set; }
+
+    [Parameter]
+    public int? idkart { get; set; }
+    
+    [Parameter]
+    public string? uname { get; set; }
+
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        if (idcli == -1)
+        {
+            uname = "Guest";
+        }
+        else
+        {
+            Cliente cli = await ClientService.GetSingleCliente((int)idcli);
+            uname = cli.Username;
+           
+
+        }
+    }
 
 }

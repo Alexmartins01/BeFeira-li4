@@ -12,7 +12,7 @@
     <img src="logo.png" alt="BeFeira Logo">
     <div class="user_header_info">
         <h1>@uname</h1>
-        <i class="fa-solid fa-cart-shopping"></i>
+        <i class="fa-solid fa-cart-shopping" @onclick="(()=>ShowKart())"></i>
     </div>
     <button class="u"><i class="fa-solid fa-circle-user" @onclick="(()=>gouser())" alt=""></i></button>
 </header>
@@ -131,6 +131,7 @@
 
     [Parameter]
     public int? idcliente  { get; set; }
+    private Carrinho c = new Carrinho { };
 
     public string? uname;
 
@@ -153,10 +154,17 @@
     {
         NavigationManager.NavigateTo($"/feirapage/{id}/{idcliente}");
     }
+<<<<<<< Updated upstream
 
     void gouser()
     {
         NavigationManager.NavigateTo($"userinfo/{idcliente}");
     }
 
+=======
+    void ShowKart()
+    {
+        NavigationManager.NavigateTo($"/carrinhopage/{idcliente}");
+    }
+>>>>>>> Stashed changes
 }

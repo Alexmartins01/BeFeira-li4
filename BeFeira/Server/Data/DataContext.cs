@@ -139,9 +139,9 @@ namespace BeFeira.Server.Data
             );
 
             modelBuilder.Entity<Carrinho>().HasData(
-                new Carrinho { ID = 1, ClienteID = 1, StandID = 1, Total = 0 },
-                new Carrinho { ID = 2, ClienteID = 2, StandID = 2, Total = 10 },
-                new Carrinho { ID = 3, ClienteID = 3, StandID = 3, Total = 5 }
+                new Carrinho { ID = 1, ClienteID = 1, Total = 0 },
+                new Carrinho { ID = 2, ClienteID = 2, Total = 10 },
+                new Carrinho { ID = 3, ClienteID = 3, Total = 5 }
             );
 
             modelBuilder.Entity<Subcategoria>().HasData(

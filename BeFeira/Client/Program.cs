@@ -8,6 +8,9 @@ using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using BeFeira.Client.Services.SubcategoriaServices;
 using BeFeira.Client.Services.VendedorServices;
 using BeFeira.Client.Services.ClienteServices;
+using BeFeira.Client.Services.CarrinhoServices;
+using BeFeira.Client.Services.NovaPasta;
+using BeFeira.Client.Services.CarrinhoProdServices;
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
 builder.RootComponents.Add<App>("#app");
@@ -20,6 +23,8 @@ builder.Services.AddScoped<IFeiraService, FeiraService>();
 builder.Services.AddScoped<ISubcatserv, SubCatService>();
 builder.Services.AddScoped<IVendedorService, VendedorService>();
 builder.Services.AddScoped<IClienteService, ClienteService>();
+builder.Services.AddScoped<ICarrinhoService, CarrinhoService>();
+builder.Services.AddScoped<ICarrinhoProdService, CarrinhoProdService>();
 
 
 await builder.Build().RunAsync();
