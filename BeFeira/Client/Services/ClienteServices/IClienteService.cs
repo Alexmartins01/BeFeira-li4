@@ -9,7 +9,7 @@
 
         Task<Cliente> GetSingleCliente(int id);
 
-         Task<bool> ValidClient(String username,String pass);
+         Task<int> ValidClient(String username,String pass);
 
         Task AddCliente(Cliente client);
     }

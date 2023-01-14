@@ -1,6 +1,7 @@
 ﻿@page "/mainpage"
-@page "/mainpage/{uname}"
+@page "/mainpage/{idcliente:int}"
 @inject NavigationManager NavigationManager
+@inject IClienteService ClienteService
 
 
 
@@ -125,11 +126,21 @@
 </main>
 
 @code {
- 
-     
+
+
 
     [Parameter]
-    public string? uname  { get; set; }
+    public int? idcliente  { get; set; }
+
+    public string? uname;
+
+    protected override async Task OnInitializedAsync()
+    {
+        Cliente cli = await ClienteService.GetSingleCliente((int)idcliente);
+        uname = cli.Username;
+    }
+
+
     void ShowFeira(int id)
     {
         NavigationManager.NavigateTo($"/feirapage/{id}");
