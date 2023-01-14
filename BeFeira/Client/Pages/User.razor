@@ -11,7 +11,7 @@
 
     <img src="logo.png" @onclick="(()=>gomain())" alt="BeFeira Logo">
     <div class="user_header_info">
-        <h1>User</h1>
+        <h1>@client.Username</h1>
         <i class="fa-solid fa-cart-shopping"></i>
     </div>
     <i class="fa-solid fa-circle-user"></i>
@@ -48,9 +48,9 @@
 
     protected override async Task OnParametersSetAsync()
     {
-        if (idcliente == null)
+        if (idcliente == -1)
         {
-
+            client.Username = "Guest";
         }
         else
         {

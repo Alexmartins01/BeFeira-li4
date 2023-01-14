@@ -1,4 +1,6 @@
 ﻿@page "/addstand"
+@page "/addstand/{idvend:int}"
+@inject IVendedorService VendedorService
 
 <header>
     <link rel="stylesheet" href="icons/icons/css/all.css">
@@ -12,7 +14,7 @@
         <div class="forms">
             <div class="form-content" style="justify-content: center">
                 <div class="login-form">
-                    <div>Adicionar Stand</div>
+                    <div>Adicionar Stand @vendedor.Username</div>
                     <div class="input-boxes">
                         <div class="input-box">
                             <input type="text" placeholder="Nome da Feira" required>
@@ -33,5 +35,12 @@
 </body>
 
 @code {
+    [Parameter]
+    public int? idvend { get; set; }
+    private Vendedor vendedor = new Vendedor { };
 
+    protected override async Task OnInitializedAsync()
+    {
+        vendedor = await VendedorService.GetSingleVendedor((int)idvend);
+    }
 }
