@@ -491,19 +491,19 @@ body {
 }
 
 .search_input {
-    
-    padding: 12px 24px;
+    padding: 12px 35px;
     color: white;
-    width: 50%;
+    width: 35%;
     background-color: black;
     transition: transform 250ms ease-in-out;
-    font-size: 14px;
+    font-size: 18px;
     line-height: 18px;
     border-radius: 50px;
     border: 1px solid black;
     transition: all 250ms ease-in-out;
     backface-visibility: hidden;
     margin-top: 30px;
+    margin-left: 50px;
 }
 
 /* Search Button */
