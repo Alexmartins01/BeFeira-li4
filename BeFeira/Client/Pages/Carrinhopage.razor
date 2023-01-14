@@ -1,5 +1,9 @@
 ﻿@page "/carrinhopage"
-@page "/carrinhopage/{idcliente:int}"
+@page "/carrinhopage/{idcliente:int}/{from}"
+@page "/carrinhopage/{idcliente:int}/{idfeira:int}/{from}"
+@page "/carrinhopage/{idcliente:int}/{idfeira:int}/{idstand:int}/{from}"
+@page "/carrinhopage/{idcliente:int}/{idfeira:int}/{idstand:int}/{idsubcat:int}/{from}"
+@page "/carrinhopage/{idcliente:int}/{idfeira:int}/{idstand:int}/{idsubcat:int}/{idproduto:int}/{from}"
 @using BeFeira.Shared
 @inject IClienteService ClientService
 @inject ICarrinhoProdService CarrinhoProdService
@@ -46,7 +50,7 @@
         </div>
         <p>@String.Format("Total: {0}€",total.ToString("0.00"))</p>
         <div class="carrinho_buttons_container">
-            <button>Voltar</button>
+            <button class="botao_voltar_bottom" @onclick="(()=>goBack())">Voltar</button>
             <button @onclick="(()=>FinalizarCompra())" >Finalizar compra</button>
         </div>
     </div>
@@ -54,9 +58,23 @@
 
 @code {
 
+    [Parameter]
+    public int? idfeira { get; set; }
+
+    [Parameter]
+    public int? idstand { get; set; }
+
+    [Parameter]
+    public int? idsubcat { get; set; }
+
+    [Parameter]
+    public int? idproduto { get; set; }
 
     [Parameter]
     public int? idcliente { get; set; }
+
+    [Parameter]
+    public string? from { get; set; }
 
     private Carrinho kart = new Carrinho { };
     public  List<Produto> produtos = new List<Produto>();
@@ -103,7 +121,14 @@
 
     }
 
-
+    void goBack()
+    {
+        if (from.Equals("mainpage")) NavigationManager.NavigateTo($"mainpage/{idcliente}");
+        if (from.Equals("feirapage")) NavigationManager.NavigateTo($"feirapage/{idfeira}/{idcliente}");
+        if (from.Equals("standpage")) NavigationManager.NavigateTo($"standpage/{idfeira}/{idstand}/{idcliente}");
+        if (from.Equals("produtopage")) NavigationManager.NavigateTo($"produtopage/{idsubcat}/{idstand}/{idfeira}/{idcliente}");
+        if (from.Equals("produtoinfo")) NavigationManager.NavigateTo($"produtoinfo/{idproduto}/{idsubcat}/{idstand}/{idfeira}/0/{idcliente}");
+    }
 
 
 }
