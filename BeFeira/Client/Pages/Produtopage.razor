@@ -1,7 +1,8 @@
 @page "/produtopage"
-@page "/produtopage/{idsubcategoria:int}/{idstand:int}/{idfeira:int}"
+@page "/produtopage/{idsubcategoria:int}/{idstand:int}/{idfeira:int}/{idcliente:int}"
 
 @inject IProdutoService ProdutoService
+@inject IClienteService ClientService
 @inject NavigationManager  NavigationManager
 
 
@@ -13,7 +14,7 @@
 
     <img src="logo.png" @onclick="(()=>gomain())" alt="BeFeira Logo">
     <div class="user_header_info">
-        <h1>Guest</h1>
+        <h1>@name</h1>
         <i class="fa-solid fa-cart-shopping"></i>
     </div>
     <i class="fa-solid fa-circle-user"></i>
@@ -60,18 +61,23 @@
     [Parameter]
     public int? idsubcategoria { get; set; }
 
+    [Parameter]
+    public int? idcliente { get; set; }
 
+    public string name;
+    public Cliente c;
 
     protected override async Task OnInitializedAsync()
     {
         await ProdutoService.GetProdutos();
+        if (idcliente == -1) name = "Guest";
+        else
+        {
+            c = await ClientService.GetSingleCliente((int)idcliente);
+            name = c.Username;
+        }
     }
 
-
-    void ShowProduct(int id)
-    {
-        NavigationManager.NavigateTo($"produtospecify/{id}");
-    }
 
 
     protected override async Task OnParametersSetAsync()
@@ -95,7 +101,7 @@
 
     void goback()
     {
-        NavigationManager.NavigateTo($"standpage/{idfeira}/{idstand}");
+        NavigationManager.NavigateTo($"standpage/{idfeira}/{idstand}/{idcliente}");
     }
 
     void gomain()
@@ -105,7 +111,7 @@
 
     void showProdInfo(int subcat, int prod)
     {
-        NavigationManager.NavigateTo($"produtoinfo/{prod}/{subcat}/{idstand}/{idfeira}/0");
+        NavigationManager.NavigateTo($"produtoinfo/{prod}/{subcat}/{idstand}/{idfeira}/0/{idcliente}");
     }
 
 }

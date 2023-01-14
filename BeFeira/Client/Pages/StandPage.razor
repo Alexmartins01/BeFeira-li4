@@ -1,9 +1,10 @@
 ﻿@page "/standpage"
-@page "/standpage/{idfeira:int}/{idbarraca:int}"
+@page "/standpage/{idfeira:int}/{idbarraca:int}/{idcliente:int}"
 
 @inject IProdutoService ProdutoService
 @inject ISubcatserv SubCatService
 @inject IStandService StandService
+@inject IClienteService ClientService
 @inject NavigationManager  NavigationManager
 
 <header>
@@ -12,7 +13,7 @@
 
     <img src="logo.png" @onclick="(()=>gomain())" alt="BeFeira Logo">
     <div class="user_header_info">
-        <h1>Guest</h1>
+        <h1>@name</h1>
         <i class="fa-solid fa-cart-shopping"></i>
     </div>
     <i class="fa-solid fa-circle-user"></i>
@@ -58,14 +59,25 @@
     [Parameter]
     public int? idfeira { get; set; }
 
-     [Parameter]
+    [Parameter]
     public int? idbarraca { get; set; }
+
+    [Parameter]
+    public int? idcliente { get; set; }
+    public string name;
+    public Cliente c;
 
 
     protected override async Task OnInitializedAsync()
     {
         await ProdutoService.GetProdutos();
         await SubCatService.GetSubcats();
+        if (idcliente == -1) name = "Guest";
+        else
+        {
+        c = await ClientService.GetSingleCliente((int)idcliente);
+        name = c.Username;
+        }
     }
 
     protected override async Task OnParametersSetAsync()
@@ -87,12 +99,12 @@
 
     void ShowProductsCategory(int subcat)
     {
-        NavigationManager.NavigateTo($"produtopage/{subcat}/{idbarraca}/{idfeira}");
+        NavigationManager.NavigateTo($"produtopage/{subcat}/{idbarraca}/{idfeira}/{idcliente}");
     }
 
     void goBack(int idfeira)
     {
-        NavigationManager.NavigateTo($"feirapage/{idfeira}");
+        NavigationManager.NavigateTo($"feirapage/{idfeira}/{idcliente}");
     }
     void gomain()
     {
@@ -101,7 +113,7 @@
 
     void showProdInfo(int subcat,int prod)
     {
-        NavigationManager.NavigateTo($"produtoinfo/{prod}/{subcat}/{idbarraca}/{idfeira}/1");
+        NavigationManager.NavigateTo($"produtoinfo/{prod}/{subcat}/{idbarraca}/{idfeira}/1/{idcliente}");
     }
 
 }

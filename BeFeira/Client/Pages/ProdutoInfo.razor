@@ -1,7 +1,8 @@
 ﻿@page "/produtoinfo"
-@page "/produtoinfo/{idproduto:int}/{idsubcategoria:int}/{idstand:int}/{idfeira:int}/{fromStand:int}"
+@page "/produtoinfo/{idproduto:int}/{idsubcategoria:int}/{idstand:int}/{idfeira:int}/{fromStand:int}/{idcliente:int}"
 
 @inject IProdutoService ProdutoService
+@inject IClienteService ClientService
 @inject NavigationManager NavigationManager
 
 
@@ -13,7 +14,7 @@
 
     <img src="logo.png" @onclick="(()=>gomain())" alt="BeFeira Logo">
     <div class="user_header_info">
-        <h1>Guest</h1>
+        <h1>@name</h1>
         <i class="fa-solid fa-cart-shopping"></i>
     </div>
     <i class="fa-solid fa-circle-user"></i>
@@ -55,7 +56,24 @@
     [Parameter]
     public int? idproduto { get; set; }
 
+    [Parameter]
+    public int? idcliente { get; set; }
+
     public Produto prod = new Produto { };
+    public string name;
+    public Cliente c;
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        await ProdutoService.GetProdutos();
+        if (idcliente == -1) name = "Guest";
+        else
+        {
+            c = await ClientService.GetSingleCliente((int)idcliente);
+            name = c.Username;
+        }
+    }
 
 
 
@@ -82,11 +100,11 @@
     {
         if(fromStand!=1)
         {
-            NavigationManager.NavigateTo($"produtopage/{idfeira}/{idstand}/{idsubcategoria}");    
+            NavigationManager.NavigateTo($"produtopage/{idfeira}/{idstand}/{idsubcategoria}/{idcliente}");    
         }
         else
         {
-            NavigationManager.NavigateTo($"standpage/{idfeira}/{idstand}");
+            NavigationManager.NavigateTo($"standpage/{idfeira}/{idstand}/{idcliente}");
         }
     }
 }

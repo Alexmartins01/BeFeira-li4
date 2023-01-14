@@ -1,6 +1,6 @@
 ﻿use Befeira.Shared
 @page "/produtospecify"
-@page "/produtospecify/{id:int}"
+@page "/produtospecify/{id:int}/{idcliente:int}"
 @inject IProdutoService ProdutoService
 
 
@@ -29,6 +29,9 @@ else {
 
     [Parameter]
     public int? id{ get; set;}
+
+    [Parameter]
+    public int? idcliente{ get; set;}
 
 
     protected override async Task OnParametersSetAsync()

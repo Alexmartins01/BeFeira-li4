@@ -1,9 +1,10 @@
 ﻿@page "/feirapage"
-@page "/feirapage/{id:int}"
+@page "/feirapage/{id:int}/{idcliente:int}"
 @inject IStandService StandService
 @inject IVendedorService VendedorService
 @inject ISubcatserv s
 @inject IFeiraService SFeiraService
+@inject IClienteService ClientService
 @inject NavigationManager NavigationManager
 
 
@@ -22,7 +23,7 @@ else {
 
 		<img src="logo.png" @onclick="(()=>gomain())" alt="BeFeira Logo">
 		<div class="user_header_info">
-			<h1>Guest</h1>
+			<h1>@name</h1>
 			<i class="fa-solid fa-cart-shopping"></i>
 		</div>
     <i class="fa-solid fa-circle-user"></i>
@@ -58,7 +59,11 @@ else {
 	[Parameter]
 	public int? id { get; set; }
 
+	[Parameter]
+	public int? idcliente { get; set; }
 
+	public string name;
+	public Cliente c;
 
 	protected override async Task OnParametersSetAsync()
 	{
@@ -70,6 +75,12 @@ else {
 		{
 			f = await SFeiraService.GetSingleFeira((int)id);
 			stands = await StandService.GetStandsByFeira((int)id);
+			if (idcliente == -1) name = "Guest";
+			else
+			{
+				c = await ClientService.GetSingleCliente((int)idcliente);
+				name = c.Username;
+			}
 		}
 	}
 
@@ -80,16 +91,16 @@ else {
 	}
 	void ShowBarraca(int idstand)
 	{
-		NavigationManager.NavigateTo($"standpage/{id}/{idstand}");
+		NavigationManager.NavigateTo($"standpage/{id}/{idstand}/{idcliente}");
 	}
 	void goback()
 	{
-		NavigationManager.NavigateTo("mainpage");
+		NavigationManager.NavigateTo($"mainpage/{idcliente}");
 	}
 
 	void gomain()
 	{
-		NavigationManager.NavigateTo("mainpage");
+		NavigationManager.NavigateTo($"mainpage/{idcliente}");
 	}
 
 

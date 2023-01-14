@@ -136,14 +136,22 @@
 
     protected override async Task OnInitializedAsync()
     {
+        if(idcliente==-1)
+        {
+            uname = "Guest";
+        }
+        else
+        {
         Cliente cli = await ClienteService.GetSingleCliente((int)idcliente);
         uname = cli.Username;
+            
+        }
     }
 
 
     void ShowFeira(int id)
     {
-        NavigationManager.NavigateTo($"/feirapage/{id}");
+        NavigationManager.NavigateTo($"/feirapage/{id}/{idcliente}");
     }
 
 }
