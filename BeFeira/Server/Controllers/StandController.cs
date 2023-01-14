@@ -22,7 +22,7 @@ namespace BeFeira.Server.Controllers
             [HttpGet]
 		public async Task<ActionResult<List<Stand>>> GetStands()
 		{
-            var stands = await _context.Stands.Include(std=>std.Vendedor).ToListAsync();
+            var stands = await _context.Stands.Include(std=>std.Vendedor).Include(std=>std.Feira).ToListAsync();
             return Ok(stands);
 		}
 
@@ -37,5 +37,23 @@ namespace BeFeira.Server.Controllers
             }
             return Ok(prod);
         }
+
+
+		[HttpPost]
+		public async Task<ActionResult<Stand>> addStand(Stand p)
+		{
+
+			_context.Stands.Add(p);
+			await _context.SaveChangesAsync();
+
+			return Ok(await GetDBStands());
+		}
+
+		private async Task<List<Stand>> GetDBStands()
+		{
+
+			return await _context.Stands.ToListAsync();
+		}
+
 	}
 }

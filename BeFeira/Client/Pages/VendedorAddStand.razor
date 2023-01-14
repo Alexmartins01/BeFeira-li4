@@ -1,5 +1,8 @@
 @page "/vendedoraddstand"
+@page "/vendedoraddstand/{idvend:int}"
 
+@inject IStandService StandService
+@inject IVendedorService VendedorService
 @inject NavigationManager NavigationManager
 
 <header>
@@ -8,14 +11,55 @@
 
 	<img src="logo.png" alt="BeFeira Logo" @onclick="(()=>gomain())">
 	<div class="user_header_info">
-		<h1>Adicionar Stand</h1>
+		<h1>Adicionar Stand para o vendedor : @vend.Username</h1>
 	</div>
 	<i class="fa-solid fa-circle-user"></i>
 </header>
 
+<body class="stand_page_container">
+
+	<h1 class="products_stand_name">@vend.Username</h1>
+
+	<div class="subcategorias_container">
+
+
+
+
+
+		@foreach (var stand in stands)
+		{
+
+			<div class="subcategoria_container">
+
+				
+					<p>@stand.Nome</p>
+				<p>@stand.Feira.Categoria</p>
+
+			</div>
+		}
+
+	</div>
+
+</body>
+
 @code{
+	[Parameter]
+	public int? idvend { get; set; }
+
+	private Vendedor vend = new Vendedor { };
+
+	private List<Stand> stands = new List<Stand>();
+
+
+	protected override async Task OnInitializedAsync()
+	{
+		await StandService.GetStands();
+		vend = await VendedorService.GetSingleVendedor((int)idvend);
+		stands =await  StandService.GetStandsByVendedor((int)idvend);
+
+	}
 	void gomain()
 	{
-		NavigationManager.NavigateTo("vendedormain");
+		NavigationManager.NavigateTo($"vendedormain/{idvend}");
 	}
 }

@@ -41,16 +41,16 @@
 	}
 	void goGerir()
 	{
-		NavigationManager.NavigateTo("vendedorgerirstock");
+		NavigationManager.NavigateTo($"vendedorgerirstock/{idvend}");
 	}
 
 	void goAddStock()
 	{
-		NavigationManager.NavigateTo("vendedoraddstock");
+		NavigationManager.NavigateTo($"vendedoraddstock/{idvend}");
 	}
 
 	void goAddStand()
 	{
-		NavigationManager.NavigateTo("vendedoraddstand");
+		NavigationManager.NavigateTo($"vendedoraddstand/{idvend}");
 	}
 }

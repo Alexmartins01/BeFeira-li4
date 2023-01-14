@@ -9,8 +9,11 @@
 		Task GetSubcategorias();
 		Task<List<Subcategoria>> GetSubcategoriasbyStand(int id);
 		Task<List<Stand>> GetStandsByFeira(int id);
+		Task<List<Stand>> GetStandsByVendedor(int idVend);
 
+		Task AddStand(Stand stand);
 
+		Task UpdateStand(Stand stand);
 
 	}
 }

@@ -1,5 +1,9 @@
 @page "/vendedoraddstock"
+@page "/vendedoraddstock/{idvend:int}"
 
+
+@inject IProdutoService ProdutoService
+@inject IVendedorService VendedorService
 @inject NavigationManager NavigationManager
 
 <header>
@@ -13,9 +17,49 @@
 	<i class="fa-solid fa-circle-user"></i>
 </header>
 
+
+<body class="stand_page_container">
+
+	<h1 class="products_stand_name"> Produtos à venda  pelo vendedor: @vend.Username</h1>
+
+	<div class="subcategorias_container">
+
+
+
+
+
+		@foreach (var prod in produtos)
+		{
+
+			<div class="subcategoria_container">
+
+
+				<p>@prod.Nome_Produto</p>
+				<p> Categoria da feira @prod.Stand.Feira.Categoria</p>
+
+			</div>
+		}
+
+	</div>
+
+</body>
+
 @code {
+	[Parameter]
+	public int? idvend { get; set; }
+
+	private Vendedor vend = new Vendedor { };
+
+	private List<Produto> produtos = new List<Produto>();
+
+	protected override async Task OnInitializedAsync()
+	{
+		await ProdutoService.GetProdutos();
+		vend = await VendedorService.GetSingleVendedor((int)idvend);
+		produtos = await ProdutoService.GetProdutosBySeller((int)idvend);
+	}
 	void gomain()
 	{
-		NavigationManager.NavigateTo("vendedormain");
+		NavigationManager.NavigateTo($"vendedormain/{idvend}");
 	}
 }

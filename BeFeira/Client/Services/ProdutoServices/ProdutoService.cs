@@ -101,5 +101,18 @@ namespace BeFeira.Client.Services.ProdutoServices
             }
             return prods;
         }
-    }
+
+		public async Task<List<Produto>> GetProdutosBySeller(int idSeller)
+		{
+			List<Produto> prods = new List<Produto>();
+			foreach (var p in produtos)
+			{
+				if (p.Stand.VendedorID == idSeller)
+				{
+					prods.Add(p);
+				}
+			}
+			return prods;
+		}
+	}
 }

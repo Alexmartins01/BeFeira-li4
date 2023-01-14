@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Components;
+﻿using BeFeira.Shared;
+using Microsoft.AspNetCore.Components;
 using System.Net.Http.Json;
 
 namespace BeFeira.Services.StandServices
@@ -59,6 +60,34 @@ namespace BeFeira.Services.StandServices
 
 			}
 			return std; 
+		}
+
+		public async Task<List<Stand>> GetStandsByVendedor(int idVend)
+		{
+			List<Stand> std = new List<Stand>() { };
+			foreach (var p in Stands)
+			{
+				if (p.VendedorID == idVend)
+				{
+					std.Add(p);
+				}
+
+			}
+			return std;
+		}
+
+		public async Task AddStand(Stand stand)
+		{
+			var result = await _http.PostAsJsonAsync("api/stand", stand);
+			var response = await result.Content.ReadFromJsonAsync<List<Stand>>();
+			Stands = response.ToList();
+		}
+
+		public async Task UpdateStand(Stand stand)
+		{
+			var result = await _http.PutAsJsonAsync($"api/stand/{stand.ID}", stand);
+			var response = await result.Content.ReadFromJsonAsync<List<Stand>>();
+			Stands = response.ToList();
 		}
 	}
 }
