@@ -31,7 +31,7 @@
         @foreach (var produto in prods)
         {
             <div class="produto_basic_info">
-                <img src="../exemplo_produto.png" alt="Imagem do produto">
+                <img src="@produto.urlImage" alt="Imagem do produto">
                 <p class="nome_produto">@produto.Nome_Produto</p>
                 <p class="preco_produto">@String.Format("Preço: {0}€",produto.Preco.ToString("0.00"))</p>
                 <p class="stock_produto">Disponível</p> <!--se stock > 0-->

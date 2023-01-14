@@ -52,49 +52,49 @@ namespace BeFeira.Server.Migrations
                         new
                         {
                             ID = 1,
-                            Createdat = new DateTime(2023, 1, 14, 19, 58, 16, 39, DateTimeKind.Local).AddTicks(9716),
+                            Createdat = new DateTime(2023, 1, 14, 22, 28, 45, 511, DateTimeKind.Local).AddTicks(3720),
                             Password = "1234",
-                            Updatedat = new DateTime(2023, 1, 14, 19, 58, 16, 39, DateTimeKind.Local).AddTicks(9755),
+                            Updatedat = new DateTime(2023, 1, 14, 22, 28, 45, 511, DateTimeKind.Local).AddTicks(3763),
                             Username = "Bernas"
                         },
                         new
                         {
                             ID = 2,
-                            Createdat = new DateTime(2023, 1, 14, 19, 58, 16, 39, DateTimeKind.Local).AddTicks(9759),
+                            Createdat = new DateTime(2023, 1, 14, 22, 28, 45, 511, DateTimeKind.Local).AddTicks(3767),
                             Password = "2345",
-                            Updatedat = new DateTime(2023, 1, 14, 19, 58, 16, 39, DateTimeKind.Local).AddTicks(9761),
+                            Updatedat = new DateTime(2023, 1, 14, 22, 28, 45, 511, DateTimeKind.Local).AddTicks(3768),
                             Username = "Cebolinha"
                         },
                         new
                         {
                             ID = 3,
-                            Createdat = new DateTime(2023, 1, 14, 19, 58, 16, 39, DateTimeKind.Local).AddTicks(9762),
+                            Createdat = new DateTime(2023, 1, 14, 22, 28, 45, 511, DateTimeKind.Local).AddTicks(3770),
                             Password = "3456",
-                            Updatedat = new DateTime(2023, 1, 14, 19, 58, 16, 39, DateTimeKind.Local).AddTicks(9763),
+                            Updatedat = new DateTime(2023, 1, 14, 22, 28, 45, 511, DateTimeKind.Local).AddTicks(3771),
                             Username = "Sergio"
                         },
                         new
                         {
                             ID = 4,
-                            Createdat = new DateTime(2023, 1, 14, 19, 58, 16, 39, DateTimeKind.Local).AddTicks(9765),
+                            Createdat = new DateTime(2023, 1, 14, 22, 28, 45, 511, DateTimeKind.Local).AddTicks(3773),
                             Password = "1134",
-                            Updatedat = new DateTime(2023, 1, 14, 19, 58, 16, 39, DateTimeKind.Local).AddTicks(9766),
+                            Updatedat = new DateTime(2023, 1, 14, 22, 28, 45, 511, DateTimeKind.Local).AddTicks(3774),
                             Username = "Anastásia"
                         },
                         new
                         {
                             ID = 5,
-                            Createdat = new DateTime(2023, 1, 14, 19, 58, 16, 39, DateTimeKind.Local).AddTicks(9769),
+                            Createdat = new DateTime(2023, 1, 14, 22, 28, 45, 511, DateTimeKind.Local).AddTicks(3776),
                             Password = "2245",
-                            Updatedat = new DateTime(2023, 1, 14, 19, 58, 16, 39, DateTimeKind.Local).AddTicks(9770),
+                            Updatedat = new DateTime(2023, 1, 14, 22, 28, 45, 511, DateTimeKind.Local).AddTicks(3777),
                             Username = "Rodri"
                         },
                         new
                         {
                             ID = 6,
-                            Createdat = new DateTime(2023, 1, 14, 19, 58, 16, 39, DateTimeKind.Local).AddTicks(9771),
+                            Createdat = new DateTime(2023, 1, 14, 22, 28, 45, 511, DateTimeKind.Local).AddTicks(3779),
                             Password = "3453",
-                            Updatedat = new DateTime(2023, 1, 14, 19, 58, 16, 39, DateTimeKind.Local).AddTicks(9772),
+                            Updatedat = new DateTime(2023, 1, 14, 22, 28, 45, 511, DateTimeKind.Local).AddTicks(3780),
                             Username = "Jairzinho"
                         });
                 });
@@ -466,6 +466,9 @@ namespace BeFeira.Server.Migrations
                     b.Property<int?>("SubCategoriaID")
                         .HasColumnType("int");
 
+                    b.Property<string>("urlImage")
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("ID");
 
                     b.HasIndex("StandID");
@@ -484,7 +487,8 @@ namespace BeFeira.Server.Migrations
                             Rating = 4,
                             StandID = 1,
                             Stock = 3,
-                            SubCategoriaID = 1
+                            SubCategoriaID = 1,
+                            urlImage = "https://www.freepnglogos.com/uploads/box-png/box-png-transparent-google-objects-pinterest-9.png"
                         },
                         new
                         {
@@ -495,7 +499,8 @@ namespace BeFeira.Server.Migrations
                             Rating = 2,
                             StandID = 2,
                             Stock = 2,
-                            SubCategoriaID = 2
+                            SubCategoriaID = 2,
+                            urlImage = "https://www.freepnglogos.com/uploads/box-png/box-png-transparent-google-objects-pinterest-9.png"
                         },
                         new
                         {
@@ -506,7 +511,8 @@ namespace BeFeira.Server.Migrations
                             Rating = 3,
                             StandID = 3,
                             Stock = 1,
-                            SubCategoriaID = 2
+                            SubCategoriaID = 2,
+                            urlImage = "https://www.freepnglogos.com/uploads/box-png/box-png-transparent-google-objects-pinterest-9.png"
                         },
                         new
                         {
@@ -517,7 +523,8 @@ namespace BeFeira.Server.Migrations
                             Rating = 5,
                             StandID = 4,
                             Stock = 20,
-                            SubCategoriaID = 3
+                            SubCategoriaID = 3,
+                            urlImage = "https://www.freepnglogos.com/uploads/box-png/box-png-transparent-google-objects-pinterest-9.png"
                         },
                         new
                         {
@@ -528,7 +535,8 @@ namespace BeFeira.Server.Migrations
                             Rating = 4,
                             StandID = 5,
                             Stock = 15,
-                            SubCategoriaID = 4
+                            SubCategoriaID = 4,
+                            urlImage = "https://www.freepnglogos.com/uploads/box-png/box-png-transparent-google-objects-pinterest-9.png"
                         },
                         new
                         {
@@ -539,7 +547,8 @@ namespace BeFeira.Server.Migrations
                             Rating = 3,
                             StandID = 6,
                             Stock = 5,
-                            SubCategoriaID = 5
+                            SubCategoriaID = 5,
+                            urlImage = "https://www.freepnglogos.com/uploads/box-png/box-png-transparent-google-objects-pinterest-9.png"
                         },
                         new
                         {
@@ -550,7 +559,8 @@ namespace BeFeira.Server.Migrations
                             Rating = 4,
                             StandID = 7,
                             Stock = 10,
-                            SubCategoriaID = 6
+                            SubCategoriaID = 6,
+                            urlImage = "https://www.freepnglogos.com/uploads/box-png/box-png-transparent-google-objects-pinterest-9.png"
                         },
                         new
                         {
@@ -561,7 +571,8 @@ namespace BeFeira.Server.Migrations
                             Rating = 5,
                             StandID = 8,
                             Stock = 7,
-                            SubCategoriaID = 7
+                            SubCategoriaID = 7,
+                            urlImage = "https://www.freepnglogos.com/uploads/box-png/box-png-transparent-google-objects-pinterest-9.png"
                         },
                         new
                         {
@@ -572,7 +583,8 @@ namespace BeFeira.Server.Migrations
                             Rating = 2,
                             StandID = 9,
                             Stock = 3,
-                            SubCategoriaID = 8
+                            SubCategoriaID = 8,
+                            urlImage = "https://www.freepnglogos.com/uploads/box-png/box-png-transparent-google-objects-pinterest-9.png"
                         },
                         new
                         {
@@ -583,7 +595,8 @@ namespace BeFeira.Server.Migrations
                             Rating = 4,
                             StandID = 10,
                             Stock = 5,
-                            SubCategoriaID = 9
+                            SubCategoriaID = 9,
+                            urlImage = "https://www.freepnglogos.com/uploads/box-png/box-png-transparent-google-objects-pinterest-9.png"
                         },
                         new
                         {
@@ -594,7 +607,8 @@ namespace BeFeira.Server.Migrations
                             Rating = 5,
                             StandID = 11,
                             Stock = 8,
-                            SubCategoriaID = 10
+                            SubCategoriaID = 10,
+                            urlImage = "https://www.freepnglogos.com/uploads/box-png/box-png-transparent-google-objects-pinterest-9.png"
                         },
                         new
                         {
@@ -605,7 +619,8 @@ namespace BeFeira.Server.Migrations
                             Rating = 3,
                             StandID = 12,
                             Stock = 4,
-                            SubCategoriaID = 11
+                            SubCategoriaID = 11,
+                            urlImage = "https://www.freepnglogos.com/uploads/box-png/box-png-transparent-google-objects-pinterest-9.png"
                         },
                         new
                         {
@@ -616,7 +631,8 @@ namespace BeFeira.Server.Migrations
                             Rating = 4,
                             StandID = 13,
                             Stock = 2,
-                            SubCategoriaID = 12
+                            SubCategoriaID = 12,
+                            urlImage = "https://www.freepnglogos.com/uploads/box-png/box-png-transparent-google-objects-pinterest-9.png"
                         },
                         new
                         {
@@ -627,7 +643,8 @@ namespace BeFeira.Server.Migrations
                             Rating = 5,
                             StandID = 14,
                             Stock = 6,
-                            SubCategoriaID = 13
+                            SubCategoriaID = 13,
+                            urlImage = "https://www.freepnglogos.com/uploads/box-png/box-png-transparent-google-objects-pinterest-9.png"
                         },
                         new
                         {
@@ -638,7 +655,8 @@ namespace BeFeira.Server.Migrations
                             Rating = 4,
                             StandID = 15,
                             Stock = 8,
-                            SubCategoriaID = 14
+                            SubCategoriaID = 14,
+                            urlImage = "https://www.freepnglogos.com/uploads/box-png/box-png-transparent-google-objects-pinterest-9.png"
                         },
                         new
                         {
@@ -649,7 +667,8 @@ namespace BeFeira.Server.Migrations
                             Rating = 5,
                             StandID = 1,
                             Stock = 7,
-                            SubCategoriaID = 1
+                            SubCategoriaID = 1,
+                            urlImage = "https://www.freepnglogos.com/uploads/box-png/box-png-transparent-google-objects-pinterest-9.png"
                         },
                         new
                         {
@@ -660,7 +679,8 @@ namespace BeFeira.Server.Migrations
                             Rating = 4,
                             StandID = 2,
                             Stock = 6,
-                            SubCategoriaID = 4
+                            SubCategoriaID = 4,
+                            urlImage = "https://www.freepnglogos.com/uploads/box-png/box-png-transparent-google-objects-pinterest-9.png"
                         },
                         new
                         {
@@ -671,7 +691,8 @@ namespace BeFeira.Server.Migrations
                             Rating = 4,
                             StandID = 3,
                             Stock = 10,
-                            SubCategoriaID = 8
+                            SubCategoriaID = 8,
+                            urlImage = "https://www.freepnglogos.com/uploads/box-png/box-png-transparent-google-objects-pinterest-9.png"
                         },
                         new
                         {
@@ -682,7 +703,8 @@ namespace BeFeira.Server.Migrations
                             Rating = 3,
                             StandID = 4,
                             Stock = 5,
-                            SubCategoriaID = 10
+                            SubCategoriaID = 10,
+                            urlImage = "https://www.freepnglogos.com/uploads/box-png/box-png-transparent-google-objects-pinterest-9.png"
                         },
                         new
                         {
@@ -693,7 +715,8 @@ namespace BeFeira.Server.Migrations
                             Rating = 5,
                             StandID = 5,
                             Stock = 2,
-                            SubCategoriaID = 13
+                            SubCategoriaID = 13,
+                            urlImage = "https://www.freepnglogos.com/uploads/box-png/box-png-transparent-google-objects-pinterest-9.png"
                         },
                         new
                         {
@@ -704,7 +727,8 @@ namespace BeFeira.Server.Migrations
                             Rating = 4,
                             StandID = 6,
                             Stock = 4,
-                            SubCategoriaID = 16
+                            SubCategoriaID = 16,
+                            urlImage = "https://www.freepnglogos.com/uploads/box-png/box-png-transparent-google-objects-pinterest-9.png"
                         },
                         new
                         {
@@ -715,7 +739,8 @@ namespace BeFeira.Server.Migrations
                             Rating = 5,
                             StandID = 7,
                             Stock = 10,
-                            SubCategoriaID = 19
+                            SubCategoriaID = 19,
+                            urlImage = "https://www.freepnglogos.com/uploads/box-png/box-png-transparent-google-objects-pinterest-9.png"
                         },
                         new
                         {
@@ -726,7 +751,8 @@ namespace BeFeira.Server.Migrations
                             Rating = 4,
                             StandID = 8,
                             Stock = 3,
-                            SubCategoriaID = 21
+                            SubCategoriaID = 21,
+                            urlImage = "https://www.freepnglogos.com/uploads/box-png/box-png-transparent-google-objects-pinterest-9.png"
                         },
                         new
                         {
@@ -737,7 +763,8 @@ namespace BeFeira.Server.Migrations
                             Rating = 5,
                             StandID = 9,
                             Stock = 8,
-                            SubCategoriaID = 23
+                            SubCategoriaID = 23,
+                            urlImage = "https://www.freepnglogos.com/uploads/box-png/box-png-transparent-google-objects-pinterest-9.png"
                         },
                         new
                         {
@@ -748,7 +775,8 @@ namespace BeFeira.Server.Migrations
                             Rating = 4,
                             StandID = 1,
                             Stock = 10,
-                            SubCategoriaID = 1
+                            SubCategoriaID = 1,
+                            urlImage = "https://www.freepnglogos.com/uploads/box-png/box-png-transparent-google-objects-pinterest-9.png"
                         },
                         new
                         {
@@ -759,7 +787,8 @@ namespace BeFeira.Server.Migrations
                             Rating = 4,
                             StandID = 2,
                             Stock = 5,
-                            SubCategoriaID = 2
+                            SubCategoriaID = 2,
+                            urlImage = "https://www.freepnglogos.com/uploads/box-png/box-png-transparent-google-objects-pinterest-9.png"
                         },
                         new
                         {
@@ -770,7 +799,8 @@ namespace BeFeira.Server.Migrations
                             Rating = 5,
                             StandID = 3,
                             Stock = 3,
-                            SubCategoriaID = 3
+                            SubCategoriaID = 3,
+                            urlImage = "https://www.freepnglogos.com/uploads/box-png/box-png-transparent-google-objects-pinterest-9.png"
                         },
                         new
                         {
@@ -781,7 +811,8 @@ namespace BeFeira.Server.Migrations
                             Rating = 4,
                             StandID = 4,
                             Stock = 20,
-                            SubCategoriaID = 4
+                            SubCategoriaID = 4,
+                            urlImage = "https://www.freepnglogos.com/uploads/box-png/box-png-transparent-google-objects-pinterest-9.png"
                         },
                         new
                         {
@@ -792,7 +823,8 @@ namespace BeFeira.Server.Migrations
                             Rating = 5,
                             StandID = 5,
                             Stock = 15,
-                            SubCategoriaID = 5
+                            SubCategoriaID = 5,
+                            urlImage = "https://www.freepnglogos.com/uploads/box-png/box-png-transparent-google-objects-pinterest-9.png"
                         });
                 });
 
@@ -823,7 +855,7 @@ namespace BeFeira.Server.Migrations
                         new
                         {
                             ID = 1,
-                            Date = new DateTime(2023, 1, 14, 19, 58, 16, 40, DateTimeKind.Local).AddTicks(91),
+                            Date = new DateTime(2023, 1, 14, 22, 28, 45, 511, DateTimeKind.Local).AddTicks(4219),
                             Desconto = 10,
                             ProdutoID = 1
                         });
@@ -1789,14 +1821,14 @@ namespace BeFeira.Server.Migrations
                         {
                             ID = 1,
                             CarrinhoID = 1,
-                            Date = new DateTime(2023, 1, 14, 19, 58, 16, 40, DateTimeKind.Local).AddTicks(129),
+                            Date = new DateTime(2023, 1, 14, 22, 28, 45, 511, DateTimeKind.Local).AddTicks(4265),
                             Total = 0f
                         },
                         new
                         {
                             ID = 2,
                             CarrinhoID = 2,
-                            Date = new DateTime(2023, 1, 14, 19, 58, 16, 40, DateTimeKind.Local).AddTicks(132),
+                            Date = new DateTime(2023, 1, 14, 22, 28, 45, 511, DateTimeKind.Local).AddTicks(4268),
                             Total = 0f
                         });
                 });

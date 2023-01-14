@@ -26,7 +26,7 @@
 <body class="produtos_stand_container">
 
         <div class="produto_basic_info" style="height : fit-content">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Red_Apple.jpg/420px-Red_Apple.jpg" alt="Imagem do produto">
+        <img src="@prod.urlImage" alt="Imagem do produto">
             <p class="nome_produto">@prod.Nome_Produto</p>
         @if (prod.Promocao!= 0)
         {
@@ -123,7 +123,7 @@
     public string? name;
     public Cliente? c;
 
-   
+
     private int k;
 
 
@@ -143,18 +143,21 @@
 
     async void addtokart(Produto p)
     {
-        if (k > 0)
+        if (idcliente != -1)
         {
-            CarrinhoProduto a = new CarrinhoProduto { CarrinhoID = k, ProdutoID = p.ID, Quantidade = 1, Preco = p.Preco, TaxaBefeira = 10 };
-            await CarrinhoProdService.AddCarrinhoProduto(a);
+            if (k > 0)
+            {
+                CarrinhoProduto a = new CarrinhoProduto { CarrinhoID = k, ProdutoID = p.ID, Quantidade = 1, Preco = p.Preco, TaxaBefeira = 10 };
+                await CarrinhoProdService.AddCarrinhoProduto(a);
 
-        }
-        else
-        {
-            Carrinho novo = new Carrinho { ClienteID = idcliente, Total = 0 };
-            await CarrinhoService.AddCarrinho(novo);
-            k = await CarrinhoService.ExistsCarrinho((int)idcliente);
-            CarrinhoProduto a = new CarrinhoProduto { CarrinhoID = k, ProdutoID = p.ID, Quantidade = 1, Preco = p.Preco, TaxaBefeira = 10 };
+            }
+            else
+            {
+                Carrinho novo = new Carrinho { ClienteID = idcliente, Total = 0 };
+                await CarrinhoService.AddCarrinho(novo);
+                k = await CarrinhoService.ExistsCarrinho((int)idcliente);
+                CarrinhoProduto a = new CarrinhoProduto { CarrinhoID = k, ProdutoID = p.ID, Quantidade = 1, Preco = p.Preco, TaxaBefeira = 10 };
+            }
         }
     }
 

@@ -170,6 +170,7 @@ namespace BeFeira.Server.Migrations
                     Promocao = table.Column<int>(type: "int", nullable: false),
                     Stock = table.Column<int>(type: "int", nullable: false),
                     Rating = table.Column<int>(type: "int", nullable: false),
+                    urlImage = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     SubCategoriaID = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
@@ -266,12 +267,12 @@ namespace BeFeira.Server.Migrations
                 columns: new[] { "ID", "Created_at", "Password", "Updated_at", "Username" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(2023, 1, 14, 19, 58, 16, 39, DateTimeKind.Local).AddTicks(9716), "1234", new DateTime(2023, 1, 14, 19, 58, 16, 39, DateTimeKind.Local).AddTicks(9755), "Bernas" },
-                    { 2, new DateTime(2023, 1, 14, 19, 58, 16, 39, DateTimeKind.Local).AddTicks(9759), "2345", new DateTime(2023, 1, 14, 19, 58, 16, 39, DateTimeKind.Local).AddTicks(9761), "Cebolinha" },
-                    { 3, new DateTime(2023, 1, 14, 19, 58, 16, 39, DateTimeKind.Local).AddTicks(9762), "3456", new DateTime(2023, 1, 14, 19, 58, 16, 39, DateTimeKind.Local).AddTicks(9763), "Sergio" },
-                    { 4, new DateTime(2023, 1, 14, 19, 58, 16, 39, DateTimeKind.Local).AddTicks(9765), "1134", new DateTime(2023, 1, 14, 19, 58, 16, 39, DateTimeKind.Local).AddTicks(9766), "Anastásia" },
-                    { 5, new DateTime(2023, 1, 14, 19, 58, 16, 39, DateTimeKind.Local).AddTicks(9769), "2245", new DateTime(2023, 1, 14, 19, 58, 16, 39, DateTimeKind.Local).AddTicks(9770), "Rodri" },
-                    { 6, new DateTime(2023, 1, 14, 19, 58, 16, 39, DateTimeKind.Local).AddTicks(9771), "3453", new DateTime(2023, 1, 14, 19, 58, 16, 39, DateTimeKind.Local).AddTicks(9772), "Jairzinho" }
+                    { 1, new DateTime(2023, 1, 14, 22, 28, 45, 511, DateTimeKind.Local).AddTicks(3720), "1234", new DateTime(2023, 1, 14, 22, 28, 45, 511, DateTimeKind.Local).AddTicks(3763), "Bernas" },
+                    { 2, new DateTime(2023, 1, 14, 22, 28, 45, 511, DateTimeKind.Local).AddTicks(3767), "2345", new DateTime(2023, 1, 14, 22, 28, 45, 511, DateTimeKind.Local).AddTicks(3768), "Cebolinha" },
+                    { 3, new DateTime(2023, 1, 14, 22, 28, 45, 511, DateTimeKind.Local).AddTicks(3770), "3456", new DateTime(2023, 1, 14, 22, 28, 45, 511, DateTimeKind.Local).AddTicks(3771), "Sergio" },
+                    { 4, new DateTime(2023, 1, 14, 22, 28, 45, 511, DateTimeKind.Local).AddTicks(3773), "1134", new DateTime(2023, 1, 14, 22, 28, 45, 511, DateTimeKind.Local).AddTicks(3774), "Anastásia" },
+                    { 5, new DateTime(2023, 1, 14, 22, 28, 45, 511, DateTimeKind.Local).AddTicks(3776), "2245", new DateTime(2023, 1, 14, 22, 28, 45, 511, DateTimeKind.Local).AddTicks(3777), "Rodri" },
+                    { 6, new DateTime(2023, 1, 14, 22, 28, 45, 511, DateTimeKind.Local).AddTicks(3779), "3453", new DateTime(2023, 1, 14, 22, 28, 45, 511, DateTimeKind.Local).AddTicks(3780), "Jairzinho" }
                 });
 
             migrationBuilder.InsertData(
@@ -501,44 +502,44 @@ namespace BeFeira.Server.Migrations
                 columns: new[] { "ID", "CarrinhoID", "Date", "Total" },
                 values: new object[,]
                 {
-                    { 1, 1, new DateTime(2023, 1, 14, 19, 58, 16, 40, DateTimeKind.Local).AddTicks(129), 0f },
-                    { 2, 2, new DateTime(2023, 1, 14, 19, 58, 16, 40, DateTimeKind.Local).AddTicks(132), 0f }
+                    { 1, 1, new DateTime(2023, 1, 14, 22, 28, 45, 511, DateTimeKind.Local).AddTicks(4265), 0f },
+                    { 2, 2, new DateTime(2023, 1, 14, 22, 28, 45, 511, DateTimeKind.Local).AddTicks(4268), 0f }
                 });
 
             migrationBuilder.InsertData(
                 table: "Produto",
-                columns: new[] { "ID", "Nome_Produto", "Preco", "Promocao", "Rating", "StandID", "Stock", "SubCategoriaID" },
+                columns: new[] { "ID", "Nome_Produto", "Preco", "Promocao", "Rating", "StandID", "Stock", "SubCategoriaID", "urlImage" },
                 values: new object[,]
                 {
-                    { 1, "Maçãs", 2.9f, 0, 4, 1, 3, 1 },
-                    { 2, "Bonecos", 25.9f, 0, 2, 2, 2, 2 },
-                    { 3, "Tapetea", 23.9f, 0, 3, 3, 1, 2 },
-                    { 4, "Celular", 299.9f, 0, 5, 4, 20, 3 },
-                    { 5, "Livro", 15.99f, 0, 4, 5, 15, 4 },
-                    { 6, "Caneca", 9.99f, 0, 3, 6, 5, 5 },
-                    { 7, "Bola de futebol", 29.99f, 0, 4, 7, 10, 6 },
-                    { 8, "Perfume", 69.99f, 0, 5, 8, 7, 7 },
-                    { 9, "Mala", 99.99f, 0, 2, 9, 3, 8 },
-                    { 10, "Sapatos", 89.99f, 0, 4, 10, 5, 9 },
-                    { 11, "Smartwatch", 199.99f, 0, 5, 11, 8, 10 },
-                    { 12, "Fritadeira", 49.99f, 0, 3, 12, 4, 11 },
-                    { 13, "Cadeira gamer", 129.99f, 0, 4, 13, 2, 12 },
-                    { 14, "Bicicleta", 399.99f, 0, 5, 14, 6, 13 },
-                    { 15, "Aspirador", 99.99f, 0, 4, 15, 8, 14 },
-                    { 16, "Toalhas de banho", 12.9f, 0, 5, 1, 7, 1 },
-                    { 17, "Ração para frangos", 3.9f, 0, 4, 2, 6, 4 },
-                    { 18, "Carnes de porco", 15.9f, 0, 4, 3, 10, 8 },
-                    { 19, "Livro de terror", 8.9f, 0, 3, 4, 5, 10 },
-                    { 20, "BMW elétrico", 65000f, 0, 5, 5, 2, 13 },
-                    { 21, "Mesa de escritório", 150f, 0, 4, 6, 4, 16 },
-                    { 22, "Camisola para homem", 25f, 0, 5, 7, 10, 19 },
-                    { 23, "Serra circular", 150f, 0, 4, 8, 3, 21 },
-                    { 24, "Ração para cães", 12.9f, 0, 5, 9, 8, 23 },
-                    { 25, "Toalhas de banho", 15.99f, 0, 4, 1, 10, 1 },
-                    { 26, "Móveis de jardim", 299.99f, 0, 4, 2, 5, 2 },
-                    { 27, "Eletrodomésticos de cozinha", 399.99f, 0, 5, 3, 3, 3 },
-                    { 28, "Ração para cães", 9.99f, 0, 4, 4, 20, 4 },
-                    { 29, "Frangos orgânicos", 7.99f, 0, 5, 5, 15, 5 }
+                    { 1, "Maçãs", 2.9f, 0, 4, 1, 3, 1, "https://www.freepnglogos.com/uploads/box-png/box-png-transparent-google-objects-pinterest-9.png" },
+                    { 2, "Bonecos", 25.9f, 0, 2, 2, 2, 2, "https://www.freepnglogos.com/uploads/box-png/box-png-transparent-google-objects-pinterest-9.png" },
+                    { 3, "Tapetea", 23.9f, 0, 3, 3, 1, 2, "https://www.freepnglogos.com/uploads/box-png/box-png-transparent-google-objects-pinterest-9.png" },
+                    { 4, "Celular", 299.9f, 0, 5, 4, 20, 3, "https://www.freepnglogos.com/uploads/box-png/box-png-transparent-google-objects-pinterest-9.png" },
+                    { 5, "Livro", 15.99f, 0, 4, 5, 15, 4, "https://www.freepnglogos.com/uploads/box-png/box-png-transparent-google-objects-pinterest-9.png" },
+                    { 6, "Caneca", 9.99f, 0, 3, 6, 5, 5, "https://www.freepnglogos.com/uploads/box-png/box-png-transparent-google-objects-pinterest-9.png" },
+                    { 7, "Bola de futebol", 29.99f, 0, 4, 7, 10, 6, "https://www.freepnglogos.com/uploads/box-png/box-png-transparent-google-objects-pinterest-9.png" },
+                    { 8, "Perfume", 69.99f, 0, 5, 8, 7, 7, "https://www.freepnglogos.com/uploads/box-png/box-png-transparent-google-objects-pinterest-9.png" },
+                    { 9, "Mala", 99.99f, 0, 2, 9, 3, 8, "https://www.freepnglogos.com/uploads/box-png/box-png-transparent-google-objects-pinterest-9.png" },
+                    { 10, "Sapatos", 89.99f, 0, 4, 10, 5, 9, "https://www.freepnglogos.com/uploads/box-png/box-png-transparent-google-objects-pinterest-9.png" },
+                    { 11, "Smartwatch", 199.99f, 0, 5, 11, 8, 10, "https://www.freepnglogos.com/uploads/box-png/box-png-transparent-google-objects-pinterest-9.png" },
+                    { 12, "Fritadeira", 49.99f, 0, 3, 12, 4, 11, "https://www.freepnglogos.com/uploads/box-png/box-png-transparent-google-objects-pinterest-9.png" },
+                    { 13, "Cadeira gamer", 129.99f, 0, 4, 13, 2, 12, "https://www.freepnglogos.com/uploads/box-png/box-png-transparent-google-objects-pinterest-9.png" },
+                    { 14, "Bicicleta", 399.99f, 0, 5, 14, 6, 13, "https://www.freepnglogos.com/uploads/box-png/box-png-transparent-google-objects-pinterest-9.png" },
+                    { 15, "Aspirador", 99.99f, 0, 4, 15, 8, 14, "https://www.freepnglogos.com/uploads/box-png/box-png-transparent-google-objects-pinterest-9.png" },
+                    { 16, "Toalhas de banho", 12.9f, 0, 5, 1, 7, 1, "https://www.freepnglogos.com/uploads/box-png/box-png-transparent-google-objects-pinterest-9.png" },
+                    { 17, "Ração para frangos", 3.9f, 0, 4, 2, 6, 4, "https://www.freepnglogos.com/uploads/box-png/box-png-transparent-google-objects-pinterest-9.png" },
+                    { 18, "Carnes de porco", 15.9f, 0, 4, 3, 10, 8, "https://www.freepnglogos.com/uploads/box-png/box-png-transparent-google-objects-pinterest-9.png" },
+                    { 19, "Livro de terror", 8.9f, 0, 3, 4, 5, 10, "https://www.freepnglogos.com/uploads/box-png/box-png-transparent-google-objects-pinterest-9.png" },
+                    { 20, "BMW elétrico", 65000f, 0, 5, 5, 2, 13, "https://www.freepnglogos.com/uploads/box-png/box-png-transparent-google-objects-pinterest-9.png" },
+                    { 21, "Mesa de escritório", 150f, 0, 4, 6, 4, 16, "https://www.freepnglogos.com/uploads/box-png/box-png-transparent-google-objects-pinterest-9.png" },
+                    { 22, "Camisola para homem", 25f, 0, 5, 7, 10, 19, "https://www.freepnglogos.com/uploads/box-png/box-png-transparent-google-objects-pinterest-9.png" },
+                    { 23, "Serra circular", 150f, 0, 4, 8, 3, 21, "https://www.freepnglogos.com/uploads/box-png/box-png-transparent-google-objects-pinterest-9.png" },
+                    { 24, "Ração para cães", 12.9f, 0, 5, 9, 8, 23, "https://www.freepnglogos.com/uploads/box-png/box-png-transparent-google-objects-pinterest-9.png" },
+                    { 25, "Toalhas de banho", 15.99f, 0, 4, 1, 10, 1, "https://www.freepnglogos.com/uploads/box-png/box-png-transparent-google-objects-pinterest-9.png" },
+                    { 26, "Móveis de jardim", 299.99f, 0, 4, 2, 5, 2, "https://www.freepnglogos.com/uploads/box-png/box-png-transparent-google-objects-pinterest-9.png" },
+                    { 27, "Eletrodomésticos de cozinha", 399.99f, 0, 5, 3, 3, 3, "https://www.freepnglogos.com/uploads/box-png/box-png-transparent-google-objects-pinterest-9.png" },
+                    { 28, "Ração para cães", 9.99f, 0, 4, 4, 20, 4, "https://www.freepnglogos.com/uploads/box-png/box-png-transparent-google-objects-pinterest-9.png" },
+                    { 29, "Frangos orgânicos", 7.99f, 0, 5, 5, 15, 5, "https://www.freepnglogos.com/uploads/box-png/box-png-transparent-google-objects-pinterest-9.png" }
                 });
 
             migrationBuilder.InsertData(
@@ -554,7 +555,7 @@ namespace BeFeira.Server.Migrations
             migrationBuilder.InsertData(
                 table: "Promocao",
                 columns: new[] { "ID", "Date", "Desconto", "ProdutoID" },
-                values: new object[] { 1, new DateTime(2023, 1, 14, 19, 58, 16, 40, DateTimeKind.Local).AddTicks(91), 10, 1 });
+                values: new object[] { 1, new DateTime(2023, 1, 14, 22, 28, 45, 511, DateTimeKind.Local).AddTicks(4219), 10, 1 });
 
             migrationBuilder.InsertData(
                 table: "VendaProduto",

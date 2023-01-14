@@ -36,7 +36,7 @@
         @foreach (var produto in prods)
         {
         <div class="produto_basic_info">
-            <img src="../exemplo_produto.png" alt="Imagem do produto">
+            <img src="@produto.urlImage" alt="Imagem do produto">
             <p class="nome_produto">@produto.Nome_Produto</p>
             <p class="preco_produto">@String.Format("Preço: {0}€",produto.Preco.ToString("0.00"))</p>
             <p class="stock_produto">Disponível</p> <!--se stock > 0-->
@@ -120,6 +120,7 @@
 
     async void addtokart(Produto p)
     {
+        if (idcliente!=-1){
         if (k > 0)
         {
             CarrinhoProduto a = new CarrinhoProduto { CarrinhoID = k, ProdutoID = p.ID, Quantidade = 1, Preco = p.Preco, TaxaBefeira = 10 };
@@ -133,6 +134,7 @@
             k = await CarrinhoService.ExistsCarrinho((int)idcliente);
             CarrinhoProduto a = new CarrinhoProduto { CarrinhoID = k, ProdutoID = p.ID, Quantidade = 1, Preco = p.Preco, TaxaBefeira = 10 };
         }
+        }
     }
 
     void goback()
@@ -142,7 +144,7 @@
 
     void gomain()
     {
-        NavigationManager.NavigateTo("mainpage");
+        NavigationManager.NavigateTo($"mainpage/{idcliente}");
     }
 
     void showProdInfo(int subcat, int prod)
