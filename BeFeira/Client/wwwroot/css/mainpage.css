@@ -467,7 +467,7 @@ body {
     
     padding: 12px 24px;
     color: white;
-    width: 80%;
+    width: 50%;
     background-color: black;
     transition: transform 250ms ease-in-out;
     font-size: 14px;
@@ -499,6 +499,10 @@ body {
     #search:focus {
         background-color: white;
         color: black;
+    }
+
+    #b{
+        color: white;
     }
 
 
