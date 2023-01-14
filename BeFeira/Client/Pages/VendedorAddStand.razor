@@ -1,0 +1,21 @@
+@page "/vendedoraddstand"
+
+@inject NavigationManager NavigationManager
+
+<header>
+	<link rel="stylesheet" href="icons/icons/css/all.css">
+	<link rel="stylesheet" href="css/mainpage.css">
+
+	<img src="logo.png" alt="BeFeira Logo" @onclick="(()=>gomain())">
+	<div class="user_header_info">
+		<h1>Adicionar Stand</h1>
+	</div>
+	<i class="fa-solid fa-circle-user"></i>
+</header>
+
+@code{
+	void gomain()
+	{
+		NavigationManager.NavigateTo("vendedormain");
+	}
+}

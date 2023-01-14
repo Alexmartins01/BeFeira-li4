@@ -1,0 +1,47 @@
+@page "/vendedormain"
+
+@inject NavigationManager NavigationManager
+
+<PageTitle> VendedorMain </PageTitle>
+
+<header>
+	<link rel="stylesheet" href="icons/icons/css/all.css">
+	<link rel="stylesheet" href="css/mainpage.css">
+
+	<img src="logo.png" alt="BeFeira Logo">
+	<div class="user_header_info">
+		<h1>Bem Vindo Vendedor</h1>
+	</div>
+	<i class="fa-solid fa-circle-user"></i>
+</header>
+
+<body class="feira_container">
+	
+		<div class="feira_stand_container" @onclick="(()=>goGerir())">
+			<p class="stand_name">Gerir Stock</p>
+		</div>
+		<div class="feira_stand_container" @onclick="(()=>goAddStock())">
+			<p class="stand_name">Adicionar Stock</p>
+		</div>
+		<div class="feira_stand_container" @onclick="(()=>goAddStand())">
+			<p class="stand_name">Adicionar Stand</p>
+		</div>
+	
+</body>
+
+@code{
+	void goGerir()
+	{
+		NavigationManager.NavigateTo("vendedorgerirstock");
+	}
+
+	void goAddStock()
+	{
+		NavigationManager.NavigateTo("vendedoraddstock");
+	}
+
+	void goAddStand()
+	{
+		NavigationManager.NavigateTo("vendedoraddstand");
+	}
+}
