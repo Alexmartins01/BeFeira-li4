@@ -26,8 +26,10 @@ header {
     }
 
 .container {
+    text-align:center;
+    margin-top:40px;
     position: relative;
-    max-width: 850px;
+    max-width: 75%;
     width: 100%;
     background: white;
     padding: 40px 30px;
@@ -48,7 +50,8 @@ header {
 
 .form-content .login-form,
 .form-content .signup-form {
-    width: calc(70% / 2 - 25px);
+    width: calc(50% / 2 - 25px);
+    margin: 0 20px 0 20px;
 }
 
 .forms .form-content .input-boxes {
@@ -118,7 +121,7 @@ header {
     font-weight: 600;
     border-radius: 15px;
     transition: all 0.1s ease;
-    margin: 20px 0 20px 600px;
+    margin: 50px 250px 0 0;
 }
 
 .user_header_info {
@@ -144,3 +147,17 @@ header {
             color: red;
             transform: scale(1.1);
         }
+
+body{
+
+    text-align:right;
+}
+.login-form > div  {
+    font-weight:600;
+    font-size:25px;
+}
+
+.signup-form > div {
+    font-weight: 600;
+    font-size: 25px;
+}

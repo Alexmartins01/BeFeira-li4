@@ -13,6 +13,7 @@
         Task DeleteProduto( int id);
         Task<List<Produto>> GetProdutosBySubcat(int idsubcat);
         Task<List<Produto>> GetProdutosBySubcat4(int idsubcat);
+		Task<List<Produto>> GetProdutosBySeller(int idsubcat);
 
-    }
+	}
 }
