@@ -3,8 +3,9 @@
     public interface ISubcatserv
     {
 
-        List<Subcategoria> Subcats { get; set; }
+        List<Subcategoria> subcats { get; set; }
         Task GetSubcats();
-        //Task<List<Subcategoria>> GetSubcatsByStand(int id);
+
+        Task<List<Subcategoria>> GetSubcatsByStand(int id);
     }
 }

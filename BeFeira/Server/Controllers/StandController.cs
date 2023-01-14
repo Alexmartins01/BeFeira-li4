@@ -22,7 +22,7 @@ namespace BeFeira.Server.Controllers
             [HttpGet]
 		public async Task<ActionResult<List<Stand>>> GetStands()
 		{
-            var stands = await _context.Stands.ToListAsync();
+            var stands = await _context.Stands.Include(std=>std.Vendedor).ToListAsync();
             return Ok(stands);
 		}
 

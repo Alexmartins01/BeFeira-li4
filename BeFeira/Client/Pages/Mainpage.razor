@@ -1,4 +1,6 @@
 ﻿@page "/mainpage"
+@page "/mainpage/{uname}"
+@inject NavigationManager NavigationManager
 
 
 
@@ -7,113 +9,116 @@
     <link rel="stylesheet" href="css/mainpage.css">
 
     <img src="logo.png" alt="BeFeira Logo">
-    <p>Login/Registo</p>
+    <div class="user_header_info">
+        <h1>@uname</h1>
+        <i class="fa-solid fa-cart-shopping"></i>
+    </div>
     <i class="fa-solid fa-circle-user"></i>
 </header>
 
 <main id="main_page">
     <div class="container_categoria">
-        <img  src="fotos mockups/casa.webp" alt="casaedecoracao" />
+        <img src="fotos mockups/casa.webp" alt="casaedecoracao" @onclick="(()=>ShowFeira(1))" />
         <p>Casa e Decoração</p>
     </div>
 
     <div class="container_categoria">
-        <img src="fotos mockups/animais.jpg" alt="animais" />
+        <img src="fotos mockups/animais.jpg" alt="animais" @onclick="(()=>ShowFeira(2))" />
         <p>Animais</p>
     </div>
 
     <div class="container_categoria">
-        <img src="fotos mockups/mercearia.png" alt="Mercearia" />
+        <img src="fotos mockups/mercearia.png" alt="Mercearia" @onclick="(()=>ShowFeira(3))" />
         <p>Mercearia e Produtos Frescos</p>
     </div>
 
     <div class="container_categoria">
-        <img src="fotos mockups/cultura.jpg" alt="Cultura" />
+        <img src="fotos mockups/cultura.jpg" alt="Cultura" @onclick="(()=>ShowFeira(4))" />
         <p>Cultura</p>
     </div>
 
     <div class="container_categoria">
-        <img src="fotos mockups/veiculo.webp" alt="Veiculos" />
+        <img src="fotos mockups/veiculo.webp" alt="Veiculos" @onclick="(()=>ShowFeira(5))" />
         <p>Veículos</p>
     </div>
 
     <div class="container_categoria">
-        <img src="fotos mockups/escritorio.webp" alt="Escritório" />
+        <img src="fotos mockups/escritorio.webp" alt="Escritório" @onclick="(()=>ShowFeira(6))" />
         <p>Escritório</p>
     </div>
 
     <div class="container_categoria">
-        <img src="fotos mockups/moda.jpg" alt="Moda" />
+        <img src="fotos mockups/moda.jpg" alt="Moda" @onclick="(()=>ShowFeira(7))" />
         <p>Moda</p>
     </div>
 
     <div class="container_categoria">
-        <img src="fotos mockups/ferramentas.jpg" alt="Bricolagem" />
+        <img src="fotos mockups/ferramentas.jpg" alt="Bricolagem" @onclick="(()=>ShowFeira(8))" />
         <p>Bricolagem</p>
     </div>
 
     <div class="container_categoria">
-        <img src="fotos mockups/animais de estimação.jpg" alt="Animais de Estimação" />
+        <img src="fotos mockups/animais de estimação.jpg" alt="Animais de Estimação" @onclick="(()=>ShowFeira(9))" />
         <p>Animais de Estimação</p>
     </div>
 
     <div class="container_categoria">
-        <img src="fotos mockups/brinquedos.jpg" alt="Brinquedos" />
+        <img src="fotos mockups/brinquedos.jpg" alt="Brinquedos" @onclick="(()=>ShowFeira(10))" />
         <p>Brinquedos</p>
     </div>
 
     <div class="container_categoria">
-        <img src="fotos mockups/gaming.jpg" alt="Gaming" />
+        <img src="fotos mockups/gaming.jpg" alt="Gaming" @onclick="(()=>ShowFeira(11))" />
         <p>Gaming</p>
     </div>
 
     <div class="container_categoria">
-        <img src="fotos mockups/lazer.jpg" alt="Lazer" />
+        <img src="fotos mockups/lazer.jpg" alt="Lazer" @onclick="(()=>ShowFeira(12))" />
         <p>Lazer</p>
     </div>
 
     <div class="container_categoria">
-        <img src="fotos mockups/saude.jpg" alt="Saúde" />
+        <img src="fotos mockups/saude.jpg" alt="Saúde" @onclick="(()=>ShowFeira(13))" />
         <p>Saúde</p>
     </div>
 
     <div class="container_categoria">
-        <img src="fotos mockups/beleza.webp" alt="Beleza" />
+        <img src="fotos mockups/beleza.webp" alt="Beleza" @onclick="(()=>ShowFeira(14))" />
         <p>Beleza</p>
     </div>
 
     <div class="container_categoria">
-        <img src="fotos mockups/eletrodomesticos.png" alt="Eletrodomésticos" />
+        <img src="fotos mockups/eletrodomesticos.png" alt="Eletrodomésticos" @onclick="(()=>ShowFeira(15))" />
         <p>Eletrodomésticos</p>
     </div>
 
     <div class="container_categoria">
-        <img src="fotos mockups/imagem.jpg" alt="Imagem" />
+        <img src="fotos mockups/imagem.jpg" alt="Imagem" @onclick="(()=>ShowFeira(16))"/>
         <p>Imagem</p>
     </div>
 
     <div class="container_categoria">
-        <img src="fotos mockups/som.jpg" alt="Som" />
+        <img src="fotos mockups/som.jpg" alt="Som" @onclick="(()=>ShowFeira(17))"/>
         <p>Som</p>
     </div>
 
     <div class="container_categoria">
-        <img src="fotos mockups/smartphone.jpg" alt="Smartphones e Acessórios" />
+        <img src="fotos mockups/smartphone.jpg" alt="Smartphones e Acessórios" @onclick="(()=>ShowFeira(18))" />
         <p>Smartphones e Acessórios</p>
     </div>
 
     <div class="container_categoria">
-        <img src="fotos mockups/informatica.jpg" alt="Informática" />
+        <img src="fotos mockups/informatica.jpg" alt="Informática" @onclick="(()=>ShowFeira(19))" />
         <p>Informática</p>
     </div>
 
     <div class="container_categoria">
-        <img src="fotos mockups/desporto.jpg" alt="Desporto" />
+        <img src="fotos mockups/desporto.jpg" alt="Desporto" @onclick="(()=>ShowFeira(20))" />
         <p>Desporto</p>
     </div>
 
     <div class="container_categoria">
-        <i class="fa-solid fa-question"></i>
+        <i class="fa-solid fa-question" @onclick="(()=>ShowFeira(21))"></i>
         <p>Random</p>
     </div>
 
@@ -121,6 +126,13 @@
 
 @code {
  
+     
 
+    [Parameter]
+    public string? uname  { get; set; }
+    void ShowFeira(int id)
+    {
+        NavigationManager.NavigateTo($"/feirapage/{id}");
+    }
 
 }

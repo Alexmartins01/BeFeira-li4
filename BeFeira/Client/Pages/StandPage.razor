@@ -1,7 +1,8 @@
 ﻿@page "/standpage"
-@page "/standpage/{id:int}"
+@page "/standpage/{idfeira:int}/{idbarraca:int}"
 
-
+@inject IProdutoService ProdutoService
+@inject ISubcatserv SubCatService
 @inject IStandService StandService
 @inject NavigationManager  NavigationManager
 
@@ -9,60 +10,98 @@
     <link rel="stylesheet" href="icons/icons/css/all.css">
     <link rel="stylesheet" href="css/mainpage.css">
 
-    <img src="logo.png" alt="BeFeira Logo">
+    <img src="logo.png" @onclick="(()=>gomain())" alt="BeFeira Logo">
+    <div class="user_header_info">
+        <h1>Guest</h1>
+        <i class="fa-solid fa-cart-shopping"></i>
+    </div>
     <i class="fa-solid fa-circle-user"></i>
 </header>
 
 <body class="stand_page_container">
 
-    <h1 class="products_stand_name">@nome_do_stand</h1>
+    <h1 class="products_stand_name" >@stand.Nome</h1>
 
     <div class="subcategorias_container">
 
-        @foreach (var subcat in subcategorias)
+
+
+        
+        @foreach (var subcat in subcats)
         {
-            <!--TODO: criar listas para produtos das subcategorias-->
-            <!--TODO: meter efeito de hover na subcategoria e em cada um dos produtos-->
+
+            <div class="subcategoria_container" >
+
+                <h3 @onclick="(()=>ShowProductsCategory(subcat.ID))">  @subcat.Descricao  </h3>
+                @foreach (var prod in produtos_subcats[subcat.ID])
+                {
+              
+                    <p @onclick="(()=>showProdInfo(subcat.ID,prod.ID))">@prod.Nome_Produto</p>
+                }
+
+            </div>
         }
 
     </div>
+    <button class="botao_voltar_bottom" @onclick="(()=>goBack((int)idfeira))" >Voltar</button>
 
 </body>
 
 @code {
-
+    int n = 0;
     Stand stand = new Stand { };
-    List<Subcategoria> subcats = new List<Subcategoria>();
+    List<Subcategoria> subcats = new List<Subcategoria> { };
+    Dictionary<int, List<Produto>> produtos_subcats = new Dictionary<int, List<Produto>>();
 
 
 
     [Parameter]
-    public int? id { get; set; }
+    public int? idfeira { get; set; }
 
+     [Parameter]
+    public int? idbarraca { get; set; }
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        await ProdutoService.GetProdutos();
+        await SubCatService.GetSubcats();
+    }
 
     protected override async Task OnParametersSetAsync()
     {
-        if (id == null)
+        if (idbarraca == null)
         {
 
         }
         else
         {
-            stand = await StandService.GetSingleStand((int)id);
-            subcats = await StandService.GetSubcategoriasbyStand((int)id);
+            stand = await StandService.GetSingleStand((int)idbarraca);
+            subcats = await SubCatService.GetSubcatsByStand((int)idbarraca);
+            foreach(var sub in subcats)
+            {
+                produtos_subcats.Add(sub.ID, await ProdutoService.GetProdutosBySubcat4(sub.ID));
+            }
         }
     }
 
-    // Código para testes
+    void ShowProductsCategory(int subcat)
+    {
+        NavigationManager.NavigateTo($"produtopage/{subcat}/{idbarraca}/{idfeira}");
+    }
 
-    string nome_do_stand = "<Nome do Stand>";
+    void goBack(int idfeira)
+    {
+        NavigationManager.NavigateTo($"feirapage/{idfeira}");
+    }
+    void gomain()
+    {
+        NavigationManager.NavigateTo("mainpage");
+    }
 
-    List<Subcategoria> subcategorias = new List<Subcategoria>{
+    void showProdInfo(int subcat,int prod)
+    {
+        NavigationManager.NavigateTo($"produtoinfo/{prod}/{subcat}/{idbarraca}/{idfeira}/1");
+    }
 
-        new Subcategoria{ID=0,Descricao="Descrição",StandID=0},
-        new Subcategoria{ID=1,Descricao="Descrição",StandID=0},
-        new Subcategoria{ID=2,Descricao="Descrição",StandID=0},
-        new Subcategoria{ID=3,Descricao="Descrição",StandID=0},
-        new Subcategoria{ID=4,Descricao="Descrição",StandID=0}
-    };
 }

@@ -1,9 +1,149 @@
 ﻿@page "/"
 
-<PageTitle>Index</PageTitle>
+@inject IVendedorService VendedorService
+@inject IClienteService ClientService
+@inject NavigationManager NavigationManager
 
-<h1>Hello, world!</h1>
+<header>
+    <link rel="stylesheet" href="icons/icons/css/all.css">
+    <link rel="stylesheet" href="css/Login.css">
+    <img src="logo.png" alt="BeFeira Logo">
+    <i class="fa-solid fa-circle-user"></i>
+</header>
 
-Welcome to your new app.
 
-<SurveyPrompt Title="How is Blazor working for you?" />
+<html>
+<body>
+    <div class="container">
+        <div class="forms">
+            <div class="form-content">
+                <div class="login-form">
+                    <div>Iniciar Sessão</div>
+                    <Editform Model = "@model">
+                        <div class="input-boxes">
+                            <div>
+                                <select class="form-select" @onchange="@OnSelect" >
+                                    <option value="Vendedor">Vendedor</option>
+                                    <option value="Cliente">Cliente</option>
+                                </select>
+                            </div>
+                   
+                            <div class="input-box">
+                                <i class="fas fa-envelope"></i>
+                                <input type="text" @bind-value="model.username"  placeholder="Username" required>
+                            </div>
+                            <div class="input-box">
+                                <i class="fas fa-lock"></i>
+                                <input type="password" @bind-value="model.pass" placeholder="Password" required>
+                            </div>
+                            <div class="button input-box">
+                                <input type="submit" @onclick="Submit" value="Entrar">
+                            </div>
+                           
+                        </div>
+                        
+                    </Editform>
+                </div>
+                <div class="signup-form">
+                    <div>Registar</div>
+                      <Editform Model = "@cli">
+                        <div class="input-boxes">
+                            <div>
+                                <select class="form-select">
+                                    <option value="Vendedor">Vendedor</option>
+                                    <option value="Cliente">Cliente</option>
+                                </select>
+                            </div>
+                            <div class="input-box">
+                                <i class="fas fa-user"></i>
+                                <input type="text" placeholder="Username" @bind-value="cli.Username" required>
+                            </div>
+                            <div class="input-box">
+                                <i class="fas fa-envelope"></i>
+                                <input type="text" placeholder=" Email" @bind-value="cli.Email"required>
+                            </div>
+                            <div class="input-box">
+                                <i class="fas fa-lock"></i>
+                                <input type="password" placeholder="Password" @bind-value="cli.Password"  required>
+                               
+                            </div>
+                            <div class="button input-box">
+                                <input type="submit" @onclick="RegisterClient" value="Registar">
+                            </div>
+                        </div>
+                    </Editform>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button class="botao_voltar_bottom" @onclick="(()=>moveasguest())">Continuar como Guest</button>
+</body>
+</html>
+
+
+@code {
+
+    Formulario model = new Formulario { };
+
+    Cliente cli = new Cliente {  };
+    Vendedor seller = new Vendedor { };
+
+    private  int mostra;
+    private  bool aux;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await VendedorService.GetVendedores();
+        await ClientService.GetClientes();
+        mostra = await ClientService.getmyid();
+
+    }
+    void moveasguest()
+    {
+        NavigationManager.NavigateTo($"/mainpage/{-1}");
+    }
+
+
+    void OnSelect(ChangeEventArgs e)
+    {
+        model.opcao = e.Value.ToString();
+    }
+
+    private async void Submit()
+    {
+        if (model.opcao.Equals("Vendedor"))
+        {
+            bool  a = await VendedorService.ValidVendedor(model.username, model.pass);
+            if (a    == true)
+            {
+                //NavigationManager.NavigateTo($"/vendedeorpage");
+            }
+        }
+        else  if (model.opcao.Equals("Cliente"))
+        {
+            aux  =  await ClientService.ValidClient(model.username, model.pass);
+            if (aux ==true)
+            {
+                NavigationManager.NavigateTo($"/mainpage/{@model.username}");
+            }
+
+        }
+        else
+        {
+
+        } 
+    }
+    private async void RegisterSeller()
+    {
+        //await VendedorService.AddVendedor(seller);
+        //NavigationManager.NavigateTo($"/mainpage/{cli.Username}");
+
+    }
+
+    private async void RegisterClient()
+    {
+        await ClientService.AddCliente(cli);
+        NavigationManager.NavigateTo($"/mainpage/{cli.ID}");
+
+    }
+}

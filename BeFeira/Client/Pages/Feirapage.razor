@@ -1,0 +1,96 @@
+﻿@page "/feirapage"
+@page "/feirapage/{id:int}"
+@inject IStandService StandService
+@inject IVendedorService VendedorService
+@inject ISubcatserv s
+@inject IFeiraService SFeiraService
+@inject NavigationManager NavigationManager
+
+
+<PageTitle> Feirapage </PageTitle>
+
+@if (id == null)
+{
+	
+
+}
+else {
+
+<header>
+    <link rel="stylesheet" href="icons/icons/css/all.css">
+    <link rel="stylesheet" href="css/mainpage.css">
+
+		<img src="logo.png" @onclick="(()=>gomain())" alt="BeFeira Logo">
+		<div class="user_header_info">
+			<h1>Guest</h1>
+			<i class="fa-solid fa-cart-shopping"></i>
+		</div>
+    <i class="fa-solid fa-circle-user"></i>
+</header>
+
+<body class="feira_container">
+		<div class="search_container">
+			<input class="search_input" type="text" placeholder="Search">
+		</div>
+	<h3>@String.Format("Feira de {0}",f.Categoria)</h3>
+	<div class="feira_stands_container">
+
+		@foreach (var std in stands)
+			{
+				
+					<div class="feira_stand_container" @onclick="(()=>ShowBarraca(std.ID))">
+						<p class="stand_name">@std.Nome</p>
+						<p class="vendedor_name"> (@std.Vendedor.Username) </p>
+
+					</div>
+				
+			}
+	</div>
+		<button class="botao_voltar_bottom" @onclick="(()=>goback())">Voltar</button>
+</body>
+}
+@code {
+
+	Feira f = new Feira {};
+	List<Stand> stands=new List<Stand>{};
+
+
+	[Parameter]
+	public int? id { get; set; }
+
+
+
+	protected override async Task OnParametersSetAsync()
+	{
+		if (id == null)
+		{
+
+		}
+		else
+		{
+			f = await SFeiraService.GetSingleFeira((int)id);
+			stands = await StandService.GetStandsByFeira((int)id);
+		}
+	}
+
+	protected override async Task OnInitializedAsync()
+	{
+		await VendedorService.GetVendedores();
+		await StandService.GetStands();
+	}
+	void ShowBarraca(int idstand)
+	{
+		NavigationManager.NavigateTo($"standpage/{id}/{idstand}");
+	}
+	void goback()
+	{
+		NavigationManager.NavigateTo("mainpage");
+	}
+
+	void gomain()
+	{
+		NavigationManager.NavigateTo("mainpage");
+	}
+
+
+}

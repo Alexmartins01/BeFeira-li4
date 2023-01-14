@@ -1,13 +1,21 @@
-﻿@page "/produtopage"
+@page "/produtopage"
+@page "/produtopage/{idsubcategoria:int}/{idstand:int}/{idfeira:int}"
 
 @inject IProdutoService ProdutoService
 @inject NavigationManager  NavigationManager
+
+
+
 
 <header>
     <link rel="stylesheet" href="icons/icons/css/all.css">
     <link rel="stylesheet" href="css/mainpage.css">
 
-    <img src="logo.png" alt="BeFeira Logo">
+    <img src="logo.png" @onclick="(()=>gomain())" alt="BeFeira Logo">
+    <div class="user_header_info">
+        <h1>Guest</h1>
+        <i class="fa-solid fa-cart-shopping"></i>
+    </div>
     <i class="fa-solid fa-circle-user"></i>
 </header>
 
@@ -17,24 +25,42 @@
     <h1 class="products_stand_name">@String.Format("{0} - {1}", nome_da_stand, nome_da_subcategoria)</h1>
 
     <div class="lista_produtos">
-
-        @foreach (var produto in produtos)
+        
+        @foreach (var produto in prods)
         {
         <div class="produto_basic_info">
             <img src="../exemplo_produto.png" alt="Imagem do produto">
             <p class="nome_produto">@produto.Nome_Produto</p>
             <p class="preco_produto">@String.Format("Preço: {0}€",produto.Preco.ToString("0.00"))</p>
-            <p class="stock_produto">@String.Format("Stock: {0} uni.",produto.Stock)</p>
-            <button><i class="fas fa-shopping-cart"></i></button>
+            <p class="stock_produto">Disponível</p> <!--se stock > 0-->
+            <div class="produto_basic_info_buttons">
+                    <button><i class="fa-solid fa-circle-info"@onclick="(()=>showProdInfo((int)idsubcategoria,produto.ID))"></i></button>
+                    <button><i class="fas fa-shopping-cart"></i></button>
+            </div>
+            
         </div>
         }
 
     </div>
 
+    <button class="botao_voltar_bottom"@onclick="(()=>goback())">Voltar</button>
+
 </body>
 
-
 @code{
+    List<Produto> prods = new List<Produto>();
+
+
+    [Parameter]
+    public int? idfeira { get; set; }
+
+    [Parameter]
+    public int? idstand { get; set; }
+
+    [Parameter]
+    public int? idsubcategoria { get; set; }
+
+
 
     protected override async Task OnInitializedAsync()
     {
@@ -47,29 +73,39 @@
         NavigationManager.NavigateTo($"produtospecify/{id}");
     }
 
+
+    protected override async Task OnParametersSetAsync()
+    {
+        if (idsubcategoria == null)
+        {
+
+        }
+        else
+        {
+            prods = await ProdutoService.GetProdutosBySubcat((int)idsubcategoria);
+
+
+        }
+    }
+
     // Código para testar
 
     string nome_da_stand = "<Nome da Stand>";
     string nome_da_subcategoria = "<Subcategoria>";
 
-    public static List<Produto> produtos = new List<Produto>
+    void goback()
     {
-            new Produto{ID=1,StandID=1,Nome_Produto="Produto", Preco=0.50f,Promocao=0,Stock=10,Rating=80,SubCategoriaID=1},
-            new Produto{ID=1,StandID=1,Nome_Produto="Produto", Preco=0.50f,Promocao=0,Stock=10,Rating=80,SubCategoriaID=1},
-            new Produto{ID=1,StandID=1,Nome_Produto="Produto", Preco=0.50f,Promocao=0,Stock=10,Rating=80,SubCategoriaID=1},
-            new Produto{ID=1,StandID=1,Nome_Produto="Produto", Preco=0.50f,Promocao=0,Stock=10,Rating=80,SubCategoriaID=1},
-            new Produto{ID=1,StandID=1,Nome_Produto="Produto", Preco=0.50f,Promocao=0,Stock=10,Rating=80,SubCategoriaID=1},
-            new Produto{ID=1,StandID=1,Nome_Produto="Produto", Preco=0.50f,Promocao=0,Stock=10,Rating=80,SubCategoriaID=1},
-            new Produto{ID=1,StandID=1,Nome_Produto="Produto", Preco=0.50f,Promocao=0,Stock=10,Rating=80,SubCategoriaID=1},
-            new Produto{ID=1,StandID=1,Nome_Produto="Produto", Preco=0.50f,Promocao=0,Stock=10,Rating=80,SubCategoriaID=1},
-            new Produto{ID=1,StandID=1,Nome_Produto="Produto", Preco=0.50f,Promocao=0,Stock=10,Rating=80,SubCategoriaID=1},
-            new Produto{ID=1,StandID=1,Nome_Produto="Produto", Preco=0.50f,Promocao=0,Stock=10,Rating=80,SubCategoriaID=1},
-            new Produto{ID=1,StandID=1,Nome_Produto="Produto", Preco=0.50f,Promocao=0,Stock=10,Rating=80,SubCategoriaID=1},
-            new Produto{ID=1,StandID=1,Nome_Produto="Produto", Preco=0.50f,Promocao=0,Stock=10,Rating=80,SubCategoriaID=1},
-            new Produto{ID=1,StandID=1,Nome_Produto="Produto", Preco=0.50f,Promocao=0,Stock=10,Rating=80,SubCategoriaID=1},
-            new Produto{ID=1,StandID=1,Nome_Produto="Produto", Preco=0.50f,Promocao=0,Stock=10,Rating=80,SubCategoriaID=1},
-            new Produto{ID=1,StandID=1,Nome_Produto="Produto", Preco=0.50f,Promocao=0,Stock=10,Rating=80,SubCategoriaID=1},
-            new Produto{ID=1,StandID=1,Nome_Produto="Produto", Preco=0.50f,Promocao=0,Stock=10,Rating=80,SubCategoriaID=1},
-            new Produto{ID=1,StandID=1,Nome_Produto="Produto", Preco=0.50f,Promocao=0,Stock=10,Rating=80,SubCategoriaID=1}
-    };
+        NavigationManager.NavigateTo($"standpage/{idfeira}/{idstand}");
+    }
+
+    void gomain()
+    {
+        NavigationManager.NavigateTo("mainpage");
+    }
+
+    void showProdInfo(int subcat, int prod)
+    {
+        NavigationManager.NavigateTo($"produtoinfo/{prod}/{subcat}/{idstand}/{idfeira}/0");
+    }
+
 }

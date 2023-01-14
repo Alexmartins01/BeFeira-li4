@@ -7,31 +7,31 @@ namespace BeFeira.Client.Services.SubcategoriaServices
     public class SubCatService : ISubcatserv
     {
         private readonly HttpClient _http;
-        private readonly NavigationManager navigationManager;
+ 
 
         public List<Subcategoria> subcats { get; set; } = new List<Subcategoria>();
-        public SubCatService(HttpClient http,NavigationManager nac) {
+        public SubCatService(HttpClient http) {
             _http = http;
-            navigationManager = nac;
         }
-
-
-
-
-        List<Subcategoria> ISubcatserv.Subcats { get; set; }
 
        public  async Task GetSubcats()
         {
-            var result = await _http.GetFromJsonAsync<List<Subcategoria>>("api/subcategoria");
+            var result = await _http.GetFromJsonAsync<List<Subcategoria>>("api/Subcategoria");
             if (result != null) { subcats = result; }
         }
 
-        /*
-       public async  Task<List<Subcategoria>> GetSubcatsByStand(int id)
+        public async Task<List<Subcategoria>> GetSubcatsByStand(int id)
         {
-            var result = await _http.GetFromJsonAsync<List<Subcategoria>>($"api/subcategoria/{id}");
-            if (result != null) { subcats = result; }
-           throw new Exception("Subcats not found");
-        }*/
+            List<Subcategoria> AUX= new List<Subcategoria>();
+            foreach(var subc in subcats)
+            {
+
+                if (subc.StandID == id) { AUX.Add(subc);}
+            }
+            return AUX;
+        }
+
+
+
     }
 }

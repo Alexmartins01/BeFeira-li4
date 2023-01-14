@@ -20,9 +20,15 @@ namespace BeFeira.Client.Services.FeiraServices
 			if (result != null) { Feiras = result; }
 		}
 
-		public Task<Feira> GetSingleFeira(int id)
+		public async  Task<Feira> GetSingleFeira(int id)
 		{
-			throw new NotImplementedException();
+			var result = await _http.GetFromJsonAsync<Feira>($"api/Feira/{id}");
+			if (result != null)
+			{
+
+				return result;
+			}
+			throw new Exception("Product not found");
 		}
 	}
 }

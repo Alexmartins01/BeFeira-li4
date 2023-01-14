@@ -1,0 +1,92 @@
+﻿@page "/produtoinfo"
+@page "/produtoinfo/{idproduto:int}/{idsubcategoria:int}/{idstand:int}/{idfeira:int}/{fromStand:int}"
+
+@inject IProdutoService ProdutoService
+@inject NavigationManager NavigationManager
+
+
+
+
+<header>
+    <link rel="stylesheet" href="icons/icons/css/all.css">
+    <link rel="stylesheet" href="css/mainpage.css">
+
+    <img src="logo.png" @onclick="(()=>gomain())" alt="BeFeira Logo">
+    <div class="user_header_info">
+        <h1>Guest</h1>
+        <i class="fa-solid fa-cart-shopping"></i>
+    </div>
+    <i class="fa-solid fa-circle-user"></i>
+</header>
+
+
+<body class="produtos_stand_container">
+
+        <div class="produto_basic_info">
+            <img src="../exemplo_produto.png" alt="Imagem do produto">
+            <p class="nome_produto">@prod.Nome_Produto</p>
+            <p class="preco_produto">@String.Format("Preço: {0}€",prod.Preco.ToString("0.00"))</p>
+        <p class="stock_produto">@String.Format("Stock: {0} uni.",prod.Stock)</p>
+            <div class="produto_basic_info_buttons">
+                    <button><i class="fas fa-shopping-cart"></i></button>
+            </div>
+            
+        </div>
+
+    <button class="botao_voltar_bottom" @onclick="(()=>goback())">Voltar</button>
+
+</body>
+
+@code 
+{
+
+    [Parameter]
+    public int? idfeira { get; set; }
+
+    [Parameter]
+    public int? idstand { get; set; }
+
+    [Parameter]
+    public int? idsubcategoria { get; set; }
+
+    [Parameter]
+    public int? fromStand { get; set; }
+
+    [Parameter]
+    public int? idproduto { get; set; }
+
+    public Produto prod = new Produto { };
+
+
+
+    protected override async Task OnParametersSetAsync()
+    {
+        if (idproduto == null)
+        {
+
+        }
+        else
+        {
+            prod = await ProdutoService.GetSingleProd((int)idproduto);
+
+        }
+    }
+    void gomain()
+    {
+        NavigationManager.NavigateTo("mainpage");
+    }
+
+
+
+    void goback()
+    {
+        if(fromStand!=1)
+        {
+            NavigationManager.NavigateTo($"produtopage/{idfeira}/{idstand}/{idsubcategoria}");    
+        }
+        else
+        {
+            NavigationManager.NavigateTo($"standpage/{idfeira}/{idstand}");
+        }
+    }
+}

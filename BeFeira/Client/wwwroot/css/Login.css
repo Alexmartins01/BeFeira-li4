@@ -48,7 +48,7 @@ header {
 
 .form-content .login-form,
 .form-content .signup-form {
-    width: calc(100% / 2 - 25px);
+    width: calc(70% / 2 - 25px);
 }
 
 .forms .form-content .input-boxes {
@@ -104,3 +104,43 @@ header {
 .container #flip {
     display: none;
 }
+
+.botao_voltar_bottom:hover {
+    background-color: darkred;
+    color: white;
+}
+
+.botao_voltar_bottom {
+    background: white;
+    border: 3px solid darkred;
+    padding: 5px 20px 5px 20px;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 15px;
+    transition: all 0.1s ease;
+    margin: 20px 0 20px 600px;
+}
+
+.user_header_info {
+    display: flex;
+}
+
+    .user_header_info h1 {
+        color: white;
+        font-size: 18px;
+        margin: auto 30px auto 0;
+    }
+
+    .user_header_info i {
+        font-size: 20px;
+        background-color: white;
+        color: darkred !important;
+        border-radius: 50%;
+        padding: 10px;
+        transition: all 0.1s ease;
+    }
+
+        .user_header_info i:hover {
+            color: red;
+            transform: scale(1.1);
+        }
