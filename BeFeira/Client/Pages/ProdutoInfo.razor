@@ -24,7 +24,7 @@
 <body class="produtos_stand_container">
 
         <div class="produto_basic_info" style="height : fit-content">
-            <img src="../exemplo_produto.png" alt="Imagem do produto">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Red_Apple.jpg/420px-Red_Apple.jpg" alt="Imagem do produto">
             <p class="nome_produto">@prod.Nome_Produto</p>
         @if (prod.Promocao!= 0)
         {
@@ -36,7 +36,7 @@
 
         }
         <p class="stock_produto">@String.Format("Stock: {0} uni.",prod.Stock)</p>
-        <p class="rating_produto">@String.Format("Rating: {0}",prod.Rating)</p>
+        <p>Rating:</p>
         @switch (prod.Rating)
         {
             case 0:

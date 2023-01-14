@@ -265,14 +265,14 @@ body {
 }
 
 .produtos_stand_container .preco_produto, .stock_produto, .promocao_produto, .rating_produto {
-    text-align: left;
+    text-align: center;
     margin-left: 5px;
     font-family: monospace;
     margin-bottom: 0 !important;
 }
 
 .preco_page_produto {
-    text-align: left;
+    text-align: center;
     margin-left: 5px;
     font-family: monospace;
     font-size: 30px;
