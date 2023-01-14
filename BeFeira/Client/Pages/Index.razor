@@ -145,7 +145,7 @@
             bool  a = await VendedorService.ValidVendedor(model.username, model.pass);
            if (a    == true)
             {
-                NavigationManager.NavigateTo($"/vendedormain/{@model.username}");
+                NavigationManager.NavigateTo($"/vendedormain/{0}");
             }
         }
         else  if (model.opcao =="Cliente")
