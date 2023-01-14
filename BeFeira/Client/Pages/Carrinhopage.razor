@@ -86,10 +86,13 @@
     float total = 10.50f; // TODO: tem que ser calculado com base na lista de produtos
 
 
-    void RemoveFromKart(Produto produto)
+    async void RemoveFromKart(Produto produto)
     {
-        CarrinhoProdService.DeleteCarrinhoProd(produto, kart.ID);
-        NavigationManager.NavigateTo($"/finalizarcompra/{kart.ID}/{idcliente}");
+        
+
+        int p = await CarrinhoProdService.getCarrinhoprodbykartandprod(produto, kart.ID);
+         CarrinhoProdService.DeleteCarrinhoProd(p);
+       // NavigationManager.NavigateTo($"/finalizarcompra/{kart.ID}/{p}");
 
     }
 

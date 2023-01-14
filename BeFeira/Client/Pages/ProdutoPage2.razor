@@ -86,7 +86,7 @@
         }
         else
         {
-            prods = await ProdutoService.GetProdutosBySearch(search);
+            prods = await ProdutoService.GetProdutosBySearch(search,(int)idfeira);
         }
     }
 

@@ -53,7 +53,7 @@ namespace BeFeira.Server.Controllers
 
         [HttpDelete("{id}")]
         [Route("id")]
-        public async Task<ActionResult<CarrinhoProduto>> DeleteCarrinhoProd(CarrinhoProduto p, int id)
+        public async Task<ActionResult<CarrinhoProduto>> DeleteCarrinhoProd( int id)
         {
 
             var dbProd = await _context.CarrinhoProdutos.FirstOrDefaultAsync(sh => sh.ID == id);
@@ -62,6 +62,7 @@ namespace BeFeira.Server.Controllers
                 return NotFound("No CarrinhoProd ");
 
             _context.CarrinhoProdutos.Remove(dbProd);
+            await _context.SaveChangesAsync();
             return Ok(await GetDBCarrinhoProduto());
         }
     }

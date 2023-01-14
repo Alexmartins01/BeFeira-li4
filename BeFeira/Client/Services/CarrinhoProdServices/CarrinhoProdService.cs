@@ -68,12 +68,16 @@ namespace BeFeira.Client.Services.CarrinhoProdServices
             return aux;
         }
 
-        public async Task DeleteCarrinhoProd( Produto prod , int idkart)
+        public async Task<int > getCarrinhoprodbykartandprod(Produto prod, int idkart)
         {
+			CarrinhoProduto p = carrinhoprodutos.Find(car => car.CarrinhoID == idkart && car.ProdutoID == prod.ID);
+            return p.ID;
+		}
 
-            CarrinhoProduto p = carrinhoprodutos.Find(car=>car.CarrinhoID==idkart && car.ProdutoID==prod.ID);
+        public async Task DeleteCarrinhoProd(int id)
+        {
     
-            var result = await _http.DeleteAsync($"api/CarrinhoProd/{prod.ID}");
+            var result = await _http.DeleteAsync($"api/CarrinhoProd/{id}");
             var response = await result.Content.ReadFromJsonAsync<List<CarrinhoProduto>>();
             carrinhoprodutos = response;
         }

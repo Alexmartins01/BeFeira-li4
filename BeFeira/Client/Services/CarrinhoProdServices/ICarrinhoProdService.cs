@@ -13,6 +13,9 @@
 
         Task<List<Produto>> getProdutosinCarrinho(int  idcarrinho);
 
-        Task DeleteCarrinhoProd(Produto p, int idkart);
-    }
+        Task DeleteCarrinhoProd(int id);
+
+        Task<int> getCarrinhoprodbykartandprod(Produto prod, int idkart);
+
+	}
 }

@@ -117,12 +117,12 @@ namespace BeFeira.Client.Services.ProdutoServices
         }
 
 
-        public async Task<List<Produto>> GetProdutosBySearch(string searchProdName)
+        public async Task<List<Produto>> GetProdutosBySearch(string searchProdName,int idfeira)
         {
 			List<Produto> prods = new List<Produto>();
 			foreach (Produto prod in produtos)
             {
-                if (prod.Nome_Produto.Equals(searchProdName))
+                if (prod.Nome_Produto.Equals(searchProdName) && prod.Stand.FeiraID==idfeira)
                 {
 					prods.Add(prod);
                 }

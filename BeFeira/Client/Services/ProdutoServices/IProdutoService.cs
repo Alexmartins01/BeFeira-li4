@@ -14,7 +14,7 @@
         Task<List<Produto>> GetProdutosBySubcat(int idsubcat);
         Task<List<Produto>> GetProdutosBySubcat4(int idsubcat);
 		Task<List<Produto>> GetProdutosBySeller(int idsubcat);
-        Task<List<Produto>> GetProdutosBySearch(string searchProdName);
+        Task<List<Produto>> GetProdutosBySearch(string searchProdName,int idfeira);
 
 	}
 }
