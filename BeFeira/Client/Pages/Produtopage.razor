@@ -4,12 +4,11 @@
 @inject ICarrinhoProdService CarrinhoProdService
 @inject IProdutoService ProdutoService
 @inject IClienteService ClientService
-<<<<<<< Updated upstream
 @inject IStandService StandService
 @inject ISubcatserv SubcatService
-=======
+
 @inject ICarrinhoService CarrinhoService
->>>>>>> Stashed changes
+
 @inject NavigationManager  NavigationManager
 
 
@@ -72,16 +71,14 @@
     [Parameter]
     public int? idcliente { get; set; }
 
+    private Stand s;
+    private Subcategoria sc;
     public string name;
     public string standname;
     public string subcatname;
-    public Cliente c;
-<<<<<<< Updated upstream
-    public Subcategoria sc;
-    public Stand s;
-=======
     private int k;
->>>>>>> Stashed changes
+    public Cliente c;
+
 
     protected override async Task OnInitializedAsync()
     {
@@ -153,16 +150,15 @@
         NavigationManager.NavigateTo($"produtoinfo/{prod}/{subcat}/{idstand}/{idfeira}/0/{idcliente}");
     }
 
-<<<<<<< Updated upstream
     void gouser()
     {
         NavigationManager.NavigateTo($"userinfo/{idcliente}");
     }
 
-=======
+
     void ShowKart()
     {
         NavigationManager.NavigateTo($"/carrinhopage/{idcliente}");
     }
->>>>>>> Stashed changes
+
 }
