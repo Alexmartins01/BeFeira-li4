@@ -2,7 +2,7 @@
 {
     public interface IFeiraService
     {
-        List<Feira> Feiras { get; set; }
+        List<Feira> FeiraList { get; set; }
 
         Task GetFeiras();
         Task<Feira> GetSingleFeira(int id);
