@@ -479,6 +479,30 @@ body {
     margin-top: 30px;
 }
 
+/* Search Button */
+#search {
+    margin-left: 10px;
+    background-color: black;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 50px;
+    border: 1px solid white;
+    transition: all 250ms ease-in-out;
+    font-size: 14px;
+    line-height: 18px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    cursor: pointer;
+}
+
+    #search:hover,
+    #search:focus {
+        background-color: white;
+        color: black;
+    }
+
+
+
     .search_input::placeholder {
         color: white;
         text-transform: uppercase;
@@ -492,3 +516,5 @@ body {
         border-bottom: 1px solid black;
         background-position: 100% center;
     }
+
+

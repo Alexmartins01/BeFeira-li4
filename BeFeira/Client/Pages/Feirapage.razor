@@ -27,8 +27,30 @@ else {
 			<i class="fa-solid fa-cart-shopping"></i>
 		</div>
     <i class="fa-solid fa-circle-user"></i>
+	
 </header>
 
+<body class="feira_container">
+    <div class="search_container">
+        <div class="search_bar">
+            <input class="search_input" type="text" placeholder="Search">
+            <button id="search"><i class="fa-regular fa-circle-caret-right"></i></button>
+        </div>
+    </div>
+    <h3>@String.Format("Feira de {0}",f.Categoria)</h3>
+    <div class="feira_stands_container">
+        @foreach (var std in stands)
+        {
+            <div class="feira_stand_container" @onclick="(() => ShowBarraca(std.ID))">
+                <p class="stand_name">@std.Nome</p>
+                <p class="vendedor_name">(@std.Vendedor.Username)</p>
+            </div>
+        }
+    </div>
+    <button class="botao_voltar_bottom" @onclick="(() => goback())">Voltar</button>
+</body>
+
+/*
 <body class="feira_container">
 		<div class="search_container">
 			<input class="search_input" type="text" placeholder="Search">
@@ -48,7 +70,9 @@ else {
 			}
 	</div>
 		<button class="botao_voltar_bottom" @onclick="(()=>goback())">Voltar</button>
+
 </body>
+*/
 }
 @code {
 
