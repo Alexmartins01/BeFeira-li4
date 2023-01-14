@@ -7,5 +7,7 @@
         Task GetSubcats();
 
         Task<List<Subcategoria>> GetSubcatsByStand(int id);
+
+        Task<Subcategoria> GetSingleSubCat(int id);
     }
 }

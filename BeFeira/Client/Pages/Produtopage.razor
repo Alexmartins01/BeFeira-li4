@@ -3,6 +3,8 @@
 
 @inject IProdutoService ProdutoService
 @inject IClienteService ClientService
+@inject IStandService StandService
+@inject ISubcatserv SubcatService
 @inject NavigationManager  NavigationManager
 
 
@@ -23,7 +25,7 @@
 
 <body class="produtos_stand_container">
 
-    <h1 class="products_stand_name">@String.Format("{0} - {1}", nome_da_stand, nome_da_subcategoria)</h1>
+    <h1 class="products_stand_name">@String.Format("{0} - {1}", @standname, @subcatname)</h1>
 
     <div class="lista_produtos">
         
@@ -65,7 +67,11 @@
     public int? idcliente { get; set; }
 
     public string name;
+    public string standname;
+    public string subcatname;
     public Cliente c;
+    public Subcategoria sc;
+    public Stand s;
 
     protected override async Task OnInitializedAsync()
     {
@@ -76,6 +82,10 @@
             c = await ClientService.GetSingleCliente((int)idcliente);
             name = c.Username;
         }
+        s = await StandService.GetSingleStand((int)idstand);
+        standname = s.Nome;
+        sc = await SubcatService.GetSingleSubCat((int)idsubcategoria);
+        subcatname = sc.Descricao;
     }
 
 

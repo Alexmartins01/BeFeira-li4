@@ -31,6 +31,15 @@ namespace BeFeira.Client.Services.SubcategoriaServices
             return AUX;
         }
 
+        public async Task<Subcategoria> GetSingleSubCat(int id)
+        {
+            var result = await _http.GetFromJsonAsync<Subcategoria>($"api/subcategoria/{id}");
+            if (result != null)
+            {
+                return result;
+            }
+            throw new Exception("Subcat not found");
+        }
 
 
     }

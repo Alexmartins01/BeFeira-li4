@@ -26,7 +26,20 @@ namespace BeFeira.Server.Controllers
         }
 
 
-       
+
+        [HttpGet("{id}")]
+        [Route("id")]
+        public async Task<ActionResult<Subcategoria>> GetSingleSubCat(int id)
+        {
+            var subcat = await _context.Subcategorias.FirstOrDefaultAsync(h => h.ID == id);
+            if (subcat == null)
+            {
+                return NotFound("Sorry,no subcat here");
+            }
+            return Ok(subcat);
+        }
+
+
 
     }
 }
