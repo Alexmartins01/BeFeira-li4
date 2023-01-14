@@ -14,7 +14,7 @@
         <h1>@uname</h1>
         <i class="fa-solid fa-cart-shopping"></i>
     </div>
-    <i class="fa-solid fa-circle-user"></i>
+    <button class="u"><i class="fa-solid fa-circle-user" @onclick="(()=>gouser())" alt=""></i></button>
 </header>
 
 <main id="main_page">
@@ -152,6 +152,11 @@
     void ShowFeira(int id)
     {
         NavigationManager.NavigateTo($"/feirapage/{id}/{idcliente}");
+    }
+
+    void gouser()
+    {
+        NavigationManager.NavigateTo($"userinfo/{idcliente}");
     }
 
 }

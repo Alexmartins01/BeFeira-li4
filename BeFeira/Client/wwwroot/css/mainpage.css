@@ -139,6 +139,11 @@ body {
     border-width: 0;
 }
 
+.u {
+    background: none;
+    border-width: 0;
+}
+
 .produto_carrinho > button > i {
 
     font-size: 22px;
@@ -232,6 +237,8 @@ body {
     background-color: antiquewhite;
 }
 
+
+
 .lista_produtos {
     display: flex;
     flex-wrap: wrap;
@@ -276,6 +283,26 @@ body {
     margin-left: 5px;
     font-family: monospace;
     font-size: 30px;
+    margin-bottom: 0 !important;
+}
+
+.client_container {
+    background-color: antiquewhite;
+}
+
+    .client_container .client_basic_info {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding-top: 10px;
+        position: relative;
+        font-size: 25px;
+    }
+
+.client_container .client_name, .client_email {
+    text-align: center;
+    margin-left: 5px;
+    font-family: monospace;
     margin-bottom: 0 !important;
 }
 
@@ -491,4 +518,8 @@ body {
         border: 1px solid transparent;
         border-bottom: 1px solid black;
         background-position: 100% center;
+    }
+
+    .client_section{
+        margin: 20px;
     }

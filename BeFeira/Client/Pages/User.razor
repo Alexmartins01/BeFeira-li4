@@ -1,0 +1,71 @@
+﻿@page "/userinfo"
+@page "/userinfo/{idCliente:int}"
+
+@inject IClienteService ClientService
+@inject NavigationManager NavigationManager
+
+
+<header>
+    <link rel="stylesheet" href="icons/icons/css/all.css">
+    <link rel="stylesheet" href="css/mainpage.css">
+
+    <img src="logo.png" @onclick="(()=>gomain())" alt="BeFeira Logo">
+    <div class="user_header_info">
+        <h1>User</h1>
+        <i class="fa-solid fa-cart-shopping"></i>
+    </div>
+    <i class="fa-solid fa-circle-user"></i>
+</header>
+
+<PageTitle> User Info</PageTitle>
+<body class="client_container">
+
+    <div class="client_basic_info" style="height : fit-content">
+        <div  class="client_section">
+            <i class="fas fa-user"></i>
+            <i class="nome_client"> <b> @client.Username</b></i>
+        </div>
+        
+        <div class="client_section">
+            <i class="fas fa-envelope"></i>
+            <i class="email_client"> <b>@client.Email</b></i>
+        </div>
+        
+
+        <button class="u"><i class="fa-solid fa-right-from-bracket" @onclick="(()=>gologin())" alt=""></i></button>
+
+    </div>
+
+
+</body>
+
+
+
+@code {
+    [Parameter]
+    public int? idcliente { get; set; }
+    public Cliente client = new Cliente{ };
+
+    protected override async Task OnParametersSetAsync()
+    {
+        if (idcliente == null)
+        {
+
+        }
+        else
+        {
+            client = await ClientService.GetSingleCliente((int)idcliente);
+
+        }
+    }
+
+    void gomain()
+    {
+        NavigationManager.NavigateTo("mainpage");
+    }
+
+    void gologin()
+    {
+        NavigationManager.NavigateTo("/");
+    }
+}
