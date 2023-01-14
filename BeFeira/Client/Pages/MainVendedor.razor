@@ -1,5 +1,7 @@
 @page "/vendedormain"
+@page "/vendedormain/{idvend:int}"
 
+@inject IVendedorService VendedorService
 @inject NavigationManager NavigationManager
 
 <PageTitle> VendedorMain </PageTitle>
@@ -10,7 +12,7 @@
 
 	<img src="logo.png" alt="BeFeira Logo">
 	<div class="user_header_info">
-		<h1>Bem Vindo Vendedor</h1>
+		<h1>Bem Vindo Vendedor @vendedor.Username</h1>
 	</div>
 	<i class="fa-solid fa-circle-user"></i>
 </header>
@@ -27,6 +29,16 @@
 </body>
 
 @code{
+
+	[Parameter]
+	public int? idvend { get; set; }
+	private Vendedor vendedor = new Vendedor { };
+
+
+	protected override async Task OnInitializedAsync()
+	{
+		vendedor =await VendedorService.GetSingleVendedor((int)idvend);
+	}
 	void goGerir()
 	{
 		NavigationManager.NavigateTo("vendedorgerirstock");
