@@ -113,7 +113,7 @@ namespace BeFeira.Server.Data
                 new Stand { ID = 41, Nome = "Decatlon", VendedorID = 7, FeiraID = 20 },
                 new Stand { ID = 42, Nome = "Brindes", VendedorID = 2, FeiraID = 21 },
                 new Stand { ID = 43, Nome = "Loja de Jardinagem", VendedorID = 1, FeiraID = 1 },
-                new Stand { ID = 44, Nome = "Petshoping", VendedorID = 2, FeiraID = 2 },
+                new Stand { ID = 44, Nome = "Petshopping", VendedorID = 2, FeiraID = 2 },
                 new Stand { ID = 45, Nome = "Feira Orgânica", VendedorID = 7, FeiraID = 3 },
                 new Stand { ID = 46, Nome = "Livraria Souza", VendedorID = 6, FeiraID = 4 },
                 new Stand { ID = 47, Nome = "Fiat", VendedorID = 2, FeiraID = 5 },
@@ -132,9 +132,10 @@ namespace BeFeira.Server.Data
                 new Stand { ID = 60, Nome = "TelePersona", VendedorID = 4, FeiraID = 18 },
                 new Stand { ID = 61, Nome = "InformaTic", VendedorID = 2, FeiraID = 19 },
                 new Stand { ID = 62, Nome = "Loja de desportos radicais", VendedorID = 8, FeiraID = 20 },
-                new Stand { ID = 63, Nome = "Loja dos trezentos", VendedorID = 4, FeiraID = 21 }
-
-
+                new Stand { ID = 63, Nome = "Loja dos trezentos", VendedorID = 4, FeiraID = 21 },
+                new Stand { ID = 64, Nome = "Home", VendedorID = 8, FeiraID = 1 },
+                new Stand { ID = 65, Nome = "Complex", VendedorID = 8, FeiraID = 7 },
+                new Stand { ID = 66, Nome = "Staples", VendedorID = 8, FeiraID = 15 }
 
             );
 
@@ -155,7 +156,7 @@ namespace BeFeira.Server.Data
                 new Subcategoria { ID = 8, Descricao = "Talho", StandID = 3 },
                 new Subcategoria { ID = 9, Descricao = "Peixaria", StandID = 3 },
                 new Subcategoria { ID = 10, Descricao = "Terror", StandID = 4 },
-                new Subcategoria { ID = 11, Descricao = "Comédia", StandID = 4 },
+                new Subcategoria { ID = 11, Descricao = "Ação/Aventura", StandID = 4 },
                 new Subcategoria { ID = 12, Descricao = "Romance", StandID = 4 },
                 new Subcategoria { ID = 13, Descricao = "Elétricos", StandID = 5 },
                 new Subcategoria { ID = 14, Descricao = "Gasóleo", StandID = 5 },
@@ -194,7 +195,7 @@ namespace BeFeira.Server.Data
                 new Subcategoria { ID = 47, Descricao = "Aquecedores", StandID = 1 },
                 new Subcategoria { ID = 48, Descricao = "Camas", StandID = 1 },
                 new Subcategoria { ID = 49, Descricao = "Utensílios de cozinha", StandID = 3 },
-                new Subcategoria { ID = 50, Descricao = "Artigos para animais exóticos", StandID = 2 },
+                new Subcategoria { ID = 50, Descricao = "Carnes", StandID = 2 },
                 new Subcategoria { ID = 51, Descricao = "Artigos para equinos", StandID = 2 },
                 new Subcategoria { ID = 52, Descricao = "Alimentos congelados", StandID = 3 },
                 new Subcategoria { ID = 53, Descricao = "Artigos de papelaria", StandID = 4 },
@@ -215,41 +216,117 @@ namespace BeFeira.Server.Data
                 new Subcategoria { ID = 68, Descricao = "Camping", StandID = 12 },
                 new Subcategoria { ID = 69, Descricao = "Mochilas e equipamentos", StandID = 12 },
                 new Subcategoria { ID = 70, Descricao = "Produtos orgânicos", StandID = 13 },
-                new Subcategoria { ID = 71, Descricao = "Cosméticos", StandID = 14 },
+                new Subcategoria { ID = 71, Descricao = "Perfumes", StandID = 14 },
                 new Subcategoria { ID = 72, Descricao = "Eletrodomésticos de cozinha", StandID = 15 },
-                new Subcategoria { ID = 73, Descricao = "Eletrodomésticos de limpeza", StandID = 15 }
+                new Subcategoria { ID = 73, Descricao = "Eletrodomésticos de limpeza", StandID = 15 },
+                new Subcategoria { ID = 74, Descricao = "Fruta Fresca", StandID = 24 },
+                new Subcategoria { ID = 75, Descricao = "Tablets smartphones e outros", StandID = 19 },
+                new Subcategoria { ID = 76, Descricao = "Utensilios cozinha", StandID = 19 },
+                new Subcategoria { ID = 77, Descricao = "Basquetebol", StandID = 41 },
+                new Subcategoria { ID = 78, Descricao = "Futebol", StandID = 41 },
+                new Subcategoria { ID = 79, Descricao = "Nike", StandID = 65 },
+                new Subcategoria { ID = 80, Descricao = "Adidas", StandID = 65 },
+                new Subcategoria { ID = 81, Descricao = "Secretárias", StandID = 66 },
+                new Subcategoria { ID = 82, Descricao = "Cadeiras", StandID = 66 },
+                new Subcategoria { ID = 83, Descricao = "Arrumação", StandID = 66 },
+                new Subcategoria { ID = 84, Descricao = "Rações", StandID = 44 },
+                new Subcategoria { ID = 85, Descricao = "Animais vivos", StandID = 44 },
+                new Subcategoria { ID = 86, Descricao = "Moveis exteriores", StandID = 43 },
+                new Subcategoria { ID = 87, Descricao = "Mobilidade", StandID = 20 },
+                new Subcategoria { ID = 88, Descricao = "Educação", StandID = 4 }
             );
 
             modelBuilder.Entity<Produto>().HasData(
-                new Produto { ID = 1, StandID = 1, Nome_Produto = "Maçãs", Preco = 2.9F, Promocao = 0, Stock = 3, Rating = 4, SubCategoriaID = 1 },
-                new Produto { ID = 2, StandID = 2, Nome_Produto = "Bonecos", Preco = 25.9F, Promocao = 0, Stock = 2, Rating = 2, SubCategoriaID = 2 },
-                new Produto { ID = 3, StandID = 3, Nome_Produto = "Tapetea", Preco = 23.9F, Promocao = 0, Stock = 1, Rating = 3, SubCategoriaID = 2 },
-                new Produto { ID = 4, StandID = 4, Nome_Produto = "Celular", Preco = 299.9F, Promocao = 0, Stock = 20, Rating = 5, SubCategoriaID = 3 },
-                new Produto { ID = 5, StandID = 5, Nome_Produto = "Livro", Preco = 15.99F, Promocao = 0, Stock = 15, Rating = 4, SubCategoriaID = 4 },
-                new Produto { ID = 6, StandID = 6, Nome_Produto = "Caneca", Preco = 9.99F, Promocao = 0, Stock = 5, Rating = 3, SubCategoriaID = 5 },
-                new Produto { ID = 7, StandID = 7, Nome_Produto = "Bola de futebol", Preco = 29.99F, Promocao = 0, Stock = 10, Rating = 4, SubCategoriaID = 6 },
-                new Produto { ID = 8, StandID = 8, Nome_Produto = "Perfume", Preco = 69.99F, Promocao = 0, Stock = 7, Rating = 5, SubCategoriaID = 7 },
-                new Produto { ID = 9, StandID = 9, Nome_Produto = "Mala", Preco = 99.99F, Promocao = 0, Stock = 3, Rating = 2, SubCategoriaID = 8 },
-                new Produto { ID = 10, StandID = 10, Nome_Produto = "Sapatos", Preco = 89.99F, Promocao = 0, Stock = 5, Rating = 4, SubCategoriaID = 9 },
-                new Produto { ID = 11, StandID = 11, Nome_Produto = "Smartwatch", Preco = 199.99F, Promocao = 0, Stock = 8, Rating = 5, SubCategoriaID = 10 },
-                new Produto { ID = 12, StandID = 12, Nome_Produto = "Fritadeira", Preco = 49.99F, Promocao = 0, Stock = 4, Rating = 3, SubCategoriaID = 11 },
-                new Produto { ID = 13, StandID = 13, Nome_Produto = "Cadeira gamer", Preco = 129.99F, Promocao = 0, Stock = 2, Rating = 4, SubCategoriaID = 12 },
-                new Produto { ID = 14, StandID = 14, Nome_Produto = "Bicicleta", Preco = 399.99F, Promocao = 0, Stock = 6, Rating = 5, SubCategoriaID = 13 },
-                new Produto { ID = 15, StandID = 15, Nome_Produto = "Aspirador", Preco = 99.99F, Promocao = 0, Stock = 8, Rating = 4, SubCategoriaID = 14 },
-                new Produto { ID = 16, StandID = 1, Nome_Produto = "Toalhas de banho", Preco = 12.9F, Promocao = 0, Stock = 7, Rating = 5, SubCategoriaID = 1 },
-                new Produto { ID = 17, StandID = 2, Nome_Produto = "Ração para frangos", Preco = 3.9F, Promocao = 0, Stock = 6, Rating = 4, SubCategoriaID = 4 },
-                new Produto { ID = 18, StandID = 3, Nome_Produto = "Carnes de porco", Preco = 15.9F, Promocao = 0, Stock = 10, Rating = 4, SubCategoriaID = 8 },
-                new Produto { ID = 19, StandID = 4, Nome_Produto = "Livro de terror", Preco = 8.9F, Promocao = 0, Stock = 5, Rating = 3, SubCategoriaID = 10 },
-                new Produto { ID = 20, StandID = 5, Nome_Produto = "BMW elétrico", Preco = 65000.00F, Promocao = 0, Stock = 2, Rating = 5, SubCategoriaID = 13 },
-                new Produto { ID = 21, StandID = 6, Nome_Produto = "Mesa de escritório", Preco = 150.00F, Promocao = 0, Stock = 4, Rating = 4, SubCategoriaID = 16 },
-                new Produto { ID = 22, StandID = 7, Nome_Produto = "Camisola para homem", Preco = 25.00F, Promocao = 0, Stock = 10, Rating = 5, SubCategoriaID = 19 },
-                new Produto { ID = 23, StandID = 8, Nome_Produto = "Serra circular", Preco = 150.00F, Promocao = 0, Stock = 3, Rating = 4, SubCategoriaID = 21 },
-                new Produto { ID = 24, StandID = 9, Nome_Produto = "Ração para cães", Preco = 12.9F, Promocao = 0, Stock = 8, Rating = 5, SubCategoriaID = 23 },
-                new Produto { ID = 25, StandID = 1, Nome_Produto = "Toalhas de banho", Preco = 15.99F, Promocao = 0, Stock = 10, Rating = 4, SubCategoriaID = 1 },
-                new Produto { ID = 26, StandID = 2, Nome_Produto = "Móveis de jardim", Preco = 299.99F, Promocao = 0, Stock = 5, Rating = 4, SubCategoriaID = 2 },
-                new Produto { ID = 27, StandID = 3, Nome_Produto = "Eletrodomésticos de cozinha", Preco = 399.99F, Promocao = 0, Stock = 3, Rating = 5, SubCategoriaID = 3 },
-                new Produto { ID = 28, StandID = 4, Nome_Produto = "Ração para cães", Preco = 9.99F, Promocao = 0, Stock = 20, Rating = 4, SubCategoriaID = 4 },
-                new Produto { ID = 29, StandID = 5, Nome_Produto = "Frangos orgânicos", Preco = 7.99F, Promocao = 0, Stock = 15, Rating = 5, SubCategoriaID = 5 }
+                // mercado central
+                new Produto { ID = 1, StandID = 24, Nome_Produto = "Maçãs", Preco = 0.59F, Promocao = 0, Stock = 12, Rating = 4, SubCategoriaID = 74 , urlImage = "https://www.imagensempng.com.br/wp-content/uploads/2021/07/Maca-Png.png" },
+                new Produto { ID = 2, StandID = 24, Nome_Produto = "Pêras", Preco = 0.79F, Promocao = 20, Stock = 120, Rating = 1, SubCategoriaID = 74 , urlImage = "https://lusopera.com/wp-content/uploads/2018/12/img-intro-peras.jpg" },
+                new Produto { ID = 3, StandID = 24, Nome_Produto = "Melão", Preco = 10F, Promocao = 5, Stock = 25, Rating = 4, SubCategoriaID = 74 , urlImage = "https://www.apolonia.com/fotos/produtos/91359_01_12-01-2018_g.jpg" },
+                new Produto { ID = 4, StandID = 24, Nome_Produto = "Manga", Preco = 5.9F, Promocao = 0, Stock = 5, Rating = 4, SubCategoriaID = 74 , urlImage = "https://static.mundoeducacao.uol.com.br/mundoeducacao/2021/05/manga.jpg" },
+                new Produto { ID = 5, StandID = 24, Nome_Produto = "Bananas", Preco = 0.99F, Promocao = 35, Stock = 150, Rating = 4, SubCategoriaID = 74 , urlImage = "https://live.staticflickr.com/65535/50026818621_47244bd8e7_b.jpg" },
+                new Produto { ID = 6, StandID = 24, Nome_Produto = "Morangos", Preco = 0.99F, Promocao = 0, Stock = 12, Rating = 4, SubCategoriaID = 74 , urlImage = "https://i2.wp.com/www.lojaaporta.pt/wp-content/uploads/2021/01/MORANGOS-CAIXA-2KG.png?fit=500%2C500&ssl=1" },
+                //toysrus
+                new Produto { ID = 7, StandID = 10, Nome_Produto = "Bonecos", Preco = 25.9F, Promocao = 0, Stock = 2, Rating = 2, SubCategoriaID = 25, urlImage = "https://www.lulu-berlu.com/upload/image/-p-image-334992-grande.jpg" },
+                new Produto { ID = 8, StandID = 10, Nome_Produto = "Monopoly", Preco = 45.9F, Promocao = 0, Stock = 2, Rating = 2, SubCategoriaID = 26, urlImage = "https://www.toysrus.pt/medias/?context=bWFzdGVyfHByb2R1Y3RfaW1hZ2VzfDQ4OTcxfGltYWdlL2pwZWd8aDkyL2gwOC8xMTI3NDE5NjM4NTgyMnwyZjEwNTk5OGI5NjdkZmZjNmVhMzIyODE0NjE3YWJiMzFhOGM3MjJkNWE0ODc3YWI1NGI2ZTI3NTk1MDMxMWRh" },
+                new Produto { ID = 9, StandID = 10, Nome_Produto = "Peluches", Preco = 19.9F, Promocao = 0, Stock = 2, Rating = 2, SubCategoriaID = 65, urlImage = "https://www.macao.ubuy.com/productimg/?image=aHR0cHM6Ly9pNS53YWxtYXJ0aW1hZ2VzLmNvbS9hc3IvNGNkNzk5NjYtMDkzMS00OGRkLTljYjQtNmZiODBjNjI1OGQ2XzEuZDU0YTJmMTQ4ODViMmVhNjc1YTY2OGIzZTcwMWNmMGQuanBlZw.jpg" },
+                new Produto { ID = 10, StandID = 10, Nome_Produto = "Pop Figure", Preco = 15.9F, Promocao = 0, Stock = 2, Rating = 2, SubCategoriaID = 25, urlImage = "https://shop4nerds.pt/cms/produtos_imgs/produto_931/files/849803053055.jpg" },
+                new Produto { ID = 11, StandID = 10, Nome_Produto = "Carros de brincar", Preco = 25.9F, Promocao = 0, Stock = 2, Rating = 2, SubCategoriaID = 25, urlImage = "https://i.ebayimg.com/thumbs/images/g/7H0AAOSwWFtiBswI/s-l300.jpg" },
+                //zara home
+                new Produto { ID = 12, StandID = 1, Nome_Produto = "Tapetes", Preco = 23.9F, Promocao = 0, Stock = 1, Rating = 3, SubCategoriaID = 2, urlImage = "https://www.casatapetesarraiolos.com/images/A17688-Pombinhas-177-x-122-PL.jpg" },
+                new Produto { ID = 13, StandID = 1, Nome_Produto = "Toalhas de mesa", Preco = 23.9F, Promocao = 0, Stock = 1, Rating = 3, SubCategoriaID = 2, urlImage = "https://www.lusatextil.pt/755/253.jpg" },
+                new Produto { ID = 14, StandID = 1, Nome_Produto = "Vasos interior", Preco = 14.9F, Promocao = 0, Stock = 1, Rating = 3, SubCategoriaID = 2, urlImage = "https://urbanjungle.pt/wp-content/uploads/2020/03/IMG_5520-600x750.jpg" },
+                new Produto { ID = 57, StandID = 1, Nome_Produto = "Toalhas de banho", Preco = 12.9F, Promocao = 0, Stock = 7, Rating = 5, SubCategoriaID = 1, urlImage = "https://a-static.mlcdn.com.br/800x560/jogo-de-toalhas-de-banho-buddemeyer-100-algodao-delicata-azul-5-pecas/magazineluiza/227741700/42a47093b438f2347721901a8696d5e5.jpg" },
+                new Produto { ID = 66, StandID = 1, Nome_Produto = "Toalhas de banho ginásio", Preco = 15.99F, Promocao = 0, Stock = 10, Rating = 4, SubCategoriaID = 1, urlImage = "https://static.sscontent.com/thumb/500/500/products/124/v988954_prozis_script-gym-towel-blue_single-size_blue_front.jpg" },
+                // worten mobile
+                new Produto { ID = 15, StandID = 18, Nome_Produto = "Samsung A52", Preco = 299.9F, Promocao = 0, Stock = 20, Rating = 5, SubCategoriaID = 39, urlImage = "https://images.samsung.com/is/image/samsung/p6pim/br/galaxy-a52/gallery/br-galaxy-a52-a525-379758-sm-a525mlvgzto-404505598?$650_519_PNG$" },
+                new Produto { ID = 16, StandID = 18, Nome_Produto = "Iphone XS", Preco = 500F, Promocao = 0, Stock = 20, Rating = 5, SubCategoriaID = 39, urlImage = "https://loja.iservices.pt/5060-large_default/iphone-xs.jpg" },
+                new Produto { ID = 17, StandID = 18, Nome_Produto = "Oneplus 8T", Preco = 399F, Promocao = 0, Stock = 20, Rating = 5, SubCategoriaID = 39, urlImage = "https://v9y9v6a3.rocketcdn.me/wp-content/uploads/2020/10/kiboTEK_oneplus_8t_014.png" },
+                new Produto { ID = 18, StandID = 18, Nome_Produto = "Pixel 7", Preco = 700F, Promocao = 0, Stock = 20, Rating = 5, SubCategoriaID = 39, urlImage = "https://s1.kuantokusta.pt/img_upload/produtos_comunicacoes/1315526_3_google-pixel-7-5g-6-3-8gb-128gb-obsidian.jpg" },
+                new Produto { ID = 44, StandID = 18, Nome_Produto = "Smartwatch garmin", Preco = 199.99F, Promocao = 0, Stock = 8, Rating = 5, SubCategoriaID = 40, urlImage = "https://res.garmin.com/en/products/010-02173-02/v/cf-lg-b773b34a-f08b-4dd8-a905-2daf306f2e6f-1.jpg" },
+                // pc diga
+                new Produto { ID = 19, StandID = 19, Nome_Produto = "Ipad mini", Preco = 499F, Promocao = 0, Stock = 20, Rating = 5, SubCategoriaID = 75, urlImage = "https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/ipad-mini-finish-unselect-gallery-1-202207_FMT_WHH?wid=1280&hei=720&fmt=p-jpg&qlt=95&.v=1654903884450" },
+                new Produto { ID = 20, StandID = 19, Nome_Produto = "Portátil Asus Zenbook", Preco = 1399.9F, Promocao = 0, Stock = 20, Rating = 5, SubCategoriaID = 41, urlImage = "https://dlcdnwebimgs.asus.com/gain/55a72146-0976-465f-b270-8cc1b8c2fbfb/" },
+                new Produto { ID = 21, StandID = 19, Nome_Produto = "Earbuds sony", Preco = 299.9F, Promocao = 0, Stock = 20, Rating = 5, SubCategoriaID = 42, urlImage = "https://cdn.mos.cms.futurecdn.net/KEAtgEBKMDZemgDfY4hB4Z.jpg" },
+                new Produto { ID = 22, StandID = 19, Nome_Produto = "Monitor LG", Preco = 299.9F, Promocao = 0, Stock = 20, Rating = 5, SubCategoriaID = 42, urlImage = "https://www.lg.com/pt/images/monitores/MD05851557/gallery/27BK55_Product-image_01_Desk.jpg" },
+                new Produto { ID = 23, StandID = 19, Nome_Produto = "Xiaomi Mi6", Preco = 509.9F, Promocao = 0, Stock = 20, Rating = 5, SubCategoriaID = 75, urlImage = "https://cdn.weasy.io/users/xiaomi/catalog/xiaomi12_pink_01.png" },
+                // bertrand
+                new Produto { ID = 24, StandID = 4, Nome_Produto = "Livro All your perfects", Preco = 15.99F, Promocao = 0, Stock = 15, Rating = 4, SubCategoriaID = 12, urlImage = "https://kbimages1-a.akamaihd.net/284e157b-e503-412b-8adb-ac90a07e69fc/353/569/90/False/all-your-perfects.jpg" },
+                new Produto { ID = 25, StandID = 4, Nome_Produto = "Dicionário Português", Preco = 15.99F, Promocao = 0, Stock = 15, Rating = 4, SubCategoriaID = 88, urlImage = "https://img.bertrand.pt/images/dicionario-editora-da-lingua-portuguesa/NDV8MTI1Njk0fDIyNjI0ODgwfDE2NDg1NTIzMDgwMDA=/500x" },
+                new Produto { ID = 26, StandID = 4, Nome_Produto = "Livro Nicolas Spark", Preco = 15.99F, Promocao = 0, Stock = 15, Rating = 4, SubCategoriaID = 12, urlImage = "https://img.wook.pt/images/uma-vida-ao-teu-lado-nicholas-sparks/MXwxNjkzNjcyOXwxMjU1NjY1MnwxNDQ0MzgzMzEyMDAw/500x" },
+                new Produto { ID = 27, StandID = 4, Nome_Produto = "Harry potter", Preco = 15.99F, Promocao = 0, Stock = 15, Rating = 4, SubCategoriaID = 11, urlImage = "https://cdn.shopify.com/s/files/1/0450/0717/5837/products/image-1_85c1dfac-79f9-431e-b96b-7ab26d9de938_1024x1024.jpg?v=1636630533" },
+                new Produto { ID = 28, StandID = 4, Nome_Produto = "Divergente", Preco = 15.99F, Promocao = 0, Stock = 15, Rating = 4, SubCategoriaID = 11, urlImage = "https://static.fnac-static.com/multimedia/Images/PT/MC/72/cc/84/8703090/1540-1/tsp20160819200728/Divergente-Uma-Escolha-Pode-Te-Transformar-Trilogia-Divergente-Livro-1.jpg" },
+                new Produto { ID = 60, StandID = 4, Nome_Produto = "Livro de terror", Preco = 8.9F, Promocao = 0, Stock = 5, Rating = 3, SubCategoriaID = 10, urlImage = "https://lirp.cdn-website.com/174487e2/dms3rep/multi/opt/exorcista-640w.jpeg" },
+                // home
+                new Produto { ID = 29, StandID = 19, Nome_Produto = "Caneca", Preco = 9.99F, Promocao = 0, Stock = 5, Rating = 3, SubCategoriaID = 76, urlImage = "https://www.ikea.com/my/en/images/products/vardagen-mug-dark-grey__0445777_pe596061_s5.jpg?f=s" },
+                // Decatlon
+                new Produto { ID = 30, StandID = 41, Nome_Produto = "Bola de futebol", Preco = 29.99F, Promocao = 0, Stock = 10, Rating = 4, SubCategoriaID = 78, urlImage = "https://tm.ibxk.com.br/2014/05/19/19171133437584.jpg?ims=1200x675" },
+                new Produto { ID = 31, StandID = 41, Nome_Produto = "Camisola de equipa de futebol", Preco = 29.99F, Promocao = 0, Stock = 10, Rating = 4, SubCategoriaID = 78, urlImage = "https://www.dhresource.com/0x0/f2/albu/g17/M01/62/58/rBVa4l--dPmAatjtAAHi4lep_h4122.jpg" },
+                new Produto { ID = 32, StandID = 41, Nome_Produto = "NBA Jersey", Preco = 29.99F, Promocao = 0, Stock = 10, Rating = 4, SubCategoriaID = 77, urlImage = "https://vafloc02.s3.amazonaws.com/isyn/images/f523/img-3664523-f.jpg" },
+                new Produto { ID = 71, StandID = 41, Nome_Produto = "Bola de Basket", Preco = 29.99F, Promocao = 0, Stock = 10, Rating = 4, SubCategoriaID = 77, urlImage = "https://planetabasketstore.com/images/detailed/20/Wilson_Evolution_FPB_Logo_Ball_601.png" },
+                new Produto { ID = 33, StandID = 41, Nome_Produto = "Nike mercurial chuteiras", Preco = 29.99F, Promocao = 0, Stock = 10, Rating = 4, SubCategoriaID = 78, urlImage = "https://static.globalnoticias.pt/jn/image.jpg?brand=JN&type=generate&guid=9b616978-12cb-4535-8545-f4f80207d927&w=744&h=495&t=20221029122838" },
+                new Produto { ID = 34, StandID = 41, Nome_Produto = "Kobe's 5", Preco = 79.99F, Promocao = 0, Stock = 10, Rating = 4, SubCategoriaID = 77, urlImage = "https://www.thenextsole.com/storage/images/CD4991-400.png" },
+                //Perfumes e Companhia
+                new Produto { ID = 35, StandID = 14, Nome_Produto = "Perfume", Preco = 69.99F, Promocao = 0, Stock = 7, Rating = 5, SubCategoriaID = 71, urlImage = "http://www.pluricosmetica.com/media/produtos/cache/face_800169_d7dbf-1200_1200.jpg" },
+                //Zara
+                new Produto { ID = 36, StandID = 7, Nome_Produto = "Mala LV", Preco = 999.99F, Promocao = 0, Stock = 3, Rating = 2, SubCategoriaID = 60, urlImage = "http://cdn.shopify.com/s/files/1/0534/4418/2179/products/thumbnail_image7.jpg?v=1645455228" },
+                new Produto { ID = 37, StandID = 7, Nome_Produto = "Mala Gucci", Preco = 599.99F, Promocao = 0, Stock = 3, Rating = 2, SubCategoriaID = 60, urlImage = "https://cdn1.jolicloset.com/imgr/full/2022/06/554264-1/gucci-marrom-outro-mala-de-viagem.jpg" },
+                new Produto { ID = 38, StandID = 7, Nome_Produto = "Mala Guess", Preco = 149.99F, Promocao = 0, Stock = 3, Rating = 2, SubCategoriaID = 60, urlImage = "https://www.misscath.com/op/image/?co=946841&h=59204" },
+                new Produto { ID = 63, StandID = 7, Nome_Produto = "Camisola para homem", Preco = 25.00F, Promocao = 0, Stock = 10, Rating = 5, SubCategoriaID = 19, urlImage = "https://photos6.spartoo.pt/photos/817/8173562/8173562_500_A.jpg" },
+                // Complex
+                new Produto { ID = 39, StandID = 65, Nome_Produto = "Jordan's 1 dunk low", Preco = 109.99F, Promocao = 0, Stock = 5, Rating = 4, SubCategoriaID = 79, urlImage = "http://cdn.shopify.com/s/files/1/0550/3657/5853/products/Air_Jordan_1_Low_Coconut_Milk-DC0774-121-0.png?v=1658831901" },
+                new Produto { ID = 40, StandID = 65, Nome_Produto = "Adidas Forum low", Preco = 119.99F, Promocao = 0, Stock = 5, Rating = 4, SubCategoriaID = 80, urlImage = "https://assets.adidas.com/images/w_600,f_auto,q_auto/6ef672a98ba34352b8c2aeb500d60995_9366/Sapatilhas_Forum_Low_Bege_H03475_09_standard.jpg" },
+                new Produto { ID = 41, StandID = 65, Nome_Produto = "yezzys", Preco = 509.99F, Promocao = 0, Stock = 5, Rating = 4, SubCategoriaID = 80, urlImage = "http://cdn.shopify.com/s/files/1/0550/3657/5853/products/Yeezy_Boost_350_V2_Core_Black_Red-BY9612-0.png?v=1659523925" },
+                new Produto { ID = 42, StandID = 65, Nome_Produto = "Jordan's dior", Preco = 25000F, Promocao = 0, Stock = 5, Rating = 4, SubCategoriaID = 79, urlImage = "https://cdn-images.farfetch-contents.com/15/65/12/84/15651284_28537785_600.jpg" },
+                new Produto { ID = 43, StandID = 65, Nome_Produto = "Adidas x KSI", Preco = 109.99F, Promocao = 0, Stock = 5, Rating = 4, SubCategoriaID = 80, urlImage = "https://houseofheat.co/app/uploads/2022/04/ksi-adidas-forum-hi-release-date-1.jpg" },
+                //Tien21
+                new Produto { ID = 45, StandID = 15, Nome_Produto = "Fritadeira", Preco = 49.99F, Promocao = 0, Stock = 4, Rating = 3, SubCategoriaID = 72, urlImage = "https://www.utensilioscozinha.pt/5155-large_default/fritadeira-eletrica-profissional.jpg" },
+                new Produto { ID = 46, StandID = 15, Nome_Produto = "Máquina de café", Preco = 69.99F, Promocao = 0, Stock = 4, Rating = 3, SubCategoriaID = 72, urlImage = "https://blog.kuantokusta.pt/wp-content/uploads/2021/11/Maquina-de-Cafe-Delonghi-Nespresso-Inissia-EN80-B.jpg" },
+                new Produto { ID = 47, StandID = 15, Nome_Produto = "Chaleira Elétrica", Preco = 49.99F, Promocao = 0, Stock = 4, Rating = 3, SubCategoriaID = 72, urlImage = "https://www.homa.pt/on/demandware.static/-/Sites-homa-catalog/default/dwc29ab76c/images/large/447816_chaleira_eletrica_vintage_cuisine_menta_homa_1.jpg" },
+                new Produto { ID = 48, StandID = 15, Nome_Produto = "Tostadeira", Preco = 29.99F, Promocao = 0, Stock = 4, Rating = 3, SubCategoriaID = 72, urlImage = "https://www.utensilioscozinha.pt/5083-large_default/tostadeira-eletrica-fatias-triangulares.jpg" },
+                new Produto { ID = 55, StandID = 15, Nome_Produto = "Aspirador", Preco = 99.99F, Promocao = 0, Stock = 8, Rating = 4, SubCategoriaID = 73, urlImage = "https://www.electrofun.pt/27602-large_default/aspirador-robot-mi-vacuum-mop-essential-xiaomi.jpg" },
+                new Produto { ID = 56, StandID = 15, Nome_Produto = "Máquina de lavar roupa", Preco = 99.99F, Promocao = 0, Stock = 8, Rating = 4, SubCategoriaID = 73, urlImage = "https://s2.glbimg.com/NzitoDQGhjN6--RWdU8z85QMKmw=/e.glbimg.com/og/ed/f/original/2018/12/21/lava__seca_samsung_wd4000_de_10.2kg.jpg" },
+                new Produto { ID = 68, StandID = 15, Nome_Produto = "Máquina de lavar loiça", Preco = 399.99F, Promocao = 0, Stock = 3, Rating = 5, SubCategoriaID = 73, urlImage = "https://whirlpool-cdn.thron.com/delivery/public/thumbnail/whirlpool/pi-743200f9-e158-441d-9d7e-f31d82618b87/jsind9/std/1000x1000/hfc-3c32-w-x-loi%C3%A7a.jpg?fill=zoom&fillcolor=rgba:255,255,255&scalemode=product" },
+                //Staples
+                new Produto { ID = 49, StandID = 66, Nome_Produto = "Cadeira gamer", Preco = 129.99F, Promocao = 0, Stock = 2, Rating = 4, SubCategoriaID = 82, urlImage = "https://images.hermanmiller.group/m/29fc4b934cd7d34d/W-200210_HM_Embody_Gaming_Chair_063_F3_V3_transparent.png?trim=auto&trim-sd=1&blend-mode=none&blend=fafafa&bg=transparent&auto=format&w=1000&q=70&h=1000" },
+                new Produto { ID = 50, StandID = 66, Nome_Produto = "Cadeira Escritório", Preco = 299.99F, Promocao = 0, Stock = 2, Rating = 4, SubCategoriaID = 82, urlImage = "https://spezzo.pt/wp-content/uploads/2020/11/aeron-Mineral_satin-mineral-1.jpg" },
+                new Produto { ID = 51, StandID = 66, Nome_Produto = "Secretária Escritório", Preco = 129.99F, Promocao = 0, Stock = 2, Rating = 4, SubCategoriaID = 81, urlImage = "https://homycasa.pt/50669-thickbox_default/secretaria-gamer-com-luz-led.jpg" },
+                new Produto { ID = 52, StandID = 66, Nome_Produto = "Arrumação Escritório", Preco = 229.99F, Promocao = 0, Stock = 2, Rating = 4, SubCategoriaID = 83, urlImage = "https://www.ikea.com/pt/pt/images/products/vihals-modulo-de-arrumacao-branco__1048516_pe843777_s5.jpg?f=s" },
+                new Produto { ID = 62, StandID = 66, Nome_Produto = "Mesa de escritório", Preco = 150.00F, Promocao = 0, Stock = 4, Rating = 4, SubCategoriaID = 81, urlImage = "https://www.ikea.com/pt/pt/images/products/lagkapten-olov-secretaria-ef-carvalho-c-velatura-branca-branco__0977612_pe813682_s5.jpg?f=s" },
+                //SoloPorteros
+                new Produto { ID = 53, StandID = 20, Nome_Produto = "Bicicleta", Preco = 399.99F, Promocao = 0, Stock = 6, Rating = 5, SubCategoriaID = 87, urlImage = "https://resize.sprintercdn.com/o/products/ac52337c-b118-434c-ba97-b33a753ad982/bicicleta-infantil-spider-man-12-pulgadas-3-5-a-os_ac52337c-b118-434c-ba97-b33a753ad982_1_2107067539.jpg" },
+                new Produto { ID = 54, StandID = 20, Nome_Produto = "Trotinete", Preco = 79.99F, Promocao = 0, Stock = 6, Rating = 5, SubCategoriaID = 87, urlImage = "https://www.auchan.pt/dw/image/v2/BFRC_PRD/on/demandware.static/-/Sites-auchan-pt-master-catalog/default/dw95efa890/images/hi-res/003374633.jpg?sw=500&sh=500&sm=fit&bgcolor=FFFFFF" },               
+                // Agriloja
+                new Produto { ID = 58, StandID = 2, Nome_Produto = "Ração para frangos", Preco = 3.9F, Promocao = 0, Stock = 6, Rating = 4, SubCategoriaID = 4, urlImage = "https://www.sohorta.pt/wp-content/uploads/2018/12/frangosmigalha-1.png" },
+                new Produto { ID = 59, StandID = 2, Nome_Produto = "Carnes de porco", Preco = 15.9F, Promocao = 0, Stock = 10, Rating = 4, SubCategoriaID = 50, urlImage = "https://delibrave.pt/wp-content/uploads/2020/05/00066.jpg" },
+                new Produto { ID = 65, StandID = 2, Nome_Produto = "Ração para cães", Preco = 12.9F, Promocao = 0, Stock = 8, Rating = 5, SubCategoriaID = 4, urlImage = "https://granjadecister.pt/1527-large_default/racao-cao-avenal-mix-20kg.jpg" },
+                // bmw
+                new Produto { ID = 61, StandID = 5, Nome_Produto = "BMW i8", Preco = 65000.00F, Promocao = 0, Stock = 2, Rating = 5, SubCategoriaID = 13, urlImage = "https://www.motor24.pt/files/2018/08/IMG_20180630_143131_Easy-Resize.com_-1.jpg" },
+                //Leroy
+                new Produto { ID = 64, StandID = 8, Nome_Produto = "Serra circular", Preco = 150.00F, Promocao = 0, Stock = 3, Rating = 4, SubCategoriaID = 21, urlImage = "https://depositocristina.com/wp-content/uploads/2022/03/918054a62bad62a09d953c675bda92e6.jpg" },
+                // Loja de jardinagem
+                new Produto { ID = 67, StandID = 43, Nome_Produto = "Móveis de jardim", Preco = 299.99F, Promocao = 0, Stock = 5, Rating = 4, SubCategoriaID = 86, urlImage = "https://moveistore.com/wp-content/uploads/2022/04/Cadeira-de-Exterior-Trinity5.jpg" },
+                //Petshopping
+                new Produto { ID = 69, StandID = 44, Nome_Produto = "Ração para cães", Preco = 9.99F, Promocao = 0, Stock = 20, Rating = 4, SubCategoriaID = 84, urlImage = "https://amoraospets.com/wp-content/uploads/2018/04/royal-canin.png" },
+                new Produto { ID = 70, StandID = 44, Nome_Produto = "Frangos caseiros", Preco = 7.99F, Promocao = 0, Stock = 15, Rating = 5, SubCategoriaID = 85, urlImage = "https://www.agromogiana.com.br/wp-content/uploads/2022/05/frango.jpg" }
             );
 
             modelBuilder.Entity<Promocao>().HasData(

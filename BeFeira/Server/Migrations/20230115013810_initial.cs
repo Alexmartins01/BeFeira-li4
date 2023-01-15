@@ -267,12 +267,12 @@ namespace BeFeira.Server.Migrations
                 columns: new[] { "ID", "Created_at", "Password", "Updated_at", "Username" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(2023, 1, 14, 22, 28, 45, 511, DateTimeKind.Local).AddTicks(3720), "1234", new DateTime(2023, 1, 14, 22, 28, 45, 511, DateTimeKind.Local).AddTicks(3763), "Bernas" },
-                    { 2, new DateTime(2023, 1, 14, 22, 28, 45, 511, DateTimeKind.Local).AddTicks(3767), "2345", new DateTime(2023, 1, 14, 22, 28, 45, 511, DateTimeKind.Local).AddTicks(3768), "Cebolinha" },
-                    { 3, new DateTime(2023, 1, 14, 22, 28, 45, 511, DateTimeKind.Local).AddTicks(3770), "3456", new DateTime(2023, 1, 14, 22, 28, 45, 511, DateTimeKind.Local).AddTicks(3771), "Sergio" },
-                    { 4, new DateTime(2023, 1, 14, 22, 28, 45, 511, DateTimeKind.Local).AddTicks(3773), "1134", new DateTime(2023, 1, 14, 22, 28, 45, 511, DateTimeKind.Local).AddTicks(3774), "Anastásia" },
-                    { 5, new DateTime(2023, 1, 14, 22, 28, 45, 511, DateTimeKind.Local).AddTicks(3776), "2245", new DateTime(2023, 1, 14, 22, 28, 45, 511, DateTimeKind.Local).AddTicks(3777), "Rodri" },
-                    { 6, new DateTime(2023, 1, 14, 22, 28, 45, 511, DateTimeKind.Local).AddTicks(3779), "3453", new DateTime(2023, 1, 14, 22, 28, 45, 511, DateTimeKind.Local).AddTicks(3780), "Jairzinho" }
+                    { 1, new DateTime(2023, 1, 15, 1, 38, 10, 111, DateTimeKind.Local).AddTicks(7602), "1234", new DateTime(2023, 1, 15, 1, 38, 10, 111, DateTimeKind.Local).AddTicks(7663), "Bernas" },
+                    { 2, new DateTime(2023, 1, 15, 1, 38, 10, 111, DateTimeKind.Local).AddTicks(7667), "2345", new DateTime(2023, 1, 15, 1, 38, 10, 111, DateTimeKind.Local).AddTicks(7668), "Cebolinha" },
+                    { 3, new DateTime(2023, 1, 15, 1, 38, 10, 111, DateTimeKind.Local).AddTicks(7670), "3456", new DateTime(2023, 1, 15, 1, 38, 10, 111, DateTimeKind.Local).AddTicks(7672), "Sergio" },
+                    { 4, new DateTime(2023, 1, 15, 1, 38, 10, 111, DateTimeKind.Local).AddTicks(7674), "1134", new DateTime(2023, 1, 15, 1, 38, 10, 111, DateTimeKind.Local).AddTicks(7675), "Anastásia" },
+                    { 5, new DateTime(2023, 1, 15, 1, 38, 10, 111, DateTimeKind.Local).AddTicks(7677), "2245", new DateTime(2023, 1, 15, 1, 38, 10, 111, DateTimeKind.Local).AddTicks(7678), "Rodri" },
+                    { 6, new DateTime(2023, 1, 15, 1, 38, 10, 111, DateTimeKind.Local).AddTicks(7679), "3453", new DateTime(2023, 1, 15, 1, 38, 10, 111, DateTimeKind.Local).AddTicks(7680), "Jairzinho" }
                 });
 
             migrationBuilder.InsertData(
@@ -395,7 +395,7 @@ namespace BeFeira.Server.Migrations
                     { 41, 20, "Decatlon", 7 },
                     { 42, 21, "Brindes", 2 },
                     { 43, 1, "Loja de Jardinagem", 1 },
-                    { 44, 2, "Petshoping", 2 },
+                    { 44, 2, "Petshopping", 2 },
                     { 45, 3, "Feira Orgânica", 7 },
                     { 46, 4, "Livraria Souza", 6 },
                     { 47, 5, "Fiat", 2 },
@@ -414,7 +414,10 @@ namespace BeFeira.Server.Migrations
                     { 60, 18, "TelePersona", 4 },
                     { 61, 19, "InformaTic", 2 },
                     { 62, 20, "Loja de desportos radicais", 8 },
-                    { 63, 21, "Loja dos trezentos", 4 }
+                    { 63, 21, "Loja dos trezentos", 4 },
+                    { 64, 1, "Home", 8 },
+                    { 65, 7, "Complex", 8 },
+                    { 66, 15, "Staples", 8 }
                 });
 
             migrationBuilder.InsertData(
@@ -471,7 +474,7 @@ namespace BeFeira.Server.Migrations
                     { 47, "Aquecedores", 1 },
                     { 48, "Camas", 1 },
                     { 49, "Utensílios de cozinha", 3 },
-                    { 50, "Artigos para animais exóticos", 2 },
+                    { 50, "Carnes", 2 },
                     { 51, "Artigos para equinos", 2 },
                     { 52, "Alimentos congelados", 3 },
                     { 53, "Artigos de papelaria", 4 },
@@ -492,9 +495,23 @@ namespace BeFeira.Server.Migrations
                     { 68, "Camping", 12 },
                     { 69, "Mochilas e equipamentos", 12 },
                     { 70, "Produtos orgânicos", 13 },
-                    { 71, "Cosméticos", 14 },
+                    { 71, "Perfumes", 14 },
                     { 72, "Eletrodomésticos de cozinha", 15 },
-                    { 73, "Eletrodomésticos de limpeza", 15 }
+                    { 73, "Eletrodomésticos de limpeza", 15 },
+                    { 74, "Fruta Fresca", 24 },
+                    { 75, "Tablets smartphones e outros", 19 },
+                    { 76, "Utensilios cozinha", 19 },
+                    { 77, "Basquetebol", 41 },
+                    { 78, "Futebol", 41 },
+                    { 79, "Nike", 65 },
+                    { 80, "Adidas", 65 },
+                    { 81, "Secretárias", 66 },
+                    { 82, "Cadeiras", 66 },
+                    { 83, "Arrumação", 66 },
+                    { 84, "Rações", 44 },
+                    { 85, "Animais vivos", 44 },
+                    { 86, "Moveis exteriores", 43 },
+                    { 87, "Mobilidade", 20 }
                 });
 
             migrationBuilder.InsertData(
@@ -502,8 +519,8 @@ namespace BeFeira.Server.Migrations
                 columns: new[] { "ID", "CarrinhoID", "Date", "Total" },
                 values: new object[,]
                 {
-                    { 1, 1, new DateTime(2023, 1, 14, 22, 28, 45, 511, DateTimeKind.Local).AddTicks(4265), 0f },
-                    { 2, 2, new DateTime(2023, 1, 14, 22, 28, 45, 511, DateTimeKind.Local).AddTicks(4268), 0f }
+                    { 1, 1, new DateTime(2023, 1, 15, 1, 38, 10, 111, DateTimeKind.Local).AddTicks(8314), 0f },
+                    { 2, 2, new DateTime(2023, 1, 15, 1, 38, 10, 111, DateTimeKind.Local).AddTicks(8318), 0f }
                 });
 
             migrationBuilder.InsertData(
@@ -511,35 +528,77 @@ namespace BeFeira.Server.Migrations
                 columns: new[] { "ID", "Nome_Produto", "Preco", "Promocao", "Rating", "StandID", "Stock", "SubCategoriaID", "urlImage" },
                 values: new object[,]
                 {
-                    { 1, "Maçãs", 2.9f, 0, 4, 1, 3, 1, "https://www.freepnglogos.com/uploads/box-png/box-png-transparent-google-objects-pinterest-9.png" },
-                    { 2, "Bonecos", 25.9f, 0, 2, 2, 2, 2, "https://www.freepnglogos.com/uploads/box-png/box-png-transparent-google-objects-pinterest-9.png" },
-                    { 3, "Tapetea", 23.9f, 0, 3, 3, 1, 2, "https://www.freepnglogos.com/uploads/box-png/box-png-transparent-google-objects-pinterest-9.png" },
-                    { 4, "Celular", 299.9f, 0, 5, 4, 20, 3, "https://www.freepnglogos.com/uploads/box-png/box-png-transparent-google-objects-pinterest-9.png" },
-                    { 5, "Livro", 15.99f, 0, 4, 5, 15, 4, "https://www.freepnglogos.com/uploads/box-png/box-png-transparent-google-objects-pinterest-9.png" },
-                    { 6, "Caneca", 9.99f, 0, 3, 6, 5, 5, "https://www.freepnglogos.com/uploads/box-png/box-png-transparent-google-objects-pinterest-9.png" },
-                    { 7, "Bola de futebol", 29.99f, 0, 4, 7, 10, 6, "https://www.freepnglogos.com/uploads/box-png/box-png-transparent-google-objects-pinterest-9.png" },
-                    { 8, "Perfume", 69.99f, 0, 5, 8, 7, 7, "https://www.freepnglogos.com/uploads/box-png/box-png-transparent-google-objects-pinterest-9.png" },
-                    { 9, "Mala", 99.99f, 0, 2, 9, 3, 8, "https://www.freepnglogos.com/uploads/box-png/box-png-transparent-google-objects-pinterest-9.png" },
-                    { 10, "Sapatos", 89.99f, 0, 4, 10, 5, 9, "https://www.freepnglogos.com/uploads/box-png/box-png-transparent-google-objects-pinterest-9.png" },
-                    { 11, "Smartwatch", 199.99f, 0, 5, 11, 8, 10, "https://www.freepnglogos.com/uploads/box-png/box-png-transparent-google-objects-pinterest-9.png" },
-                    { 12, "Fritadeira", 49.99f, 0, 3, 12, 4, 11, "https://www.freepnglogos.com/uploads/box-png/box-png-transparent-google-objects-pinterest-9.png" },
-                    { 13, "Cadeira gamer", 129.99f, 0, 4, 13, 2, 12, "https://www.freepnglogos.com/uploads/box-png/box-png-transparent-google-objects-pinterest-9.png" },
-                    { 14, "Bicicleta", 399.99f, 0, 5, 14, 6, 13, "https://www.freepnglogos.com/uploads/box-png/box-png-transparent-google-objects-pinterest-9.png" },
-                    { 15, "Aspirador", 99.99f, 0, 4, 15, 8, 14, "https://www.freepnglogos.com/uploads/box-png/box-png-transparent-google-objects-pinterest-9.png" },
-                    { 16, "Toalhas de banho", 12.9f, 0, 5, 1, 7, 1, "https://www.freepnglogos.com/uploads/box-png/box-png-transparent-google-objects-pinterest-9.png" },
-                    { 17, "Ração para frangos", 3.9f, 0, 4, 2, 6, 4, "https://www.freepnglogos.com/uploads/box-png/box-png-transparent-google-objects-pinterest-9.png" },
-                    { 18, "Carnes de porco", 15.9f, 0, 4, 3, 10, 8, "https://www.freepnglogos.com/uploads/box-png/box-png-transparent-google-objects-pinterest-9.png" },
-                    { 19, "Livro de terror", 8.9f, 0, 3, 4, 5, 10, "https://www.freepnglogos.com/uploads/box-png/box-png-transparent-google-objects-pinterest-9.png" },
-                    { 20, "BMW elétrico", 65000f, 0, 5, 5, 2, 13, "https://www.freepnglogos.com/uploads/box-png/box-png-transparent-google-objects-pinterest-9.png" },
-                    { 21, "Mesa de escritório", 150f, 0, 4, 6, 4, 16, "https://www.freepnglogos.com/uploads/box-png/box-png-transparent-google-objects-pinterest-9.png" },
-                    { 22, "Camisola para homem", 25f, 0, 5, 7, 10, 19, "https://www.freepnglogos.com/uploads/box-png/box-png-transparent-google-objects-pinterest-9.png" },
-                    { 23, "Serra circular", 150f, 0, 4, 8, 3, 21, "https://www.freepnglogos.com/uploads/box-png/box-png-transparent-google-objects-pinterest-9.png" },
-                    { 24, "Ração para cães", 12.9f, 0, 5, 9, 8, 23, "https://www.freepnglogos.com/uploads/box-png/box-png-transparent-google-objects-pinterest-9.png" },
-                    { 25, "Toalhas de banho", 15.99f, 0, 4, 1, 10, 1, "https://www.freepnglogos.com/uploads/box-png/box-png-transparent-google-objects-pinterest-9.png" },
-                    { 26, "Móveis de jardim", 299.99f, 0, 4, 2, 5, 2, "https://www.freepnglogos.com/uploads/box-png/box-png-transparent-google-objects-pinterest-9.png" },
-                    { 27, "Eletrodomésticos de cozinha", 399.99f, 0, 5, 3, 3, 3, "https://www.freepnglogos.com/uploads/box-png/box-png-transparent-google-objects-pinterest-9.png" },
-                    { 28, "Ração para cães", 9.99f, 0, 4, 4, 20, 4, "https://www.freepnglogos.com/uploads/box-png/box-png-transparent-google-objects-pinterest-9.png" },
-                    { 29, "Frangos orgânicos", 7.99f, 0, 5, 5, 15, 5, "https://www.freepnglogos.com/uploads/box-png/box-png-transparent-google-objects-pinterest-9.png" }
+                    { 1, "Maçãs", 0.59f, 0, 4, 24, 12, 74, "https://www.imagensempng.com.br/wp-content/uploads/2021/07/Maca-Png.png" },
+                    { 2, "Pêras", 0.79f, 20, 1, 24, 120, 74, "https://lusopera.com/wp-content/uploads/2018/12/img-intro-peras.jpg" },
+                    { 3, "Melão", 10f, 5, 4, 24, 25, 74, "https://www.apolonia.com/fotos/produtos/91359_01_12-01-2018_g.jpg" },
+                    { 4, "Manga", 5.9f, 0, 4, 24, 5, 74, "https://static.mundoeducacao.uol.com.br/mundoeducacao/2021/05/manga.jpg" },
+                    { 5, "Bananas", 0.99f, 35, 4, 24, 150, 74, "https://live.staticflickr.com/65535/50026818621_47244bd8e7_b.jpg" },
+                    { 6, "Morangos", 0.99f, 0, 4, 24, 12, 74, "https://i2.wp.com/www.lojaaporta.pt/wp-content/uploads/2021/01/MORANGOS-CAIXA-2KG.png?fit=500%2C500&ssl=1" },
+                    { 7, "Bonecos", 25.9f, 0, 2, 10, 2, 25, "https://www.lulu-berlu.com/upload/image/-p-image-334992-grande.jpg" },
+                    { 8, "Monopoly", 45.9f, 0, 2, 10, 2, 26, "https://www.toysrus.pt/medias/?context=bWFzdGVyfHByb2R1Y3RfaW1hZ2VzfDQ4OTcxfGltYWdlL2pwZWd8aDkyL2gwOC8xMTI3NDE5NjM4NTgyMnwyZjEwNTk5OGI5NjdkZmZjNmVhMzIyODE0NjE3YWJiMzFhOGM3MjJkNWE0ODc3YWI1NGI2ZTI3NTk1MDMxMWRh" },
+                    { 9, "Peluches", 19.9f, 0, 2, 10, 2, 65, "https://www.macao.ubuy.com/productimg/?image=aHR0cHM6Ly9pNS53YWxtYXJ0aW1hZ2VzLmNvbS9hc3IvNGNkNzk5NjYtMDkzMS00OGRkLTljYjQtNmZiODBjNjI1OGQ2XzEuZDU0YTJmMTQ4ODViMmVhNjc1YTY2OGIzZTcwMWNmMGQuanBlZw.jpg" },
+                    { 10, "Pop Figure", 15.9f, 0, 2, 10, 2, 25, "https://shop4nerds.pt/cms/produtos_imgs/produto_931/files/849803053055.jpg" },
+                    { 11, "Carros de brincar", 25.9f, 0, 2, 10, 2, 25, "https://i.ebayimg.com/thumbs/images/g/7H0AAOSwWFtiBswI/s-l300.jpg" },
+                    { 12, "Tapetes", 23.9f, 0, 3, 1, 1, 2, "https://www.casatapetesarraiolos.com/images/A17688-Pombinhas-177-x-122-PL.jpg" },
+                    { 13, "Toalhas de mesa", 23.9f, 0, 3, 1, 1, 2, "https://www.lusatextil.pt/755/253.jpg" },
+                    { 14, "Vasos interior", 14.9f, 0, 3, 1, 1, 2, "https://urbanjungle.pt/wp-content/uploads/2020/03/IMG_5520-600x750.jpg" },
+                    { 15, "Samsung A52", 299.9f, 0, 5, 18, 20, 39, "https://images.samsung.com/is/image/samsung/p6pim/br/galaxy-a52/gallery/br-galaxy-a52-a525-379758-sm-a525mlvgzto-404505598?$650_519_PNG$" },
+                    { 16, "Iphone XS", 500f, 0, 5, 18, 20, 39, "https://loja.iservices.pt/5060-large_default/iphone-xs.jpg" },
+                    { 17, "Oneplus 8T", 399f, 0, 5, 18, 20, 39, "https://v9y9v6a3.rocketcdn.me/wp-content/uploads/2020/10/kiboTEK_oneplus_8t_014.png" },
+                    { 18, "Pixel 7", 700f, 0, 5, 18, 20, 39, "https://s1.kuantokusta.pt/img_upload/produtos_comunicacoes/1315526_3_google-pixel-7-5g-6-3-8gb-128gb-obsidian.jpg" },
+                    { 19, "Ipad mini", 499f, 0, 5, 19, 20, 75, "https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/ipad-mini-finish-unselect-gallery-1-202207_FMT_WHH?wid=1280&hei=720&fmt=p-jpg&qlt=95&.v=1654903884450" },
+                    { 20, "Portátil Asus Zenbook", 1399.9f, 0, 5, 19, 20, 41, "https://dlcdnwebimgs.asus.com/gain/55a72146-0976-465f-b270-8cc1b8c2fbfb/" },
+                    { 21, "Earbuds sony", 299.9f, 0, 5, 19, 20, 42, "https://cdn.mos.cms.futurecdn.net/KEAtgEBKMDZemgDfY4hB4Z.jpg" },
+                    { 22, "Monitor LG", 299.9f, 0, 5, 19, 20, 42, "https://www.lg.com/pt/images/monitores/MD05851557/gallery/27BK55_Product-image_01_Desk.jpg" },
+                    { 23, "Xiaomi Mi6", 509.9f, 0, 5, 19, 20, 75, "https://cdn.weasy.io/users/xiaomi/catalog/xiaomi12_pink_01.png" },
+                    { 24, "Livro All your perfects", 15.99f, 0, 4, 4, 15, 4, "https://kbimages1-a.akamaihd.net/284e157b-e503-412b-8adb-ac90a07e69fc/353/569/90/False/all-your-perfects.jpg" },
+                    { 25, "Dicionário Português", 15.99f, 0, 4, 4, 15, 4, "https://img.bertrand.pt/images/dicionario-editora-da-lingua-portuguesa/NDV8MTI1Njk0fDIyNjI0ODgwfDE2NDg1NTIzMDgwMDA=/500x" },
+                    { 26, "Livro Nicolas Spark", 15.99f, 0, 4, 4, 15, 4, "https://img.wook.pt/images/uma-vida-ao-teu-lado-nicholas-sparks/MXwxNjkzNjcyOXwxMjU1NjY1MnwxNDQ0MzgzMzEyMDAw/500x" },
+                    { 27, "Harry potter", 15.99f, 0, 4, 4, 15, 4, "https://cdn.shopify.com/s/files/1/0450/0717/5837/products/image-1_85c1dfac-79f9-431e-b96b-7ab26d9de938_1024x1024.jpg?v=1636630533" },
+                    { 28, "Divergente", 15.99f, 0, 4, 4, 15, 4, "https://static.fnac-static.com/multimedia/Images/PT/MC/72/cc/84/8703090/1540-1/tsp20160819200728/Divergente-Uma-Escolha-Pode-Te-Transformar-Trilogia-Divergente-Livro-1.jpg" },
+                    { 29, "Caneca", 9.99f, 0, 3, 19, 5, 76, "https://www.ikea.com/my/en/images/products/vardagen-mug-dark-grey__0445777_pe596061_s5.jpg?f=s" },
+                    { 30, "Bola de futebol", 29.99f, 0, 4, 41, 10, 78, "https://tm.ibxk.com.br/2014/05/19/19171133437584.jpg?ims=1200x675" },
+                    { 31, "Camisola de equipa de futebol", 29.99f, 0, 4, 41, 10, 78, "https://www.dhresource.com/0x0/f2/albu/g17/M01/62/58/rBVa4l--dPmAatjtAAHi4lep_h4122.jpg" },
+                    { 32, "NBA Jersey", 29.99f, 0, 4, 41, 10, 77, "https://vafloc02.s3.amazonaws.com/isyn/images/f523/img-3664523-f.jpg" },
+                    { 33, "Nike mercurial chuteiras", 29.99f, 0, 4, 41, 10, 78, "https://static.globalnoticias.pt/jn/image.jpg?brand=JN&type=generate&guid=9b616978-12cb-4535-8545-f4f80207d927&w=744&h=495&t=20221029122838" },
+                    { 34, "Kobe's 5", 79.99f, 0, 4, 41, 10, 77, "https://www.thenextsole.com/storage/images/CD4991-400.png" },
+                    { 35, "Perfume", 69.99f, 0, 5, 14, 7, 71, "http://www.pluricosmetica.com/media/produtos/cache/face_800169_d7dbf-1200_1200.jpg" },
+                    { 36, "Mala LV", 999.99f, 0, 2, 7, 3, 60, "http://cdn.shopify.com/s/files/1/0534/4418/2179/products/thumbnail_image7.jpg?v=1645455228" },
+                    { 37, "Mala Gucci", 599.99f, 0, 2, 7, 3, 60, "https://cdn1.jolicloset.com/imgr/full/2022/06/554264-1/gucci-marrom-outro-mala-de-viagem.jpg" },
+                    { 38, "Mala Guess", 149.99f, 0, 2, 7, 3, 60, "https://www.misscath.com/op/image/?co=946841&h=59204" },
+                    { 39, "Jordan's 1 dunk low", 109.99f, 0, 4, 65, 5, 79, "http://cdn.shopify.com/s/files/1/0550/3657/5853/products/Air_Jordan_1_Low_Coconut_Milk-DC0774-121-0.png?v=1658831901" },
+                    { 40, "Adidas Forum low", 119.99f, 0, 4, 65, 5, 80, "https://assets.adidas.com/images/w_600,f_auto,q_auto/6ef672a98ba34352b8c2aeb500d60995_9366/Sapatilhas_Forum_Low_Bege_H03475_09_standard.jpg" },
+                    { 41, "yezzys", 509.99f, 0, 4, 65, 5, 80, "http://cdn.shopify.com/s/files/1/0550/3657/5853/products/Yeezy_Boost_350_V2_Core_Black_Red-BY9612-0.png?v=1659523925" },
+                    { 42, "Jordan's dior", 25000f, 0, 4, 65, 5, 79, "https://cdn-images.farfetch-contents.com/15/65/12/84/15651284_28537785_600.jpg" },
+                    { 43, "Adidas x KSI", 109.99f, 0, 4, 65, 5, 80, "https://houseofheat.co/app/uploads/2022/04/ksi-adidas-forum-hi-release-date-1.jpg" },
+                    { 44, "Smartwatch garmin", 199.99f, 0, 5, 18, 8, 40, "https://res.garmin.com/en/products/010-02173-02/v/cf-lg-b773b34a-f08b-4dd8-a905-2daf306f2e6f-1.jpg" },
+                    { 45, "Fritadeira", 49.99f, 0, 3, 15, 4, 72, "https://www.utensilioscozinha.pt/5155-large_default/fritadeira-eletrica-profissional.jpg" },
+                    { 46, "Máquina de café", 69.99f, 0, 3, 15, 4, 72, "https://blog.kuantokusta.pt/wp-content/uploads/2021/11/Maquina-de-Cafe-Delonghi-Nespresso-Inissia-EN80-B.jpg" },
+                    { 47, "Chaleira Elétrica", 49.99f, 0, 3, 15, 4, 72, "https://www.homa.pt/on/demandware.static/-/Sites-homa-catalog/default/dwc29ab76c/images/large/447816_chaleira_eletrica_vintage_cuisine_menta_homa_1.jpg" },
+                    { 48, "Tostadeira", 29.99f, 0, 3, 15, 4, 72, "https://www.utensilioscozinha.pt/5083-large_default/tostadeira-eletrica-fatias-triangulares.jpg" },
+                    { 49, "Cadeira gamer", 129.99f, 0, 4, 66, 2, 82, "https://images.hermanmiller.group/m/29fc4b934cd7d34d/W-200210_HM_Embody_Gaming_Chair_063_F3_V3_transparent.png?trim=auto&trim-sd=1&blend-mode=none&blend=fafafa&bg=transparent&auto=format&w=1000&q=70&h=1000" },
+                    { 50, "Cadeira Escritório", 299.99f, 0, 4, 66, 2, 82, "https://spezzo.pt/wp-content/uploads/2020/11/aeron-Mineral_satin-mineral-1.jpg" },
+                    { 51, "Secretária Escritório", 129.99f, 0, 4, 66, 2, 81, "https://homycasa.pt/50669-thickbox_default/secretaria-gamer-com-luz-led.jpg" },
+                    { 52, "Arrumação Escritório", 229.99f, 0, 4, 66, 2, 83, "https://www.ikea.com/pt/pt/images/products/vihals-modulo-de-arrumacao-branco__1048516_pe843777_s5.jpg?f=s" },
+                    { 53, "Bicicleta", 399.99f, 0, 5, 20, 6, 87, "https://resize.sprintercdn.com/o/products/ac52337c-b118-434c-ba97-b33a753ad982/bicicleta-infantil-spider-man-12-pulgadas-3-5-a-os_ac52337c-b118-434c-ba97-b33a753ad982_1_2107067539.jpg" },
+                    { 54, "Trotinete", 79.99f, 0, 5, 20, 6, 87, "https://www.auchan.pt/dw/image/v2/BFRC_PRD/on/demandware.static/-/Sites-auchan-pt-master-catalog/default/dw95efa890/images/hi-res/003374633.jpg?sw=500&sh=500&sm=fit&bgcolor=FFFFFF" },
+                    { 55, "Aspirador", 99.99f, 0, 4, 15, 8, 73, "https://www.electrofun.pt/27602-large_default/aspirador-robot-mi-vacuum-mop-essential-xiaomi.jpg" },
+                    { 56, "Máquina de lavar roupa", 99.99f, 0, 4, 15, 8, 73, "https://s2.glbimg.com/NzitoDQGhjN6--RWdU8z85QMKmw=/e.glbimg.com/og/ed/f/original/2018/12/21/lava__seca_samsung_wd4000_de_10.2kg.jpg" },
+                    { 57, "Toalhas de banho", 12.9f, 0, 5, 1, 7, 1, "https://a-static.mlcdn.com.br/800x560/jogo-de-toalhas-de-banho-buddemeyer-100-algodao-delicata-azul-5-pecas/magazineluiza/227741700/42a47093b438f2347721901a8696d5e5.jpg" },
+                    { 58, "Ração para frangos", 3.9f, 0, 4, 2, 6, 4, "https://www.sohorta.pt/wp-content/uploads/2018/12/frangosmigalha-1.png" },
+                    { 59, "Carnes de porco", 15.9f, 0, 4, 2, 10, 50, "https://delibrave.pt/wp-content/uploads/2020/05/00066.jpg" },
+                    { 60, "Livro de terror", 8.9f, 0, 3, 4, 5, 10, "https://lirp.cdn-website.com/174487e2/dms3rep/multi/opt/exorcista-640w.jpeg" },
+                    { 61, "BMW i8", 65000f, 0, 5, 5, 2, 13, "https://www.motor24.pt/files/2018/08/IMG_20180630_143131_Easy-Resize.com_-1.jpg" },
+                    { 62, "Mesa de escritório", 150f, 0, 4, 66, 4, 81, "https://www.ikea.com/pt/pt/images/products/lagkapten-olov-secretaria-ef-carvalho-c-velatura-branca-branco__0977612_pe813682_s5.jpg?f=s" },
+                    { 63, "Camisola para homem", 25f, 0, 5, 7, 10, 19, "https://photos6.spartoo.pt/photos/817/8173562/8173562_500_A.jpg" },
+                    { 64, "Serra circular", 150f, 0, 4, 8, 3, 21, "https://depositocristina.com/wp-content/uploads/2022/03/918054a62bad62a09d953c675bda92e6.jpg" },
+                    { 65, "Ração para cães", 12.9f, 0, 5, 2, 8, 4, "https://granjadecister.pt/1527-large_default/racao-cao-avenal-mix-20kg.jpg" },
+                    { 66, "Toalhas de banho ginásio", 15.99f, 0, 4, 1, 10, 1, "https://static.sscontent.com/thumb/500/500/products/124/v988954_prozis_script-gym-towel-blue_single-size_blue_front.jpg" },
+                    { 67, "Móveis de jardim", 299.99f, 0, 4, 43, 5, 86, "https://moveistore.com/wp-content/uploads/2022/04/Cadeira-de-Exterior-Trinity5.jpg" },
+                    { 68, "Máquina de lavar loiça", 399.99f, 0, 5, 15, 3, 73, "https://whirlpool-cdn.thron.com/delivery/public/thumbnail/whirlpool/pi-743200f9-e158-441d-9d7e-f31d82618b87/jsind9/std/1000x1000/hfc-3c32-w-x-loi%C3%A7a.jpg?fill=zoom&fillcolor=rgba:255,255,255&scalemode=product" },
+                    { 69, "Ração para cães", 9.99f, 0, 4, 44, 20, 84, "https://amoraospets.com/wp-content/uploads/2018/04/royal-canin.png" },
+                    { 70, "Frangos caseiros", 7.99f, 0, 5, 44, 15, 85, "https://www.agromogiana.com.br/wp-content/uploads/2022/05/frango.jpg" },
+                    { 71, "Bola de Basket", 29.99f, 0, 4, 41, 10, 77, "https://planetabasketstore.com/images/detailed/20/Wilson_Evolution_FPB_Logo_Ball_601.png" }
                 });
 
             migrationBuilder.InsertData(
@@ -555,7 +614,7 @@ namespace BeFeira.Server.Migrations
             migrationBuilder.InsertData(
                 table: "Promocao",
                 columns: new[] { "ID", "Date", "Desconto", "ProdutoID" },
-                values: new object[] { 1, new DateTime(2023, 1, 14, 22, 28, 45, 511, DateTimeKind.Local).AddTicks(4219), 10, 1 });
+                values: new object[] { 1, new DateTime(2023, 1, 15, 1, 38, 10, 111, DateTimeKind.Local).AddTicks(8231), 10, 1 });
 
             migrationBuilder.InsertData(
                 table: "VendaProduto",

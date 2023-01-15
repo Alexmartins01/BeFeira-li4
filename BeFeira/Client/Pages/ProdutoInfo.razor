@@ -1,5 +1,7 @@
 ﻿@page "/produtoinfo"
 @page "/produtoinfo/{idproduto:int}/{idsubcategoria:int}/{idstand:int}/{idfeira:int}/{fromStand:int}/{idcliente:int}"
+@using BeFeira.Client.Services.CarrinhoProdServices;
+@using BeFeira.Client.Services.CarrinhoServices;
 
 @inject IProdutoService ProdutoService
 @inject ICarrinhoProdService CarrinhoProdService
