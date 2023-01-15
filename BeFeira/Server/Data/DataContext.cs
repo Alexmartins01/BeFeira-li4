@@ -354,11 +354,7 @@ namespace BeFeira.Server.Data
                  new Promocao { ID = 1, ProdutoID = 1, Desconto = 10 }
             );
 
-            modelBuilder.Entity<CarrinhoProduto>().HasData(
-                new CarrinhoProduto { ID = 1, CarrinhoID = 1, ProdutoID = 1, Quantidade = 1, Preco = 10, TaxaBefeira = 10 },
-                new CarrinhoProduto { ID = 2, CarrinhoID = 2, ProdutoID = 2, Quantidade = 4, Preco = 120, TaxaBefeira = 10 },
-                new CarrinhoProduto { ID = 3, CarrinhoID = 3, ProdutoID = 3, Quantidade = 2, Preco = 22, TaxaBefeira = 10 }
-            );
+
 
             modelBuilder.Entity<Venda>().HasData(
                 new Venda { ID = 1, CarrinhoID = 1 },

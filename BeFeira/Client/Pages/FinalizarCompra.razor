@@ -42,7 +42,6 @@
             </EditForm>
         </div>
     </div>
-    <button class="botao_voltar_bottom" @onclick="(()=>goback())">Voltar</button>
 </body>
 
 @code {
@@ -92,12 +91,6 @@
     }
 
 
-
-    public void goback()
-    {
-        NavigationManager.NavigateTo($"/carrinhopage/{idcli}/{"feirapage"}");
-    }
-
     public async  void compra()
     {
         List<Produto> prod = new List<Produto>();
@@ -105,6 +98,10 @@
 
         c.Total = await CarrinhoProdService.getPrecoKart((int)idkart);
         c.CarrinhoID = idkart;
+        Cliente cli = new Cliente();
+        cli = await ClientService.GetSingleCliente((int)idcli);
+        cli.Total += c.Total;
+        await ClientService.UpdateCliente(cli);
 
         await VendaService.AddVenda(c);
         await CarrinhoProdService.deleteprodutoskart((int)idkart);

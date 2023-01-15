@@ -1,4 +1,5 @@
 ﻿using BeFeira.Shared;
+using System.ComponentModel;
 using System.Net.Http.Json;
 
 namespace BeFeira.Client.Services.ClienteServices
@@ -51,8 +52,15 @@ namespace BeFeira.Client.Services.ClienteServices
             var result = await _http.PostAsJsonAsync("api/cliente", client);
             var response = await result.Content.ReadFromJsonAsync<List<Cliente>>();
             clientes = response;
-            
         }
 
+
+        public async Task UpdateCliente(Cliente cli)
+        {
+
+            var result = await _http.PutAsJsonAsync($"api/cliente/{cli.ID}", cli);
+            var response = await result.Content.ReadFromJsonAsync<List<Cliente>>();
+            clientes = response.ToList();
+        }
     }
 }

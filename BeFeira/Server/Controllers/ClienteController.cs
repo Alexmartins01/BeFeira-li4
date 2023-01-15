@@ -52,5 +52,27 @@ namespace BeFeira.Server.Controllers
         }
 
 
+
+
+        [HttpPut("{id}")]
+        [Route("id")]
+        public async Task<ActionResult<List<Cliente>>> UpdateCliente(Cliente cli, int id)
+        {
+
+            var dbCli = await _context.Clientes.FirstOrDefaultAsync(sh => sh.ID == id);
+
+            if (dbCli == null)
+                return NotFound("No cliente ");
+
+
+            dbCli.Total = cli.Total;
+     
+            await _context.SaveChangesAsync();
+            return Ok(await getDBClientes());
+
+
+        }
+
+
     }
 }

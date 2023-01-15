@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BeFeira.Server.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20230115184734_initial")]
+    [Migration("20230115203710_initial")]
     partial class initial
     {
         /// <inheritdoc />
@@ -55,49 +55,49 @@ namespace BeFeira.Server.Migrations
                         new
                         {
                             ID = 1,
-                            Createdat = new DateTime(2023, 1, 15, 18, 47, 34, 723, DateTimeKind.Local).AddTicks(4936),
+                            Createdat = new DateTime(2023, 1, 15, 20, 37, 10, 376, DateTimeKind.Local).AddTicks(1933),
                             Password = "1234",
-                            Updatedat = new DateTime(2023, 1, 15, 18, 47, 34, 723, DateTimeKind.Local).AddTicks(5006),
+                            Updatedat = new DateTime(2023, 1, 15, 20, 37, 10, 376, DateTimeKind.Local).AddTicks(1994),
                             Username = "Bernas"
                         },
                         new
                         {
                             ID = 2,
-                            Createdat = new DateTime(2023, 1, 15, 18, 47, 34, 723, DateTimeKind.Local).AddTicks(5009),
+                            Createdat = new DateTime(2023, 1, 15, 20, 37, 10, 376, DateTimeKind.Local).AddTicks(2052),
                             Password = "2345",
-                            Updatedat = new DateTime(2023, 1, 15, 18, 47, 34, 723, DateTimeKind.Local).AddTicks(5010),
+                            Updatedat = new DateTime(2023, 1, 15, 20, 37, 10, 376, DateTimeKind.Local).AddTicks(2054),
                             Username = "Cebolinha"
                         },
                         new
                         {
                             ID = 3,
-                            Createdat = new DateTime(2023, 1, 15, 18, 47, 34, 723, DateTimeKind.Local).AddTicks(5012),
+                            Createdat = new DateTime(2023, 1, 15, 20, 37, 10, 376, DateTimeKind.Local).AddTicks(2056),
                             Password = "3456",
-                            Updatedat = new DateTime(2023, 1, 15, 18, 47, 34, 723, DateTimeKind.Local).AddTicks(5013),
+                            Updatedat = new DateTime(2023, 1, 15, 20, 37, 10, 376, DateTimeKind.Local).AddTicks(2058),
                             Username = "Sergio"
                         },
                         new
                         {
                             ID = 4,
-                            Createdat = new DateTime(2023, 1, 15, 18, 47, 34, 723, DateTimeKind.Local).AddTicks(5015),
+                            Createdat = new DateTime(2023, 1, 15, 20, 37, 10, 376, DateTimeKind.Local).AddTicks(2059),
                             Password = "1134",
-                            Updatedat = new DateTime(2023, 1, 15, 18, 47, 34, 723, DateTimeKind.Local).AddTicks(5016),
+                            Updatedat = new DateTime(2023, 1, 15, 20, 37, 10, 376, DateTimeKind.Local).AddTicks(2061),
                             Username = "Anastásia"
                         },
                         new
                         {
                             ID = 5,
-                            Createdat = new DateTime(2023, 1, 15, 18, 47, 34, 723, DateTimeKind.Local).AddTicks(5018),
+                            Createdat = new DateTime(2023, 1, 15, 20, 37, 10, 376, DateTimeKind.Local).AddTicks(2063),
                             Password = "2245",
-                            Updatedat = new DateTime(2023, 1, 15, 18, 47, 34, 723, DateTimeKind.Local).AddTicks(5019),
+                            Updatedat = new DateTime(2023, 1, 15, 20, 37, 10, 376, DateTimeKind.Local).AddTicks(2064),
                             Username = "Rodri"
                         },
                         new
                         {
                             ID = 6,
-                            Createdat = new DateTime(2023, 1, 15, 18, 47, 34, 723, DateTimeKind.Local).AddTicks(5021),
+                            Createdat = new DateTime(2023, 1, 15, 20, 37, 10, 376, DateTimeKind.Local).AddTicks(2066),
                             Password = "3453",
-                            Updatedat = new DateTime(2023, 1, 15, 18, 47, 34, 723, DateTimeKind.Local).AddTicks(5022),
+                            Updatedat = new DateTime(2023, 1, 15, 20, 37, 10, 376, DateTimeKind.Local).AddTicks(2067),
                             Username = "Jairzinho"
                         });
                 });
@@ -173,35 +173,6 @@ namespace BeFeira.Server.Migrations
                     b.HasIndex("ProdutoID");
 
                     b.ToTable("CarrinhoProduto");
-
-                    b.HasData(
-                        new
-                        {
-                            ID = 1,
-                            CarrinhoID = 1,
-                            Preco = 10f,
-                            ProdutoID = 1,
-                            Quantidade = 1,
-                            TaxaBefeira = 10
-                        },
-                        new
-                        {
-                            ID = 2,
-                            CarrinhoID = 2,
-                            Preco = 120f,
-                            ProdutoID = 2,
-                            Quantidade = 4,
-                            TaxaBefeira = 10
-                        },
-                        new
-                        {
-                            ID = 3,
-                            CarrinhoID = 3,
-                            Preco = 22f,
-                            ProdutoID = 3,
-                            Quantidade = 2,
-                            TaxaBefeira = 10
-                        });
                 });
 
             modelBuilder.Entity("BeFeira.Shared.Cliente", b =>
@@ -220,8 +191,8 @@ namespace BeFeira.Server.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Total")
-                        .HasColumnType("int");
+                    b.Property<float>("Total")
+                        .HasColumnType("real");
 
                     b.Property<string>("UrlProfilePic")
                         .HasColumnType("nvarchar(max)");
@@ -240,7 +211,7 @@ namespace BeFeira.Server.Migrations
                             ID = 1,
                             Email = "a1@uminho.pt",
                             Password = "sporting",
-                            Total = 0,
+                            Total = 0f,
                             UrlProfilePic = "https://cdn-icons-png.flaticon.com/512/5087/5087579.png",
                             Username = "Pedro"
                         },
@@ -249,7 +220,7 @@ namespace BeFeira.Server.Migrations
                             ID = 2,
                             Email = "a2@uminho.pt",
                             Password = "benfica",
-                            Total = 0,
+                            Total = 0f,
                             UrlProfilePic = "https://cdn-icons-png.flaticon.com/512/5087/5087579.png",
                             Username = "João"
                         },
@@ -258,7 +229,7 @@ namespace BeFeira.Server.Migrations
                             ID = 3,
                             Email = "a3@uminho.pt",
                             Password = "porto",
-                            Total = 0,
+                            Total = 0f,
                             UrlProfilePic = "https://cdn-icons-png.flaticon.com/512/5087/5087579.png",
                             Username = "Zé"
                         },
@@ -267,7 +238,7 @@ namespace BeFeira.Server.Migrations
                             ID = 4,
                             Email = "a4@uminho.pt",
                             Password = "sporting11",
-                            Total = 0,
+                            Total = 0f,
                             UrlProfilePic = "https://cdn-icons-png.flaticon.com/512/5087/5087579.png",
                             Username = "Ana"
                         },
@@ -276,7 +247,7 @@ namespace BeFeira.Server.Migrations
                             ID = 5,
                             Email = "a5@uminho.pt",
                             Password = "benfica11",
-                            Total = 0,
+                            Total = 0f,
                             UrlProfilePic = "https://cdn-icons-png.flaticon.com/512/5087/5087579.png",
                             Username = "Ivo"
                         },
@@ -285,7 +256,7 @@ namespace BeFeira.Server.Migrations
                             ID = 6,
                             Email = "a6@uminho.pt",
                             Password = "porto11",
-                            Total = 0,
+                            Total = 0f,
                             UrlProfilePic = "https://cdn-icons-png.flaticon.com/512/5087/5087579.png",
                             Username = "Nestor"
                         },
@@ -294,7 +265,7 @@ namespace BeFeira.Server.Migrations
                             ID = 7,
                             Email = "a7@uminho.pt",
                             Password = "sporting22",
-                            Total = 0,
+                            Total = 0f,
                             UrlProfilePic = "https://cdn-icons-png.flaticon.com/512/5087/5087579.png",
                             Username = "Paulo"
                         },
@@ -303,7 +274,7 @@ namespace BeFeira.Server.Migrations
                             ID = 8,
                             Email = "a8@uminho.pt",
                             Password = "benfica22",
-                            Total = 0,
+                            Total = 0f,
                             UrlProfilePic = "https://cdn-icons-png.flaticon.com/512/5087/5087579.png",
                             Username = "Bruno"
                         },
@@ -312,7 +283,7 @@ namespace BeFeira.Server.Migrations
                             ID = 9,
                             Email = "a9@uminho.pt",
                             Password = "porto22",
-                            Total = 0,
+                            Total = 0f,
                             UrlProfilePic = "https://cdn-icons-png.flaticon.com/512/5087/5087579.png",
                             Username = "Rui"
                         },
@@ -321,7 +292,7 @@ namespace BeFeira.Server.Migrations
                             ID = 10,
                             Email = "a10@uminho.pt",
                             Password = "sporting33",
-                            Total = 0,
+                            Total = 0f,
                             UrlProfilePic = "https://cdn-icons-png.flaticon.com/512/5087/5087579.png",
                             Username = "Francisca"
                         },
@@ -330,7 +301,7 @@ namespace BeFeira.Server.Migrations
                             ID = 11,
                             Email = "a11@uminho.pt",
                             Password = "benfica33",
-                            Total = 0,
+                            Total = 0f,
                             UrlProfilePic = "https://cdn-icons-png.flaticon.com/512/5087/5087579.png",
                             Username = "Patricia"
                         },
@@ -339,7 +310,7 @@ namespace BeFeira.Server.Migrations
                             ID = 12,
                             Email = "a12@uminho.pt",
                             Password = "porto33",
-                            Total = 0,
+                            Total = 0f,
                             UrlProfilePic = "https://cdn-icons-png.flaticon.com/512/5087/5087579.png",
                             Username = "Luis"
                         });
@@ -1632,7 +1603,7 @@ namespace BeFeira.Server.Migrations
                         new
                         {
                             ID = 1,
-                            Date = new DateTime(2023, 1, 15, 18, 47, 34, 723, DateTimeKind.Local).AddTicks(5525),
+                            Date = new DateTime(2023, 1, 15, 20, 37, 10, 376, DateTimeKind.Local).AddTicks(2611),
                             Desconto = 10,
                             ProdutoID = 1
                         });
@@ -2716,7 +2687,7 @@ namespace BeFeira.Server.Migrations
                         {
                             ID = 1,
                             CarrinhoID = 1,
-                            Date = new DateTime(2023, 1, 15, 18, 47, 34, 723, DateTimeKind.Local).AddTicks(5576),
+                            Date = new DateTime(2023, 1, 15, 20, 37, 10, 376, DateTimeKind.Local).AddTicks(2639),
                             Morada = "",
                             Pagamento = 0,
                             Total = 0f
@@ -2725,7 +2696,7 @@ namespace BeFeira.Server.Migrations
                         {
                             ID = 2,
                             CarrinhoID = 2,
-                            Date = new DateTime(2023, 1, 15, 18, 47, 34, 723, DateTimeKind.Local).AddTicks(5581),
+                            Date = new DateTime(2023, 1, 15, 20, 37, 10, 376, DateTimeKind.Local).AddTicks(2642),
                             Morada = "",
                             Pagamento = 0,
                             Total = 0f

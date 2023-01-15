@@ -12,5 +12,7 @@
          Task<int> ValidClient(String username,String pass);
 
         Task AddCliente(Cliente client);
+
+        Task UpdateCliente(Cliente cli);
     }
 }
