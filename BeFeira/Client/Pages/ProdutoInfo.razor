@@ -1,4 +1,5 @@
 ﻿@page "/produtoinfo"
+@page "/produtoinfo/{idproduto:int}/{idfeira:int}/{idcliente:int}/{search}"
 @page "/produtoinfo/{idproduto:int}/{idsubcategoria:int}/{idstand:int}/{idfeira:int}/{fromStand:int}/{idcliente:int}"
 @using BeFeira.Client.Services.CarrinhoProdServices;
 @using BeFeira.Client.Services.CarrinhoServices;
@@ -120,6 +121,10 @@
     [Parameter]
     public int? idcliente { get; set; }
 
+
+    [Parameter]
+    public string? search { get; set; }
+
     public Produto prod = new Produto { };
 
     public string? name;
@@ -189,18 +194,27 @@
 
     void goback()
     {
-        if(fromStand!=1)
+        if (fromStand!=null)
         {
-            NavigationManager.NavigateTo($"produtopage/{idfeira}/{idstand}/{idsubcategoria}/{idcliente}");    
+            if(fromStand!=1)
+            {
+                NavigationManager.NavigateTo($"produtopage/{idfeira}/{idstand}/{idsubcategoria}/{idcliente}");    
+            }
+            else
+            {
+                NavigationManager.NavigateTo($"standpage/{idfeira}/{idstand}/{idcliente}");
+            }
+
         }
         else
         {
-            NavigationManager.NavigateTo($"standpage/{idfeira}/{idstand}/{idcliente}");
+            NavigationManager.NavigateTo($"produtopage2/{idfeira}/{idcliente}/{search}");
         }
     }
 
     void ShowKart()
     {
-        NavigationManager.NavigateTo($"/carrinhopage/{idcliente}/{idfeira}/{idstand}/{idsubcategoria}/{idproduto}/produtoinfo");
+        if (idsubcategoria !=null) NavigationManager.NavigateTo($"/carrinhopage/{idcliente}/{idfeira}/{idstand}/{idsubcategoria}/{idproduto}/produtoinfo");
+        else NavigationManager.NavigateTo($"/carrinhopage/{idcliente}/{idfeira}/{idproduto}/produtoinfo2/{search}");
     }
 }

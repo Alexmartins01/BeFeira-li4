@@ -5,6 +5,8 @@
 @inject IClienteService ClientService
 @inject IStandService StandService
 @inject ISubcatserv SubcatService
+@inject ICarrinhoProdService CarrinhoProdService
+@inject ICarrinhoService CarrinhoService
 @inject NavigationManager NavigationManager
 
 
@@ -17,7 +19,7 @@
     <img src="logo.png" @onclick="(()=>gomain())" alt="BeFeira Logo">
     <div class="user_header_info">
         <h1>@name</h1>
-        <i class="fa-solid fa-cart-shopping"></i>
+        <i class="fa-solid fa-cart-shopping" @onclick="(()=>ShowKart())"></i>
     </div>
     <button class="u"><i class="fa-solid fa-circle-user" @onclick="(()=>gouser())" alt=""></i></button>
 </header>
@@ -36,7 +38,8 @@
                 <p class="preco_produto">@String.Format("Preço: {0}€",produto.Preco.ToString("0.00"))</p>
                 <p class="stock_produto">Disponível</p> <!--se stock > 0-->
                 <div class="produto_basic_info_buttons">
-                    <button><i class="fas fa-shopping-cart"></i></button>
+                    <button><i class="fa-solid fa-circle-info" @onclick="(()=>showProdInfo(produto.ID))"></i></button>
+                    <button><i class="fas fa-shopping-cart" @onclick="(()=>addtokart(produto))"></i></button>
                 </div>
 
             </div>
@@ -64,6 +67,7 @@
 
     public string name;
     public Cliente c;
+    public int k;
 
     protected override async Task OnInitializedAsync()
     {
@@ -90,6 +94,11 @@
         }
     }
 
+    void ShowKart()
+    {
+        NavigationManager.NavigateTo($"/carrinhopage/{idcliente}/{idfeira}/produtopage2/{search}");
+    }
+
     void goback()
     {
         NavigationManager.NavigateTo($"feirapage/{idfeira}/{idcliente}");
@@ -105,4 +114,30 @@
         NavigationManager.NavigateTo($"userinfo/{idcliente}");
     }
 
+
+    void showProdInfo(int prod)
+    {
+        NavigationManager.NavigateTo($"produtoinfo/{prod}/{idfeira}/{idcliente}/{search}");
+    }
+
+
+    async void addtokart(Produto p)
+    {
+        if (idcliente != -1)
+        {
+            if (k > 0)
+            {
+                CarrinhoProduto a = new CarrinhoProduto { CarrinhoID = k, ProdutoID = p.ID, Quantidade = 1, Preco = p.Preco, TaxaBefeira = 10 };
+                await CarrinhoProdService.AddCarrinhoProduto(a);
+
+            }
+            else
+            {
+                Carrinho novo = new Carrinho { ClienteID = idcliente, Total = 0 };
+                await CarrinhoService.AddCarrinho(novo);
+                k = await CarrinhoService.ExistsCarrinho((int)idcliente);
+                CarrinhoProduto a = new CarrinhoProduto { CarrinhoID = k, ProdutoID = p.ID, Quantidade = 1, Preco = p.Preco, TaxaBefeira = 10 };
+            }
+        }
+    }
 }
