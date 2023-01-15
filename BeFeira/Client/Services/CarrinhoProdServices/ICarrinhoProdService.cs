@@ -16,6 +16,8 @@
         Task DeleteCarrinhoProd(int id);
 
         Task<int> getCarrinhoprodbykartandprod(Produto prod, int idkart);
+        Task<float> getPrecoKart(int idkart);
 
-	}
+
+    }
 }

@@ -46,6 +46,24 @@ namespace BeFeira.Client.Services.CarrinhoProdServices
             
         }
 
+        public async Task<float> getPrecoKart(int idkart)
+        {
+            float aux = 0;
+            await getCarrinhosProd();
+
+            foreach (var item in carrinhoprodutos)
+            {
+                if (item.CarrinhoID == idkart)
+                {
+                    aux += item.Preco;
+                }
+            }
+            return aux;
+
+
+        }
+
+
         public async Task UpdateCarrinhoProduto(CarrinhoProduto carrinho)
         {
             throw new NotImplementedException();

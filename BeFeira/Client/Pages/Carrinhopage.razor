@@ -51,7 +51,7 @@
                 }
             }
         </div>
-        <p>@String.Format("Total: {0}€",total.ToString("0.00"))</p>
+        <p>@String.Format("Total: {0}€",kart.Total.ToString("0.00"))</p>
         <div class="carrinho_buttons_container">
             <button @onclick="(()=>goBack())">Voltar</button>
             <button @onclick="(()=>FinalizarCompra())" >Finalizar compra</button>
@@ -109,7 +109,12 @@
             }
             else
             {
+
+                float a = await CarrinhoProdService.getPrecoKart(k);
                 kart = await CarrinhoService.getCarrinhobyIdCliente((int)idcliente);
+                kart.Total = (Decimal)a;
+                await (CarrinhoService.UpdateCarrinho(kart));
+
             }
             carsprods = await CarrinhoProdService.getCarrinhosProdbyIdKart((int)kart.ID);
             produtos = await CarrinhoProdService.getProdutosinCarrinho((int)kart.ID);

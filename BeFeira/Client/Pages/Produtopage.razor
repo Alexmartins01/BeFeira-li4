@@ -134,11 +134,15 @@
         {
             CarrinhoProduto a = new CarrinhoProduto { CarrinhoID = k, ProdutoID = p.ID, Quantidade = 1, Preco = p.Preco, TaxaBefeira = 10 };
             await CarrinhoProdService.AddCarrinhoProduto(a);
+                Carrinho novo = await CarrinhoService.GetsingleCarrinho(k);
+               // decimal aux = novo.Total;
+                //novo.Total = aux + (Decimal)p.Preco;
+                //await CarrinhoService.UpdateCarrinho(novo);
 
         }
         else
         {
-            Carrinho novo = new Carrinho { ClienteID = idcliente, Total = 0};
+               Carrinho novo = new Carrinho { ClienteID = idcliente, Total = (decimal)p.Preco };
             await CarrinhoService.AddCarrinho(novo);
             k = await CarrinhoService.ExistsCarrinho((int)idcliente);
             CarrinhoProduto a = new CarrinhoProduto { CarrinhoID = k, ProdutoID = p.ID, Quantidade = 1, Preco = p.Preco, TaxaBefeira = 10 };

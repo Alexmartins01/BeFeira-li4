@@ -1,4 +1,5 @@
-﻿using BeFeira.Client.Services.CarrinhoServices;
+﻿using BeFeira.Client.Pages;
+using BeFeira.Client.Services.CarrinhoServices;
 using BeFeira.Shared;
 using System.Net.Http.Json;
 
@@ -56,6 +57,16 @@ namespace BeFeira.Client.Services.NovaPasta
                 return a.ID;
             }
             return -1;
+        }
+
+        public async Task<Carrinho> GetsingleCarrinho(int idcarrinho)
+        {
+            if (carrinhos.Any(h => h.ID == idcarrinho))
+            {
+                Carrinho a = carrinhos.Find(p => p.ID == idcarrinho);
+                return a;
+            }
+            throw new Exception("Non-ExistantKart");
         }
     }
 }

@@ -63,6 +63,30 @@ namespace BeFeira.Server.Controllers
             return Ok(await GetDBcarrinhos());
         }
 
+
+        [HttpPut("{id}")]
+        [Route("id")]
+        public async Task<ActionResult<List<Carrinho>>> UpdateCarrinho(Carrinho p, int id)
+        {
+
+            var dbCarrinho = await _context.Carrinhos.FirstOrDefaultAsync(sh => sh.ID == id);
+
+            if (dbCarrinho == null)
+                return NotFound("No Carrinho ");
+
+            dbCarrinho.ClienteID = p.ClienteID;
+            dbCarrinho.Total = p.Total;
+            dbCarrinho.ID = p.ID;
+
+            await _context.SaveChangesAsync();
+            return Ok(await GetDBcarrinhos());
+
+
+
+            
+        }
+
+
         private async Task<List<Carrinho>> GetDBcarrinhos()
         {
 

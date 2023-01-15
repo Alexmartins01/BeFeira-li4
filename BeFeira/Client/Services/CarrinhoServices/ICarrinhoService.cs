@@ -13,5 +13,6 @@
         Task UpdateCarrinho(Carrinho carrinho);
 
         Task<int> ExistsCarrinho(int iduser);
+        Task<Carrinho> GetsingleCarrinho(int idcarrinho);
     }
 }
