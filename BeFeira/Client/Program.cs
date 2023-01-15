@@ -12,6 +12,7 @@ using BeFeira.Client.Services.CarrinhoServices;
 using BeFeira.Client.Services.NovaPasta;
 using BeFeira.Client.Services.CarrinhoProdServices;
 using BeFeira.Client.Services.VendaService;
+using BeFeira.Client.Services.VendaProdServices;
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
 builder.RootComponents.Add<App>("#app");
@@ -27,6 +28,7 @@ builder.Services.AddScoped<IClienteService, ClienteService>();
 builder.Services.AddScoped<ICarrinhoService, CarrinhoService>();
 builder.Services.AddScoped<ICarrinhoProdService, CarrinhoProdService>();
 builder.Services.AddScoped<IVendaService, VendaService>();
+builder.Services.AddScoped<IVendaProdService, VendaProdService>();
 
 
 

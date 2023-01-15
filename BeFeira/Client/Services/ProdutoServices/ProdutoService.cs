@@ -83,7 +83,8 @@ namespace BeFeira.Client.Services.ProdutoServices
         {
             var result = await _http.PutAsJsonAsync($"api/Produto/{p.ID}", p);
             var response = await result.Content.ReadFromJsonAsync<List<Produto>>();
-            SetProdutos(result);
+
+            this.produtos = response;
         }
 
         public async Task<List<Produto>> GetByIdStand(int id)

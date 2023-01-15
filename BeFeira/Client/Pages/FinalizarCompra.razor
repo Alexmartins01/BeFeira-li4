@@ -2,9 +2,13 @@
 @page "/finalizarcompra/{idkart:int}/{idcli:int}"
 
 @inject IVendaService VendaService
+@inject IVendaProdService VendaProdService
 @inject IClienteService ClientService
 @inject ICarrinhoService CarrinhoService
+@inject IProdutoService ProdutoService
 @inject ICarrinhoProdService CarrinhoProdService
+
+
 @inject NavigationManager NavigationManager
 
 <header>
@@ -62,6 +66,7 @@
 
     protected override async Task OnInitializedAsync()
     {
+        await VendaProdService.GetVendaProdutos();
         await CarrinhoService.getCarrinhos();
         await CarrinhoProdService.getCarrinhosProd();
         if (idcli == -1)
@@ -91,10 +96,23 @@
     }
 
 
-    public async  void compra()
+
+
+    public async void compra()
     {
-        List<Produto> prod = new List<Produto>();
-        prod= await CarrinhoProdService.getProdutosinCarrinho((int)idkart);
+
+        if (idcli != -1 && c.Pagamento!=0 && c.Morada!=null)
+        {
+
+            List<Produto> prod = new List<Produto>();
+            prod = await CarrinhoProdService.getProdutosinCarrinho((int)idkart);
+            if (prod.Any(h => h.Stock < 1))
+            {
+
+                NavigationManager.NavigateTo("/");
+            }
+            else
+            {
 
         c.Total = await CarrinhoProdService.getPrecoKart((int)idkart);
         c.CarrinhoID = idkart;
@@ -103,9 +121,23 @@
         cli.Total += c.Total;
         await ClientService.UpdateCliente(cli);
 
-        await VendaService.AddVenda(c);
-        await CarrinhoProdService.deleteprodutoskart((int)idkart);
-        NavigationManager.NavigateTo($"/mainpage/{idcli}");
+                await VendaService.AddVenda(c);
+                await CarrinhoProdService.deleteprodutoskart((int)idkart);
+
+
+
+                foreach (var produto in prod)
+                {
+                    VendaProduto vp = new VendaProduto { VendaID = 1, ProdutoID = produto.ID, Quantidade = 1, Preco = produto.Preco, TaxaBefeira = 10 };
+                    await VendaProdService.AddVendaProduto(vp);
+                    Produto p = new Produto { StandID = produto.StandID, ID = produto.ID, Nome_Produto = produto.Nome_Produto, Preco = produto.Preco, Promocao = produto.Promocao, Stock = produto.Stock - 1, Rating = produto.Rating, UrlImage = produto.UrlImage, SubCategoriaID = produto.SubCategoriaID };
+                    await ProdutoService.UpdateProduto(p);
+                }
+
+
+                NavigationManager.NavigateTo($"/mainpage/{idcli}");
+            }
+        }
     }
 
     void gouser()

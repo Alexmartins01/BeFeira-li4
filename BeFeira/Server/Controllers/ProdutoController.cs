@@ -48,6 +48,35 @@ namespace BeFeira.Server.Controllers
             return Ok(await GetDbProdutos());
         }
 
+
+        [HttpPut("{id}")]
+        [Route("id")]
+        public async Task<ActionResult<Produto>> UpdateProduto(Produto p,int id)
+        {
+
+            Console.WriteLine(p.ID);
+            var dbprod = await _context.Produtos.FirstOrDefaultAsync(sh => sh.ID == p.ID);
+
+            if (dbprod == null)
+                return NotFound("No Vendedor ");
+
+            dbprod.Preco = p.Preco;
+            dbprod.Stock = p.Stock;
+            dbprod.StandID = p.StandID;
+            dbprod.Rating = p.Rating;
+            dbprod.Promocao = p.Promocao;
+            dbprod.SubCategoriaID = p.SubCategoriaID;
+            dbprod.UrlImage = p.UrlImage;
+            dbprod.Nome_Produto = p.Nome_Produto;
+
+           
+
+            await _context.SaveChangesAsync();
+            Console.WriteLine("adicionei");
+            return Ok(await GetDbProdutos());
+
+        }
+
         private async Task<List<Produto>> GetDbProdutos()
         {
 
