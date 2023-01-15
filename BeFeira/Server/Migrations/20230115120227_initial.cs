@@ -37,7 +37,8 @@ namespace BeFeira.Server.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Username = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Password = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    urlProfilePic = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -267,31 +268,31 @@ namespace BeFeira.Server.Migrations
                 columns: new[] { "ID", "Created_at", "Password", "Updated_at", "Username" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(2023, 1, 15, 4, 7, 41, 853, DateTimeKind.Local).AddTicks(8338), "1234", new DateTime(2023, 1, 15, 4, 7, 41, 853, DateTimeKind.Local).AddTicks(8383), "Bernas" },
-                    { 2, new DateTime(2023, 1, 15, 4, 7, 41, 853, DateTimeKind.Local).AddTicks(8387), "2345", new DateTime(2023, 1, 15, 4, 7, 41, 853, DateTimeKind.Local).AddTicks(8388), "Cebolinha" },
-                    { 3, new DateTime(2023, 1, 15, 4, 7, 41, 853, DateTimeKind.Local).AddTicks(8390), "3456", new DateTime(2023, 1, 15, 4, 7, 41, 853, DateTimeKind.Local).AddTicks(8391), "Sergio" },
-                    { 4, new DateTime(2023, 1, 15, 4, 7, 41, 853, DateTimeKind.Local).AddTicks(8392), "1134", new DateTime(2023, 1, 15, 4, 7, 41, 853, DateTimeKind.Local).AddTicks(8393), "Anastásia" },
-                    { 5, new DateTime(2023, 1, 15, 4, 7, 41, 853, DateTimeKind.Local).AddTicks(8396), "2245", new DateTime(2023, 1, 15, 4, 7, 41, 853, DateTimeKind.Local).AddTicks(8397), "Rodri" },
-                    { 6, new DateTime(2023, 1, 15, 4, 7, 41, 853, DateTimeKind.Local).AddTicks(8399), "3453", new DateTime(2023, 1, 15, 4, 7, 41, 853, DateTimeKind.Local).AddTicks(8400), "Jairzinho" }
+                    { 1, new DateTime(2023, 1, 15, 12, 2, 26, 701, DateTimeKind.Local).AddTicks(4698), "1234", new DateTime(2023, 1, 15, 12, 2, 26, 701, DateTimeKind.Local).AddTicks(4762), "Bernas" },
+                    { 2, new DateTime(2023, 1, 15, 12, 2, 26, 701, DateTimeKind.Local).AddTicks(4769), "2345", new DateTime(2023, 1, 15, 12, 2, 26, 701, DateTimeKind.Local).AddTicks(4771), "Cebolinha" },
+                    { 3, new DateTime(2023, 1, 15, 12, 2, 26, 701, DateTimeKind.Local).AddTicks(4775), "3456", new DateTime(2023, 1, 15, 12, 2, 26, 701, DateTimeKind.Local).AddTicks(4777), "Sergio" },
+                    { 4, new DateTime(2023, 1, 15, 12, 2, 26, 701, DateTimeKind.Local).AddTicks(4781), "1134", new DateTime(2023, 1, 15, 12, 2, 26, 701, DateTimeKind.Local).AddTicks(4783), "Anastásia" },
+                    { 5, new DateTime(2023, 1, 15, 12, 2, 26, 701, DateTimeKind.Local).AddTicks(4787), "2245", new DateTime(2023, 1, 15, 12, 2, 26, 701, DateTimeKind.Local).AddTicks(4790), "Rodri" },
+                    { 6, new DateTime(2023, 1, 15, 12, 2, 26, 701, DateTimeKind.Local).AddTicks(4793), "3453", new DateTime(2023, 1, 15, 12, 2, 26, 701, DateTimeKind.Local).AddTicks(4796), "Jairzinho" }
                 });
 
             migrationBuilder.InsertData(
                 table: "Cliente",
-                columns: new[] { "ID", "Email", "Password", "Username" },
+                columns: new[] { "ID", "Email", "Password", "Username", "urlProfilePic" },
                 values: new object[,]
                 {
-                    { 1, "a1@uminho.pt", "sporting", "Pedro" },
-                    { 2, "a2@uminho.pt", "benfica", "João" },
-                    { 3, "a3@uminho.pt", "porto", "Zé" },
-                    { 4, "a4@uminho.pt", "sporting11", "Ana" },
-                    { 5, "a5@uminho.pt", "benfica11", "Ivo" },
-                    { 6, "a6@uminho.pt", "porto11", "Nestor" },
-                    { 7, "a7@uminho.pt", "sporting22", "Paulo" },
-                    { 8, "a8@uminho.pt", "benfica22", "Bruno" },
-                    { 9, "a9@uminho.pt", "porto22", "Rui" },
-                    { 10, "a10@uminho.pt", "sporting33", "Francisca" },
-                    { 11, "a11@uminho.pt", "benfica33", "Patricia" },
-                    { 12, "a12@uminho.pt", "porto33", "Luis" }
+                    { 1, "a1@uminho.pt", "sporting", "Pedro", "https://cdn-icons-png.flaticon.com/512/5087/5087579.png" },
+                    { 2, "a2@uminho.pt", "benfica", "João", "https://cdn-icons-png.flaticon.com/512/5087/5087579.png" },
+                    { 3, "a3@uminho.pt", "porto", "Zé", "https://cdn-icons-png.flaticon.com/512/5087/5087579.png" },
+                    { 4, "a4@uminho.pt", "sporting11", "Ana", "https://cdn-icons-png.flaticon.com/512/5087/5087579.png" },
+                    { 5, "a5@uminho.pt", "benfica11", "Ivo", "https://cdn-icons-png.flaticon.com/512/5087/5087579.png" },
+                    { 6, "a6@uminho.pt", "porto11", "Nestor", "https://cdn-icons-png.flaticon.com/512/5087/5087579.png" },
+                    { 7, "a7@uminho.pt", "sporting22", "Paulo", "https://cdn-icons-png.flaticon.com/512/5087/5087579.png" },
+                    { 8, "a8@uminho.pt", "benfica22", "Bruno", "https://cdn-icons-png.flaticon.com/512/5087/5087579.png" },
+                    { 9, "a9@uminho.pt", "porto22", "Rui", "https://cdn-icons-png.flaticon.com/512/5087/5087579.png" },
+                    { 10, "a10@uminho.pt", "sporting33", "Francisca", "https://cdn-icons-png.flaticon.com/512/5087/5087579.png" },
+                    { 11, "a11@uminho.pt", "benfica33", "Patricia", "https://cdn-icons-png.flaticon.com/512/5087/5087579.png" },
+                    { 12, "a12@uminho.pt", "porto33", "Luis", "https://cdn-icons-png.flaticon.com/512/5087/5087579.png" }
                 });
 
             migrationBuilder.InsertData(
@@ -520,8 +521,8 @@ namespace BeFeira.Server.Migrations
                 columns: new[] { "ID", "CarrinhoID", "Date", "Total" },
                 values: new object[,]
                 {
-                    { 1, 1, new DateTime(2023, 1, 15, 4, 7, 41, 853, DateTimeKind.Local).AddTicks(8882), 0f },
-                    { 2, 2, new DateTime(2023, 1, 15, 4, 7, 41, 853, DateTimeKind.Local).AddTicks(8885), 0f }
+                    { 1, 1, new DateTime(2023, 1, 15, 12, 2, 26, 701, DateTimeKind.Local).AddTicks(5809), 0f },
+                    { 2, 2, new DateTime(2023, 1, 15, 12, 2, 26, 701, DateTimeKind.Local).AddTicks(5814), 0f }
                 });
 
             migrationBuilder.InsertData(
@@ -635,7 +636,7 @@ namespace BeFeira.Server.Migrations
             migrationBuilder.InsertData(
                 table: "Promocao",
                 columns: new[] { "ID", "Date", "Desconto", "ProdutoID" },
-                values: new object[] { 1, new DateTime(2023, 1, 15, 4, 7, 41, 853, DateTimeKind.Local).AddTicks(8844), 10, 1 });
+                values: new object[] { 1, new DateTime(2023, 1, 15, 12, 2, 26, 701, DateTimeKind.Local).AddTicks(5732), 10, 1 });
 
             migrationBuilder.InsertData(
                 table: "VendaProduto",

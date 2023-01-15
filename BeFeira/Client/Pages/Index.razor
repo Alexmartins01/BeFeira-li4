@@ -2,6 +2,7 @@
 
 @inject IVendedorService VendedorService
 @inject IClienteService ClientService
+@inject ICarrinhoService CarrinhoService
 @inject NavigationManager NavigationManager
 
 <header>
@@ -59,8 +60,12 @@
                             </div>
                             <div class="input-box">
                                 <i class="fas fa-lock"></i>
-                                <input type="password" placeholder="Password" @bind-value="cli.Password"  required>
-                               
+                                <input type="password" placeholder="Password" @bind-value="cli.Password"  required />
+                            </div>
+
+                            <div class="input-box">
+                                <i class="fas fa-lock"></i>
+                                <input type="Photo-Link" placeholder="Photo.Link" @bind-value="cli.urlProfilePic"/>
                             </div>
                             <div class="button input-box">
                                 <input type="submit" @onclick="RegisterClient" value="Registar Cliente ">
@@ -164,6 +169,9 @@
     {
         await VendedorService.AddVendedor(seller);
         int id = await VendedorService.ValidVendedor(seller.Username, seller.Password);
+
+
+
         NavigationManager.NavigateTo($"/vendedormain/{id}");
 
     }
@@ -171,7 +179,12 @@
     private async void RegisterClient()
     {
         await ClientService.AddCliente(cli);
-        int id =await ClientService.ValidClient(cli.Username, cli.Password);
+        int id = await ClientService.ValidClient(cli.Username, cli.Password);
+
+        Carrinho car = new Carrinho { ClienteID = id, Total =0 };
+        await  CarrinhoService.AddCarrinho(car);
+
+
         NavigationManager.NavigateTo($"/mainpage/{id}");
 
     }

@@ -34,7 +34,7 @@
 
     <div class="client_right">
 
-        <img src="https://b.thumbs.redditmedia.com/klUQFMPkP2rYF45UEQ51gfvC3MB4YQy6525vE1s2kMg.jpg" />
+        <img src=@client.urlProfilePic />
 
     </div>
 
@@ -65,7 +65,7 @@
 
     void gomain()
     {
-        NavigationManager.NavigateTo("mainpage");
+        NavigationManager.NavigateTo($"mainpage/{idcliente}");
     }
 
     void gologin()

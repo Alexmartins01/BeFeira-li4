@@ -91,9 +91,19 @@
         }
         else
         {
+            //ver se o gajo tem carro , senao cria-se
             Cliente cli = await ClientService.GetSingleCliente((int)idcliente);
             uname = cli.Username;
-            kart = await CarrinhoService.getCarrinhobyIdCliente((int)idcliente);
+            int k = await CarrinhoService.ExistsCarrinho(cli.ID);
+            if (k < 0)
+            {
+                await CarrinhoService.AddCarrinho(new Carrinho { ClienteID = cli.ID, Total = 0 });
+                kart = await CarrinhoService.getCarrinhobyIdCliente((int)idcliente);
+            }
+            else
+            {
+                kart = await CarrinhoService.getCarrinhobyIdCliente((int)idcliente);
+            }
             carsprods = await CarrinhoProdService.getCarrinhosProdbyIdKart((int)kart.ID);
             produtos = await CarrinhoProdService.getProdutosinCarrinho((int)kart.ID);
 
@@ -128,6 +138,7 @@
         if (from.Equals("standpage")) NavigationManager.NavigateTo($"standpage/{idfeira}/{idstand}/{idcliente}");
         if (from.Equals("produtopage")) NavigationManager.NavigateTo($"produtopage/{idsubcat}/{idstand}/{idfeira}/{idcliente}");
         if (from.Equals("produtoinfo")) NavigationManager.NavigateTo($"produtoinfo/{idproduto}/{idsubcat}/{idstand}/{idfeira}/0/{idcliente}");
+        
     }
 
 

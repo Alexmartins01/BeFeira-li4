@@ -36,7 +36,7 @@
             </div>
         </div>
     </div>
-    <button class="botao_voltar_bottom" >Voltar</button>
+    <button class="botao_voltar_bottom" @onclick="(()=>goback())">Voltar</button>
 </body>
 
 @code {
@@ -45,7 +45,7 @@
 
     [Parameter]
     public int? idkart { get; set; }
-    
+
     [Parameter]
     public string? uname { get; set; }
 
@@ -61,9 +61,16 @@
         {
             Cliente cli = await ClientService.GetSingleCliente((int)idcli);
             uname = cli.Username;
-           
+
 
         }
+    }
+
+
+
+    public void goback()
+    {
+        NavigationManager.NavigateTo($"/carrinhopage/{idcli}/{"feirapage"}");
     }
 
 }

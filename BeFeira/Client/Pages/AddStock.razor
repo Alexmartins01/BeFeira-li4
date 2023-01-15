@@ -10,8 +10,8 @@
 <header>
     <link rel="stylesheet" href="icons/icons/css/all.css">
     <link rel="stylesheet" href="css/Login.css">
-    <img src="logo.png" alt="BeFeira Logo">
-    <i class="fa-solid fa-circle-user"></i>
+    <img src="logo.png" alt="BeFeira Logo" @onclick="gomain" >
+    <i class="fa-solid fa-circle-user" @onclick="(()=>goToMyProfile())"></i>
 </header>
 
 <body>
@@ -56,7 +56,7 @@
         </div>
     </div>
     </Editform>
-    <button class="botao_voltar_bottom">Voltar</button>
+    <button class="botao_voltar_bottom" @onclick="gomain">Voltar</button>
 </body>
 
 @code {
@@ -115,13 +115,13 @@
             {
                 //este esta bem
                 p.SubCategoriaID = sub;
-               await  ProdutoService.CreateProduto(p);
+                await  ProdutoService.CreateProduto(p);
                 NavigationManager.NavigateTo($"/vendedormain/{idvend}");
             }
         }
         else
         {
-           await StandService.AddStand(new Stand { Nome = form.nomeStand, VendedorID = idvend, FeiraID = 21 });
+            await StandService.AddStand(new Stand { Nome = form.nomeStand, VendedorID = idvend, FeiraID = 21 });
 
             p.StandID= await StandService.GetIdStand(form.nomeStand, (int)idvend);
 
@@ -129,8 +129,21 @@
 
             p.SubCategoriaID = await Subcatservice.GetSubcatbyname(form.nomeSubcat);
 
-           await  ProdutoService.CreateProduto(p);
+            await  ProdutoService.CreateProduto(p);
             NavigationManager.NavigateTo($"/vendedormain/{idvend}");
         }
     }
+
+
+
+    public void gomain()
+    {
+        NavigationManager.NavigateTo($"/vendedormain/{idvend}");
+    }
+
+    void goToMyProfile()
+    {
+        NavigationManager.NavigateTo($"vendedorprofile/{idvend}");
+    }
+
 }

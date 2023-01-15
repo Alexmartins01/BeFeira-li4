@@ -10,8 +10,8 @@
 <header>
     <link rel="stylesheet" href="icons/icons/css/all.css">
     <link rel="stylesheet" href="css/Login.css">
-    <img src="logo.png" alt="BeFeira Logo">
-    <i class="fa-solid fa-circle-user"></i>
+    <img src="logo.png" alt="BeFeira Logo" @onclick="gomain">
+    <i class="fa-solid fa-circle-user" @onclick="(()=>goToMyProfile())"></i>
 </header>
 
 <body>
@@ -41,7 +41,7 @@
     </div>
     </Editform>
 
-    <button class="botao_voltar_bottom">Voltar</button>
+    <button class="botao_voltar_bottom" @onclick="gomain">Voltar</button>
 </body>
 
 @code {
@@ -85,5 +85,17 @@
 
     }
 
+ 
+
+
+
+    public void gomain()
+    {
+        NavigationManager.NavigateTo($"/vendedormain/{idvend}");
+    }
+    void goToMyProfile()
+    {
+        NavigationManager.NavigateTo($"vendedorprofile/{idvend}");
+    }
 
 }

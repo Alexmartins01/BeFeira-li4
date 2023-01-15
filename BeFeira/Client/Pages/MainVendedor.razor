@@ -14,7 +14,7 @@
 	<div class="user_header_info">
 		<h1>Bem Vindo Vendedor @vendedor.Username</h1>
 	</div>
-	<i class="fa-solid fa-circle-user"></i>
+	<i class="fa-solid fa-circle-user" @onclick="(()=>goToMyProfile())"></i>
 </header>
 
 <body class="feira_container" style="padding-top:40px">
@@ -32,7 +32,7 @@
 
 	[Parameter]
 	public int? idvend { get; set; }
-	private Vendedor vendedor = new Vendedor { };
+	public Vendedor vendedor = new Vendedor { };
 
 
 	protected override async Task OnInitializedAsync()
@@ -52,5 +52,10 @@
 	void goAddStand()
 	{
 		NavigationManager.NavigateTo($"addstand/{idvend}");
+	}
+
+	void goToMyProfile()
+	{
+		NavigationManager.NavigateTo($"vendedorprofile/{idvend}");
 	}
 }
