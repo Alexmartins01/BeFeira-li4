@@ -125,7 +125,7 @@ namespace BeFeira.Client.Services.ProdutoServices
 			List<Produto> prods = new List<Produto>();
 			foreach (Produto prod in produtos)
             {
-                if (prod.Nome_Produto.Equals(searchProdName) )
+                if (prod.Nome_Produto.Equals(searchProdName) && prod.Stand.FeiraID==idfeira)
                 {
 					prods.Add(prod);
                 }
