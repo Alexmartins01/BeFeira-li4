@@ -15,5 +15,8 @@
 
 		Task UpdateStand(Stand stand);
 
-	}
+		Task<int> GetIdStand(String name, int iduser);
+
+
+    }
 }

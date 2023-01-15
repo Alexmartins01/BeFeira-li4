@@ -11,8 +11,6 @@ namespace BeFeira.Client.Services.FeiraServices
 			_http = http;
 		}
 		public List<Feira> Feiras { get; set; } = new List<Feira>();
-		public HttpClient Http { get; }
-        List<Feira> IFeiraService.FeiraList { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
         public async Task GetFeiras()
 		{
@@ -22,7 +20,7 @@ namespace BeFeira.Client.Services.FeiraServices
 
 		public async  Task<Feira> GetSingleFeira(int id)
 		{
-			var result = await _http.GetFromJsonAsync<Feira>($"api/Feira/{id}");
+			var result = await _http.GetFromJsonAsync<Feira>($"api/feira/{id}");
 			if (result != null)
 			{
 
@@ -30,5 +28,15 @@ namespace BeFeira.Client.Services.FeiraServices
 			}
 			throw new Exception("Product not found");
 		}
-	}
+
+        public async Task<int> ExistsFeiraByUname(string uname)
+        {
+			if (Feiras.Any(h => h.Categoria == uname))
+			{
+				Feira aux = Feiras.Find(h => h.Categoria == uname);
+				return aux.ID;
+			}
+			return -1;
+        }
+    }
 }

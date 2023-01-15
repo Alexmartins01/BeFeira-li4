@@ -2,9 +2,11 @@
 {
     public interface IFeiraService
     {
-        List<Feira> FeiraList { get; set; }
+        List<Feira> Feiras { get; set; }
 
         Task GetFeiras();
         Task<Feira> GetSingleFeira(int id);
+
+        Task<int> ExistsFeiraByUname(string uname);
     }
 }
