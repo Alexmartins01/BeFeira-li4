@@ -49,7 +49,7 @@ namespace BeFeira.Client.Services.NovaPasta
         }
         public async Task<int> ExistsCarrinho(int iduser)
         {
-            getCarrinhos();
+            await  getCarrinhos();
             if (carrinhos.Any(h=>h.ClienteID==iduser))
             {
                 Carrinho a =  carrinhos.Find(p => p.ClienteID == iduser);

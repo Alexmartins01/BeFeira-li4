@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BeFeira.Server.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20230115040742_initial")]
+    [Migration("20230115120227_initial")]
     partial class initial
     {
         /// <inheritdoc />
@@ -55,49 +55,49 @@ namespace BeFeira.Server.Migrations
                         new
                         {
                             ID = 1,
-                            Createdat = new DateTime(2023, 1, 15, 4, 7, 41, 853, DateTimeKind.Local).AddTicks(8338),
+                            Createdat = new DateTime(2023, 1, 15, 12, 2, 26, 701, DateTimeKind.Local).AddTicks(4698),
                             Password = "1234",
-                            Updatedat = new DateTime(2023, 1, 15, 4, 7, 41, 853, DateTimeKind.Local).AddTicks(8383),
+                            Updatedat = new DateTime(2023, 1, 15, 12, 2, 26, 701, DateTimeKind.Local).AddTicks(4762),
                             Username = "Bernas"
                         },
                         new
                         {
                             ID = 2,
-                            Createdat = new DateTime(2023, 1, 15, 4, 7, 41, 853, DateTimeKind.Local).AddTicks(8387),
+                            Createdat = new DateTime(2023, 1, 15, 12, 2, 26, 701, DateTimeKind.Local).AddTicks(4769),
                             Password = "2345",
-                            Updatedat = new DateTime(2023, 1, 15, 4, 7, 41, 853, DateTimeKind.Local).AddTicks(8388),
+                            Updatedat = new DateTime(2023, 1, 15, 12, 2, 26, 701, DateTimeKind.Local).AddTicks(4771),
                             Username = "Cebolinha"
                         },
                         new
                         {
                             ID = 3,
-                            Createdat = new DateTime(2023, 1, 15, 4, 7, 41, 853, DateTimeKind.Local).AddTicks(8390),
+                            Createdat = new DateTime(2023, 1, 15, 12, 2, 26, 701, DateTimeKind.Local).AddTicks(4775),
                             Password = "3456",
-                            Updatedat = new DateTime(2023, 1, 15, 4, 7, 41, 853, DateTimeKind.Local).AddTicks(8391),
+                            Updatedat = new DateTime(2023, 1, 15, 12, 2, 26, 701, DateTimeKind.Local).AddTicks(4777),
                             Username = "Sergio"
                         },
                         new
                         {
                             ID = 4,
-                            Createdat = new DateTime(2023, 1, 15, 4, 7, 41, 853, DateTimeKind.Local).AddTicks(8392),
+                            Createdat = new DateTime(2023, 1, 15, 12, 2, 26, 701, DateTimeKind.Local).AddTicks(4781),
                             Password = "1134",
-                            Updatedat = new DateTime(2023, 1, 15, 4, 7, 41, 853, DateTimeKind.Local).AddTicks(8393),
+                            Updatedat = new DateTime(2023, 1, 15, 12, 2, 26, 701, DateTimeKind.Local).AddTicks(4783),
                             Username = "Anastásia"
                         },
                         new
                         {
                             ID = 5,
-                            Createdat = new DateTime(2023, 1, 15, 4, 7, 41, 853, DateTimeKind.Local).AddTicks(8396),
+                            Createdat = new DateTime(2023, 1, 15, 12, 2, 26, 701, DateTimeKind.Local).AddTicks(4787),
                             Password = "2245",
-                            Updatedat = new DateTime(2023, 1, 15, 4, 7, 41, 853, DateTimeKind.Local).AddTicks(8397),
+                            Updatedat = new DateTime(2023, 1, 15, 12, 2, 26, 701, DateTimeKind.Local).AddTicks(4790),
                             Username = "Rodri"
                         },
                         new
                         {
                             ID = 6,
-                            Createdat = new DateTime(2023, 1, 15, 4, 7, 41, 853, DateTimeKind.Local).AddTicks(8399),
+                            Createdat = new DateTime(2023, 1, 15, 12, 2, 26, 701, DateTimeKind.Local).AddTicks(4793),
                             Password = "3453",
-                            Updatedat = new DateTime(2023, 1, 15, 4, 7, 41, 853, DateTimeKind.Local).AddTicks(8400),
+                            Updatedat = new DateTime(2023, 1, 15, 12, 2, 26, 701, DateTimeKind.Local).AddTicks(4796),
                             Username = "Jairzinho"
                         });
                 });
@@ -224,6 +224,9 @@ namespace BeFeira.Server.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("urlProfilePic")
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("ID");
 
                     b.ToTable("Cliente");
@@ -234,84 +237,96 @@ namespace BeFeira.Server.Migrations
                             ID = 1,
                             Email = "a1@uminho.pt",
                             Password = "sporting",
-                            Username = "Pedro"
+                            Username = "Pedro",
+                            urlProfilePic = "https://cdn-icons-png.flaticon.com/512/5087/5087579.png"
                         },
                         new
                         {
                             ID = 2,
                             Email = "a2@uminho.pt",
                             Password = "benfica",
-                            Username = "João"
+                            Username = "João",
+                            urlProfilePic = "https://cdn-icons-png.flaticon.com/512/5087/5087579.png"
                         },
                         new
                         {
                             ID = 3,
                             Email = "a3@uminho.pt",
                             Password = "porto",
-                            Username = "Zé"
+                            Username = "Zé",
+                            urlProfilePic = "https://cdn-icons-png.flaticon.com/512/5087/5087579.png"
                         },
                         new
                         {
                             ID = 4,
                             Email = "a4@uminho.pt",
                             Password = "sporting11",
-                            Username = "Ana"
+                            Username = "Ana",
+                            urlProfilePic = "https://cdn-icons-png.flaticon.com/512/5087/5087579.png"
                         },
                         new
                         {
                             ID = 5,
                             Email = "a5@uminho.pt",
                             Password = "benfica11",
-                            Username = "Ivo"
+                            Username = "Ivo",
+                            urlProfilePic = "https://cdn-icons-png.flaticon.com/512/5087/5087579.png"
                         },
                         new
                         {
                             ID = 6,
                             Email = "a6@uminho.pt",
                             Password = "porto11",
-                            Username = "Nestor"
+                            Username = "Nestor",
+                            urlProfilePic = "https://cdn-icons-png.flaticon.com/512/5087/5087579.png"
                         },
                         new
                         {
                             ID = 7,
                             Email = "a7@uminho.pt",
                             Password = "sporting22",
-                            Username = "Paulo"
+                            Username = "Paulo",
+                            urlProfilePic = "https://cdn-icons-png.flaticon.com/512/5087/5087579.png"
                         },
                         new
                         {
                             ID = 8,
                             Email = "a8@uminho.pt",
                             Password = "benfica22",
-                            Username = "Bruno"
+                            Username = "Bruno",
+                            urlProfilePic = "https://cdn-icons-png.flaticon.com/512/5087/5087579.png"
                         },
                         new
                         {
                             ID = 9,
                             Email = "a9@uminho.pt",
                             Password = "porto22",
-                            Username = "Rui"
+                            Username = "Rui",
+                            urlProfilePic = "https://cdn-icons-png.flaticon.com/512/5087/5087579.png"
                         },
                         new
                         {
                             ID = 10,
                             Email = "a10@uminho.pt",
                             Password = "sporting33",
-                            Username = "Francisca"
+                            Username = "Francisca",
+                            urlProfilePic = "https://cdn-icons-png.flaticon.com/512/5087/5087579.png"
                         },
                         new
                         {
                             ID = 11,
                             Email = "a11@uminho.pt",
                             Password = "benfica33",
-                            Username = "Patricia"
+                            Username = "Patricia",
+                            urlProfilePic = "https://cdn-icons-png.flaticon.com/512/5087/5087579.png"
                         },
                         new
                         {
                             ID = 12,
                             Email = "a12@uminho.pt",
                             Password = "porto33",
-                            Username = "Luis"
+                            Username = "Luis",
+                            urlProfilePic = "https://cdn-icons-png.flaticon.com/512/5087/5087579.png"
                         });
                 });
 
@@ -1602,7 +1617,7 @@ namespace BeFeira.Server.Migrations
                         new
                         {
                             ID = 1,
-                            Date = new DateTime(2023, 1, 15, 4, 7, 41, 853, DateTimeKind.Local).AddTicks(8844),
+                            Date = new DateTime(2023, 1, 15, 12, 2, 26, 701, DateTimeKind.Local).AddTicks(5732),
                             Desconto = 10,
                             ProdutoID = 1
                         });
@@ -2679,14 +2694,14 @@ namespace BeFeira.Server.Migrations
                         {
                             ID = 1,
                             CarrinhoID = 1,
-                            Date = new DateTime(2023, 1, 15, 4, 7, 41, 853, DateTimeKind.Local).AddTicks(8882),
+                            Date = new DateTime(2023, 1, 15, 12, 2, 26, 701, DateTimeKind.Local).AddTicks(5809),
                             Total = 0f
                         },
                         new
                         {
                             ID = 2,
                             CarrinhoID = 2,
-                            Date = new DateTime(2023, 1, 15, 4, 7, 41, 853, DateTimeKind.Local).AddTicks(8885),
+                            Date = new DateTime(2023, 1, 15, 12, 2, 26, 701, DateTimeKind.Local).AddTicks(5814),
                             Total = 0f
                         });
                 });

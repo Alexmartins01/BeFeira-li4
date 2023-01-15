@@ -593,6 +593,7 @@ body {
 
     .client_container .client_right img {
 
+        height:200px;
         width: 200px;
         border-radius: 50%;
     }
