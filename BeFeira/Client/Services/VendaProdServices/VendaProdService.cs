@@ -37,5 +37,6 @@ namespace BeFeira.Client.Services.VendaProdServices
             var response = await result.Content.ReadFromJsonAsync<List<VendaProduto>>();
             Vendas = response;
         }
+
     }
 }

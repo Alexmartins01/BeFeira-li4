@@ -83,6 +83,9 @@
 
     public async  void compra()
     {
+        List<Produto> prod = new List<Produto>();
+        prod= await CarrinhoProdService.getProdutosinCarrinho((int)idkart);
+
         c.Total = await CarrinhoProdService.getPrecoKart((int)idkart);
         c.CarrinhoID = idkart;
 

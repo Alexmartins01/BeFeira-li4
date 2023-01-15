@@ -5,8 +5,8 @@
         List<VendaProduto> Vendas { get; set; }
         Task GetVendaProdutos();
 
-        Task<Venda> GetSingleVendaProduto(int idvenda);
+        Task<VendaProduto> GetSingleVendaProduto(int idvenda);
 
-        Task AddVendaProduto(Venda venda);
+        Task AddVendaProduto(VendaProduto venda);
     }
 }
