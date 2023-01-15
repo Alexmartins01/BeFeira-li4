@@ -43,9 +43,7 @@ namespace BeFeira.Client.Services.CarrinhoProdServices
             }
             return aux;
                 
-                // var result = await _http.GetFromJsonAsync<List<CarrinhoProduto>>($"api/CarrinhoProd/{idkart}");
-           // if (result != null) { return result; }
-            //throw new Exception("Not exist");
+            
         }
 
         public async Task UpdateCarrinhoProduto(CarrinhoProduto carrinho)

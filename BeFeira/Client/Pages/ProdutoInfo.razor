@@ -164,6 +164,7 @@
                 await CarrinhoService.AddCarrinho(novo);
                 k = await CarrinhoService.ExistsCarrinho((int)idcliente);
                 CarrinhoProduto a = new CarrinhoProduto { CarrinhoID = k, ProdutoID = p.ID, Quantidade = 1, Preco = p.Preco, TaxaBefeira = 10 };
+                await CarrinhoProdService.AddCarrinhoProduto(a);
             }
         }
     }
