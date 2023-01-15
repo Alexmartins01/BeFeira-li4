@@ -3,6 +3,7 @@
 
 @inject NavigationManager NavigationManager
 @inject IVendedorService VendedorService
+@inject IVendaService VendaService
 
 
 <header>
@@ -140,6 +141,13 @@
     [Parameter]
     public int? idVend { get; set; }
     private Vendedor vend = new Vendedor { };
+    int totalprofit = 0;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await VendaService.GetVendas();
+        
+    }
 
     protected override async Task OnParametersSetAsync()
     {
