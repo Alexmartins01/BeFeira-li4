@@ -52,49 +52,49 @@ namespace BeFeira.Server.Migrations
                         new
                         {
                             ID = 1,
-                            Createdat = new DateTime(2023, 1, 15, 1, 38, 10, 111, DateTimeKind.Local).AddTicks(7602),
+                            Createdat = new DateTime(2023, 1, 15, 1, 48, 14, 156, DateTimeKind.Local).AddTicks(9449),
                             Password = "1234",
-                            Updatedat = new DateTime(2023, 1, 15, 1, 38, 10, 111, DateTimeKind.Local).AddTicks(7663),
+                            Updatedat = new DateTime(2023, 1, 15, 1, 48, 14, 156, DateTimeKind.Local).AddTicks(9507),
                             Username = "Bernas"
                         },
                         new
                         {
                             ID = 2,
-                            Createdat = new DateTime(2023, 1, 15, 1, 38, 10, 111, DateTimeKind.Local).AddTicks(7667),
+                            Createdat = new DateTime(2023, 1, 15, 1, 48, 14, 156, DateTimeKind.Local).AddTicks(9511),
                             Password = "2345",
-                            Updatedat = new DateTime(2023, 1, 15, 1, 38, 10, 111, DateTimeKind.Local).AddTicks(7668),
+                            Updatedat = new DateTime(2023, 1, 15, 1, 48, 14, 156, DateTimeKind.Local).AddTicks(9512),
                             Username = "Cebolinha"
                         },
                         new
                         {
                             ID = 3,
-                            Createdat = new DateTime(2023, 1, 15, 1, 38, 10, 111, DateTimeKind.Local).AddTicks(7670),
+                            Createdat = new DateTime(2023, 1, 15, 1, 48, 14, 156, DateTimeKind.Local).AddTicks(9514),
                             Password = "3456",
-                            Updatedat = new DateTime(2023, 1, 15, 1, 38, 10, 111, DateTimeKind.Local).AddTicks(7672),
+                            Updatedat = new DateTime(2023, 1, 15, 1, 48, 14, 156, DateTimeKind.Local).AddTicks(9515),
                             Username = "Sergio"
                         },
                         new
                         {
                             ID = 4,
-                            Createdat = new DateTime(2023, 1, 15, 1, 38, 10, 111, DateTimeKind.Local).AddTicks(7674),
+                            Createdat = new DateTime(2023, 1, 15, 1, 48, 14, 156, DateTimeKind.Local).AddTicks(9517),
                             Password = "1134",
-                            Updatedat = new DateTime(2023, 1, 15, 1, 38, 10, 111, DateTimeKind.Local).AddTicks(7675),
+                            Updatedat = new DateTime(2023, 1, 15, 1, 48, 14, 156, DateTimeKind.Local).AddTicks(9518),
                             Username = "Anastásia"
                         },
                         new
                         {
                             ID = 5,
-                            Createdat = new DateTime(2023, 1, 15, 1, 38, 10, 111, DateTimeKind.Local).AddTicks(7677),
+                            Createdat = new DateTime(2023, 1, 15, 1, 48, 14, 156, DateTimeKind.Local).AddTicks(9520),
                             Password = "2245",
-                            Updatedat = new DateTime(2023, 1, 15, 1, 38, 10, 111, DateTimeKind.Local).AddTicks(7678),
+                            Updatedat = new DateTime(2023, 1, 15, 1, 48, 14, 156, DateTimeKind.Local).AddTicks(9521),
                             Username = "Rodri"
                         },
                         new
                         {
                             ID = 6,
-                            Createdat = new DateTime(2023, 1, 15, 1, 38, 10, 111, DateTimeKind.Local).AddTicks(7679),
+                            Createdat = new DateTime(2023, 1, 15, 1, 48, 14, 156, DateTimeKind.Local).AddTicks(9522),
                             Password = "3453",
-                            Updatedat = new DateTime(2023, 1, 15, 1, 38, 10, 111, DateTimeKind.Local).AddTicks(7680),
+                            Updatedat = new DateTime(2023, 1, 15, 1, 48, 14, 156, DateTimeKind.Local).AddTicks(9524),
                             Username = "Jairzinho"
                         });
                 });
@@ -799,7 +799,7 @@ namespace BeFeira.Server.Migrations
                             Rating = 4,
                             StandID = 4,
                             Stock = 15,
-                            SubCategoriaID = 4,
+                            SubCategoriaID = 12,
                             urlImage = "https://kbimages1-a.akamaihd.net/284e157b-e503-412b-8adb-ac90a07e69fc/353/569/90/False/all-your-perfects.jpg"
                         },
                         new
@@ -811,7 +811,7 @@ namespace BeFeira.Server.Migrations
                             Rating = 4,
                             StandID = 4,
                             Stock = 15,
-                            SubCategoriaID = 4,
+                            SubCategoriaID = 88,
                             urlImage = "https://img.bertrand.pt/images/dicionario-editora-da-lingua-portuguesa/NDV8MTI1Njk0fDIyNjI0ODgwfDE2NDg1NTIzMDgwMDA=/500x"
                         },
                         new
@@ -823,7 +823,7 @@ namespace BeFeira.Server.Migrations
                             Rating = 4,
                             StandID = 4,
                             Stock = 15,
-                            SubCategoriaID = 4,
+                            SubCategoriaID = 12,
                             urlImage = "https://img.wook.pt/images/uma-vida-ao-teu-lado-nicholas-sparks/MXwxNjkzNjcyOXwxMjU1NjY1MnwxNDQ0MzgzMzEyMDAw/500x"
                         },
                         new
@@ -835,7 +835,7 @@ namespace BeFeira.Server.Migrations
                             Rating = 4,
                             StandID = 4,
                             Stock = 15,
-                            SubCategoriaID = 4,
+                            SubCategoriaID = 11,
                             urlImage = "https://cdn.shopify.com/s/files/1/0450/0717/5837/products/image-1_85c1dfac-79f9-431e-b96b-7ab26d9de938_1024x1024.jpg?v=1636630533"
                         },
                         new
@@ -847,7 +847,7 @@ namespace BeFeira.Server.Migrations
                             Rating = 4,
                             StandID = 4,
                             Stock = 15,
-                            SubCategoriaID = 4,
+                            SubCategoriaID = 11,
                             urlImage = "https://static.fnac-static.com/multimedia/Images/PT/MC/72/cc/84/8703090/1540-1/tsp20160819200728/Divergente-Uma-Escolha-Pode-Te-Transformar-Trilogia-Divergente-Livro-1.jpg"
                         },
                         new
@@ -1359,7 +1359,7 @@ namespace BeFeira.Server.Migrations
                         new
                         {
                             ID = 1,
-                            Date = new DateTime(2023, 1, 15, 1, 38, 10, 111, DateTimeKind.Local).AddTicks(8231),
+                            Date = new DateTime(2023, 1, 15, 1, 48, 14, 157, DateTimeKind.Local).AddTicks(67),
                             Desconto = 10,
                             ProdutoID = 1
                         });
@@ -1941,7 +1941,7 @@ namespace BeFeira.Server.Migrations
                         new
                         {
                             ID = 11,
-                            Descricao = "Comédia",
+                            Descricao = "Ação/Aventura",
                             StandID = 4
                         },
                         new
@@ -2399,6 +2399,12 @@ namespace BeFeira.Server.Migrations
                             ID = 87,
                             Descricao = "Mobilidade",
                             StandID = 20
+                        },
+                        new
+                        {
+                            ID = 88,
+                            Descricao = "Educação",
+                            StandID = 4
                         });
                 });
 
@@ -2430,14 +2436,14 @@ namespace BeFeira.Server.Migrations
                         {
                             ID = 1,
                             CarrinhoID = 1,
-                            Date = new DateTime(2023, 1, 15, 1, 38, 10, 111, DateTimeKind.Local).AddTicks(8314),
+                            Date = new DateTime(2023, 1, 15, 1, 48, 14, 157, DateTimeKind.Local).AddTicks(109),
                             Total = 0f
                         },
                         new
                         {
                             ID = 2,
                             CarrinhoID = 2,
-                            Date = new DateTime(2023, 1, 15, 1, 38, 10, 111, DateTimeKind.Local).AddTicks(8318),
+                            Date = new DateTime(2023, 1, 15, 1, 48, 14, 157, DateTimeKind.Local).AddTicks(114),
                             Total = 0f
                         });
                 });

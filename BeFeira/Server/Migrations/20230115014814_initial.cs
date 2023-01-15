@@ -267,12 +267,12 @@ namespace BeFeira.Server.Migrations
                 columns: new[] { "ID", "Created_at", "Password", "Updated_at", "Username" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(2023, 1, 15, 1, 38, 10, 111, DateTimeKind.Local).AddTicks(7602), "1234", new DateTime(2023, 1, 15, 1, 38, 10, 111, DateTimeKind.Local).AddTicks(7663), "Bernas" },
-                    { 2, new DateTime(2023, 1, 15, 1, 38, 10, 111, DateTimeKind.Local).AddTicks(7667), "2345", new DateTime(2023, 1, 15, 1, 38, 10, 111, DateTimeKind.Local).AddTicks(7668), "Cebolinha" },
-                    { 3, new DateTime(2023, 1, 15, 1, 38, 10, 111, DateTimeKind.Local).AddTicks(7670), "3456", new DateTime(2023, 1, 15, 1, 38, 10, 111, DateTimeKind.Local).AddTicks(7672), "Sergio" },
-                    { 4, new DateTime(2023, 1, 15, 1, 38, 10, 111, DateTimeKind.Local).AddTicks(7674), "1134", new DateTime(2023, 1, 15, 1, 38, 10, 111, DateTimeKind.Local).AddTicks(7675), "Anastásia" },
-                    { 5, new DateTime(2023, 1, 15, 1, 38, 10, 111, DateTimeKind.Local).AddTicks(7677), "2245", new DateTime(2023, 1, 15, 1, 38, 10, 111, DateTimeKind.Local).AddTicks(7678), "Rodri" },
-                    { 6, new DateTime(2023, 1, 15, 1, 38, 10, 111, DateTimeKind.Local).AddTicks(7679), "3453", new DateTime(2023, 1, 15, 1, 38, 10, 111, DateTimeKind.Local).AddTicks(7680), "Jairzinho" }
+                    { 1, new DateTime(2023, 1, 15, 1, 48, 14, 156, DateTimeKind.Local).AddTicks(9449), "1234", new DateTime(2023, 1, 15, 1, 48, 14, 156, DateTimeKind.Local).AddTicks(9507), "Bernas" },
+                    { 2, new DateTime(2023, 1, 15, 1, 48, 14, 156, DateTimeKind.Local).AddTicks(9511), "2345", new DateTime(2023, 1, 15, 1, 48, 14, 156, DateTimeKind.Local).AddTicks(9512), "Cebolinha" },
+                    { 3, new DateTime(2023, 1, 15, 1, 48, 14, 156, DateTimeKind.Local).AddTicks(9514), "3456", new DateTime(2023, 1, 15, 1, 48, 14, 156, DateTimeKind.Local).AddTicks(9515), "Sergio" },
+                    { 4, new DateTime(2023, 1, 15, 1, 48, 14, 156, DateTimeKind.Local).AddTicks(9517), "1134", new DateTime(2023, 1, 15, 1, 48, 14, 156, DateTimeKind.Local).AddTicks(9518), "Anastásia" },
+                    { 5, new DateTime(2023, 1, 15, 1, 48, 14, 156, DateTimeKind.Local).AddTicks(9520), "2245", new DateTime(2023, 1, 15, 1, 48, 14, 156, DateTimeKind.Local).AddTicks(9521), "Rodri" },
+                    { 6, new DateTime(2023, 1, 15, 1, 48, 14, 156, DateTimeKind.Local).AddTicks(9522), "3453", new DateTime(2023, 1, 15, 1, 48, 14, 156, DateTimeKind.Local).AddTicks(9524), "Jairzinho" }
                 });
 
             migrationBuilder.InsertData(
@@ -435,7 +435,7 @@ namespace BeFeira.Server.Migrations
                     { 8, "Talho", 3 },
                     { 9, "Peixaria", 3 },
                     { 10, "Terror", 4 },
-                    { 11, "Comédia", 4 },
+                    { 11, "Ação/Aventura", 4 },
                     { 12, "Romance", 4 },
                     { 13, "Elétricos", 5 },
                     { 14, "Gasóleo", 5 },
@@ -511,7 +511,8 @@ namespace BeFeira.Server.Migrations
                     { 84, "Rações", 44 },
                     { 85, "Animais vivos", 44 },
                     { 86, "Moveis exteriores", 43 },
-                    { 87, "Mobilidade", 20 }
+                    { 87, "Mobilidade", 20 },
+                    { 88, "Educação", 4 }
                 });
 
             migrationBuilder.InsertData(
@@ -519,8 +520,8 @@ namespace BeFeira.Server.Migrations
                 columns: new[] { "ID", "CarrinhoID", "Date", "Total" },
                 values: new object[,]
                 {
-                    { 1, 1, new DateTime(2023, 1, 15, 1, 38, 10, 111, DateTimeKind.Local).AddTicks(8314), 0f },
-                    { 2, 2, new DateTime(2023, 1, 15, 1, 38, 10, 111, DateTimeKind.Local).AddTicks(8318), 0f }
+                    { 1, 1, new DateTime(2023, 1, 15, 1, 48, 14, 157, DateTimeKind.Local).AddTicks(109), 0f },
+                    { 2, 2, new DateTime(2023, 1, 15, 1, 48, 14, 157, DateTimeKind.Local).AddTicks(114), 0f }
                 });
 
             migrationBuilder.InsertData(
@@ -551,11 +552,11 @@ namespace BeFeira.Server.Migrations
                     { 21, "Earbuds sony", 299.9f, 0, 5, 19, 20, 42, "https://cdn.mos.cms.futurecdn.net/KEAtgEBKMDZemgDfY4hB4Z.jpg" },
                     { 22, "Monitor LG", 299.9f, 0, 5, 19, 20, 42, "https://www.lg.com/pt/images/monitores/MD05851557/gallery/27BK55_Product-image_01_Desk.jpg" },
                     { 23, "Xiaomi Mi6", 509.9f, 0, 5, 19, 20, 75, "https://cdn.weasy.io/users/xiaomi/catalog/xiaomi12_pink_01.png" },
-                    { 24, "Livro All your perfects", 15.99f, 0, 4, 4, 15, 4, "https://kbimages1-a.akamaihd.net/284e157b-e503-412b-8adb-ac90a07e69fc/353/569/90/False/all-your-perfects.jpg" },
-                    { 25, "Dicionário Português", 15.99f, 0, 4, 4, 15, 4, "https://img.bertrand.pt/images/dicionario-editora-da-lingua-portuguesa/NDV8MTI1Njk0fDIyNjI0ODgwfDE2NDg1NTIzMDgwMDA=/500x" },
-                    { 26, "Livro Nicolas Spark", 15.99f, 0, 4, 4, 15, 4, "https://img.wook.pt/images/uma-vida-ao-teu-lado-nicholas-sparks/MXwxNjkzNjcyOXwxMjU1NjY1MnwxNDQ0MzgzMzEyMDAw/500x" },
-                    { 27, "Harry potter", 15.99f, 0, 4, 4, 15, 4, "https://cdn.shopify.com/s/files/1/0450/0717/5837/products/image-1_85c1dfac-79f9-431e-b96b-7ab26d9de938_1024x1024.jpg?v=1636630533" },
-                    { 28, "Divergente", 15.99f, 0, 4, 4, 15, 4, "https://static.fnac-static.com/multimedia/Images/PT/MC/72/cc/84/8703090/1540-1/tsp20160819200728/Divergente-Uma-Escolha-Pode-Te-Transformar-Trilogia-Divergente-Livro-1.jpg" },
+                    { 24, "Livro All your perfects", 15.99f, 0, 4, 4, 15, 12, "https://kbimages1-a.akamaihd.net/284e157b-e503-412b-8adb-ac90a07e69fc/353/569/90/False/all-your-perfects.jpg" },
+                    { 25, "Dicionário Português", 15.99f, 0, 4, 4, 15, 88, "https://img.bertrand.pt/images/dicionario-editora-da-lingua-portuguesa/NDV8MTI1Njk0fDIyNjI0ODgwfDE2NDg1NTIzMDgwMDA=/500x" },
+                    { 26, "Livro Nicolas Spark", 15.99f, 0, 4, 4, 15, 12, "https://img.wook.pt/images/uma-vida-ao-teu-lado-nicholas-sparks/MXwxNjkzNjcyOXwxMjU1NjY1MnwxNDQ0MzgzMzEyMDAw/500x" },
+                    { 27, "Harry potter", 15.99f, 0, 4, 4, 15, 11, "https://cdn.shopify.com/s/files/1/0450/0717/5837/products/image-1_85c1dfac-79f9-431e-b96b-7ab26d9de938_1024x1024.jpg?v=1636630533" },
+                    { 28, "Divergente", 15.99f, 0, 4, 4, 15, 11, "https://static.fnac-static.com/multimedia/Images/PT/MC/72/cc/84/8703090/1540-1/tsp20160819200728/Divergente-Uma-Escolha-Pode-Te-Transformar-Trilogia-Divergente-Livro-1.jpg" },
                     { 29, "Caneca", 9.99f, 0, 3, 19, 5, 76, "https://www.ikea.com/my/en/images/products/vardagen-mug-dark-grey__0445777_pe596061_s5.jpg?f=s" },
                     { 30, "Bola de futebol", 29.99f, 0, 4, 41, 10, 78, "https://tm.ibxk.com.br/2014/05/19/19171133437584.jpg?ims=1200x675" },
                     { 31, "Camisola de equipa de futebol", 29.99f, 0, 4, 41, 10, 78, "https://www.dhresource.com/0x0/f2/albu/g17/M01/62/58/rBVa4l--dPmAatjtAAHi4lep_h4122.jpg" },
@@ -614,7 +615,7 @@ namespace BeFeira.Server.Migrations
             migrationBuilder.InsertData(
                 table: "Promocao",
                 columns: new[] { "ID", "Date", "Desconto", "ProdutoID" },
-                values: new object[] { 1, new DateTime(2023, 1, 15, 1, 38, 10, 111, DateTimeKind.Local).AddTicks(8231), 10, 1 });
+                values: new object[] { 1, new DateTime(2023, 1, 15, 1, 48, 14, 157, DateTimeKind.Local).AddTicks(67), 10, 1 });
 
             migrationBuilder.InsertData(
                 table: "VendaProduto",
