@@ -9,5 +9,6 @@
         Task<List<Subcategoria>> GetSubcatsByStand(int id);
 
         Task<Subcategoria> GetSingleSubCat(int id);
+        Task<int> GetSubcatbyname(string namesubcat);
     }
 }

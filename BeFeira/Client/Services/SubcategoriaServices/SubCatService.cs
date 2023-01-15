@@ -41,6 +41,17 @@ namespace BeFeira.Client.Services.SubcategoriaServices
             throw new Exception("Subcat not found");
         }
 
+        public async Task<int> GetSubcatbyname(string namesubcat)
+        {
+            GetSubcats();
+            if (subcats.Any(h=>h.Descricao==namesubcat)) 
+            {
+                Subcategoria sub = subcats.Find(h=>h.Descricao == namesubcat);
+                return sub.ID;
+            }
+            return -1;
+        }
+
 
     }
 }

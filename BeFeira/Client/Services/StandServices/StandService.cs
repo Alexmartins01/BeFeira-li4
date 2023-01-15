@@ -89,5 +89,13 @@ namespace BeFeira.Services.StandServices
 			var response = await result.Content.ReadFromJsonAsync<List<Stand>>();
 			Stands = response.ToList();
 		}
-	}
+
+        public async Task<int> GetIdStand(String name ,int iduser)
+        {
+			GetStands();
+
+            Stand aux =  Stands.Find(h=>h.Nome==name && h.VendedorID==iduser);
+			return aux.ID;
+        }
+    }
 }

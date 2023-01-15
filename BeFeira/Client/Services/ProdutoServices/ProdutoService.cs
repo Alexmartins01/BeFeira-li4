@@ -8,6 +8,7 @@ namespace BeFeira.Client.Services.ProdutoServices
     {
         private readonly HttpClient _http;
         private readonly NavigationManager navigationManager;
+        private readonly IFeiraService  FeiraServices;
 
         public ProdutoService(HttpClient http, NavigationManager navigation)
         {
@@ -119,10 +120,11 @@ namespace BeFeira.Client.Services.ProdutoServices
 
         public async Task<List<Produto>> GetProdutosBySearch(string searchProdName,int idfeira)
         {
+            GetProdutos();
 			List<Produto> prods = new List<Produto>();
 			foreach (Produto prod in produtos)
             {
-                if (prod.Nome_Produto.Equals(searchProdName) && prod.Stand.FeiraID==idfeira)
+                if (prod.Nome_Produto.Equals(searchProdName) )
                 {
 					prods.Add(prod);
                 }

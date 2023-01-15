@@ -50,7 +50,7 @@
         </div>
         <p>@String.Format("Total: {0}€",total.ToString("0.00"))</p>
         <div class="carrinho_buttons_container">
-            <button class="botao_voltar_bottom" @onclick="(()=>goBack())">Voltar</button>
+            <button @onclick="(()=>goBack())">Voltar</button>
             <button @onclick="(()=>FinalizarCompra())" >Finalizar compra</button>
         </div>
     </div>

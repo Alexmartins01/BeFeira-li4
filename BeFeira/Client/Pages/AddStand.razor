@@ -1,6 +1,11 @@
 ﻿@page "/addstand"
 @page "/addstand/{idvend:int}"
+
+
+@inject IFeiraService FeiraService
+@inject IStandService StandService
 @inject IVendedorService VendedorService
+@inject NavigationManager NavigationManager
 
 <header>
     <link rel="stylesheet" href="icons/icons/css/all.css">
@@ -10,37 +15,75 @@
 </header>
 
 <body>
+     <Editform Model = "@form">
     <div class="container">
         <div class="forms">
             <div class="form-content" style="justify-content: center">
+                
                 <div class="login-form">
                     <div>Adicionar Stand @vendedor.Username</div>
                     <div class="input-boxes">
                         <div class="input-box">
-                            <input type="text" placeholder="Nome da Feira" required>
+                            <input type="text" placeholder="Nome da Feira" @bind-value="form.nomeFeira" required>
                         </div>
                         <div class="input-box">
-                            <input type="text" placeholder="Nome da Stand" required>
+                                <input type="text" placeholder="Nome da Stand" @bind-value="form.nomeStand" required>
                         </div>
                         <div class="button input-box">
-                            <input type="submit" value="Adicionar">
+                            <input type="submit" value="Adicionar" onclick="@Submit">
                         </div>
-
                     </div>
+                  
                 </div>
+               
             </div>
         </div>
     </div>
+    </Editform>
+
     <button class="botao_voltar_bottom">Voltar</button>
 </body>
 
 @code {
+
+    private bool confirmation = false;
     [Parameter]
     public int? idvend { get; set; }
     private Vendedor vendedor = new Vendedor { };
 
+    FormularioStand form = new FormularioStand { };
+    List<Stand> stands = new List<Stand>();
+
+    Stand create = new Stand { };
+
     protected override async Task OnInitializedAsync()
     {
+        await StandService.GetStands();
+        await FeiraService.GetFeiras();
         vendedor = await VendedorService.GetSingleVendedor((int)idvend);
+        stands = await StandService.GetStandsByVendedor((int)idvend);
     }
+
+    private async void Submit()
+    {
+
+        create.Nome=form.nomeStand;
+        create.VendedorID = idvend;
+
+        int k = await FeiraService.ExistsFeiraByUname(form.nomeFeira);
+        if (k == -1)
+        {
+            create.FeiraID = 21;
+        }
+        else
+        {
+            create.FeiraID = k;
+        }
+        await  StandService.AddStand(create);
+        NavigationManager.NavigateTo($"/vendedormain/{idvend}");
+
+
+    }
+
+
 }
