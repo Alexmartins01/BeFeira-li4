@@ -553,3 +553,64 @@ body {
     .client_section{
         margin: 20px;
     }
+
+.client_container {
+    display: flex;
+    text-align: center;
+    margin: 70px 300px 0 300px;
+    background-color: midnightblue;
+    border-radius: 10px;
+    padding: 40px;
+    border: 15px solid #151515;
+    justify-content: space-between;
+}
+
+    .client_container client_left {
+
+        padding-left: 50px;
+        padding-top: 100px;
+        text-align: left;
+    }
+
+        .client_container i {
+
+            color: white;
+            margin-right: 12px;
+        }
+
+        .client_container p {
+            color: white;
+            font-family: monospace;
+            text-align: left;
+            font-size: 18px;
+        }
+
+    .client_container .client_right {
+        
+        padding: 30px;
+        margin-right: 50px;
+    }
+
+    .client_container .client_right img {
+
+        width: 200px;
+        border-radius: 50%;
+    }
+
+.log_off {
+
+    margin-top: 30px;
+    color: white;
+    background: none;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 25px;
+    transition: all 0.2s ease;
+}
+
+.log_off:hover {
+
+    transform: scale(1.15);
+}
