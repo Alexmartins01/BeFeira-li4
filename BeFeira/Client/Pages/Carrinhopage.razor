@@ -17,8 +17,8 @@
     <link rel="stylesheet" href="icons/icons/css/all.css">
     <link rel="stylesheet" href="css/mainpage.css">
 
-    <img src="logo.png" alt="BeFeira Logo">
-    <i class="fa-solid fa-circle-user"></i>
+    <img src="logo.png" @onclick="(()=>gomain())" alt="BeFeira Logo">
+    <button class="u"><i class="fa-solid fa-circle-user" @onclick="(()=>gouser())" alt=""></i></button>
 </header>
 
 <body>
@@ -140,6 +140,11 @@
 
     }
 
+    void gomain()
+    {
+        NavigationManager.NavigateTo($"mainpage/{idcliente}");
+    }
+
     void goBack()
     {
         if (from.Equals("mainpage")) NavigationManager.NavigateTo($"mainpage/{idcliente}");
@@ -150,5 +155,10 @@
         if (from.Equals("produtoinfo2")) NavigationManager.NavigateTo($"produtoinfo/{idproduto}/{idfeira}/{idcliente}/{search}");
         if (from.Equals("produtopage2")) NavigationManager.NavigateTo($"produtopage2/{idfeira}/{idcliente}/{search}");
 
+    }
+
+    void gouser()
+    {
+        NavigationManager.NavigateTo($"userinfo/{idcliente}");
     }
 }
