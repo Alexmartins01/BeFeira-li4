@@ -288,6 +288,13 @@ body {
     margin-bottom: 0 !important;
 }
 
+.preco_small_produto {
+    text-align: center;
+    margin-left: 5px;
+    font-family: monospace;
+    margin-bottom: 0 !important;
+}
+
 .client_container {
     background-color: antiquewhite;
 }
