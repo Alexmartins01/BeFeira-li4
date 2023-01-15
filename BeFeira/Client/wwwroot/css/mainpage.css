@@ -234,6 +234,7 @@ body {
 }
 
 .produtos_stand_container {
+    padding-top:50px;
     background-color: antiquewhite;
 }
 
@@ -252,7 +253,8 @@ body {
         text-align: center;
         border: 2px solid darkred;
         border-radius: 15px;
-        margin: 20px 12px 0px 12px;
+        margin: 0 200px 0px 200px;
+        
         background-color: white;
         height: 240px;
     }
