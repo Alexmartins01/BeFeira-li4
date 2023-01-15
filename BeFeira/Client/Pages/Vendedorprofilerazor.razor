@@ -36,7 +36,89 @@
   
 
         <div style="display: flex">
-            <p><i class="fa fa-star-o"></i> Rating: @vend.Rating</p>
+            @switch (vend.Rating)
+            {
+                case 0:
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    break;
+
+                case 1:
+                    <i class="fa-regular fa-star-half-stroke"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    break;
+                case 2:
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    break;
+                case 3:
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-regular fa-star-half-stroke"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    break;
+                case 4:
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    break;
+                case 5:
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-regular fa-star-half-stroke"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    break;
+                case 6:
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    break;
+                case 7:
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-regular fa-star-half-stroke"></i>
+                    <i class="fa-regular fa-star"></i>
+                    break;
+                case 8:
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    break;
+                case 9:
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-regular fa-star-half-stroke"></i>
+                    break;
+                case 10:
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    break;
+
+
+            }
         </div>
 
         <button class="log_off"><i class="fa-solid fa-right-from-bracket" @onclick="(()=>gologin())" alt=""></i></button>
@@ -44,8 +126,7 @@
 
     <div class="client_right">
 
-        <img src="data:image/jpeg;base64,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" />
-
+        <img src="@vend.UrlImage" alt="Imagem de perfil Vendedor">
     </div>
 
 </div>
