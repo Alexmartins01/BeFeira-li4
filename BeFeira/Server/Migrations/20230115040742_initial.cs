@@ -267,12 +267,12 @@ namespace BeFeira.Server.Migrations
                 columns: new[] { "ID", "Created_at", "Password", "Updated_at", "Username" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(2023, 1, 15, 1, 58, 17, 384, DateTimeKind.Local).AddTicks(632), "1234", new DateTime(2023, 1, 15, 1, 58, 17, 384, DateTimeKind.Local).AddTicks(685), "Bernas" },
-                    { 2, new DateTime(2023, 1, 15, 1, 58, 17, 384, DateTimeKind.Local).AddTicks(690), "2345", new DateTime(2023, 1, 15, 1, 58, 17, 384, DateTimeKind.Local).AddTicks(691), "Cebolinha" },
-                    { 3, new DateTime(2023, 1, 15, 1, 58, 17, 384, DateTimeKind.Local).AddTicks(694), "3456", new DateTime(2023, 1, 15, 1, 58, 17, 384, DateTimeKind.Local).AddTicks(696), "Sergio" },
-                    { 4, new DateTime(2023, 1, 15, 1, 58, 17, 384, DateTimeKind.Local).AddTicks(699), "1134", new DateTime(2023, 1, 15, 1, 58, 17, 384, DateTimeKind.Local).AddTicks(700), "Anastásia" },
-                    { 5, new DateTime(2023, 1, 15, 1, 58, 17, 384, DateTimeKind.Local).AddTicks(704), "2245", new DateTime(2023, 1, 15, 1, 58, 17, 384, DateTimeKind.Local).AddTicks(706), "Rodri" },
-                    { 6, new DateTime(2023, 1, 15, 1, 58, 17, 384, DateTimeKind.Local).AddTicks(708), "3453", new DateTime(2023, 1, 15, 1, 58, 17, 384, DateTimeKind.Local).AddTicks(710), "Jairzinho" }
+                    { 1, new DateTime(2023, 1, 15, 4, 7, 41, 853, DateTimeKind.Local).AddTicks(8338), "1234", new DateTime(2023, 1, 15, 4, 7, 41, 853, DateTimeKind.Local).AddTicks(8383), "Bernas" },
+                    { 2, new DateTime(2023, 1, 15, 4, 7, 41, 853, DateTimeKind.Local).AddTicks(8387), "2345", new DateTime(2023, 1, 15, 4, 7, 41, 853, DateTimeKind.Local).AddTicks(8388), "Cebolinha" },
+                    { 3, new DateTime(2023, 1, 15, 4, 7, 41, 853, DateTimeKind.Local).AddTicks(8390), "3456", new DateTime(2023, 1, 15, 4, 7, 41, 853, DateTimeKind.Local).AddTicks(8391), "Sergio" },
+                    { 4, new DateTime(2023, 1, 15, 4, 7, 41, 853, DateTimeKind.Local).AddTicks(8392), "1134", new DateTime(2023, 1, 15, 4, 7, 41, 853, DateTimeKind.Local).AddTicks(8393), "Anastásia" },
+                    { 5, new DateTime(2023, 1, 15, 4, 7, 41, 853, DateTimeKind.Local).AddTicks(8396), "2245", new DateTime(2023, 1, 15, 4, 7, 41, 853, DateTimeKind.Local).AddTicks(8397), "Rodri" },
+                    { 6, new DateTime(2023, 1, 15, 4, 7, 41, 853, DateTimeKind.Local).AddTicks(8399), "3453", new DateTime(2023, 1, 15, 4, 7, 41, 853, DateTimeKind.Local).AddTicks(8400), "Jairzinho" }
                 });
 
             migrationBuilder.InsertData(
@@ -520,8 +520,8 @@ namespace BeFeira.Server.Migrations
                 columns: new[] { "ID", "CarrinhoID", "Date", "Total" },
                 values: new object[,]
                 {
-                    { 1, 1, new DateTime(2023, 1, 15, 1, 58, 17, 384, DateTimeKind.Local).AddTicks(1487), 0f },
-                    { 2, 2, new DateTime(2023, 1, 15, 1, 58, 17, 384, DateTimeKind.Local).AddTicks(1491), 0f }
+                    { 1, 1, new DateTime(2023, 1, 15, 4, 7, 41, 853, DateTimeKind.Local).AddTicks(8882), 0f },
+                    { 2, 2, new DateTime(2023, 1, 15, 4, 7, 41, 853, DateTimeKind.Local).AddTicks(8885), 0f }
                 });
 
             migrationBuilder.InsertData(
@@ -599,7 +599,27 @@ namespace BeFeira.Server.Migrations
                     { 68, "Máquina de lavar loiça", 399.99f, 0, 5, 15, 3, 73, "https://whirlpool-cdn.thron.com/delivery/public/thumbnail/whirlpool/pi-743200f9-e158-441d-9d7e-f31d82618b87/jsind9/std/1000x1000/hfc-3c32-w-x-loi%C3%A7a.jpg?fill=zoom&fillcolor=rgba:255,255,255&scalemode=product" },
                     { 69, "Ração para cães", 9.99f, 0, 4, 44, 20, 84, "https://amoraospets.com/wp-content/uploads/2018/04/royal-canin.png" },
                     { 70, "Frangos caseiros", 7.99f, 0, 5, 44, 15, 85, "https://www.agromogiana.com.br/wp-content/uploads/2022/05/frango.jpg" },
-                    { 71, "Bola de Basket", 29.99f, 0, 4, 41, 10, 77, "https://planetabasketstore.com/images/detailed/20/Wilson_Evolution_FPB_Logo_Ball_601.png" }
+                    { 71, "Bola de Basket", 29.99f, 0, 4, 41, 10, 77, "https://planetabasketstore.com/images/detailed/20/Wilson_Evolution_FPB_Logo_Ball_601.png" },
+                    { 72, "Carnes de vaca", 15.9f, 0, 4, 2, 10, 50, "https://static.wikia.nocookie.net/minecraft_gamepedia/images/0/04/Steak_JE4_BE3.png/revision/latest/scale-to-width-down/160?cb=20190504055306" },
+                    { 73, "Carnes de frango", 15.9f, 0, 4, 2, 10, 50, "https://static.wikia.nocookie.net/minecraft_gamepedia/images/6/66/Cooked_Chicken_JE3_BE3.png/revision/latest?cb=20200430031305" },
+                    { 74, "Carnes de coelho", 15.9f, 0, 4, 2, 10, 50, "https://static.wikia.nocookie.net/minecraft_gamepedia/images/9/9f/Cooked_Rabbit_JE2_BE1.png/revision/latest?cb=20190505050744" },
+                    { 75, "Ração para gatos", 12.9f, 0, 5, 2, 8, 4, "https://www.auchan.pt/dw/image/v2/BFRC_PRD/on/demandware.static/-/Sites-auchan-pt-master-catalog/default/dw380f6669/images/hi-res/003036197.jpg?sw=500&sh=500&sm=fit&bgcolor=FFFFFF" },
+                    { 76, "SB Dunk low Travis Scott", 1700f, 15, 4, 65, 5, 79, "https://images.stockx.com/images/Nike-SB-Dunk-Low-Travis-Scott-Product.jpg?fit=fill&bg=FFFFFF&w=1200&h=857&fm=webp&auto=compress&dpr=2&trim=color&updated_at=1606325738&q=75" },
+                    { 77, "Red October", 75000f, 3, 4, 65, 5, 80, "https://i.ebayimg.com/images/g/BYwAAOxyeZNTTIIg/s-l400.jpg" },
+                    { 78, "Nike SB x Ben & Jerry’s Dunk Low Pro", 1000f, 15, 4, 65, 5, 79, "http://cdn.shopify.com/s/files/1/0550/3657/5853/products/SB_Dunk_Low_Ben_Jerry_s_Chunky_Dunky-CU3244-100-0.png?v=1658841197" },
+                    { 79, "Abacaxi", 1.49f, 0, 4, 24, 12, 74, "https://static.todamateria.com.br/upload/ab/ac/abacaxi-0-cke.jpg?auto_optimize=low" },
+                    { 80, "Abacate", 4.49f, 15, 4, 24, 12, 74, "https://static.todamateria.com.br/upload/ab/ac/abacate-cke.jpg" },
+                    { 81, "Amora", 1.5f, 5, 4, 24, 12, 74, "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Blackberries_%28Rubus_fruticosus%29.jpg/250px-Blackberries_%28Rubus_fruticosus%29.jpg" },
+                    { 82, "Mirtilo", 1.89f, 0, 4, 24, 12, 74, "https://static.todamateria.com.br/upload/ba/ca/bacaba-cke.jpg?auto_optimize=low" },
+                    { 83, "Diospiro", 2f, 0, 4, 24, 12, 74, "https://static.todamateria.com.br/upload/ca/qu/caqui-cke.jpg?auto_optimize=low" },
+                    { 84, "Cereja", 19.9f, 0, 4, 24, 12, 74, "https://static.todamateria.com.br/upload/ce/re/cereja-cke.jpg?auto_optimize=low" },
+                    { 85, "Coco", 39.9f, 20, 4, 24, 12, 74, "https://www.auchan.pt/dw/image/v2/BFRC_PRD/on/demandware.static/-/Sites-auchan-pt-master-catalog/default/dw3a1248f9/images/hi-res/000024110.jpg?sw=500&sh=500&sm=fit&bgcolor=FFFFFF" },
+                    { 86, "Figo", 3.5f, 0, 4, 24, 12, 74, "https://static.todamateria.com.br/upload/fr/ut/fruta18-0-cke.jpg?auto_optimize=low" },
+                    { 87, "Framboesa", 10f, 50, 4, 24, 12, 74, "https://static.todamateria.com.br/upload/fr/am/framboesa-cke.jpg?auto_optimize=low" },
+                    { 88, "Groselha", 30f, 35, 4, 24, 12, 74, "https://static.todamateria.com.br/upload/gr/os/groselha-0-cke.jpg?auto_optimize=low" },
+                    { 89, "Kiwi", 3.29f, 0, 4, 24, 12, 74, "https://static.todamateria.com.br/upload/fr/ut/fruta27kiwi-cke.jpg?auto_optimize=low" },
+                    { 90, "Romã", 1.25f, 0, 4, 24, 12, 74, "https://static.todamateria.com.br/upload/fr/ut/fruta44roma-cke.jpg?auto_optimize=low" },
+                    { 91, "Tangerina", 0.7f, 0, 4, 24, 12, 74, "https://static.todamateria.com.br/upload/ta/ng/tangerina-cke.jpg?auto_optimize=low" }
                 });
 
             migrationBuilder.InsertData(
@@ -615,7 +635,7 @@ namespace BeFeira.Server.Migrations
             migrationBuilder.InsertData(
                 table: "Promocao",
                 columns: new[] { "ID", "Date", "Desconto", "ProdutoID" },
-                values: new object[] { 1, new DateTime(2023, 1, 15, 1, 58, 17, 384, DateTimeKind.Local).AddTicks(1427), 10, 1 });
+                values: new object[] { 1, new DateTime(2023, 1, 15, 4, 7, 41, 853, DateTimeKind.Local).AddTicks(8844), 10, 1 });
 
             migrationBuilder.InsertData(
                 table: "VendaProduto",

@@ -8,7 +8,7 @@ namespace BeFeira.Client.Services.ProdutoServices
     {
         private readonly HttpClient _http;
         private readonly NavigationManager navigationManager;
-        private readonly IFeiraService  FeiraServices;
+        
 
         public ProdutoService(HttpClient http, NavigationManager navigation)
         {
@@ -67,7 +67,8 @@ namespace BeFeira.Client.Services.ProdutoServices
         {
             var result = await _http.PostAsJsonAsync("api/Produto", p);
             var response = await result.Content.ReadFromJsonAsync<List<Produto>>();
-            SetProdutos(result);
+            
+            this.produtos = response;
         }
 
         public async Task DeleteProduto(int id)

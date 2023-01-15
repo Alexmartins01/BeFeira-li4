@@ -52,6 +52,24 @@ namespace BeFeira.Client.Services.SubcategoriaServices
             return -1;
         }
 
+        public async Task<int> GetSubcatbynameanduser(string namesubcat,int idstand)
+        {
+            GetSubcats();
+            if (subcats.Any(h => h.Descricao == namesubcat && h.ID==idstand))
+            {
+                Subcategoria sub = subcats.Find(h => h.Descricao == namesubcat && h.ID == idstand);
+                return sub.ID;
+            }
+            return -1;
+        }
 
+
+        public async  Task CreateSubcat(Subcategoria p)
+        {
+            var result = await _http.PostAsJsonAsync("api/Subcategoria", p);
+            var response = await result.Content.ReadFromJsonAsync<List<Subcategoria>>();
+
+            this.subcats = response;
+        }
     }
 }

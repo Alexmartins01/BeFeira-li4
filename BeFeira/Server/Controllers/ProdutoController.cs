@@ -38,7 +38,23 @@ namespace BeFeira.Server.Controllers
             return Ok(prod);
         }
 
-  
+        [HttpPost]
+        public async Task<ActionResult<Produto>> CreateProduto(Produto p)
+        {
+
+            _context.Produtos.Add(p);
+            await _context.SaveChangesAsync();
+
+            return Ok(await GetDbProdutos());
+        }
+
+        private async Task<List<Produto>> GetDbProdutos()
+        {
+
+            return await _context.Produtos.ToListAsync();
+        }
+
+
 
 
 

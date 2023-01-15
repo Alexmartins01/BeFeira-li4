@@ -3,6 +3,8 @@
 @inject IVendedorService VendedorService
 @inject IStandService StandService
 @inject ISubcatserv Subcatservice
+@inject IProdutoService ProdutoService
+@inject NavigationManager NavigationManager
 
 
 <header>
@@ -20,6 +22,8 @@
                 <div class="login-form">
                     <div>Adicionar Stock,Vendedor @vendedor.Username</div>
                     <div class="input-boxes">
+
+                            
                         <div class="input-box">
                             <input type="text" placeholder="Nome da Stand" @bind-value="form.nomeStand" required>
                         </div>
@@ -86,21 +90,47 @@
         p.Preco = form.preco;
         p.Stock = form.stock;
         p.urlImage = form.urldaimagem;
-        int sub = await Subcatservice.GetSubcatbyname(form.nomeSubcat);
 
-        if (sub < 0)
+        int stand = await StandService.GetIdStand(form.nomeStand,(int)idvend);
+
+
+        if (stand > 0)
         {
+            p.StandID = stand;
 
+            int sub = await Subcatservice.GetSubcatbyname(form.nomeSubcat);
+
+            if (sub < 0)
+            {
+                //ESTABEM
+                Subcategoria a = new Subcategoria { Descricao = form.nomeSubcat, StandID = stand };
+                await Subcatservice.CreateSubcat(a);
+
+                p.SubCategoriaID = await Subcatservice.GetSubcatbyname(form.nomeSubcat);
+
+                await  ProdutoService.CreateProduto(p);
+                NavigationManager.NavigateTo($"/vendedormain/{idvend}");
+            }
+            else
+            {
+                //este esta bem
+                p.SubCategoriaID = sub;
+               await  ProdutoService.CreateProduto(p);
+                NavigationManager.NavigateTo($"/vendedormain/{idvend}");
+            }
         }
         else
         {
-            p.SubCategoriaID = sub;
+           await StandService.AddStand(new Stand { Nome = form.nomeStand, VendedorID = idvend, FeiraID = 21 });
+
+            p.StandID= await StandService.GetIdStand(form.nomeStand, (int)idvend);
+
+            await Subcatservice.CreateSubcat(new Subcategoria { Descricao = form.nomeSubcat, StandID = p.StandID });
+
+            p.SubCategoriaID = await Subcatservice.GetSubcatbyname(form.nomeSubcat);
+
+           await  ProdutoService.CreateProduto(p);
+            NavigationManager.NavigateTo($"/vendedormain/{idvend}");
         }
-
-
-
-
-
-
     }
 }

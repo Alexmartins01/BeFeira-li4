@@ -52,49 +52,49 @@ namespace BeFeira.Server.Migrations
                         new
                         {
                             ID = 1,
-                            Createdat = new DateTime(2023, 1, 15, 1, 58, 17, 384, DateTimeKind.Local).AddTicks(632),
+                            Createdat = new DateTime(2023, 1, 15, 4, 7, 41, 853, DateTimeKind.Local).AddTicks(8338),
                             Password = "1234",
-                            Updatedat = new DateTime(2023, 1, 15, 1, 58, 17, 384, DateTimeKind.Local).AddTicks(685),
+                            Updatedat = new DateTime(2023, 1, 15, 4, 7, 41, 853, DateTimeKind.Local).AddTicks(8383),
                             Username = "Bernas"
                         },
                         new
                         {
                             ID = 2,
-                            Createdat = new DateTime(2023, 1, 15, 1, 58, 17, 384, DateTimeKind.Local).AddTicks(690),
+                            Createdat = new DateTime(2023, 1, 15, 4, 7, 41, 853, DateTimeKind.Local).AddTicks(8387),
                             Password = "2345",
-                            Updatedat = new DateTime(2023, 1, 15, 1, 58, 17, 384, DateTimeKind.Local).AddTicks(691),
+                            Updatedat = new DateTime(2023, 1, 15, 4, 7, 41, 853, DateTimeKind.Local).AddTicks(8388),
                             Username = "Cebolinha"
                         },
                         new
                         {
                             ID = 3,
-                            Createdat = new DateTime(2023, 1, 15, 1, 58, 17, 384, DateTimeKind.Local).AddTicks(694),
+                            Createdat = new DateTime(2023, 1, 15, 4, 7, 41, 853, DateTimeKind.Local).AddTicks(8390),
                             Password = "3456",
-                            Updatedat = new DateTime(2023, 1, 15, 1, 58, 17, 384, DateTimeKind.Local).AddTicks(696),
+                            Updatedat = new DateTime(2023, 1, 15, 4, 7, 41, 853, DateTimeKind.Local).AddTicks(8391),
                             Username = "Sergio"
                         },
                         new
                         {
                             ID = 4,
-                            Createdat = new DateTime(2023, 1, 15, 1, 58, 17, 384, DateTimeKind.Local).AddTicks(699),
+                            Createdat = new DateTime(2023, 1, 15, 4, 7, 41, 853, DateTimeKind.Local).AddTicks(8392),
                             Password = "1134",
-                            Updatedat = new DateTime(2023, 1, 15, 1, 58, 17, 384, DateTimeKind.Local).AddTicks(700),
+                            Updatedat = new DateTime(2023, 1, 15, 4, 7, 41, 853, DateTimeKind.Local).AddTicks(8393),
                             Username = "Anastásia"
                         },
                         new
                         {
                             ID = 5,
-                            Createdat = new DateTime(2023, 1, 15, 1, 58, 17, 384, DateTimeKind.Local).AddTicks(704),
+                            Createdat = new DateTime(2023, 1, 15, 4, 7, 41, 853, DateTimeKind.Local).AddTicks(8396),
                             Password = "2245",
-                            Updatedat = new DateTime(2023, 1, 15, 1, 58, 17, 384, DateTimeKind.Local).AddTicks(706),
+                            Updatedat = new DateTime(2023, 1, 15, 4, 7, 41, 853, DateTimeKind.Local).AddTicks(8397),
                             Username = "Rodri"
                         },
                         new
                         {
                             ID = 6,
-                            Createdat = new DateTime(2023, 1, 15, 1, 58, 17, 384, DateTimeKind.Local).AddTicks(708),
+                            Createdat = new DateTime(2023, 1, 15, 4, 7, 41, 853, DateTimeKind.Local).AddTicks(8399),
                             Password = "3453",
-                            Updatedat = new DateTime(2023, 1, 15, 1, 58, 17, 384, DateTimeKind.Local).AddTicks(710),
+                            Updatedat = new DateTime(2023, 1, 15, 4, 7, 41, 853, DateTimeKind.Local).AddTicks(8400),
                             Username = "Jairzinho"
                         });
                 });
@@ -549,6 +549,162 @@ namespace BeFeira.Server.Migrations
                             Stock = 12,
                             SubCategoriaID = 74,
                             urlImage = "https://i2.wp.com/www.lojaaporta.pt/wp-content/uploads/2021/01/MORANGOS-CAIXA-2KG.png?fit=500%2C500&ssl=1"
+                        },
+                        new
+                        {
+                            ID = 79,
+                            NomeProduto = "Abacaxi",
+                            Preco = 1.49f,
+                            Promocao = 0,
+                            Rating = 4,
+                            StandID = 24,
+                            Stock = 12,
+                            SubCategoriaID = 74,
+                            urlImage = "https://static.todamateria.com.br/upload/ab/ac/abacaxi-0-cke.jpg?auto_optimize=low"
+                        },
+                        new
+                        {
+                            ID = 80,
+                            NomeProduto = "Abacate",
+                            Preco = 4.49f,
+                            Promocao = 15,
+                            Rating = 4,
+                            StandID = 24,
+                            Stock = 12,
+                            SubCategoriaID = 74,
+                            urlImage = "https://static.todamateria.com.br/upload/ab/ac/abacate-cke.jpg"
+                        },
+                        new
+                        {
+                            ID = 81,
+                            NomeProduto = "Amora",
+                            Preco = 1.5f,
+                            Promocao = 5,
+                            Rating = 4,
+                            StandID = 24,
+                            Stock = 12,
+                            SubCategoriaID = 74,
+                            urlImage = "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Blackberries_%28Rubus_fruticosus%29.jpg/250px-Blackberries_%28Rubus_fruticosus%29.jpg"
+                        },
+                        new
+                        {
+                            ID = 82,
+                            NomeProduto = "Mirtilo",
+                            Preco = 1.89f,
+                            Promocao = 0,
+                            Rating = 4,
+                            StandID = 24,
+                            Stock = 12,
+                            SubCategoriaID = 74,
+                            urlImage = "https://static.todamateria.com.br/upload/ba/ca/bacaba-cke.jpg?auto_optimize=low"
+                        },
+                        new
+                        {
+                            ID = 83,
+                            NomeProduto = "Diospiro",
+                            Preco = 2f,
+                            Promocao = 0,
+                            Rating = 4,
+                            StandID = 24,
+                            Stock = 12,
+                            SubCategoriaID = 74,
+                            urlImage = "https://static.todamateria.com.br/upload/ca/qu/caqui-cke.jpg?auto_optimize=low"
+                        },
+                        new
+                        {
+                            ID = 84,
+                            NomeProduto = "Cereja",
+                            Preco = 19.9f,
+                            Promocao = 0,
+                            Rating = 4,
+                            StandID = 24,
+                            Stock = 12,
+                            SubCategoriaID = 74,
+                            urlImage = "https://static.todamateria.com.br/upload/ce/re/cereja-cke.jpg?auto_optimize=low"
+                        },
+                        new
+                        {
+                            ID = 85,
+                            NomeProduto = "Coco",
+                            Preco = 39.9f,
+                            Promocao = 20,
+                            Rating = 4,
+                            StandID = 24,
+                            Stock = 12,
+                            SubCategoriaID = 74,
+                            urlImage = "https://www.auchan.pt/dw/image/v2/BFRC_PRD/on/demandware.static/-/Sites-auchan-pt-master-catalog/default/dw3a1248f9/images/hi-res/000024110.jpg?sw=500&sh=500&sm=fit&bgcolor=FFFFFF"
+                        },
+                        new
+                        {
+                            ID = 86,
+                            NomeProduto = "Figo",
+                            Preco = 3.5f,
+                            Promocao = 0,
+                            Rating = 4,
+                            StandID = 24,
+                            Stock = 12,
+                            SubCategoriaID = 74,
+                            urlImage = "https://static.todamateria.com.br/upload/fr/ut/fruta18-0-cke.jpg?auto_optimize=low"
+                        },
+                        new
+                        {
+                            ID = 87,
+                            NomeProduto = "Framboesa",
+                            Preco = 10f,
+                            Promocao = 50,
+                            Rating = 4,
+                            StandID = 24,
+                            Stock = 12,
+                            SubCategoriaID = 74,
+                            urlImage = "https://static.todamateria.com.br/upload/fr/am/framboesa-cke.jpg?auto_optimize=low"
+                        },
+                        new
+                        {
+                            ID = 88,
+                            NomeProduto = "Groselha",
+                            Preco = 30f,
+                            Promocao = 35,
+                            Rating = 4,
+                            StandID = 24,
+                            Stock = 12,
+                            SubCategoriaID = 74,
+                            urlImage = "https://static.todamateria.com.br/upload/gr/os/groselha-0-cke.jpg?auto_optimize=low"
+                        },
+                        new
+                        {
+                            ID = 89,
+                            NomeProduto = "Kiwi",
+                            Preco = 3.29f,
+                            Promocao = 0,
+                            Rating = 4,
+                            StandID = 24,
+                            Stock = 12,
+                            SubCategoriaID = 74,
+                            urlImage = "https://static.todamateria.com.br/upload/fr/ut/fruta27kiwi-cke.jpg?auto_optimize=low"
+                        },
+                        new
+                        {
+                            ID = 90,
+                            NomeProduto = "Romã",
+                            Preco = 1.25f,
+                            Promocao = 0,
+                            Rating = 4,
+                            StandID = 24,
+                            Stock = 12,
+                            SubCategoriaID = 74,
+                            urlImage = "https://static.todamateria.com.br/upload/fr/ut/fruta44roma-cke.jpg?auto_optimize=low"
+                        },
+                        new
+                        {
+                            ID = 91,
+                            NomeProduto = "Tangerina",
+                            Preco = 0.7f,
+                            Promocao = 0,
+                            Rating = 4,
+                            StandID = 24,
+                            Stock = 12,
+                            SubCategoriaID = 74,
+                            urlImage = "https://static.todamateria.com.br/upload/ta/ng/tangerina-cke.jpg?auto_optimize=low"
                         },
                         new
                         {
@@ -1068,6 +1224,42 @@ namespace BeFeira.Server.Migrations
                         },
                         new
                         {
+                            ID = 76,
+                            NomeProduto = "SB Dunk low Travis Scott",
+                            Preco = 1700f,
+                            Promocao = 15,
+                            Rating = 4,
+                            StandID = 65,
+                            Stock = 5,
+                            SubCategoriaID = 79,
+                            urlImage = "https://images.stockx.com/images/Nike-SB-Dunk-Low-Travis-Scott-Product.jpg?fit=fill&bg=FFFFFF&w=1200&h=857&fm=webp&auto=compress&dpr=2&trim=color&updated_at=1606325738&q=75"
+                        },
+                        new
+                        {
+                            ID = 77,
+                            NomeProduto = "Red October",
+                            Preco = 75000f,
+                            Promocao = 3,
+                            Rating = 4,
+                            StandID = 65,
+                            Stock = 5,
+                            SubCategoriaID = 80,
+                            urlImage = "https://i.ebayimg.com/images/g/BYwAAOxyeZNTTIIg/s-l400.jpg"
+                        },
+                        new
+                        {
+                            ID = 78,
+                            NomeProduto = "Nike SB x Ben & Jerry’s Dunk Low Pro",
+                            Preco = 1000f,
+                            Promocao = 15,
+                            Rating = 4,
+                            StandID = 65,
+                            Stock = 5,
+                            SubCategoriaID = 79,
+                            urlImage = "http://cdn.shopify.com/s/files/1/0550/3657/5853/products/SB_Dunk_Low_Ben_Jerry_s_Chunky_Dunky-CU3244-100-0.png?v=1658841197"
+                        },
+                        new
+                        {
                             ID = 45,
                             NomeProduto = "Fritadeira",
                             Preco = 49.99f,
@@ -1260,6 +1452,42 @@ namespace BeFeira.Server.Migrations
                         },
                         new
                         {
+                            ID = 72,
+                            NomeProduto = "Carnes de vaca",
+                            Preco = 15.9f,
+                            Promocao = 0,
+                            Rating = 4,
+                            StandID = 2,
+                            Stock = 10,
+                            SubCategoriaID = 50,
+                            urlImage = "https://static.wikia.nocookie.net/minecraft_gamepedia/images/0/04/Steak_JE4_BE3.png/revision/latest/scale-to-width-down/160?cb=20190504055306"
+                        },
+                        new
+                        {
+                            ID = 73,
+                            NomeProduto = "Carnes de frango",
+                            Preco = 15.9f,
+                            Promocao = 0,
+                            Rating = 4,
+                            StandID = 2,
+                            Stock = 10,
+                            SubCategoriaID = 50,
+                            urlImage = "https://static.wikia.nocookie.net/minecraft_gamepedia/images/6/66/Cooked_Chicken_JE3_BE3.png/revision/latest?cb=20200430031305"
+                        },
+                        new
+                        {
+                            ID = 74,
+                            NomeProduto = "Carnes de coelho",
+                            Preco = 15.9f,
+                            Promocao = 0,
+                            Rating = 4,
+                            StandID = 2,
+                            Stock = 10,
+                            SubCategoriaID = 50,
+                            urlImage = "https://static.wikia.nocookie.net/minecraft_gamepedia/images/9/9f/Cooked_Rabbit_JE2_BE1.png/revision/latest?cb=20190505050744"
+                        },
+                        new
+                        {
                             ID = 65,
                             NomeProduto = "Ração para cães",
                             Preco = 12.9f,
@@ -1269,6 +1497,18 @@ namespace BeFeira.Server.Migrations
                             Stock = 8,
                             SubCategoriaID = 4,
                             urlImage = "https://granjadecister.pt/1527-large_default/racao-cao-avenal-mix-20kg.jpg"
+                        },
+                        new
+                        {
+                            ID = 75,
+                            NomeProduto = "Ração para gatos",
+                            Preco = 12.9f,
+                            Promocao = 0,
+                            Rating = 5,
+                            StandID = 2,
+                            Stock = 8,
+                            SubCategoriaID = 4,
+                            urlImage = "https://www.auchan.pt/dw/image/v2/BFRC_PRD/on/demandware.static/-/Sites-auchan-pt-master-catalog/default/dw380f6669/images/hi-res/003036197.jpg?sw=500&sh=500&sm=fit&bgcolor=FFFFFF"
                         },
                         new
                         {
@@ -1359,7 +1599,7 @@ namespace BeFeira.Server.Migrations
                         new
                         {
                             ID = 1,
-                            Date = new DateTime(2023, 1, 15, 1, 58, 17, 384, DateTimeKind.Local).AddTicks(1427),
+                            Date = new DateTime(2023, 1, 15, 4, 7, 41, 853, DateTimeKind.Local).AddTicks(8844),
                             Desconto = 10,
                             ProdutoID = 1
                         });
@@ -2436,14 +2676,14 @@ namespace BeFeira.Server.Migrations
                         {
                             ID = 1,
                             CarrinhoID = 1,
-                            Date = new DateTime(2023, 1, 15, 1, 58, 17, 384, DateTimeKind.Local).AddTicks(1487),
+                            Date = new DateTime(2023, 1, 15, 4, 7, 41, 853, DateTimeKind.Local).AddTicks(8882),
                             Total = 0f
                         },
                         new
                         {
                             ID = 2,
                             CarrinhoID = 2,
-                            Date = new DateTime(2023, 1, 15, 1, 58, 17, 384, DateTimeKind.Local).AddTicks(1491),
+                            Date = new DateTime(2023, 1, 15, 4, 7, 41, 853, DateTimeKind.Local).AddTicks(8885),
                             Total = 0f
                         });
                 });

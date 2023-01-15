@@ -93,9 +93,19 @@ namespace BeFeira.Services.StandServices
         public async Task<int> GetIdStand(String name ,int iduser)
         {
 			GetStands();
-
-            Stand aux =  Stands.Find(h=>h.Nome==name && h.VendedorID==iduser);
-			return aux.ID;
+			Stand aux = Stands.Find(h => h.Nome == name && h.VendedorID == iduser);			
+			if (aux != null)
+			{
+				Console.WriteLine(aux.Nome);
+                return aux.ID;
+            }
+			return -1;
+			
         }
+
+       
+
+
+
     }
 }

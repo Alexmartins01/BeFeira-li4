@@ -10,5 +10,9 @@
 
         Task<Subcategoria> GetSingleSubCat(int id);
         Task<int> GetSubcatbyname(string namesubcat);
+
+        Task CreateSubcat(Subcategoria p);
+
+        Task<int> GetSubcatbynameanduser(string namesubcat, int idstand);
     }
 }

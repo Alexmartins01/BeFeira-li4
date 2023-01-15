@@ -39,6 +39,22 @@ namespace BeFeira.Server.Controllers
             return Ok(subcat);
         }
 
+        
+        [HttpPost]
+        public async Task<ActionResult<Subcategoria>> CreateSubcategoria(Subcategoria s)
+        {
+
+            _context.Subcategorias.Add(s);
+            await _context.SaveChangesAsync();
+
+            return Ok(await GetDBSubcats());
+        }
+
+        private async Task<List<Subcategoria>> GetDBSubcats()
+        {
+
+            return await _context.Subcategorias.ToListAsync();
+        }
 
 
     }
