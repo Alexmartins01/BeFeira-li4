@@ -52,49 +52,49 @@ namespace BeFeira.Server.Migrations
                         new
                         {
                             ID = 1,
-                            Createdat = new DateTime(2023, 1, 15, 14, 12, 36, 879, DateTimeKind.Local).AddTicks(3795),
+                            Createdat = new DateTime(2023, 1, 15, 15, 4, 4, 845, DateTimeKind.Local).AddTicks(6143),
                             Password = "1234",
-                            Updatedat = new DateTime(2023, 1, 15, 14, 12, 36, 879, DateTimeKind.Local).AddTicks(3846),
+                            Updatedat = new DateTime(2023, 1, 15, 15, 4, 4, 845, DateTimeKind.Local).AddTicks(6192),
                             Username = "Bernas"
                         },
                         new
                         {
                             ID = 2,
-                            Createdat = new DateTime(2023, 1, 15, 14, 12, 36, 879, DateTimeKind.Local).AddTicks(3851),
+                            Createdat = new DateTime(2023, 1, 15, 15, 4, 4, 845, DateTimeKind.Local).AddTicks(6195),
                             Password = "2345",
-                            Updatedat = new DateTime(2023, 1, 15, 14, 12, 36, 879, DateTimeKind.Local).AddTicks(3852),
+                            Updatedat = new DateTime(2023, 1, 15, 15, 4, 4, 845, DateTimeKind.Local).AddTicks(6196),
                             Username = "Cebolinha"
                         },
                         new
                         {
                             ID = 3,
-                            Createdat = new DateTime(2023, 1, 15, 14, 12, 36, 879, DateTimeKind.Local).AddTicks(3855),
+                            Createdat = new DateTime(2023, 1, 15, 15, 4, 4, 845, DateTimeKind.Local).AddTicks(6198),
                             Password = "3456",
-                            Updatedat = new DateTime(2023, 1, 15, 14, 12, 36, 879, DateTimeKind.Local).AddTicks(3856),
+                            Updatedat = new DateTime(2023, 1, 15, 15, 4, 4, 845, DateTimeKind.Local).AddTicks(6200),
                             Username = "Sergio"
                         },
                         new
                         {
                             ID = 4,
-                            Createdat = new DateTime(2023, 1, 15, 14, 12, 36, 879, DateTimeKind.Local).AddTicks(3858),
+                            Createdat = new DateTime(2023, 1, 15, 15, 4, 4, 845, DateTimeKind.Local).AddTicks(6202),
                             Password = "1134",
-                            Updatedat = new DateTime(2023, 1, 15, 14, 12, 36, 879, DateTimeKind.Local).AddTicks(3860),
+                            Updatedat = new DateTime(2023, 1, 15, 15, 4, 4, 845, DateTimeKind.Local).AddTicks(6203),
                             Username = "Anastásia"
                         },
                         new
                         {
                             ID = 5,
-                            Createdat = new DateTime(2023, 1, 15, 14, 12, 36, 879, DateTimeKind.Local).AddTicks(3862),
+                            Createdat = new DateTime(2023, 1, 15, 15, 4, 4, 845, DateTimeKind.Local).AddTicks(6205),
                             Password = "2245",
-                            Updatedat = new DateTime(2023, 1, 15, 14, 12, 36, 879, DateTimeKind.Local).AddTicks(3863),
+                            Updatedat = new DateTime(2023, 1, 15, 15, 4, 4, 845, DateTimeKind.Local).AddTicks(6206),
                             Username = "Rodri"
                         },
                         new
                         {
                             ID = 6,
-                            Createdat = new DateTime(2023, 1, 15, 14, 12, 36, 879, DateTimeKind.Local).AddTicks(3866),
+                            Createdat = new DateTime(2023, 1, 15, 15, 4, 4, 845, DateTimeKind.Local).AddTicks(6208),
                             Password = "3453",
-                            Updatedat = new DateTime(2023, 1, 15, 14, 12, 36, 879, DateTimeKind.Local).AddTicks(3867),
+                            Updatedat = new DateTime(2023, 1, 15, 15, 4, 4, 845, DateTimeKind.Local).AddTicks(6210),
                             Username = "Jairzinho"
                         });
                 });
@@ -217,11 +217,14 @@ namespace BeFeira.Server.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Username")
-                        .IsRequired()
+                    b.Property<int>("Total")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UrlProfilePic")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("urlProfilePic")
+                    b.Property<string>("Username")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ID");
@@ -234,96 +237,108 @@ namespace BeFeira.Server.Migrations
                             ID = 1,
                             Email = "a1@uminho.pt",
                             Password = "sporting",
-                            Username = "Pedro",
-                            urlProfilePic = "https://cdn-icons-png.flaticon.com/512/5087/5087579.png"
+                            Total = 0,
+                            UrlProfilePic = "https://cdn-icons-png.flaticon.com/512/5087/5087579.png",
+                            Username = "Pedro"
                         },
                         new
                         {
                             ID = 2,
                             Email = "a2@uminho.pt",
                             Password = "benfica",
-                            Username = "João",
-                            urlProfilePic = "https://cdn-icons-png.flaticon.com/512/5087/5087579.png"
+                            Total = 0,
+                            UrlProfilePic = "https://cdn-icons-png.flaticon.com/512/5087/5087579.png",
+                            Username = "João"
                         },
                         new
                         {
                             ID = 3,
                             Email = "a3@uminho.pt",
                             Password = "porto",
-                            Username = "Zé",
-                            urlProfilePic = "https://cdn-icons-png.flaticon.com/512/5087/5087579.png"
+                            Total = 0,
+                            UrlProfilePic = "https://cdn-icons-png.flaticon.com/512/5087/5087579.png",
+                            Username = "Zé"
                         },
                         new
                         {
                             ID = 4,
                             Email = "a4@uminho.pt",
                             Password = "sporting11",
-                            Username = "Ana",
-                            urlProfilePic = "https://cdn-icons-png.flaticon.com/512/5087/5087579.png"
+                            Total = 0,
+                            UrlProfilePic = "https://cdn-icons-png.flaticon.com/512/5087/5087579.png",
+                            Username = "Ana"
                         },
                         new
                         {
                             ID = 5,
                             Email = "a5@uminho.pt",
                             Password = "benfica11",
-                            Username = "Ivo",
-                            urlProfilePic = "https://cdn-icons-png.flaticon.com/512/5087/5087579.png"
+                            Total = 0,
+                            UrlProfilePic = "https://cdn-icons-png.flaticon.com/512/5087/5087579.png",
+                            Username = "Ivo"
                         },
                         new
                         {
                             ID = 6,
                             Email = "a6@uminho.pt",
                             Password = "porto11",
-                            Username = "Nestor",
-                            urlProfilePic = "https://cdn-icons-png.flaticon.com/512/5087/5087579.png"
+                            Total = 0,
+                            UrlProfilePic = "https://cdn-icons-png.flaticon.com/512/5087/5087579.png",
+                            Username = "Nestor"
                         },
                         new
                         {
                             ID = 7,
                             Email = "a7@uminho.pt",
                             Password = "sporting22",
-                            Username = "Paulo",
-                            urlProfilePic = "https://cdn-icons-png.flaticon.com/512/5087/5087579.png"
+                            Total = 0,
+                            UrlProfilePic = "https://cdn-icons-png.flaticon.com/512/5087/5087579.png",
+                            Username = "Paulo"
                         },
                         new
                         {
                             ID = 8,
                             Email = "a8@uminho.pt",
                             Password = "benfica22",
-                            Username = "Bruno",
-                            urlProfilePic = "https://cdn-icons-png.flaticon.com/512/5087/5087579.png"
+                            Total = 0,
+                            UrlProfilePic = "https://cdn-icons-png.flaticon.com/512/5087/5087579.png",
+                            Username = "Bruno"
                         },
                         new
                         {
                             ID = 9,
                             Email = "a9@uminho.pt",
                             Password = "porto22",
-                            Username = "Rui",
-                            urlProfilePic = "https://cdn-icons-png.flaticon.com/512/5087/5087579.png"
+                            Total = 0,
+                            UrlProfilePic = "https://cdn-icons-png.flaticon.com/512/5087/5087579.png",
+                            Username = "Rui"
                         },
                         new
                         {
                             ID = 10,
                             Email = "a10@uminho.pt",
                             Password = "sporting33",
-                            Username = "Francisca",
-                            urlProfilePic = "https://cdn-icons-png.flaticon.com/512/5087/5087579.png"
+                            Total = 0,
+                            UrlProfilePic = "https://cdn-icons-png.flaticon.com/512/5087/5087579.png",
+                            Username = "Francisca"
                         },
                         new
                         {
                             ID = 11,
                             Email = "a11@uminho.pt",
                             Password = "benfica33",
-                            Username = "Patricia",
-                            urlProfilePic = "https://cdn-icons-png.flaticon.com/512/5087/5087579.png"
+                            Total = 0,
+                            UrlProfilePic = "https://cdn-icons-png.flaticon.com/512/5087/5087579.png",
+                            Username = "Patricia"
                         },
                         new
                         {
                             ID = 12,
                             Email = "a12@uminho.pt",
                             Password = "porto33",
-                            Username = "Luis",
-                            urlProfilePic = "https://cdn-icons-png.flaticon.com/512/5087/5087579.png"
+                            Total = 0,
+                            UrlProfilePic = "https://cdn-icons-png.flaticon.com/512/5087/5087579.png",
+                            Username = "Luis"
                         });
                 });
 
@@ -481,7 +496,7 @@ namespace BeFeira.Server.Migrations
                     b.Property<int?>("SubCategoriaID")
                         .HasColumnType("int");
 
-                    b.Property<string>("urlImage")
+                    b.Property<string>("UrlImage")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ID");
@@ -503,7 +518,7 @@ namespace BeFeira.Server.Migrations
                             StandID = 24,
                             Stock = 12,
                             SubCategoriaID = 74,
-                            urlImage = "https://www.imagensempng.com.br/wp-content/uploads/2021/07/Maca-Png.png"
+                            UrlImage = "https://www.imagensempng.com.br/wp-content/uploads/2021/07/Maca-Png.png"
                         },
                         new
                         {
@@ -515,7 +530,7 @@ namespace BeFeira.Server.Migrations
                             StandID = 24,
                             Stock = 120,
                             SubCategoriaID = 74,
-                            urlImage = "https://lusopera.com/wp-content/uploads/2018/12/img-intro-peras.jpg"
+                            UrlImage = "https://lusopera.com/wp-content/uploads/2018/12/img-intro-peras.jpg"
                         },
                         new
                         {
@@ -527,7 +542,7 @@ namespace BeFeira.Server.Migrations
                             StandID = 24,
                             Stock = 25,
                             SubCategoriaID = 74,
-                            urlImage = "https://www.apolonia.com/fotos/produtos/91359_01_12-01-2018_g.jpg"
+                            UrlImage = "https://www.apolonia.com/fotos/produtos/91359_01_12-01-2018_g.jpg"
                         },
                         new
                         {
@@ -539,7 +554,7 @@ namespace BeFeira.Server.Migrations
                             StandID = 24,
                             Stock = 5,
                             SubCategoriaID = 74,
-                            urlImage = "https://static.mundoeducacao.uol.com.br/mundoeducacao/2021/05/manga.jpg"
+                            UrlImage = "https://static.mundoeducacao.uol.com.br/mundoeducacao/2021/05/manga.jpg"
                         },
                         new
                         {
@@ -551,7 +566,7 @@ namespace BeFeira.Server.Migrations
                             StandID = 24,
                             Stock = 150,
                             SubCategoriaID = 74,
-                            urlImage = "https://live.staticflickr.com/65535/50026818621_47244bd8e7_b.jpg"
+                            UrlImage = "https://live.staticflickr.com/65535/50026818621_47244bd8e7_b.jpg"
                         },
                         new
                         {
@@ -563,7 +578,7 @@ namespace BeFeira.Server.Migrations
                             StandID = 24,
                             Stock = 12,
                             SubCategoriaID = 74,
-                            urlImage = "https://i2.wp.com/www.lojaaporta.pt/wp-content/uploads/2021/01/MORANGOS-CAIXA-2KG.png?fit=500%2C500&ssl=1"
+                            UrlImage = "https://i2.wp.com/www.lojaaporta.pt/wp-content/uploads/2021/01/MORANGOS-CAIXA-2KG.png?fit=500%2C500&ssl=1"
                         },
                         new
                         {
@@ -575,7 +590,7 @@ namespace BeFeira.Server.Migrations
                             StandID = 24,
                             Stock = 12,
                             SubCategoriaID = 74,
-                            urlImage = "https://static.todamateria.com.br/upload/ab/ac/abacaxi-0-cke.jpg?auto_optimize=low"
+                            UrlImage = "https://static.todamateria.com.br/upload/ab/ac/abacaxi-0-cke.jpg?auto_optimize=low"
                         },
                         new
                         {
@@ -587,7 +602,7 @@ namespace BeFeira.Server.Migrations
                             StandID = 24,
                             Stock = 12,
                             SubCategoriaID = 74,
-                            urlImage = "https://static.todamateria.com.br/upload/ab/ac/abacate-cke.jpg"
+                            UrlImage = "https://static.todamateria.com.br/upload/ab/ac/abacate-cke.jpg"
                         },
                         new
                         {
@@ -599,7 +614,7 @@ namespace BeFeira.Server.Migrations
                             StandID = 24,
                             Stock = 12,
                             SubCategoriaID = 74,
-                            urlImage = "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Blackberries_%28Rubus_fruticosus%29.jpg/250px-Blackberries_%28Rubus_fruticosus%29.jpg"
+                            UrlImage = "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Blackberries_%28Rubus_fruticosus%29.jpg/250px-Blackberries_%28Rubus_fruticosus%29.jpg"
                         },
                         new
                         {
@@ -611,7 +626,7 @@ namespace BeFeira.Server.Migrations
                             StandID = 24,
                             Stock = 12,
                             SubCategoriaID = 74,
-                            urlImage = "https://static.todamateria.com.br/upload/ba/ca/bacaba-cke.jpg?auto_optimize=low"
+                            UrlImage = "https://static.todamateria.com.br/upload/ba/ca/bacaba-cke.jpg?auto_optimize=low"
                         },
                         new
                         {
@@ -623,7 +638,7 @@ namespace BeFeira.Server.Migrations
                             StandID = 24,
                             Stock = 12,
                             SubCategoriaID = 74,
-                            urlImage = "https://static.todamateria.com.br/upload/ca/qu/caqui-cke.jpg?auto_optimize=low"
+                            UrlImage = "https://static.todamateria.com.br/upload/ca/qu/caqui-cke.jpg?auto_optimize=low"
                         },
                         new
                         {
@@ -635,7 +650,7 @@ namespace BeFeira.Server.Migrations
                             StandID = 24,
                             Stock = 12,
                             SubCategoriaID = 74,
-                            urlImage = "https://static.todamateria.com.br/upload/ce/re/cereja-cke.jpg?auto_optimize=low"
+                            UrlImage = "https://static.todamateria.com.br/upload/ce/re/cereja-cke.jpg?auto_optimize=low"
                         },
                         new
                         {
@@ -647,7 +662,7 @@ namespace BeFeira.Server.Migrations
                             StandID = 24,
                             Stock = 12,
                             SubCategoriaID = 74,
-                            urlImage = "https://www.auchan.pt/dw/image/v2/BFRC_PRD/on/demandware.static/-/Sites-auchan-pt-master-catalog/default/dw3a1248f9/images/hi-res/000024110.jpg?sw=500&sh=500&sm=fit&bgcolor=FFFFFF"
+                            UrlImage = "https://www.auchan.pt/dw/image/v2/BFRC_PRD/on/demandware.static/-/Sites-auchan-pt-master-catalog/default/dw3a1248f9/images/hi-res/000024110.jpg?sw=500&sh=500&sm=fit&bgcolor=FFFFFF"
                         },
                         new
                         {
@@ -659,7 +674,7 @@ namespace BeFeira.Server.Migrations
                             StandID = 24,
                             Stock = 12,
                             SubCategoriaID = 74,
-                            urlImage = "https://static.todamateria.com.br/upload/fr/ut/fruta18-0-cke.jpg?auto_optimize=low"
+                            UrlImage = "https://static.todamateria.com.br/upload/fr/ut/fruta18-0-cke.jpg?auto_optimize=low"
                         },
                         new
                         {
@@ -671,7 +686,7 @@ namespace BeFeira.Server.Migrations
                             StandID = 24,
                             Stock = 12,
                             SubCategoriaID = 74,
-                            urlImage = "https://static.todamateria.com.br/upload/fr/am/framboesa-cke.jpg?auto_optimize=low"
+                            UrlImage = "https://static.todamateria.com.br/upload/fr/am/framboesa-cke.jpg?auto_optimize=low"
                         },
                         new
                         {
@@ -683,7 +698,7 @@ namespace BeFeira.Server.Migrations
                             StandID = 24,
                             Stock = 12,
                             SubCategoriaID = 74,
-                            urlImage = "https://static.todamateria.com.br/upload/gr/os/groselha-0-cke.jpg?auto_optimize=low"
+                            UrlImage = "https://static.todamateria.com.br/upload/gr/os/groselha-0-cke.jpg?auto_optimize=low"
                         },
                         new
                         {
@@ -695,7 +710,7 @@ namespace BeFeira.Server.Migrations
                             StandID = 24,
                             Stock = 12,
                             SubCategoriaID = 74,
-                            urlImage = "https://static.todamateria.com.br/upload/fr/ut/fruta27kiwi-cke.jpg?auto_optimize=low"
+                            UrlImage = "https://static.todamateria.com.br/upload/fr/ut/fruta27kiwi-cke.jpg?auto_optimize=low"
                         },
                         new
                         {
@@ -707,7 +722,7 @@ namespace BeFeira.Server.Migrations
                             StandID = 24,
                             Stock = 12,
                             SubCategoriaID = 74,
-                            urlImage = "https://static.todamateria.com.br/upload/fr/ut/fruta44roma-cke.jpg?auto_optimize=low"
+                            UrlImage = "https://static.todamateria.com.br/upload/fr/ut/fruta44roma-cke.jpg?auto_optimize=low"
                         },
                         new
                         {
@@ -719,7 +734,7 @@ namespace BeFeira.Server.Migrations
                             StandID = 24,
                             Stock = 12,
                             SubCategoriaID = 74,
-                            urlImage = "https://static.todamateria.com.br/upload/ta/ng/tangerina-cke.jpg?auto_optimize=low"
+                            UrlImage = "https://static.todamateria.com.br/upload/ta/ng/tangerina-cke.jpg?auto_optimize=low"
                         },
                         new
                         {
@@ -731,7 +746,7 @@ namespace BeFeira.Server.Migrations
                             StandID = 10,
                             Stock = 2,
                             SubCategoriaID = 25,
-                            urlImage = "https://www.lulu-berlu.com/upload/image/-p-image-334992-grande.jpg"
+                            UrlImage = "https://www.lulu-berlu.com/upload/image/-p-image-334992-grande.jpg"
                         },
                         new
                         {
@@ -743,7 +758,7 @@ namespace BeFeira.Server.Migrations
                             StandID = 10,
                             Stock = 2,
                             SubCategoriaID = 26,
-                            urlImage = "https://www.toysrus.pt/medias/?context=bWFzdGVyfHByb2R1Y3RfaW1hZ2VzfDQ4OTcxfGltYWdlL2pwZWd8aDkyL2gwOC8xMTI3NDE5NjM4NTgyMnwyZjEwNTk5OGI5NjdkZmZjNmVhMzIyODE0NjE3YWJiMzFhOGM3MjJkNWE0ODc3YWI1NGI2ZTI3NTk1MDMxMWRh"
+                            UrlImage = "https://www.toysrus.pt/medias/?context=bWFzdGVyfHByb2R1Y3RfaW1hZ2VzfDQ4OTcxfGltYWdlL2pwZWd8aDkyL2gwOC8xMTI3NDE5NjM4NTgyMnwyZjEwNTk5OGI5NjdkZmZjNmVhMzIyODE0NjE3YWJiMzFhOGM3MjJkNWE0ODc3YWI1NGI2ZTI3NTk1MDMxMWRh"
                         },
                         new
                         {
@@ -755,7 +770,7 @@ namespace BeFeira.Server.Migrations
                             StandID = 10,
                             Stock = 2,
                             SubCategoriaID = 65,
-                            urlImage = "https://www.macao.ubuy.com/productimg/?image=aHR0cHM6Ly9pNS53YWxtYXJ0aW1hZ2VzLmNvbS9hc3IvNGNkNzk5NjYtMDkzMS00OGRkLTljYjQtNmZiODBjNjI1OGQ2XzEuZDU0YTJmMTQ4ODViMmVhNjc1YTY2OGIzZTcwMWNmMGQuanBlZw.jpg"
+                            UrlImage = "https://www.macao.ubuy.com/productimg/?image=aHR0cHM6Ly9pNS53YWxtYXJ0aW1hZ2VzLmNvbS9hc3IvNGNkNzk5NjYtMDkzMS00OGRkLTljYjQtNmZiODBjNjI1OGQ2XzEuZDU0YTJmMTQ4ODViMmVhNjc1YTY2OGIzZTcwMWNmMGQuanBlZw.jpg"
                         },
                         new
                         {
@@ -767,7 +782,7 @@ namespace BeFeira.Server.Migrations
                             StandID = 10,
                             Stock = 2,
                             SubCategoriaID = 25,
-                            urlImage = "https://shop4nerds.pt/cms/produtos_imgs/produto_931/files/849803053055.jpg"
+                            UrlImage = "https://shop4nerds.pt/cms/produtos_imgs/produto_931/files/849803053055.jpg"
                         },
                         new
                         {
@@ -779,7 +794,7 @@ namespace BeFeira.Server.Migrations
                             StandID = 10,
                             Stock = 2,
                             SubCategoriaID = 25,
-                            urlImage = "https://i.ebayimg.com/thumbs/images/g/7H0AAOSwWFtiBswI/s-l300.jpg"
+                            UrlImage = "https://i.ebayimg.com/thumbs/images/g/7H0AAOSwWFtiBswI/s-l300.jpg"
                         },
                         new
                         {
@@ -791,7 +806,7 @@ namespace BeFeira.Server.Migrations
                             StandID = 1,
                             Stock = 1,
                             SubCategoriaID = 2,
-                            urlImage = "https://www.casatapetesarraiolos.com/images/A17688-Pombinhas-177-x-122-PL.jpg"
+                            UrlImage = "https://www.casatapetesarraiolos.com/images/A17688-Pombinhas-177-x-122-PL.jpg"
                         },
                         new
                         {
@@ -803,7 +818,7 @@ namespace BeFeira.Server.Migrations
                             StandID = 1,
                             Stock = 1,
                             SubCategoriaID = 2,
-                            urlImage = "https://www.lusatextil.pt/755/253.jpg"
+                            UrlImage = "https://www.lusatextil.pt/755/253.jpg"
                         },
                         new
                         {
@@ -815,7 +830,7 @@ namespace BeFeira.Server.Migrations
                             StandID = 1,
                             Stock = 1,
                             SubCategoriaID = 2,
-                            urlImage = "https://urbanjungle.pt/wp-content/uploads/2020/03/IMG_5520-600x750.jpg"
+                            UrlImage = "https://urbanjungle.pt/wp-content/uploads/2020/03/IMG_5520-600x750.jpg"
                         },
                         new
                         {
@@ -827,7 +842,7 @@ namespace BeFeira.Server.Migrations
                             StandID = 1,
                             Stock = 7,
                             SubCategoriaID = 1,
-                            urlImage = "https://a-static.mlcdn.com.br/800x560/jogo-de-toalhas-de-banho-buddemeyer-100-algodao-delicata-azul-5-pecas/magazineluiza/227741700/42a47093b438f2347721901a8696d5e5.jpg"
+                            UrlImage = "https://a-static.mlcdn.com.br/800x560/jogo-de-toalhas-de-banho-buddemeyer-100-algodao-delicata-azul-5-pecas/magazineluiza/227741700/42a47093b438f2347721901a8696d5e5.jpg"
                         },
                         new
                         {
@@ -839,7 +854,7 @@ namespace BeFeira.Server.Migrations
                             StandID = 1,
                             Stock = 10,
                             SubCategoriaID = 1,
-                            urlImage = "https://static.sscontent.com/thumb/500/500/products/124/v988954_prozis_script-gym-towel-blue_single-size_blue_front.jpg"
+                            UrlImage = "https://static.sscontent.com/thumb/500/500/products/124/v988954_prozis_script-gym-towel-blue_single-size_blue_front.jpg"
                         },
                         new
                         {
@@ -851,7 +866,7 @@ namespace BeFeira.Server.Migrations
                             StandID = 18,
                             Stock = 20,
                             SubCategoriaID = 39,
-                            urlImage = "https://images.samsung.com/is/image/samsung/p6pim/br/galaxy-a52/gallery/br-galaxy-a52-a525-379758-sm-a525mlvgzto-404505598?$650_519_PNG$"
+                            UrlImage = "https://images.samsung.com/is/image/samsung/p6pim/br/galaxy-a52/gallery/br-galaxy-a52-a525-379758-sm-a525mlvgzto-404505598?$650_519_PNG$"
                         },
                         new
                         {
@@ -863,7 +878,7 @@ namespace BeFeira.Server.Migrations
                             StandID = 18,
                             Stock = 20,
                             SubCategoriaID = 39,
-                            urlImage = "https://loja.iservices.pt/5060-large_default/iphone-xs.jpg"
+                            UrlImage = "https://loja.iservices.pt/5060-large_default/iphone-xs.jpg"
                         },
                         new
                         {
@@ -875,7 +890,7 @@ namespace BeFeira.Server.Migrations
                             StandID = 18,
                             Stock = 20,
                             SubCategoriaID = 39,
-                            urlImage = "https://v9y9v6a3.rocketcdn.me/wp-content/uploads/2020/10/kiboTEK_oneplus_8t_014.png"
+                            UrlImage = "https://v9y9v6a3.rocketcdn.me/wp-content/uploads/2020/10/kiboTEK_oneplus_8t_014.png"
                         },
                         new
                         {
@@ -887,7 +902,7 @@ namespace BeFeira.Server.Migrations
                             StandID = 18,
                             Stock = 20,
                             SubCategoriaID = 39,
-                            urlImage = "https://s1.kuantokusta.pt/img_upload/produtos_comunicacoes/1315526_3_google-pixel-7-5g-6-3-8gb-128gb-obsidian.jpg"
+                            UrlImage = "https://s1.kuantokusta.pt/img_upload/produtos_comunicacoes/1315526_3_google-pixel-7-5g-6-3-8gb-128gb-obsidian.jpg"
                         },
                         new
                         {
@@ -899,7 +914,7 @@ namespace BeFeira.Server.Migrations
                             StandID = 18,
                             Stock = 8,
                             SubCategoriaID = 40,
-                            urlImage = "https://res.garmin.com/en/products/010-02173-02/v/cf-lg-b773b34a-f08b-4dd8-a905-2daf306f2e6f-1.jpg"
+                            UrlImage = "https://res.garmin.com/en/products/010-02173-02/v/cf-lg-b773b34a-f08b-4dd8-a905-2daf306f2e6f-1.jpg"
                         },
                         new
                         {
@@ -911,7 +926,7 @@ namespace BeFeira.Server.Migrations
                             StandID = 19,
                             Stock = 20,
                             SubCategoriaID = 75,
-                            urlImage = "https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/ipad-mini-finish-unselect-gallery-1-202207_FMT_WHH?wid=1280&hei=720&fmt=p-jpg&qlt=95&.v=1654903884450"
+                            UrlImage = "https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/ipad-mini-finish-unselect-gallery-1-202207_FMT_WHH?wid=1280&hei=720&fmt=p-jpg&qlt=95&.v=1654903884450"
                         },
                         new
                         {
@@ -923,7 +938,7 @@ namespace BeFeira.Server.Migrations
                             StandID = 19,
                             Stock = 20,
                             SubCategoriaID = 41,
-                            urlImage = "https://dlcdnwebimgs.asus.com/gain/55a72146-0976-465f-b270-8cc1b8c2fbfb/"
+                            UrlImage = "https://dlcdnwebimgs.asus.com/gain/55a72146-0976-465f-b270-8cc1b8c2fbfb/"
                         },
                         new
                         {
@@ -935,7 +950,7 @@ namespace BeFeira.Server.Migrations
                             StandID = 19,
                             Stock = 20,
                             SubCategoriaID = 42,
-                            urlImage = "https://cdn.mos.cms.futurecdn.net/KEAtgEBKMDZemgDfY4hB4Z.jpg"
+                            UrlImage = "https://cdn.mos.cms.futurecdn.net/KEAtgEBKMDZemgDfY4hB4Z.jpg"
                         },
                         new
                         {
@@ -947,7 +962,7 @@ namespace BeFeira.Server.Migrations
                             StandID = 19,
                             Stock = 20,
                             SubCategoriaID = 42,
-                            urlImage = "https://www.lg.com/pt/images/monitores/MD05851557/gallery/27BK55_Product-image_01_Desk.jpg"
+                            UrlImage = "https://www.lg.com/pt/images/monitores/MD05851557/gallery/27BK55_Product-image_01_Desk.jpg"
                         },
                         new
                         {
@@ -959,7 +974,7 @@ namespace BeFeira.Server.Migrations
                             StandID = 19,
                             Stock = 20,
                             SubCategoriaID = 75,
-                            urlImage = "https://cdn.weasy.io/users/xiaomi/catalog/xiaomi12_pink_01.png"
+                            UrlImage = "https://cdn.weasy.io/users/xiaomi/catalog/xiaomi12_pink_01.png"
                         },
                         new
                         {
@@ -971,7 +986,7 @@ namespace BeFeira.Server.Migrations
                             StandID = 4,
                             Stock = 15,
                             SubCategoriaID = 12,
-                            urlImage = "https://kbimages1-a.akamaihd.net/284e157b-e503-412b-8adb-ac90a07e69fc/353/569/90/False/all-your-perfects.jpg"
+                            UrlImage = "https://kbimages1-a.akamaihd.net/284e157b-e503-412b-8adb-ac90a07e69fc/353/569/90/False/all-your-perfects.jpg"
                         },
                         new
                         {
@@ -983,7 +998,7 @@ namespace BeFeira.Server.Migrations
                             StandID = 4,
                             Stock = 15,
                             SubCategoriaID = 88,
-                            urlImage = "https://img.bertrand.pt/images/dicionario-editora-da-lingua-portuguesa/NDV8MTI1Njk0fDIyNjI0ODgwfDE2NDg1NTIzMDgwMDA=/500x"
+                            UrlImage = "https://img.bertrand.pt/images/dicionario-editora-da-lingua-portuguesa/NDV8MTI1Njk0fDIyNjI0ODgwfDE2NDg1NTIzMDgwMDA=/500x"
                         },
                         new
                         {
@@ -995,7 +1010,7 @@ namespace BeFeira.Server.Migrations
                             StandID = 4,
                             Stock = 15,
                             SubCategoriaID = 12,
-                            urlImage = "https://img.wook.pt/images/uma-vida-ao-teu-lado-nicholas-sparks/MXwxNjkzNjcyOXwxMjU1NjY1MnwxNDQ0MzgzMzEyMDAw/500x"
+                            UrlImage = "https://img.wook.pt/images/uma-vida-ao-teu-lado-nicholas-sparks/MXwxNjkzNjcyOXwxMjU1NjY1MnwxNDQ0MzgzMzEyMDAw/500x"
                         },
                         new
                         {
@@ -1007,7 +1022,7 @@ namespace BeFeira.Server.Migrations
                             StandID = 4,
                             Stock = 15,
                             SubCategoriaID = 11,
-                            urlImage = "https://cdn.shopify.com/s/files/1/0450/0717/5837/products/image-1_85c1dfac-79f9-431e-b96b-7ab26d9de938_1024x1024.jpg?v=1636630533"
+                            UrlImage = "https://cdn.shopify.com/s/files/1/0450/0717/5837/products/image-1_85c1dfac-79f9-431e-b96b-7ab26d9de938_1024x1024.jpg?v=1636630533"
                         },
                         new
                         {
@@ -1019,7 +1034,7 @@ namespace BeFeira.Server.Migrations
                             StandID = 4,
                             Stock = 15,
                             SubCategoriaID = 11,
-                            urlImage = "https://static.fnac-static.com/multimedia/Images/PT/MC/72/cc/84/8703090/1540-1/tsp20160819200728/Divergente-Uma-Escolha-Pode-Te-Transformar-Trilogia-Divergente-Livro-1.jpg"
+                            UrlImage = "https://static.fnac-static.com/multimedia/Images/PT/MC/72/cc/84/8703090/1540-1/tsp20160819200728/Divergente-Uma-Escolha-Pode-Te-Transformar-Trilogia-Divergente-Livro-1.jpg"
                         },
                         new
                         {
@@ -1031,7 +1046,7 @@ namespace BeFeira.Server.Migrations
                             StandID = 4,
                             Stock = 5,
                             SubCategoriaID = 10,
-                            urlImage = "https://lirp.cdn-website.com/174487e2/dms3rep/multi/opt/exorcista-640w.jpeg"
+                            UrlImage = "https://lirp.cdn-website.com/174487e2/dms3rep/multi/opt/exorcista-640w.jpeg"
                         },
                         new
                         {
@@ -1043,7 +1058,7 @@ namespace BeFeira.Server.Migrations
                             StandID = 19,
                             Stock = 5,
                             SubCategoriaID = 76,
-                            urlImage = "https://www.ikea.com/my/en/images/products/vardagen-mug-dark-grey__0445777_pe596061_s5.jpg?f=s"
+                            UrlImage = "https://www.ikea.com/my/en/images/products/vardagen-mug-dark-grey__0445777_pe596061_s5.jpg?f=s"
                         },
                         new
                         {
@@ -1055,7 +1070,7 @@ namespace BeFeira.Server.Migrations
                             StandID = 41,
                             Stock = 10,
                             SubCategoriaID = 78,
-                            urlImage = "https://tm.ibxk.com.br/2014/05/19/19171133437584.jpg?ims=1200x675"
+                            UrlImage = "https://tm.ibxk.com.br/2014/05/19/19171133437584.jpg?ims=1200x675"
                         },
                         new
                         {
@@ -1067,7 +1082,7 @@ namespace BeFeira.Server.Migrations
                             StandID = 41,
                             Stock = 10,
                             SubCategoriaID = 78,
-                            urlImage = "https://www.dhresource.com/0x0/f2/albu/g17/M01/62/58/rBVa4l--dPmAatjtAAHi4lep_h4122.jpg"
+                            UrlImage = "https://www.dhresource.com/0x0/f2/albu/g17/M01/62/58/rBVa4l--dPmAatjtAAHi4lep_h4122.jpg"
                         },
                         new
                         {
@@ -1079,7 +1094,7 @@ namespace BeFeira.Server.Migrations
                             StandID = 41,
                             Stock = 10,
                             SubCategoriaID = 77,
-                            urlImage = "https://vafloc02.s3.amazonaws.com/isyn/images/f523/img-3664523-f.jpg"
+                            UrlImage = "https://vafloc02.s3.amazonaws.com/isyn/images/f523/img-3664523-f.jpg"
                         },
                         new
                         {
@@ -1091,7 +1106,7 @@ namespace BeFeira.Server.Migrations
                             StandID = 41,
                             Stock = 10,
                             SubCategoriaID = 77,
-                            urlImage = "https://planetabasketstore.com/images/detailed/20/Wilson_Evolution_FPB_Logo_Ball_601.png"
+                            UrlImage = "https://planetabasketstore.com/images/detailed/20/Wilson_Evolution_FPB_Logo_Ball_601.png"
                         },
                         new
                         {
@@ -1103,7 +1118,7 @@ namespace BeFeira.Server.Migrations
                             StandID = 41,
                             Stock = 10,
                             SubCategoriaID = 78,
-                            urlImage = "https://static.globalnoticias.pt/jn/image.jpg?brand=JN&type=generate&guid=9b616978-12cb-4535-8545-f4f80207d927&w=744&h=495&t=20221029122838"
+                            UrlImage = "https://static.globalnoticias.pt/jn/image.jpg?brand=JN&type=generate&guid=9b616978-12cb-4535-8545-f4f80207d927&w=744&h=495&t=20221029122838"
                         },
                         new
                         {
@@ -1115,7 +1130,7 @@ namespace BeFeira.Server.Migrations
                             StandID = 41,
                             Stock = 10,
                             SubCategoriaID = 77,
-                            urlImage = "https://www.thenextsole.com/storage/images/CD4991-400.png"
+                            UrlImage = "https://www.thenextsole.com/storage/images/CD4991-400.png"
                         },
                         new
                         {
@@ -1127,7 +1142,7 @@ namespace BeFeira.Server.Migrations
                             StandID = 14,
                             Stock = 7,
                             SubCategoriaID = 71,
-                            urlImage = "http://www.pluricosmetica.com/media/produtos/cache/face_800169_d7dbf-1200_1200.jpg"
+                            UrlImage = "http://www.pluricosmetica.com/media/produtos/cache/face_800169_d7dbf-1200_1200.jpg"
                         },
                         new
                         {
@@ -1139,7 +1154,7 @@ namespace BeFeira.Server.Migrations
                             StandID = 7,
                             Stock = 3,
                             SubCategoriaID = 60,
-                            urlImage = "http://cdn.shopify.com/s/files/1/0534/4418/2179/products/thumbnail_image7.jpg?v=1645455228"
+                            UrlImage = "http://cdn.shopify.com/s/files/1/0534/4418/2179/products/thumbnail_image7.jpg?v=1645455228"
                         },
                         new
                         {
@@ -1151,7 +1166,7 @@ namespace BeFeira.Server.Migrations
                             StandID = 7,
                             Stock = 3,
                             SubCategoriaID = 60,
-                            urlImage = "https://cdn1.jolicloset.com/imgr/full/2022/06/554264-1/gucci-marrom-outro-mala-de-viagem.jpg"
+                            UrlImage = "https://cdn1.jolicloset.com/imgr/full/2022/06/554264-1/gucci-marrom-outro-mala-de-viagem.jpg"
                         },
                         new
                         {
@@ -1163,7 +1178,7 @@ namespace BeFeira.Server.Migrations
                             StandID = 7,
                             Stock = 3,
                             SubCategoriaID = 60,
-                            urlImage = "https://www.misscath.com/op/image/?co=946841&h=59204"
+                            UrlImage = "https://www.misscath.com/op/image/?co=946841&h=59204"
                         },
                         new
                         {
@@ -1175,7 +1190,7 @@ namespace BeFeira.Server.Migrations
                             StandID = 7,
                             Stock = 10,
                             SubCategoriaID = 19,
-                            urlImage = "https://photos6.spartoo.pt/photos/817/8173562/8173562_500_A.jpg"
+                            UrlImage = "https://photos6.spartoo.pt/photos/817/8173562/8173562_500_A.jpg"
                         },
                         new
                         {
@@ -1187,7 +1202,7 @@ namespace BeFeira.Server.Migrations
                             StandID = 65,
                             Stock = 5,
                             SubCategoriaID = 79,
-                            urlImage = "http://cdn.shopify.com/s/files/1/0550/3657/5853/products/Air_Jordan_1_Low_Coconut_Milk-DC0774-121-0.png?v=1658831901"
+                            UrlImage = "http://cdn.shopify.com/s/files/1/0550/3657/5853/products/Air_Jordan_1_Low_Coconut_Milk-DC0774-121-0.png?v=1658831901"
                         },
                         new
                         {
@@ -1199,7 +1214,7 @@ namespace BeFeira.Server.Migrations
                             StandID = 65,
                             Stock = 5,
                             SubCategoriaID = 80,
-                            urlImage = "https://assets.adidas.com/images/w_600,f_auto,q_auto/6ef672a98ba34352b8c2aeb500d60995_9366/Sapatilhas_Forum_Low_Bege_H03475_09_standard.jpg"
+                            UrlImage = "https://assets.adidas.com/images/w_600,f_auto,q_auto/6ef672a98ba34352b8c2aeb500d60995_9366/Sapatilhas_Forum_Low_Bege_H03475_09_standard.jpg"
                         },
                         new
                         {
@@ -1211,7 +1226,7 @@ namespace BeFeira.Server.Migrations
                             StandID = 65,
                             Stock = 5,
                             SubCategoriaID = 80,
-                            urlImage = "http://cdn.shopify.com/s/files/1/0550/3657/5853/products/Yeezy_Boost_350_V2_Core_Black_Red-BY9612-0.png?v=1659523925"
+                            UrlImage = "http://cdn.shopify.com/s/files/1/0550/3657/5853/products/Yeezy_Boost_350_V2_Core_Black_Red-BY9612-0.png?v=1659523925"
                         },
                         new
                         {
@@ -1223,7 +1238,7 @@ namespace BeFeira.Server.Migrations
                             StandID = 65,
                             Stock = 5,
                             SubCategoriaID = 79,
-                            urlImage = "https://cdn-images.farfetch-contents.com/15/65/12/84/15651284_28537785_600.jpg"
+                            UrlImage = "https://cdn-images.farfetch-contents.com/15/65/12/84/15651284_28537785_600.jpg"
                         },
                         new
                         {
@@ -1235,7 +1250,7 @@ namespace BeFeira.Server.Migrations
                             StandID = 65,
                             Stock = 5,
                             SubCategoriaID = 80,
-                            urlImage = "https://houseofheat.co/app/uploads/2022/04/ksi-adidas-forum-hi-release-date-1.jpg"
+                            UrlImage = "https://houseofheat.co/app/uploads/2022/04/ksi-adidas-forum-hi-release-date-1.jpg"
                         },
                         new
                         {
@@ -1247,7 +1262,7 @@ namespace BeFeira.Server.Migrations
                             StandID = 65,
                             Stock = 5,
                             SubCategoriaID = 79,
-                            urlImage = "https://images.stockx.com/images/Nike-SB-Dunk-Low-Travis-Scott-Product.jpg?fit=fill&bg=FFFFFF&w=1200&h=857&fm=webp&auto=compress&dpr=2&trim=color&updated_at=1606325738&q=75"
+                            UrlImage = "https://images.stockx.com/images/Nike-SB-Dunk-Low-Travis-Scott-Product.jpg?fit=fill&bg=FFFFFF&w=1200&h=857&fm=webp&auto=compress&dpr=2&trim=color&updated_at=1606325738&q=75"
                         },
                         new
                         {
@@ -1259,7 +1274,7 @@ namespace BeFeira.Server.Migrations
                             StandID = 65,
                             Stock = 5,
                             SubCategoriaID = 80,
-                            urlImage = "https://i.ebayimg.com/images/g/BYwAAOxyeZNTTIIg/s-l400.jpg"
+                            UrlImage = "https://i.ebayimg.com/images/g/BYwAAOxyeZNTTIIg/s-l400.jpg"
                         },
                         new
                         {
@@ -1271,7 +1286,7 @@ namespace BeFeira.Server.Migrations
                             StandID = 65,
                             Stock = 5,
                             SubCategoriaID = 79,
-                            urlImage = "http://cdn.shopify.com/s/files/1/0550/3657/5853/products/SB_Dunk_Low_Ben_Jerry_s_Chunky_Dunky-CU3244-100-0.png?v=1658841197"
+                            UrlImage = "http://cdn.shopify.com/s/files/1/0550/3657/5853/products/SB_Dunk_Low_Ben_Jerry_s_Chunky_Dunky-CU3244-100-0.png?v=1658841197"
                         },
                         new
                         {
@@ -1283,7 +1298,7 @@ namespace BeFeira.Server.Migrations
                             StandID = 15,
                             Stock = 4,
                             SubCategoriaID = 72,
-                            urlImage = "https://www.utensilioscozinha.pt/5155-large_default/fritadeira-eletrica-profissional.jpg"
+                            UrlImage = "https://www.utensilioscozinha.pt/5155-large_default/fritadeira-eletrica-profissional.jpg"
                         },
                         new
                         {
@@ -1295,7 +1310,7 @@ namespace BeFeira.Server.Migrations
                             StandID = 15,
                             Stock = 4,
                             SubCategoriaID = 72,
-                            urlImage = "https://blog.kuantokusta.pt/wp-content/uploads/2021/11/Maquina-de-Cafe-Delonghi-Nespresso-Inissia-EN80-B.jpg"
+                            UrlImage = "https://blog.kuantokusta.pt/wp-content/uploads/2021/11/Maquina-de-Cafe-Delonghi-Nespresso-Inissia-EN80-B.jpg"
                         },
                         new
                         {
@@ -1307,7 +1322,7 @@ namespace BeFeira.Server.Migrations
                             StandID = 15,
                             Stock = 4,
                             SubCategoriaID = 72,
-                            urlImage = "https://www.homa.pt/on/demandware.static/-/Sites-homa-catalog/default/dwc29ab76c/images/large/447816_chaleira_eletrica_vintage_cuisine_menta_homa_1.jpg"
+                            UrlImage = "https://www.homa.pt/on/demandware.static/-/Sites-homa-catalog/default/dwc29ab76c/images/large/447816_chaleira_eletrica_vintage_cuisine_menta_homa_1.jpg"
                         },
                         new
                         {
@@ -1319,7 +1334,7 @@ namespace BeFeira.Server.Migrations
                             StandID = 15,
                             Stock = 4,
                             SubCategoriaID = 72,
-                            urlImage = "https://www.utensilioscozinha.pt/5083-large_default/tostadeira-eletrica-fatias-triangulares.jpg"
+                            UrlImage = "https://www.utensilioscozinha.pt/5083-large_default/tostadeira-eletrica-fatias-triangulares.jpg"
                         },
                         new
                         {
@@ -1331,7 +1346,7 @@ namespace BeFeira.Server.Migrations
                             StandID = 15,
                             Stock = 8,
                             SubCategoriaID = 73,
-                            urlImage = "https://www.electrofun.pt/27602-large_default/aspirador-robot-mi-vacuum-mop-essential-xiaomi.jpg"
+                            UrlImage = "https://www.electrofun.pt/27602-large_default/aspirador-robot-mi-vacuum-mop-essential-xiaomi.jpg"
                         },
                         new
                         {
@@ -1343,7 +1358,7 @@ namespace BeFeira.Server.Migrations
                             StandID = 15,
                             Stock = 8,
                             SubCategoriaID = 73,
-                            urlImage = "https://s2.glbimg.com/NzitoDQGhjN6--RWdU8z85QMKmw=/e.glbimg.com/og/ed/f/original/2018/12/21/lava__seca_samsung_wd4000_de_10.2kg.jpg"
+                            UrlImage = "https://s2.glbimg.com/NzitoDQGhjN6--RWdU8z85QMKmw=/e.glbimg.com/og/ed/f/original/2018/12/21/lava__seca_samsung_wd4000_de_10.2kg.jpg"
                         },
                         new
                         {
@@ -1355,7 +1370,7 @@ namespace BeFeira.Server.Migrations
                             StandID = 15,
                             Stock = 3,
                             SubCategoriaID = 73,
-                            urlImage = "https://whirlpool-cdn.thron.com/delivery/public/thumbnail/whirlpool/pi-743200f9-e158-441d-9d7e-f31d82618b87/jsind9/std/1000x1000/hfc-3c32-w-x-loi%C3%A7a.jpg?fill=zoom&fillcolor=rgba:255,255,255&scalemode=product"
+                            UrlImage = "https://whirlpool-cdn.thron.com/delivery/public/thumbnail/whirlpool/pi-743200f9-e158-441d-9d7e-f31d82618b87/jsind9/std/1000x1000/hfc-3c32-w-x-loi%C3%A7a.jpg?fill=zoom&fillcolor=rgba:255,255,255&scalemode=product"
                         },
                         new
                         {
@@ -1367,7 +1382,7 @@ namespace BeFeira.Server.Migrations
                             StandID = 66,
                             Stock = 2,
                             SubCategoriaID = 82,
-                            urlImage = "https://images.hermanmiller.group/m/29fc4b934cd7d34d/W-200210_HM_Embody_Gaming_Chair_063_F3_V3_transparent.png?trim=auto&trim-sd=1&blend-mode=none&blend=fafafa&bg=transparent&auto=format&w=1000&q=70&h=1000"
+                            UrlImage = "https://images.hermanmiller.group/m/29fc4b934cd7d34d/W-200210_HM_Embody_Gaming_Chair_063_F3_V3_transparent.png?trim=auto&trim-sd=1&blend-mode=none&blend=fafafa&bg=transparent&auto=format&w=1000&q=70&h=1000"
                         },
                         new
                         {
@@ -1379,7 +1394,7 @@ namespace BeFeira.Server.Migrations
                             StandID = 66,
                             Stock = 2,
                             SubCategoriaID = 82,
-                            urlImage = "https://spezzo.pt/wp-content/uploads/2020/11/aeron-Mineral_satin-mineral-1.jpg"
+                            UrlImage = "https://spezzo.pt/wp-content/uploads/2020/11/aeron-Mineral_satin-mineral-1.jpg"
                         },
                         new
                         {
@@ -1391,7 +1406,7 @@ namespace BeFeira.Server.Migrations
                             StandID = 66,
                             Stock = 2,
                             SubCategoriaID = 81,
-                            urlImage = "https://homycasa.pt/50669-thickbox_default/secretaria-gamer-com-luz-led.jpg"
+                            UrlImage = "https://homycasa.pt/50669-thickbox_default/secretaria-gamer-com-luz-led.jpg"
                         },
                         new
                         {
@@ -1403,7 +1418,7 @@ namespace BeFeira.Server.Migrations
                             StandID = 66,
                             Stock = 2,
                             SubCategoriaID = 83,
-                            urlImage = "https://www.ikea.com/pt/pt/images/products/vihals-modulo-de-arrumacao-branco__1048516_pe843777_s5.jpg?f=s"
+                            UrlImage = "https://www.ikea.com/pt/pt/images/products/vihals-modulo-de-arrumacao-branco__1048516_pe843777_s5.jpg?f=s"
                         },
                         new
                         {
@@ -1415,7 +1430,7 @@ namespace BeFeira.Server.Migrations
                             StandID = 66,
                             Stock = 4,
                             SubCategoriaID = 81,
-                            urlImage = "https://www.ikea.com/pt/pt/images/products/lagkapten-olov-secretaria-ef-carvalho-c-velatura-branca-branco__0977612_pe813682_s5.jpg?f=s"
+                            UrlImage = "https://www.ikea.com/pt/pt/images/products/lagkapten-olov-secretaria-ef-carvalho-c-velatura-branca-branco__0977612_pe813682_s5.jpg?f=s"
                         },
                         new
                         {
@@ -1427,7 +1442,7 @@ namespace BeFeira.Server.Migrations
                             StandID = 20,
                             Stock = 6,
                             SubCategoriaID = 87,
-                            urlImage = "https://resize.sprintercdn.com/o/products/ac52337c-b118-434c-ba97-b33a753ad982/bicicleta-infantil-spider-man-12-pulgadas-3-5-a-os_ac52337c-b118-434c-ba97-b33a753ad982_1_2107067539.jpg"
+                            UrlImage = "https://resize.sprintercdn.com/o/products/ac52337c-b118-434c-ba97-b33a753ad982/bicicleta-infantil-spider-man-12-pulgadas-3-5-a-os_ac52337c-b118-434c-ba97-b33a753ad982_1_2107067539.jpg"
                         },
                         new
                         {
@@ -1439,7 +1454,7 @@ namespace BeFeira.Server.Migrations
                             StandID = 20,
                             Stock = 6,
                             SubCategoriaID = 87,
-                            urlImage = "https://www.auchan.pt/dw/image/v2/BFRC_PRD/on/demandware.static/-/Sites-auchan-pt-master-catalog/default/dw95efa890/images/hi-res/003374633.jpg?sw=500&sh=500&sm=fit&bgcolor=FFFFFF"
+                            UrlImage = "https://www.auchan.pt/dw/image/v2/BFRC_PRD/on/demandware.static/-/Sites-auchan-pt-master-catalog/default/dw95efa890/images/hi-res/003374633.jpg?sw=500&sh=500&sm=fit&bgcolor=FFFFFF"
                         },
                         new
                         {
@@ -1451,7 +1466,7 @@ namespace BeFeira.Server.Migrations
                             StandID = 2,
                             Stock = 6,
                             SubCategoriaID = 4,
-                            urlImage = "https://www.sohorta.pt/wp-content/uploads/2018/12/frangosmigalha-1.png"
+                            UrlImage = "https://www.sohorta.pt/wp-content/uploads/2018/12/frangosmigalha-1.png"
                         },
                         new
                         {
@@ -1463,7 +1478,7 @@ namespace BeFeira.Server.Migrations
                             StandID = 2,
                             Stock = 10,
                             SubCategoriaID = 50,
-                            urlImage = "https://delibrave.pt/wp-content/uploads/2020/05/00066.jpg"
+                            UrlImage = "https://delibrave.pt/wp-content/uploads/2020/05/00066.jpg"
                         },
                         new
                         {
@@ -1475,7 +1490,7 @@ namespace BeFeira.Server.Migrations
                             StandID = 2,
                             Stock = 10,
                             SubCategoriaID = 50,
-                            urlImage = "https://static.wikia.nocookie.net/minecraft_gamepedia/images/0/04/Steak_JE4_BE3.png/revision/latest/scale-to-width-down/160?cb=20190504055306"
+                            UrlImage = "https://static.wikia.nocookie.net/minecraft_gamepedia/images/0/04/Steak_JE4_BE3.png/revision/latest/scale-to-width-down/160?cb=20190504055306"
                         },
                         new
                         {
@@ -1487,7 +1502,7 @@ namespace BeFeira.Server.Migrations
                             StandID = 2,
                             Stock = 10,
                             SubCategoriaID = 50,
-                            urlImage = "https://static.wikia.nocookie.net/minecraft_gamepedia/images/6/66/Cooked_Chicken_JE3_BE3.png/revision/latest?cb=20200430031305"
+                            UrlImage = "https://static.wikia.nocookie.net/minecraft_gamepedia/images/6/66/Cooked_Chicken_JE3_BE3.png/revision/latest?cb=20200430031305"
                         },
                         new
                         {
@@ -1499,7 +1514,7 @@ namespace BeFeira.Server.Migrations
                             StandID = 2,
                             Stock = 10,
                             SubCategoriaID = 50,
-                            urlImage = "https://static.wikia.nocookie.net/minecraft_gamepedia/images/9/9f/Cooked_Rabbit_JE2_BE1.png/revision/latest?cb=20190505050744"
+                            UrlImage = "https://static.wikia.nocookie.net/minecraft_gamepedia/images/9/9f/Cooked_Rabbit_JE2_BE1.png/revision/latest?cb=20190505050744"
                         },
                         new
                         {
@@ -1511,7 +1526,7 @@ namespace BeFeira.Server.Migrations
                             StandID = 2,
                             Stock = 8,
                             SubCategoriaID = 4,
-                            urlImage = "https://granjadecister.pt/1527-large_default/racao-cao-avenal-mix-20kg.jpg"
+                            UrlImage = "https://granjadecister.pt/1527-large_default/racao-cao-avenal-mix-20kg.jpg"
                         },
                         new
                         {
@@ -1523,7 +1538,7 @@ namespace BeFeira.Server.Migrations
                             StandID = 2,
                             Stock = 8,
                             SubCategoriaID = 4,
-                            urlImage = "https://www.auchan.pt/dw/image/v2/BFRC_PRD/on/demandware.static/-/Sites-auchan-pt-master-catalog/default/dw380f6669/images/hi-res/003036197.jpg?sw=500&sh=500&sm=fit&bgcolor=FFFFFF"
+                            UrlImage = "https://www.auchan.pt/dw/image/v2/BFRC_PRD/on/demandware.static/-/Sites-auchan-pt-master-catalog/default/dw380f6669/images/hi-res/003036197.jpg?sw=500&sh=500&sm=fit&bgcolor=FFFFFF"
                         },
                         new
                         {
@@ -1535,7 +1550,7 @@ namespace BeFeira.Server.Migrations
                             StandID = 5,
                             Stock = 2,
                             SubCategoriaID = 13,
-                            urlImage = "https://www.motor24.pt/files/2018/08/IMG_20180630_143131_Easy-Resize.com_-1.jpg"
+                            UrlImage = "https://www.motor24.pt/files/2018/08/IMG_20180630_143131_Easy-Resize.com_-1.jpg"
                         },
                         new
                         {
@@ -1547,7 +1562,7 @@ namespace BeFeira.Server.Migrations
                             StandID = 8,
                             Stock = 3,
                             SubCategoriaID = 21,
-                            urlImage = "https://depositocristina.com/wp-content/uploads/2022/03/918054a62bad62a09d953c675bda92e6.jpg"
+                            UrlImage = "https://depositocristina.com/wp-content/uploads/2022/03/918054a62bad62a09d953c675bda92e6.jpg"
                         },
                         new
                         {
@@ -1559,7 +1574,7 @@ namespace BeFeira.Server.Migrations
                             StandID = 43,
                             Stock = 5,
                             SubCategoriaID = 86,
-                            urlImage = "https://moveistore.com/wp-content/uploads/2022/04/Cadeira-de-Exterior-Trinity5.jpg"
+                            UrlImage = "https://moveistore.com/wp-content/uploads/2022/04/Cadeira-de-Exterior-Trinity5.jpg"
                         },
                         new
                         {
@@ -1571,7 +1586,7 @@ namespace BeFeira.Server.Migrations
                             StandID = 44,
                             Stock = 20,
                             SubCategoriaID = 84,
-                            urlImage = "https://amoraospets.com/wp-content/uploads/2018/04/royal-canin.png"
+                            UrlImage = "https://amoraospets.com/wp-content/uploads/2018/04/royal-canin.png"
                         },
                         new
                         {
@@ -1583,7 +1598,7 @@ namespace BeFeira.Server.Migrations
                             StandID = 44,
                             Stock = 15,
                             SubCategoriaID = 85,
-                            urlImage = "https://www.agromogiana.com.br/wp-content/uploads/2022/05/frango.jpg"
+                            UrlImage = "https://www.agromogiana.com.br/wp-content/uploads/2022/05/frango.jpg"
                         });
                 });
 
@@ -1614,7 +1629,7 @@ namespace BeFeira.Server.Migrations
                         new
                         {
                             ID = 1,
-                            Date = new DateTime(2023, 1, 15, 14, 12, 36, 879, DateTimeKind.Local).AddTicks(4521),
+                            Date = new DateTime(2023, 1, 15, 15, 4, 4, 845, DateTimeKind.Local).AddTicks(6775),
                             Desconto = 10,
                             ProdutoID = 1
                         });
@@ -2691,14 +2706,14 @@ namespace BeFeira.Server.Migrations
                         {
                             ID = 1,
                             CarrinhoID = 1,
-                            Date = new DateTime(2023, 1, 15, 14, 12, 36, 879, DateTimeKind.Local).AddTicks(4576),
+                            Date = new DateTime(2023, 1, 15, 15, 4, 4, 845, DateTimeKind.Local).AddTicks(6822),
                             Total = 0f
                         },
                         new
                         {
                             ID = 2,
                             CarrinhoID = 2,
-                            Date = new DateTime(2023, 1, 15, 14, 12, 36, 879, DateTimeKind.Local).AddTicks(4580),
+                            Date = new DateTime(2023, 1, 15, 15, 4, 4, 845, DateTimeKind.Local).AddTicks(6826),
                             Total = 0f
                         });
                 });
@@ -2782,6 +2797,9 @@ namespace BeFeira.Server.Migrations
                     b.Property<int>("Rating")
                         .HasColumnType("int");
 
+                    b.Property<string>("UrlImage")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Username")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -2799,6 +2817,7 @@ namespace BeFeira.Server.Migrations
                             Mbway = "964888999",
                             Password = "0040",
                             Rating = 9,
+                            UrlImage = "https://cdn-icons-png.flaticon.com/512/5087/5087579.png",
                             Username = "Lucas"
                         },
                         new
@@ -2809,6 +2828,7 @@ namespace BeFeira.Server.Migrations
                             Mbway = "972822895",
                             Password = "0181",
                             Rating = 6,
+                            UrlImage = "https://cdn-icons-png.flaticon.com/512/5087/5087579.png",
                             Username = "Jonny"
                         },
                         new
@@ -2819,6 +2839,7 @@ namespace BeFeira.Server.Migrations
                             Mbway = "964457999",
                             Password = "2030",
                             Rating = 7,
+                            UrlImage = "https://cdn-icons-png.flaticon.com/512/5087/5087579.png",
                             Username = "Ema"
                         },
                         new
@@ -2829,6 +2850,7 @@ namespace BeFeira.Server.Migrations
                             Mbway = "932823894",
                             Password = "1161",
                             Rating = 8,
+                            UrlImage = "https://cdn-icons-png.flaticon.com/512/5087/5087579.png",
                             Username = "Diana"
                         },
                         new
@@ -2839,6 +2861,7 @@ namespace BeFeira.Server.Migrations
                             Mbway = "925679969",
                             Password = "0340",
                             Rating = 9,
+                            UrlImage = "https://cdn-icons-png.flaticon.com/512/5087/5087579.png",
                             Username = "Jordi Alba"
                         },
                         new
@@ -2849,6 +2872,7 @@ namespace BeFeira.Server.Migrations
                             Mbway = "923852594",
                             Password = "8481",
                             Rating = 2,
+                            UrlImage = "https://cdn-icons-png.flaticon.com/512/5087/5087579.png",
                             Username = "Marcelo"
                         },
                         new
@@ -2859,6 +2883,7 @@ namespace BeFeira.Server.Migrations
                             Mbway = "964646797",
                             Password = "9039",
                             Rating = 5,
+                            UrlImage = "https://cdn-icons-png.flaticon.com/512/5087/5087579.png",
                             Username = "Puskas"
                         },
                         new
@@ -2869,6 +2894,7 @@ namespace BeFeira.Server.Migrations
                             Mbway = "937733894",
                             Password = "3131",
                             Rating = 10,
+                            UrlImage = "https://cdn-icons-png.flaticon.com/512/5087/5087579.png",
                             Username = "Eusébio"
                         });
                 });
