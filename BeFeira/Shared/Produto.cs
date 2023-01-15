@@ -19,7 +19,7 @@ namespace BeFeira.Shared
         public int Stock { get; set; } = 0;
         public int Rating { get; set; } = 0;
 
-        public string? urlImage { get; set; } = "https://www.freepnglogos.com/uploads/box-png/box-png-transparent-google-objects-pinterest-9.png";
+        public string? UrlImage { get; set; } = "https://www.freepnglogos.com/uploads/box-png/box-png-transparent-google-objects-pinterest-9.png";
 
         [ForeignKey("Subcategoria")]
         public int? SubCategoriaID { get; set; }

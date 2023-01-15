@@ -38,7 +38,8 @@ namespace BeFeira.Server.Migrations
                     Username = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Password = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    urlProfilePic = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    Total = table.Column<int>(type: "int", nullable: false),
+                    UrlProfilePic = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -69,6 +70,7 @@ namespace BeFeira.Server.Migrations
                     Username = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Password = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Rating = table.Column<int>(type: "int", nullable: false),
+                    UrlImage = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Email = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
@@ -171,7 +173,7 @@ namespace BeFeira.Server.Migrations
                     Promocao = table.Column<int>(type: "int", nullable: false),
                     Stock = table.Column<int>(type: "int", nullable: false),
                     Rating = table.Column<int>(type: "int", nullable: false),
-                    urlImage = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    UrlImage = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     SubCategoriaID = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
@@ -268,31 +270,31 @@ namespace BeFeira.Server.Migrations
                 columns: new[] { "ID", "Created_at", "Password", "Updated_at", "Username" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(2023, 1, 15, 12, 2, 26, 701, DateTimeKind.Local).AddTicks(4698), "1234", new DateTime(2023, 1, 15, 12, 2, 26, 701, DateTimeKind.Local).AddTicks(4762), "Bernas" },
-                    { 2, new DateTime(2023, 1, 15, 12, 2, 26, 701, DateTimeKind.Local).AddTicks(4769), "2345", new DateTime(2023, 1, 15, 12, 2, 26, 701, DateTimeKind.Local).AddTicks(4771), "Cebolinha" },
-                    { 3, new DateTime(2023, 1, 15, 12, 2, 26, 701, DateTimeKind.Local).AddTicks(4775), "3456", new DateTime(2023, 1, 15, 12, 2, 26, 701, DateTimeKind.Local).AddTicks(4777), "Sergio" },
-                    { 4, new DateTime(2023, 1, 15, 12, 2, 26, 701, DateTimeKind.Local).AddTicks(4781), "1134", new DateTime(2023, 1, 15, 12, 2, 26, 701, DateTimeKind.Local).AddTicks(4783), "Anastásia" },
-                    { 5, new DateTime(2023, 1, 15, 12, 2, 26, 701, DateTimeKind.Local).AddTicks(4787), "2245", new DateTime(2023, 1, 15, 12, 2, 26, 701, DateTimeKind.Local).AddTicks(4790), "Rodri" },
-                    { 6, new DateTime(2023, 1, 15, 12, 2, 26, 701, DateTimeKind.Local).AddTicks(4793), "3453", new DateTime(2023, 1, 15, 12, 2, 26, 701, DateTimeKind.Local).AddTicks(4796), "Jairzinho" }
+                    { 1, new DateTime(2023, 1, 15, 14, 10, 7, 746, DateTimeKind.Local).AddTicks(7318), "1234", new DateTime(2023, 1, 15, 14, 10, 7, 746, DateTimeKind.Local).AddTicks(7372), "Bernas" },
+                    { 2, new DateTime(2023, 1, 15, 14, 10, 7, 746, DateTimeKind.Local).AddTicks(7379), "2345", new DateTime(2023, 1, 15, 14, 10, 7, 746, DateTimeKind.Local).AddTicks(7380), "Cebolinha" },
+                    { 3, new DateTime(2023, 1, 15, 14, 10, 7, 746, DateTimeKind.Local).AddTicks(7382), "3456", new DateTime(2023, 1, 15, 14, 10, 7, 746, DateTimeKind.Local).AddTicks(7383), "Sergio" },
+                    { 4, new DateTime(2023, 1, 15, 14, 10, 7, 746, DateTimeKind.Local).AddTicks(7385), "1134", new DateTime(2023, 1, 15, 14, 10, 7, 746, DateTimeKind.Local).AddTicks(7386), "Anastásia" },
+                    { 5, new DateTime(2023, 1, 15, 14, 10, 7, 746, DateTimeKind.Local).AddTicks(7388), "2245", new DateTime(2023, 1, 15, 14, 10, 7, 746, DateTimeKind.Local).AddTicks(7389), "Rodri" },
+                    { 6, new DateTime(2023, 1, 15, 14, 10, 7, 746, DateTimeKind.Local).AddTicks(7391), "3453", new DateTime(2023, 1, 15, 14, 10, 7, 746, DateTimeKind.Local).AddTicks(7392), "Jairzinho" }
                 });
 
             migrationBuilder.InsertData(
                 table: "Cliente",
-                columns: new[] { "ID", "Email", "Password", "Username", "urlProfilePic" },
+                columns: new[] { "ID", "Email", "Password", "Total", "UrlProfilePic", "Username" },
                 values: new object[,]
                 {
-                    { 1, "a1@uminho.pt", "sporting", "Pedro", "https://cdn-icons-png.flaticon.com/512/5087/5087579.png" },
-                    { 2, "a2@uminho.pt", "benfica", "João", "https://cdn-icons-png.flaticon.com/512/5087/5087579.png" },
-                    { 3, "a3@uminho.pt", "porto", "Zé", "https://cdn-icons-png.flaticon.com/512/5087/5087579.png" },
-                    { 4, "a4@uminho.pt", "sporting11", "Ana", "https://cdn-icons-png.flaticon.com/512/5087/5087579.png" },
-                    { 5, "a5@uminho.pt", "benfica11", "Ivo", "https://cdn-icons-png.flaticon.com/512/5087/5087579.png" },
-                    { 6, "a6@uminho.pt", "porto11", "Nestor", "https://cdn-icons-png.flaticon.com/512/5087/5087579.png" },
-                    { 7, "a7@uminho.pt", "sporting22", "Paulo", "https://cdn-icons-png.flaticon.com/512/5087/5087579.png" },
-                    { 8, "a8@uminho.pt", "benfica22", "Bruno", "https://cdn-icons-png.flaticon.com/512/5087/5087579.png" },
-                    { 9, "a9@uminho.pt", "porto22", "Rui", "https://cdn-icons-png.flaticon.com/512/5087/5087579.png" },
-                    { 10, "a10@uminho.pt", "sporting33", "Francisca", "https://cdn-icons-png.flaticon.com/512/5087/5087579.png" },
-                    { 11, "a11@uminho.pt", "benfica33", "Patricia", "https://cdn-icons-png.flaticon.com/512/5087/5087579.png" },
-                    { 12, "a12@uminho.pt", "porto33", "Luis", "https://cdn-icons-png.flaticon.com/512/5087/5087579.png" }
+                    { 1, "a1@uminho.pt", "sporting", 0, "https://cdn-icons-png.flaticon.com/512/5087/5087579.png", "Pedro" },
+                    { 2, "a2@uminho.pt", "benfica", 0, "https://cdn-icons-png.flaticon.com/512/5087/5087579.png", "João" },
+                    { 3, "a3@uminho.pt", "porto", 0, "https://cdn-icons-png.flaticon.com/512/5087/5087579.png", "Zé" },
+                    { 4, "a4@uminho.pt", "sporting11", 0, "https://cdn-icons-png.flaticon.com/512/5087/5087579.png", "Ana" },
+                    { 5, "a5@uminho.pt", "benfica11", 0, "https://cdn-icons-png.flaticon.com/512/5087/5087579.png", "Ivo" },
+                    { 6, "a6@uminho.pt", "porto11", 0, "https://cdn-icons-png.flaticon.com/512/5087/5087579.png", "Nestor" },
+                    { 7, "a7@uminho.pt", "sporting22", 0, "https://cdn-icons-png.flaticon.com/512/5087/5087579.png", "Paulo" },
+                    { 8, "a8@uminho.pt", "benfica22", 0, "https://cdn-icons-png.flaticon.com/512/5087/5087579.png", "Bruno" },
+                    { 9, "a9@uminho.pt", "porto22", 0, "https://cdn-icons-png.flaticon.com/512/5087/5087579.png", "Rui" },
+                    { 10, "a10@uminho.pt", "sporting33", 0, "https://cdn-icons-png.flaticon.com/512/5087/5087579.png", "Francisca" },
+                    { 11, "a11@uminho.pt", "benfica33", 0, "https://cdn-icons-png.flaticon.com/512/5087/5087579.png", "Patricia" },
+                    { 12, "a12@uminho.pt", "porto33", 0, "https://cdn-icons-png.flaticon.com/512/5087/5087579.png", "Luis" }
                 });
 
             migrationBuilder.InsertData(
@@ -325,17 +327,17 @@ namespace BeFeira.Server.Migrations
 
             migrationBuilder.InsertData(
                 table: "Vendedor",
-                columns: new[] { "ID", "Email", "Iban", "Mbway", "Password", "Rating", "Username" },
+                columns: new[] { "ID", "Email", "Iban", "Mbway", "Password", "Rating", "UrlImage", "Username" },
                 values: new object[,]
                 {
-                    { 1, "a13@uminho.pt", "1113231", "964888999", "0040", 9, "Lucas" },
-                    { 2, "a14@uminho.pt", "3453661", "972822895", "0181", 6, "Jonny" },
-                    { 3, "a15@uminho.pt", "8142831", "964457999", "2030", 7, "Ema" },
-                    { 4, "a16@uminho.pt", "7403061", "932823894", "1161", 8, "Diana" },
-                    { 5, "a17@uminho.pt", "1213221", "925679969", "0340", 9, "Jordi Alba" },
-                    { 6, "a18@uminho.pt", "5333161", "923852594", "8481", 2, "Marcelo" },
-                    { 7, "a19@uminho.pt", "0102831", "964646797", "9039", 5, "Puskas" },
-                    { 8, "a20@uminho.pt", "6003261", "937733894", "3131", 10, "Eusébio" }
+                    { 1, "a13@uminho.pt", "1113231", "964888999", "0040", 9, "https://cdn-icons-png.flaticon.com/512/5087/5087579.png", "Lucas" },
+                    { 2, "a14@uminho.pt", "3453661", "972822895", "0181", 6, "https://cdn-icons-png.flaticon.com/512/5087/5087579.png", "Jonny" },
+                    { 3, "a15@uminho.pt", "8142831", "964457999", "2030", 7, "https://cdn-icons-png.flaticon.com/512/5087/5087579.png", "Ema" },
+                    { 4, "a16@uminho.pt", "7403061", "932823894", "1161", 8, "https://cdn-icons-png.flaticon.com/512/5087/5087579.png", "Diana" },
+                    { 5, "a17@uminho.pt", "1213221", "925679969", "0340", 9, "https://cdn-icons-png.flaticon.com/512/5087/5087579.png", "Jordi Alba" },
+                    { 6, "a18@uminho.pt", "5333161", "923852594", "8481", 2, "https://cdn-icons-png.flaticon.com/512/5087/5087579.png", "Marcelo" },
+                    { 7, "a19@uminho.pt", "0102831", "964646797", "9039", 5, "https://cdn-icons-png.flaticon.com/512/5087/5087579.png", "Puskas" },
+                    { 8, "a20@uminho.pt", "6003261", "937733894", "3131", 10, "https://cdn-icons-png.flaticon.com/512/5087/5087579.png", "Eusébio" }
                 });
 
             migrationBuilder.InsertData(
@@ -521,13 +523,13 @@ namespace BeFeira.Server.Migrations
                 columns: new[] { "ID", "CarrinhoID", "Date", "Total" },
                 values: new object[,]
                 {
-                    { 1, 1, new DateTime(2023, 1, 15, 12, 2, 26, 701, DateTimeKind.Local).AddTicks(5809), 0f },
-                    { 2, 2, new DateTime(2023, 1, 15, 12, 2, 26, 701, DateTimeKind.Local).AddTicks(5814), 0f }
+                    { 1, 1, new DateTime(2023, 1, 15, 14, 10, 7, 746, DateTimeKind.Local).AddTicks(8028), 0f },
+                    { 2, 2, new DateTime(2023, 1, 15, 14, 10, 7, 746, DateTimeKind.Local).AddTicks(8032), 0f }
                 });
 
             migrationBuilder.InsertData(
                 table: "Produto",
-                columns: new[] { "ID", "Nome_Produto", "Preco", "Promocao", "Rating", "StandID", "Stock", "SubCategoriaID", "urlImage" },
+                columns: new[] { "ID", "Nome_Produto", "Preco", "Promocao", "Rating", "StandID", "Stock", "SubCategoriaID", "UrlImage" },
                 values: new object[,]
                 {
                     { 1, "Maçãs", 0.59f, 0, 4, 24, 12, 74, "https://www.imagensempng.com.br/wp-content/uploads/2021/07/Maca-Png.png" },
@@ -636,7 +638,7 @@ namespace BeFeira.Server.Migrations
             migrationBuilder.InsertData(
                 table: "Promocao",
                 columns: new[] { "ID", "Date", "Desconto", "ProdutoID" },
-                values: new object[] { 1, new DateTime(2023, 1, 15, 12, 2, 26, 701, DateTimeKind.Local).AddTicks(5732), 10, 1 });
+                values: new object[] { 1, new DateTime(2023, 1, 15, 14, 10, 7, 746, DateTimeKind.Local).AddTicks(7970), 10, 1 });
 
             migrationBuilder.InsertData(
                 table: "VendaProduto",
