@@ -10,38 +10,42 @@
     <link rel="stylesheet" href="css/mainpage.css">
 
     <img src="logo.png" @onclick="(()=>gomain())" alt="BeFeira Logo">
-    <div class="user_header_info">
-        <h1>@client.Username</h1>
-        <i class="fa-solid fa-cart-shopping"></i>
-    </div>
     <i class="fa-solid fa-circle-user"></i>
 </header>
 
-<PageTitle> User Info</PageTitle>
-<body class="client_container">
+<div class="client_container">
 
-    <div class="client_basic_info" style="height : fit-content">
-        <div  class="client_section">
-            <i class="fas fa-user"></i>
-            <i class="nome_client"> <b> @client.Username</b></i>
+    <div class="client_left">
+
+        <div style="display: flex;margin-top: 35px;">
+            <p><i class="fas fa-user"></i>@String.Format("Username: {0}", client.Username)</p>
+        </div>
+
+        <div style="display: flex">
+            <p><i class="fas fa-envelope"></i>@String.Format("E-mail: {0}", client.Email)</p>
+        </div>
+
+        <div style="display: flex">
+            <p><i class="fa-solid fa-dollar-sign"></i>Dinheiro gasto na app: não feito ainda</p>
         </div>
         
-        <div class="client_section">
-            <i class="fas fa-envelope"></i>
-            <i class="email_client"> <b>@client.Email</b></i>
-        </div>
-        
+        <button class="log_off"><i class="fa-solid fa-right-from-bracket" @onclick="(()=>gologin())" alt=""></i></button>
+    </div>
 
-        <button class="u"><i class="fa-solid fa-right-from-bracket" @onclick="(()=>gologin())" alt=""></i></button>
+    <div class="client_right">
+
+        <img src="https://b.thumbs.redditmedia.com/klUQFMPkP2rYF45UEQ51gfvC3MB4YQy6525vE1s2kMg.jpg" />
 
     </div>
 
+</div>
 
-</body>
+<button class="log_off"><i class="fa-solid fa-right-from-bracket" @onclick="(()=>gologin())" alt=""></i></button>
 
 
 
 @code {
+    
     [Parameter]
     public int? idcliente { get; set; }
     public Cliente client = new Cliente{ };
