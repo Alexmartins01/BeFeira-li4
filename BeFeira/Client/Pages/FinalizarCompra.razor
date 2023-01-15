@@ -10,8 +10,8 @@
 <header>
     <link rel="stylesheet" href="icons/icons/css/all.css">
     <link rel="stylesheet" href="css/Login.css">
-    <img src="logo.png" alt="BeFeira Logo">
-    <i class="fa-solid fa-circle-user"></i>
+    <img src="logo.png" @onclick="(()=>gomain())" alt="BeFeira Logo">
+    <button class="u"><i class="fa-solid fa-circle-user" @onclick="(()=>gouser())" alt=""></i></button>
 </header>
 
 <body>
@@ -23,16 +23,19 @@
                     <div>Realizar pagamento</div>
                         <div class="input-boxes">
                             <div class="input-box">
-                                <input type="text" placeholder="MBWay ou Iban" @bind-value =c.Pagamento required>
+                                <i class="fa-solid fa-money-bill-transfer"></i><input type="text" placeholder="MBWay ou Iban" @bind-value=c.Pagamento required>
                             </div>
                             <div class="input-box">
-                                <input type="text" placeholder="Morada" @bind-value=c.Morada required>
+                                <i class="fa-solid fa-house"></i> <input type="text" placeholder="Morada" @bind-value=c.Morada required>
                             </div>
             
                             <div class="button input-box">
                                 <input type="submit"@onclick="compra" value="Comprar">
                             </div>
                            
+                        </div>
+                        <div class="Total">
+                            <p><i class="fa-solid fa-barcode"></i> @kart.Total €</p>
                         </div>
                 </div>
             </div>
@@ -54,6 +57,8 @@
 
     private Venda c = new Venda { };
 
+    private Carrinho kart = new Carrinho{ };
+
 
 
     protected override async Task OnInitializedAsync()
@@ -70,6 +75,18 @@
             Cliente cli = await ClientService.GetSingleCliente((int)idcli);
             uname = cli.Username;
 
+        }
+    }
+
+    protected override async Task OnParametersSetAsync()
+    {
+        if (idkart == null)
+        {
+
+        }
+        else
+        {
+            kart = await CarrinhoService.GetsingleCarrinho((int)idkart);
 
         }
     }
@@ -92,6 +109,16 @@
         await VendaService.AddVenda(c);
         await CarrinhoProdService.deleteprodutoskart((int)idkart);
         NavigationManager.NavigateTo($"/mainpage/{idcli}");
+    }
+
+    void gouser()
+    {
+        NavigationManager.NavigateTo($"userinfo/{idcli}");
+    }
+
+    void gomain()
+    {
+        NavigationManager.NavigateTo($"mainpage/{idcli}");
     }
 
 }
