@@ -249,11 +249,11 @@ body {
 }
 
     .produtos_stand_container .produto_basic_info {
-        flex: 0 0 15%;
+        flex: 0 0 16%;
         text-align: center;
         border: 2px solid darkred;
         border-radius: 15px;
-        margin: 0 200px 0px 200px;
+        margin: 0 12px 12px 12px;
         
         background-color: white;
         height: 240px;
