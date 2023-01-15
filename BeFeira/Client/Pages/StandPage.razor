@@ -108,7 +108,7 @@
     }
     void gomain()
     {
-        NavigationManager.NavigateTo("mainpage");
+        NavigationManager.NavigateTo($"mainpage/{idcliente}");
     }
 
     void showProdInfo(int subcat,int prod)
@@ -117,7 +117,7 @@
     }
     void ShowKart()
     {
-        NavigationManager.NavigateTo($"/carrinhopage/{idcliente}");
+        NavigationManager.NavigateTo($"/carrinhopage/{idcliente}/{idbarraca}/{idfeira}/standpage");
     }
 
     void gouser()

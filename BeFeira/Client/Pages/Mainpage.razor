@@ -11,7 +11,7 @@
 
     <img src="logo.png" alt="BeFeira Logo">
     <div class="user_header_info">
-        <h1>@uname</h1>
+        <h1> Bem Vindo ao Befeira ,@uname</h1>
         <i class="fa-solid fa-cart-shopping" @onclick="(()=>ShowKart())"></i>
     </div>
     <button class="u"><i class="fa-solid fa-circle-user" @onclick="(()=>gouser())" alt=""></i></button>
@@ -163,6 +163,6 @@
 
     void ShowKart()
     {
-        NavigationManager.NavigateTo($"/carrinhopage/{idcliente}");
+        NavigationManager.NavigateTo($"/carrinhopage/{idcliente}/mainpage");
     }
 }
