@@ -132,7 +132,13 @@
         if (idcliente!=-1){
         if (k > 0)
         {
-            CarrinhoProduto a = new CarrinhoProduto { CarrinhoID = k, ProdutoID = p.ID, Quantidade = 1, Preco = p.Preco, TaxaBefeira = 10 };
+                float auxiliar = p.Preco;
+                if (p.Promocao != 0)
+                {
+                    auxiliar = (p.Preco * (1 - (float)p.Promocao / 100));
+                }
+
+            CarrinhoProduto a = new CarrinhoProduto { CarrinhoID = k, ProdutoID = p.ID, Quantidade = 1, Preco = auxiliar, TaxaBefeira = 10 };
             await CarrinhoProdService.AddCarrinhoProduto(a);
                 Carrinho novo = await CarrinhoService.GetsingleCarrinho(k);
                // decimal aux = novo.Total;
@@ -142,10 +148,15 @@
         }
         else
         {
-               Carrinho novo = new Carrinho { ClienteID = idcliente, Total = (decimal)p.Preco };
+                float auxiliar = p.Preco;
+                if (p.Promocao != 0)
+                {
+                    auxiliar = (p.Preco * (1 - (float)p.Promocao / 100));
+                }
+               Carrinho novo = new Carrinho { ClienteID = idcliente, Total = (decimal)auxiliar };
             await CarrinhoService.AddCarrinho(novo);
             k = await CarrinhoService.ExistsCarrinho((int)idcliente);
-            CarrinhoProduto a = new CarrinhoProduto { CarrinhoID = k, ProdutoID = p.ID, Quantidade = 1, Preco = p.Preco, TaxaBefeira = 10 };
+            CarrinhoProduto a = new CarrinhoProduto { CarrinhoID = k, ProdutoID = p.ID, Quantidade = 1, Preco = auxiliar, TaxaBefeira = 10 };
             await CarrinhoProdService.AddCarrinhoProduto(a);
         }
         }

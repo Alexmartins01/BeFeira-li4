@@ -52,49 +52,49 @@ namespace BeFeira.Server.Migrations
                         new
                         {
                             ID = 1,
-                            Createdat = new DateTime(2023, 1, 15, 15, 4, 4, 845, DateTimeKind.Local).AddTicks(6143),
+                            Createdat = new DateTime(2023, 1, 15, 16, 11, 32, 655, DateTimeKind.Local).AddTicks(1132),
                             Password = "1234",
-                            Updatedat = new DateTime(2023, 1, 15, 15, 4, 4, 845, DateTimeKind.Local).AddTicks(6192),
+                            Updatedat = new DateTime(2023, 1, 15, 16, 11, 32, 655, DateTimeKind.Local).AddTicks(1177),
                             Username = "Bernas"
                         },
                         new
                         {
                             ID = 2,
-                            Createdat = new DateTime(2023, 1, 15, 15, 4, 4, 845, DateTimeKind.Local).AddTicks(6195),
+                            Createdat = new DateTime(2023, 1, 15, 16, 11, 32, 655, DateTimeKind.Local).AddTicks(1180),
                             Password = "2345",
-                            Updatedat = new DateTime(2023, 1, 15, 15, 4, 4, 845, DateTimeKind.Local).AddTicks(6196),
+                            Updatedat = new DateTime(2023, 1, 15, 16, 11, 32, 655, DateTimeKind.Local).AddTicks(1181),
                             Username = "Cebolinha"
                         },
                         new
                         {
                             ID = 3,
-                            Createdat = new DateTime(2023, 1, 15, 15, 4, 4, 845, DateTimeKind.Local).AddTicks(6198),
+                            Createdat = new DateTime(2023, 1, 15, 16, 11, 32, 655, DateTimeKind.Local).AddTicks(1183),
                             Password = "3456",
-                            Updatedat = new DateTime(2023, 1, 15, 15, 4, 4, 845, DateTimeKind.Local).AddTicks(6200),
+                            Updatedat = new DateTime(2023, 1, 15, 16, 11, 32, 655, DateTimeKind.Local).AddTicks(1184),
                             Username = "Sergio"
                         },
                         new
                         {
                             ID = 4,
-                            Createdat = new DateTime(2023, 1, 15, 15, 4, 4, 845, DateTimeKind.Local).AddTicks(6202),
+                            Createdat = new DateTime(2023, 1, 15, 16, 11, 32, 655, DateTimeKind.Local).AddTicks(1186),
                             Password = "1134",
-                            Updatedat = new DateTime(2023, 1, 15, 15, 4, 4, 845, DateTimeKind.Local).AddTicks(6203),
+                            Updatedat = new DateTime(2023, 1, 15, 16, 11, 32, 655, DateTimeKind.Local).AddTicks(1187),
                             Username = "Anastásia"
                         },
                         new
                         {
                             ID = 5,
-                            Createdat = new DateTime(2023, 1, 15, 15, 4, 4, 845, DateTimeKind.Local).AddTicks(6205),
+                            Createdat = new DateTime(2023, 1, 15, 16, 11, 32, 655, DateTimeKind.Local).AddTicks(1189),
                             Password = "2245",
-                            Updatedat = new DateTime(2023, 1, 15, 15, 4, 4, 845, DateTimeKind.Local).AddTicks(6206),
+                            Updatedat = new DateTime(2023, 1, 15, 16, 11, 32, 655, DateTimeKind.Local).AddTicks(1191),
                             Username = "Rodri"
                         },
                         new
                         {
                             ID = 6,
-                            Createdat = new DateTime(2023, 1, 15, 15, 4, 4, 845, DateTimeKind.Local).AddTicks(6208),
+                            Createdat = new DateTime(2023, 1, 15, 16, 11, 32, 655, DateTimeKind.Local).AddTicks(1192),
                             Password = "3453",
-                            Updatedat = new DateTime(2023, 1, 15, 15, 4, 4, 845, DateTimeKind.Local).AddTicks(6210),
+                            Updatedat = new DateTime(2023, 1, 15, 16, 11, 32, 655, DateTimeKind.Local).AddTicks(1193),
                             Username = "Jairzinho"
                         });
                 });
@@ -1629,7 +1629,7 @@ namespace BeFeira.Server.Migrations
                         new
                         {
                             ID = 1,
-                            Date = new DateTime(2023, 1, 15, 15, 4, 4, 845, DateTimeKind.Local).AddTicks(6775),
+                            Date = new DateTime(2023, 1, 15, 16, 11, 32, 655, DateTimeKind.Local).AddTicks(1696),
                             Desconto = 10,
                             ProdutoID = 1
                         });
@@ -2692,6 +2692,13 @@ namespace BeFeira.Server.Migrations
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("Morada")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Pagamento")
+                        .HasColumnType("int");
+
                     b.Property<float>("Total")
                         .HasColumnType("real");
 
@@ -2706,14 +2713,18 @@ namespace BeFeira.Server.Migrations
                         {
                             ID = 1,
                             CarrinhoID = 1,
-                            Date = new DateTime(2023, 1, 15, 15, 4, 4, 845, DateTimeKind.Local).AddTicks(6822),
+                            Date = new DateTime(2023, 1, 15, 16, 11, 32, 655, DateTimeKind.Local).AddTicks(1764),
+                            Morada = "",
+                            Pagamento = 0,
                             Total = 0f
                         },
                         new
                         {
                             ID = 2,
                             CarrinhoID = 2,
-                            Date = new DateTime(2023, 1, 15, 15, 4, 4, 845, DateTimeKind.Local).AddTicks(6826),
+                            Date = new DateTime(2023, 1, 15, 16, 11, 32, 655, DateTimeKind.Local).AddTicks(1767),
+                            Morada = "",
+                            Pagamento = 0,
                             Total = 0f
                         });
                 });

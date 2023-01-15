@@ -28,7 +28,7 @@
             <p>Nome do produto</p>
             <p>Preço</p>
             <p>Promoção</p>
-            <p>Stock</p>
+            <p>Quantidade</p>
             <p>Rating</p>
             <p>Remover</p>
         </div>
@@ -44,8 +44,8 @@
                         <p>@produto.Nome_Produto</p>
                         <p>@String.Format("{0}€",produto.Preco.ToString("0.00"))</p>
                         <p>@String.Format("{0}%", produto.Promocao)</p>
-                        <p>@String.Format("{0} uni.", produto.Stock)</p>
-                        <p>@String.Format("{0}%", produto.Rating)</p>
+                        <p>@String.Format("{0} uni.", 1) </p>
+                        <p>@String.Format("{0}", produto.Rating)<i class="fa-solid fa-star"></i></p>
                         <button><i class="fa-sharp fa-solid fa-square-xmark" @onclick="(()=>RemoveFromKart(produto))"></i></button>
                     </div>
                 }
@@ -121,9 +121,7 @@
 
         }
     }
-    Boolean even = false;
-
-    float total = 10.50f; // TODO: tem que ser calculado com base na lista de produtos
+   
 
 
     async void RemoveFromKart(Produto produto)

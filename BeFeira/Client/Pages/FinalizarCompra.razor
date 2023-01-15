@@ -1,7 +1,10 @@
 ﻿@page "/finalizarcompra"
 @page "/finalizarcompra/{idkart:int}/{idcli:int}"
 
+@inject IVendaService VendaService
 @inject IClienteService ClientService
+@inject ICarrinhoService CarrinhoService
+@inject ICarrinhoProdService CarrinhoProdService
 @inject NavigationManager NavigationManager
 
 <header>
@@ -14,26 +17,26 @@
 <body>
     <div class="container">
         <div class="forms">
+            <EditForm Model="@c">
             <div class="form-content" style="justify-content: center">
                 <div class="login-form">
                     <div>Realizar pagamento</div>
                         <div class="input-boxes">
                             <div class="input-box">
-                                <input type="text" placeholder="MBWay ou Iban" required>
+                                <input type="text" placeholder="MBWay ou Iban" @bind-value =c.Pagamento required>
                             </div>
                             <div class="input-box">
-                                <input type="text" placeholder="Morada" required>
+                                <input type="text" placeholder="Morada" @bind-value=c.Morada required>
                             </div>
-                            <div class="input-box">
-                                <input type="password" placeholder="Password" required>
-                            </div>
+            
                             <div class="button input-box">
-                                <input type="submit" value="Comprar">
+                                <input type="submit"@onclick="compra" value="Comprar">
                             </div>
                            
                         </div>
                 </div>
             </div>
+            </EditForm>
         </div>
     </div>
     <button class="botao_voltar_bottom" @onclick="(()=>goback())">Voltar</button>
@@ -49,16 +52,21 @@
     [Parameter]
     public string? uname { get; set; }
 
+    private Venda c = new Venda { };
+
 
 
     protected override async Task OnInitializedAsync()
     {
+        await CarrinhoService.getCarrinhos();
+        await CarrinhoProdService.getCarrinhosProd();
         if (idcli == -1)
         {
             uname = "Guest";
         }
         else
         {
+
             Cliente cli = await ClientService.GetSingleCliente((int)idcli);
             uname = cli.Username;
 
@@ -71,6 +79,16 @@
     public void goback()
     {
         NavigationManager.NavigateTo($"/carrinhopage/{idcli}/{"feirapage"}");
+    }
+
+    public async  void compra()
+    {
+        c.Total = await CarrinhoProdService.getPrecoKart((int)idkart);
+        c.CarrinhoID = idkart;
+
+        await VendaService.AddVenda(c);
+        await CarrinhoProdService.deleteprodutoskart((int)idkart);
+        NavigationManager.NavigateTo($"/mainpage/{idcli}");
     }
 
 }

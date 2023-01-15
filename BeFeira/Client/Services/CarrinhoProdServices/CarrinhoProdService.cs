@@ -55,7 +55,7 @@ namespace BeFeira.Client.Services.CarrinhoProdServices
             {
                 if (item.CarrinhoID == idkart)
                 {
-                    aux += item.Preco;
+                    aux += item.Preco   ;
                 }
             }
             return aux;
@@ -96,6 +96,18 @@ namespace BeFeira.Client.Services.CarrinhoProdServices
             var result = await _http.DeleteAsync($"api/CarrinhoProd/{id}");
             var response = await result.Content.ReadFromJsonAsync<List<CarrinhoProduto>>();
             carrinhoprodutos = response;
+        }
+
+        public async Task deleteprodutoskart(int idkart)
+        {
+            foreach(var item in carrinhoprodutos)
+            {
+                if (item.CarrinhoID == idkart)
+                {
+                    await DeleteCarrinhoProd(item.ID);
+                }
+            }
+
         }
     }
 }

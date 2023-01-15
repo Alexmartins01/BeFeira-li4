@@ -14,5 +14,11 @@ namespace BeFeira.Shared
         public float Total { get; set; } = 0f;
         [DataType(DataType.Date)]
         public DateTime Date { get; set; } = DateTime.Now;
+
+        public string Morada { get; set; } = "";
+
+        public int Pagamento { get; set; }=0;
+
+
     }
 }
