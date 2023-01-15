@@ -39,7 +39,7 @@
                 <p class="stock_produto">Disponível</p> <!--se stock > 0-->
                 <div class="produto_basic_info_buttons">
                     <button><i class="fa-solid fa-circle-info" @onclick="(()=>showProdInfo(produto.ID))"></i></button>
-                    <button><i class="fas fa-shopping-cart" @onclick="(()=>addtokart(produto))"></i></button>
+                    <button @onclick="(()=>addtokart(produto))"><i class="fas fa-shopping-cart"></i></button>
                 </div>
 
             </div>
