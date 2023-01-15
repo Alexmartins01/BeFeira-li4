@@ -48,7 +48,7 @@
                     <p class="preco_small_produto">Preço: @String.Format("{0}",produto.Preco.ToString("0.00"))€</p>
 
                 }
-            <p class="stock_produto">Disponível</p> <!--se stock > 0-->
+            <p class="stock_produto">@String.Format("{0}",produto.Stock>0 ? "Disponível":"Indísponível")</p> <!--se stock > 0-->
             <div class="produto_basic_info_buttons">
                     <button><i class="fa-solid fa-circle-info"@onclick="(()=>showProdInfo((int)idsubcategoria,produto.ID))"></i></button>
                     <button><i class="fas fa-shopping-cart" @onclick="(()=>addtokart(produto))"></i></button>

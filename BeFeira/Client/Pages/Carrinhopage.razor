@@ -138,6 +138,7 @@
 
     void FinalizarCompra()
     {
+        if (idcliente>0)
         NavigationManager.NavigateTo($"/finalizarcompra/{kart.ID}/{idcliente}");
 
 

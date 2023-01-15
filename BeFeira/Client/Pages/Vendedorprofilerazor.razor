@@ -10,13 +10,13 @@
     <link rel="stylesheet" href="icons/icons/css/all.css">
     <link rel="stylesheet" href="css/mainpage.css">
 
-    <img src="logo.png" alt="BeFeira Logo">
+    <img src="logo.png" alt="BeFeira Logo" @onclick="(()=>gomain())">
     <i class="fa-solid fa-circle-user"></i>
 </header>
 
 <div class="client_container">
 
-    <h3 style="color:white"> O Meu Perfil</h3>
+ 
     <div class="client_left">
 
         <div style="display: flex;margin-top: 35px;">
@@ -32,7 +32,7 @@
         </div>
 
         <div style="display: flex">
-            <p><i class="fa-solid fa-dollar-sign"></i> @vend.Iban</p>
+            <p><i class="fa fa-bank"></i> @vend.Iban</p>
         </div>
   
 
@@ -159,6 +159,12 @@
     public void gologin()
     {
         NavigationManager.NavigateTo("/");
+    }
+
+
+    void gomain()
+    {
+        NavigationManager.NavigateTo($"vendedormain/{idVend}");
     }
 
 
