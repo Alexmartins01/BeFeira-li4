@@ -56,6 +56,7 @@
     </div>
 </body>
 
+
 @code {
 
     [Parameter]
@@ -120,7 +121,9 @@
 
         int p = await CarrinhoProdService.getCarrinhoprodbykartandprod(produto, kart.ID);
         await  CarrinhoProdService.DeleteCarrinhoProd(p);
-         NavigationManager.NavigateTo($"/carrinhopage/{idcliente}/{from}",forceLoad:true);
+
+
+        NavigationManager.NavigateTo(NavigationManager.Uri, forceLoad: true);
 
     }
 
@@ -137,9 +140,7 @@
         if (from.Equals("feirapage")) NavigationManager.NavigateTo($"feirapage/{idfeira}/{idcliente}");
         if (from.Equals("standpage")) NavigationManager.NavigateTo($"standpage/{idfeira}/{idstand}/{idcliente}");
         if (from.Equals("produtopage")) NavigationManager.NavigateTo($"produtopage/{idsubcat}/{idstand}/{idfeira}/{idcliente}");
-        if (from.Equals("produtoinfo")) NavigationManager.NavigateTo($"produtoinfo/{idproduto}/{idsubcat}/{idstand}/{idfeira}/0/{idcliente}");
-        
+        if (from.Equals("produtoinfo")) NavigationManager.NavigateTo($"produtoinfo/{idproduto}/{idsubcat}/{idstand}/{idfeira}/1/{idcliente}");
+
     }
-
-
 }
